@@ -1,0 +1,20 @@
+┌──(kali㉿kali)-[~/lab]
+└─$ proxychains4 nxc smb 10.10.20.10 10.10.20.11 -u svc_backup -p 'Winter2024!'
+[proxychains] config file found: /etc/proxychains4.conf
+[proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
+[proxychains] DLL init: proxychains-ng 4.17
+[proxychains] Strict chain  ...  127.0.0.1:1080  ...  10.10.20.10:445  ...  OK
+SMB         10.10.20.10     445    LABDC            [*] Windows Server 2019 Build 17763 x64 (name:LABDC) (domain:lab-01.local) (signing:True) (SMBv1:False)
+[proxychains] Strict chain  ...  127.0.0.1:1080  ...  10.10.20.10:445  ...  OK
+SMB         10.10.20.10     445    LABDC            [-] lab-01.local\svc_backup:Winter2024! STATUS_LOGON_FAILURE
+[proxychains] Strict chain  ...  127.0.0.1:1080  ...  10.10.20.11:445 <--socket error or timeout!
+[16:01:02] ERROR    Exception while calling proto_flow() on target 10.10.20.11: [Errno 113] No route to host   connection.py:158
+                    ╭───────────────────── Traceback (most recent call last) ─────────────────────╮
+                    │ /usr/lib/python3/dist-packages/nxc/connection.py:155 in __init__            │
+                    │                                                                             │
+                    │   152 │   │   │   self.proto_flow()                                         │
+                    │ ❱ 155 │   │   except Exception as e:                                        │
+                    ╰─────────────────────────────────────────────────────────────────────────────╯
+                    OSError: [Errno 113] No route to host
+┌──(kali㉿kali)-[~/lab]
+└─$ 

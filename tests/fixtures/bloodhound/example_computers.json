@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "ObjectIdentifier": "S-1-5-21-1-2-3-1000",
+      "Properties": {
+        "domain": "EXAMPLE.TEST",
+        "name": "MAIL.EXAMPLE.TEST",
+        "samaccountname": "MAIL$",
+        "operatingsystem": "Windows Server 2019 Datacenter"
+      }
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "computers",
+    "count": 1,
+    "version": 6
+  }
+}

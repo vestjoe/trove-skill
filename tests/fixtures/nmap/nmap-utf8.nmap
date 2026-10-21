@@ -1,0 +1,6 @@
+# Nmap 7.80 scan initiated Fri Sep  4 18:36:52 2026 as: nmap -sV -p- 203.0.113.30
+Nmap scan report for büro-dateiserver.büro.example (203.0.113.30)
+Host is up (0.00021s latency).
+PORT   STATE SERVICE VERSION
+80/tcp open  http    nginx 1.18.0 (Ubuntu — Bürgerportal)
+# Nmap done at Fri Sep  4 18:37:55 2026 -- 1 IP address (1 host up) scanned in 63.33 seconds

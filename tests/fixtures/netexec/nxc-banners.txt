@@ -1,0 +1,4 @@
+SMB    10.10.10.5 445  DC01 [*] Windows Server 2016 Datacenter 14393 x64 (name:DC01) (domain:acme.local) (signing:True) (SMBv1:True)
+LDAP   10.10.10.6 389  DC02 [*] Windows 10 / Server 2019 Build 17763 (name:DC02) (domain:acme.local) (signing:None) (channel binding:Never) 
+MSSQL  10.10.10.7 1433 SQL1 [*] Windows 10 / Server 2016 Build 14393 (2019 RTM 15.0.2000) (name:SQL1) (domain:acme.local) (EncryptionReq:False) 
+WINRM  10.10.10.8 5985 WS01 [*] Windows 10 / Server 2019 Build 17763 (name:WS01) (domain:acme.local) 

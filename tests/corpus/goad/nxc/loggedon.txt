@@ -1,0 +1,18 @@
+SMB                      192.168.56.23   445    braavos          [*] Windows Server 2016 Datacenter 14393 x64 (name:braavos) (domain:essos.local) (signing:False) (SMBv1:True)
+SMB                      192.168.56.12   445    meereen          [*] Windows Server 2016 Datacenter 14393 x64 (name:meereen) (domain:essos.local) (signing:True) (SMBv1:True) (Null Auth:True) (DC:True)
+SMB                      192.168.56.10   445    kingslanding     [*] Windows 10 / Server 2019 Build 17763 x64 (name:kingslanding) (domain:sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.22   445    castelblack      [*] Windows 10 / Server 2019 Build 17763 x64 (name:castelblack) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.23   445    braavos          [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws 
+SMB                      192.168.56.23   445    braavos          [-] Error enumerating logged on users: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+SMB                      192.168.56.12   445    meereen          [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws 
+SMB                      192.168.56.12   445    meereen          [-] Error enumerating logged on users: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+SMB                      192.168.56.10   445    kingslanding     [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws 
+SMB                      192.168.56.10   445    kingslanding     [-] Error enumerating logged on users: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+SMB                      192.168.56.22   445    castelblack      [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws (Pwn3d!)
+SMB                      192.168.56.22   445    castelblack      NORTH\CASTELBLACK$              logon_server: 
+SMB                      192.168.56.22   445    castelblack      NORTH\sql_svc                   logon_server: WINTERFELL
+SMB                      192.168.56.11   445    winterfell       [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws (Pwn3d!)
+SMB                      192.168.56.11   445    winterfell       NORTH\robb.stark                logon_server: WINTERFELL
+SMB                      192.168.56.11   445    winterfell       NORTH\goadmin                   logon_server: WINTERFELL
+SMB                      192.168.56.11   445    winterfell       NORTH\WINTERFELL$               logon_server: 

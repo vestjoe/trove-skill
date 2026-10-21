@@ -1,0 +1,16 @@
+Impacket v0.13.1 - Copyright Fortra, LLC and its affiliated companies 
+
+ServicePrincipalName                                 Name         MemberOf                                                    PasswordLastSet             LastLogon                   Delegation  
+---------------------------------------------------  -----------  ----------------------------------------------------------  --------------------------  --------------------------  -----------
+HTTP/eyrie.north.sevenkingdoms.local                 sansa.stark  CN=Stark,CN=Users,DC=north,DC=sevenkingdoms,DC=local        2026-10-18 22:07:50.717783  <never>                                 
+CIFS/thewall.north.sevenkingdoms.local               jon.snow     CN=Night Watch,CN=Users,DC=north,DC=sevenkingdoms,DC=local  2026-10-18 22:08:01.922472  <never>                     constrained 
+HTTP/thewall.north.sevenkingdoms.local               jon.snow     CN=Night Watch,CN=Users,DC=north,DC=sevenkingdoms,DC=local  2026-10-18 22:08:01.922472  <never>                     constrained 
+MSSQLSvc/castelblack.north.sevenkingdoms.local       sql_svc                                                                  2026-10-18 22:08:10.624406  2026-10-18 22:43:13.498060              
+MSSQLSvc/castelblack.north.sevenkingdoms.local:1433  sql_svc                                                                  2026-10-18 22:08:10.624406  2026-10-18 22:43:13.498060              
+
+
+
+[-] CCache file is not found. Skipping...
+[-] Principal: north.sevenkingdoms.local\sansa.stark - Kerberos SessionError: KDC_ERR_ETYPE_NOSUPP(KDC has no support for encryption type)
+[-] Principal: north.sevenkingdoms.local\jon.snow - Kerberos SessionError: KDC_ERR_ETYPE_NOSUPP(KDC has no support for encryption type)
+[-] Principal: north.sevenkingdoms.local\sql_svc - Kerberos SessionError: KDC_ERR_ETYPE_NOSUPP(KDC has no support for encryption type)

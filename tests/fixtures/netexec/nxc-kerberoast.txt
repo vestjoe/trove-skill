@@ -1,0 +1,6 @@
+LDAP                     10.10.10.6      389    WINTERFELL       [*] Windows 10 / Server 2019 Build 17763 (name:WINTERFELL) (domain:north.acme.local) (signing:None) (channel binding:Never) 
+LDAP                     10.10.10.6      389    WINTERFELL       [+] north.acme.local\rickon.stark:Winter2022 
+LDAP                     10.10.10.6      389    WINTERFELL       [*] Total of records returned 2
+LDAP                     10.10.10.6      389    WINTERFELL       [*] sAMAccountName: jon.snow, memberOf: ['CN=Night Watch,CN=Users,DC=north,DC=acme,DC=local'], pwdLastSet: 2026-09-03 23:05:36.329540, lastLogon: <never>
+LDAP                     10.10.10.6      389    WINTERFELL       $krb5tgs$18$jon.snow$NORTH.ACME.LOCAL$*north.acme.local\jon.snow*$0123456789abcdef01234567$a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4
+LDAP                     10.10.10.6      389    WINTERFELL       $krb5tgs$18$sql_svc$NORTH.ACME.LOCAL$*north.acme.local\sql_svc*$fedcba9876543210fedcba98$a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4

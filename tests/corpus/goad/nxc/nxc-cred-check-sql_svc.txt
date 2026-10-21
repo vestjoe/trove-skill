@@ -1,0 +1,5 @@
+SMB                      192.168.56.23   445    BRAAVOS          [*] Windows Server 2016 Datacenter 14393 x64 (name:BRAAVOS) (domain:essos.local) (signing:False) (SMBv1:True)
+SMB                      192.168.56.12   445    MEEREEN          [*] Windows Server 2016 Datacenter 14393 x64 (name:MEEREEN) (domain:essos.local) (signing:True) (SMBv1:True) (Null Auth:True) (DC:True)
+SMB                      192.168.56.23   445    BRAAVOS          [+] essos.local\sql_svc:YouWillNotKerboroast1ngMeeeeee (Pwn3d!)
+SMB                      192.168.56.12   445    MEEREEN          [+] essos.local\sql_svc:YouWillNotKerboroast1ngMeeeeee 
+Running nxc against 2 targets ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00

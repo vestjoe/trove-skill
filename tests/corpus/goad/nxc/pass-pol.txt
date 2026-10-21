@@ -1,0 +1,20 @@
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.11   445    winterfell       [+] north.sevenkingdoms.local\brandon.stark:iseedeadpeople 
+SMB                      192.168.56.11   445    winterfell       [+] Dumping password info for domain: NORTH
+SMB                      192.168.56.11   445    winterfell       Minimum password length: 5
+SMB                      192.168.56.11   445    winterfell       Password history length: 24
+SMB                      192.168.56.11   445    winterfell       Maximum password age: 311 days 2 minutes 
+SMB                      192.168.56.11   445    winterfell       
+SMB                      192.168.56.11   445    winterfell       Password Complexity Flags: 000000
+SMB                      192.168.56.11   445    winterfell          Domain Refuse Password Change: 0
+SMB                      192.168.56.11   445    winterfell          Domain Password Store Cleartext: 0
+SMB                      192.168.56.11   445    winterfell          Domain Password Lockout Admins: 0
+SMB                      192.168.56.11   445    winterfell          Domain Password No Clear Change: 0
+SMB                      192.168.56.11   445    winterfell          Domain Password No Anon Change: 0
+SMB                      192.168.56.11   445    winterfell          Domain Password Complex: 0
+SMB                      192.168.56.11   445    winterfell       
+SMB                      192.168.56.11   445    winterfell       Minimum password age: 1 day 4 minutes 
+SMB                      192.168.56.11   445    winterfell       Reset Account Lockout Counter: 5 minutes 
+SMB                      192.168.56.11   445    winterfell       Locked Account Duration: 5 minutes 
+SMB                      192.168.56.11   445    winterfell       Account Lockout Threshold: 5
+SMB                      192.168.56.11   445    winterfell       Forced Log off Time: Not Set

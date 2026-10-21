@@ -1,0 +1,493 @@
+# Nmap 7.80 scan initiated Fri Sep  4 18:36:52 2026 as: nmap -Pn -sV -sC -p- --min-rate 2000 -oA scans/goad-full 192.168.56.10 192.168.56.11 192.168.56.12 192.168.56.22 192.168.56.23
+Nmap scan report for kingslanding.sevenkingdoms.local (192.168.56.10)
+Host is up (0.00035s latency).
+Not shown: 65504 closed ports
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain?
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|_    bind
+80/tcp    open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows Server
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2026-09-04 18:37:43Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=kingslanding.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:kingslanding.sevenkingdoms.local
+| Not valid before: 2026-09-03T23:03:47
+|_Not valid after:  2027-09-03T23:03:47
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=kingslanding.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:kingslanding.sevenkingdoms.local
+| Not valid before: 2026-09-03T23:03:47
+|_Not valid after:  2027-09-03T23:03:47
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=kingslanding.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:kingslanding.sevenkingdoms.local
+| Not valid before: 2026-09-03T23:03:47
+|_Not valid after:  2027-09-03T23:03:47
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3269/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=kingslanding.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:kingslanding.sevenkingdoms.local
+| Not valid before: 2026-09-03T23:03:47
+|_Not valid after:  2027-09-03T23:03:47
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: SEVENKINGDOMS
+|   NetBIOS_Domain_Name: SEVENKINGDOMS
+|   NetBIOS_Computer_Name: KINGSLANDING
+|   DNS_Domain_Name: sevenkingdoms.local
+|   DNS_Computer_Name: kingslanding.sevenkingdoms.local
+|   DNS_Tree_Name: sevenkingdoms.local
+|   Product_Version: 10.0.17763
+|_  System_Time: 2026-09-04T18:40:58+00:00
+| ssl-cert: Subject: commonName=kingslanding.sevenkingdoms.local
+| Not valid before: 2026-09-02T22:34:13
+|_Not valid after:  2027-03-04T22:34:13
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+5986/tcp  open  ssl/http      Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName=EC2AMAZ-VOALLAO
+| Subject Alternative Name: DNS:EC2AMAZ-VOALLAO, DNS:EC2AMAZ-VOALLAO
+| Not valid before: 2026-09-02T22:23:11
+|_Not valid after:  2029-09-01T22:23:11
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+9389/tcp  open  mc-nmf        .NET Message Framing
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49670/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49671/tcp open  msrpc         Microsoft Windows RPC
+49673/tcp open  msrpc         Microsoft Windows RPC
+49674/tcp open  msrpc         Microsoft Windows RPC
+49688/tcp open  msrpc         Microsoft Windows RPC
+49698/tcp open  msrpc         Microsoft Windows RPC
+49814/tcp open  msrpc         Microsoft Windows RPC
+49844/tcp open  msrpc         Microsoft Windows RPC
+52760/tcp open  msrpc         Microsoft Windows RPC
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.80%I=7%D=9/4%Time=6A9B0FFC%P=x86_64-pc-linux-gnu%r(DNSVe
+SF:rsionBindReqTCP,20,"\0\x1e\0\x06\x81\x04\0\x01\0\0\0\0\0\0\x07version\x
+SF:04bind\0\0\x10\0\x03");
+Service Info: Host: KINGSLANDING; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2026-09-04T18:41:04
+|_  start_date: N/A
+
+Nmap scan report for winterfell.north.sevenkingdoms.local (192.168.56.11)
+Host is up (0.00032s latency).
+Not shown: 65506 closed ports
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain?
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|_    bind
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2026-09-04 18:37:49Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=winterfell.north.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:winterfell.north.sevenkingdoms.local
+| Not valid before: 2026-09-04T01:30:29
+|_Not valid after:  2027-09-04T01:30:29
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=winterfell.north.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:winterfell.north.sevenkingdoms.local
+| Not valid before: 2026-09-04T01:30:29
+|_Not valid after:  2027-09-04T01:30:29
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=winterfell.north.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:winterfell.north.sevenkingdoms.local
+| Not valid before: 2026-09-04T01:30:29
+|_Not valid after:  2027-09-04T01:30:29
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3269/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sevenkingdoms.local0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=winterfell.north.sevenkingdoms.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:winterfell.north.sevenkingdoms.local
+| Not valid before: 2026-09-04T01:30:29
+|_Not valid after:  2027-09-04T01:30:29
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: NORTH
+|   NetBIOS_Domain_Name: NORTH
+|   NetBIOS_Computer_Name: WINTERFELL
+|   DNS_Domain_Name: north.sevenkingdoms.local
+|   DNS_Computer_Name: winterfell.north.sevenkingdoms.local
+|   DNS_Tree_Name: sevenkingdoms.local
+|   Product_Version: 10.0.17763
+|_  System_Time: 2026-09-04T18:41:03+00:00
+| ssl-cert: Subject: commonName=winterfell.north.sevenkingdoms.local
+| Not valid before: 2026-09-02T22:47:43
+|_Not valid after:  2027-03-04T22:47:43
+|_ssl-date: 2026-09-04T18:41:28+00:00; -1s from scanner time.
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+5986/tcp  open  ssl/http      Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName=EC2AMAZ-KRI206A
+| Subject Alternative Name: DNS:EC2AMAZ-KRI206A, DNS:EC2AMAZ-KRI206A
+| Not valid before: 2026-09-02T22:23:07
+|_Not valid after:  2029-09-01T22:23:07
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+9389/tcp  open  mc-nmf        .NET Message Framing
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49674/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49675/tcp open  msrpc         Microsoft Windows RPC
+49677/tcp open  msrpc         Microsoft Windows RPC
+49680/tcp open  msrpc         Microsoft Windows RPC
+49694/tcp open  msrpc         Microsoft Windows RPC
+49713/tcp open  msrpc         Microsoft Windows RPC
+50271/tcp open  msrpc         Microsoft Windows RPC
+52690/tcp open  msrpc         Microsoft Windows RPC
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.80%I=7%D=9/4%Time=6A9B1002%P=x86_64-pc-linux-gnu%r(DNSVe
+SF:rsionBindReqTCP,20,"\0\x1e\0\x06\x81\x04\0\x01\0\0\0\0\0\0\x07version\x
+SF:04bind\0\0\x10\0\x03");
+Service Info: Host: WINTERFELL; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2026-09-04T18:41:08
+|_  start_date: N/A
+
+Nmap scan report for meereen.essos.local (192.168.56.12)
+Host is up (0.00024s latency).
+Not shown: 65508 closed ports
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain?
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|_    bind
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2026-09-04 18:38:42Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: essos.local, Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=meereen.essos.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:meereen.essos.local
+| Not valid before: 2026-09-03T23:04:03
+|_Not valid after:  2027-09-03T23:04:03
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+445/tcp   open  microsoft-ds  Microsoft Windows Server 2008 R2 - 2012 microsoft-ds (workgroup: ESSOS)
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ssl/ldap
+| ssl-cert: Subject: commonName=meereen.essos.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:meereen.essos.local
+| Not valid before: 2026-09-03T23:04:03
+|_Not valid after:  2027-09-03T23:04:03
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: essos.local, Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=meereen.essos.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:meereen.essos.local
+| Not valid before: 2026-09-03T23:04:03
+|_Not valid after:  2027-09-03T23:04:03
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+3269/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: essos.local, Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=meereen.essos.local
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:meereen.essos.local
+| Not valid before: 2026-09-03T23:04:03
+|_Not valid after:  2027-09-03T23:04:03
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: ESSOS
+|   NetBIOS_Domain_Name: ESSOS
+|   NetBIOS_Computer_Name: MEEREEN
+|   DNS_Domain_Name: essos.local
+|   DNS_Computer_Name: meereen.essos.local
+|   DNS_Tree_Name: essos.local
+|   Product_Version: 10.0.14393
+|_  System_Time: 2026-09-04T18:41:06+00:00
+| ssl-cert: Subject: commonName=meereen.essos.local
+| Not valid before: 2026-09-02T22:34:54
+|_Not valid after:  2027-03-04T22:34:54
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+5986/tcp  open  ssl/http      Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName=EC2AMAZ-4EOL6HM
+| Subject Alternative Name: DNS:EC2AMAZ-4EOL6HM, DNS:EC2AMAZ-4EOL6HM
+| Not valid before: 2026-09-02T22:23:27
+|_Not valid after:  2029-09-01T22:23:27
+|_ssl-date: 2026-09-04T18:41:29+00:00; 0s from scanner time.
+| tls-alpn: 
+|   h2
+|_  http/1.1
+9389/tcp  open  mc-nmf        .NET Message Framing
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49670/tcp open  msrpc         Microsoft Windows RPC
+49672/tcp open  msrpc         Microsoft Windows RPC
+49686/tcp open  msrpc         Microsoft Windows RPC
+49696/tcp open  msrpc         Microsoft Windows RPC
+52769/tcp open  msrpc         Microsoft Windows RPC
+57401/tcp open  msrpc         Microsoft Windows RPC
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.80%I=7%D=9/4%Time=6A9B1037%P=x86_64-pc-linux-gnu%r(DNSVe
+SF:rsionBindReqTCP,20,"\0\x1e\0\x06\x81\x04\0\x01\0\0\0\0\0\0\x07version\x
+SF:04bind\0\0\x10\0\x03");
+Service Info: Host: MEEREEN; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_ms-sql-info: ERROR: Script execution failed (use -d to debug)
+|_smb-os-discovery: ERROR: Script execution failed (use -d to debug)
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: required
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2026-09-04T18:41:14
+|_  start_date: 2026-09-03T23:09:34
+
+Nmap scan report for castelblack.north.sevenkingdoms.local (192.168.56.22)
+Host is up (0.00041s latency).
+Not shown: 65516 closed ports
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Site doesn't have a title (text/html).
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+1433/tcp  open  ms-sql-s      Microsoft SQL Server  15.00.2000.00
+| ms-sql-ntlm-info: 
+|   Target_Name: NORTH
+|   NetBIOS_Domain_Name: NORTH
+|   NetBIOS_Computer_Name: CASTELBLACK
+|   DNS_Domain_Name: north.sevenkingdoms.local
+|   DNS_Computer_Name: castelblack.north.sevenkingdoms.local
+|   DNS_Tree_Name: sevenkingdoms.local
+|_  Product_Version: 10.0.17763
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2026-09-04T01:32:13
+|_Not valid after:  2056-09-04T01:32:13
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| ssl-cert: Subject: commonName=castelblack.north.sevenkingdoms.local
+| Not valid before: 2026-09-02T22:59:32
+|_Not valid after:  2027-03-04T22:59:32
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+5986/tcp  open  ssl/http      Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName=EC2AMAZ-04I7VPL
+| Subject Alternative Name: DNS:EC2AMAZ-04I7VPL, DNS:EC2AMAZ-04I7VPL
+| Not valid before: 2026-09-02T22:23:28
+|_Not valid after:  2029-09-01T22:23:28
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49677/tcp open  msrpc         Microsoft Windows RPC
+49711/tcp open  msrpc         Microsoft Windows RPC
+49720/tcp open  msrpc         Microsoft Windows RPC
+49744/tcp open  msrpc         Microsoft Windows RPC
+49792/tcp open  ms-sql-s      Microsoft SQL Server
+| ms-sql-ntlm-info: 
+|   Target_Name: NORTH
+|   NetBIOS_Domain_Name: NORTH
+|   NetBIOS_Computer_Name: CASTELBLACK
+|   DNS_Domain_Name: north.sevenkingdoms.local
+|   DNS_Computer_Name: castelblack.north.sevenkingdoms.local
+|   DNS_Tree_Name: sevenkingdoms.local
+|_  Product_Version: 10.0.17763
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2026-09-04T01:32:13
+|_Not valid after:  2056-09-04T01:32:13
+|_ssl-date: 2026-09-04T18:41:28+00:00; 0s from scanner time.
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port49792-TCP:V=7.80%I=7%D=9/4%Time=6A9B10AD%P=x86_64-pc-linux-gnu%r(ms
+SF:-sql-s,25,"\x04\x01\0%\0\0\x01\0\0\0\x15\0\x06\x01\0\x1b\0\x01\x02\0\x1
+SF:c\0\x01\x03\0\x1d\0\0\xff\x0f\0\x07\xd0\0\0\0\0");
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| ms-sql-info: 
+|   192.168.56.22:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 
+|_    TCP port: 1433
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2026-09-04T18:41:18
+|_  start_date: N/A
+
+Nmap scan report for braavos.essos.local (192.168.56.23)
+Host is up (0.00038s latency).
+Not shown: 65516 closed ports
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows Server
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+1433/tcp  open  ms-sql-s      Microsoft SQL Server  15.00.2000.00
+| ms-sql-ntlm-info: 
+|   Target_Name: ESSOS
+|   NetBIOS_Domain_Name: ESSOS
+|   NetBIOS_Computer_Name: BRAAVOS
+|   DNS_Domain_Name: essos.local
+|   DNS_Computer_Name: braavos.essos.local
+|   DNS_Tree_Name: essos.local
+|_  Product_Version: 10.0.14393
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2026-09-04T01:32:19
+|_Not valid after:  2056-09-04T01:32:19
+|_ssl-date: 2026-09-04T18:42:55+00:00; 0s from scanner time.
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| ssl-cert: Subject: commonName=braavos.essos.local
+| Not valid before: 2026-09-02T22:59:35
+|_Not valid after:  2027-03-04T22:59:35
+|_ssl-date: 2026-09-04T18:42:55+00:00; 0s from scanner time.
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+5986/tcp  open  ssl/http      Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName=EC2AMAZ-7D81QNJ
+| Subject Alternative Name: DNS:EC2AMAZ-7D81QNJ, DNS:EC2AMAZ-7D81QNJ
+| Not valid before: 2026-09-02T22:23:30
+|_Not valid after:  2029-09-01T22:23:30
+|_ssl-date: 2026-09-04T18:42:55+00:00; 0s from scanner time.
+| tls-alpn: 
+|   h2
+|_  http/1.1
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49690/tcp open  msrpc         Microsoft Windows RPC
+49783/tcp open  msrpc         Microsoft Windows RPC
+49799/tcp open  msrpc         Microsoft Windows RPC
+49812/tcp open  msrpc         Microsoft Windows RPC
+49863/tcp open  ms-sql-s      Microsoft SQL Server
+| ms-sql-ntlm-info: 
+|   Target_Name: ESSOS
+|   NetBIOS_Domain_Name: ESSOS
+|   NetBIOS_Computer_Name: BRAAVOS
+|   DNS_Domain_Name: essos.local
+|   DNS_Computer_Name: braavos.essos.local
+|   DNS_Tree_Name: essos.local
+|_  Product_Version: 10.0.14393
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2026-09-04T01:32:19
+|_Not valid after:  2056-09-04T01:32:19
+|_ssl-date: 2026-09-04T18:42:55+00:00; 0s from scanner time.
+49894/tcp open  msrpc         Microsoft Windows RPC
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port49863-TCP:V=7.80%I=7%D=9/4%Time=6A9B111F%P=x86_64-pc-linux-gnu%r(ms
+SF:-sql-s,25,"\x04\x01\0%\0\0\x01\0\0\0\x15\0\x06\x01\0\x1b\0\x01\x02\0\x1
+SF:c\0\x01\x03\0\x1d\0\0\xff\x0f\0\x07\xd0\0\0\0\0");
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_ms-sql-info: ERROR: Script execution failed (use -d to debug)
+|_smb-os-discovery: ERROR: Script execution failed (use -d to debug)
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2026-09-04T18:42:52
+|_  start_date: 2026-09-04T01:32:13
+
+Post-scan script results:
+| clock-skew: 
+|   0s: 
+|     192.168.56.12 (meereen.essos.local)
+|     192.168.56.11 (winterfell.north.sevenkingdoms.local)
+|     192.168.56.10 (kingslanding.sevenkingdoms.local)
+|     192.168.56.22 (castelblack.north.sevenkingdoms.local)
+|_    192.168.56.23 (braavos.essos.local)
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Sep  4 18:42:55 2026 -- 5 IP addresses (5 hosts up) scanned in 363.33 seconds

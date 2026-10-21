@@ -1,0 +1,2 @@
+SMB                      192.168.56.10   445    kingslanding     [*] Windows 10 / Server 2019 Build 17763 x64 (name:kingslanding) (domain:sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.10   445    kingslanding     [-] sevenkingdoms.local\brandon.stark:NotThePassword1 STATUS_LOGON_FAILURE 

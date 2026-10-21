@@ -1,0 +1,8 @@
+SMB                      10.10.10.7      445    BRAAVOS          [*] Windows Server 2016 Datacenter 14393 x64 (name:BRAAVOS) (domain:essos.local) (signing:False) (SMBv1:True)
+SMB                      10.10.10.7      445    BRAAVOS          [+] essos.local\rickon.stark:Winter2022 (Guest)
+SMB                      10.10.10.6      445    WINTERFELL       [+] north.acme.local\rickon.stark:Winter2022 
+SMB                      10.10.10.8      445    CASTELBLACK      [+] north.acme.local\rickon.stark:Winter2022 
+SMB                      10.10.10.5      445    KINGSLANDING     [-] acme.local\rickon.stark:Winter2022 STATUS_LOGON_FAILURE 
+WINRM                    10.10.10.8      5985   CASTELBLACK      [-] north.acme.local\rickon.stark:Winter2022
+SMB                      10.10.10.9      445    MEEREEN          [+] essos.local\Administrator:Passw0rd! (Pwn3d!)
+Running nxc against 5 targets ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00

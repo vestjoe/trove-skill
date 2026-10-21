@@ -1,0 +1,2 @@
+WINRM                    192.168.56.22   5985   CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 (name:CASTELBLACK) (domain:north.sevenkingdoms.local) 
+WINRM                    192.168.56.22   5985   CASTELBLACK      [-] north.sevenkingdoms.local\rickon.stark:Winter2022

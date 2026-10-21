@@ -1,0 +1,10 @@
+SMB                      192.168.56.22   445    CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:CASTELBLACK) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)
+SMB                      192.168.56.22   445    CASTELBLACK      [+] north.sevenkingdoms.local\SMB                      192.168.56.22   445    CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:CASTELBLACK) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False): (Guest)
+SMB                      192.168.56.22   445    CASTELBLACK      [*] Enumerated shares
+SMB                      192.168.56.22   445    CASTELBLACK      Share           Permissions            Remark
+SMB                      192.168.56.22   445    CASTELBLACK      -----           -----------            ------
+SMB                      192.168.56.22   445    CASTELBLACK      ADMIN$                                 Remote Admin
+SMB                      192.168.56.22   445    CASTELBLACK      all             READ,WRITE             Basic RW share for all
+SMB                      192.168.56.22   445    CASTELBLACK      C$                                     Default share
+SMB                      192.168.56.22   445    CASTELBLACK      IPC$            READ                   Remote IPC
+SMB                      192.168.56.22   445    CASTELBLACK      public                                 Basic Read share for all domain users

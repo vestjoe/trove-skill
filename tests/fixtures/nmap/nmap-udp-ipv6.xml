@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<nmaprun scanner="nmap" args="nmap -6 -sU -sV -oX nmap-udp-ipv6.xml 2001:db8:acme::5 2001:db8:acme::9" start="1755003000" startstr="Tue Aug 12 10:10:00 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="1000" services="1-1000"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1755003001" endtime="1755003061">
+<status state="up" reason="echo-reply" reason_ttl="63"/>
+<address addr="2001:db8:acme::5" addrtype="ipv6"/>
+<ports>
+<port protocol="udp" portid="53"><state state="open" reason="udp-response" reason_ttl="63"/><service name="domain" product="ISC BIND" version="9.18.24" method="probed" conf="10"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="filtered" reason="port-unreach" reason_ttl="63"/><service name="ntp" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1755003001" endtime="1755003002">
+<status state="down" reason="no-response" reason_ttl="0"/>
+<address addr="2001:db8:acme::9" addrtype="ipv6"/>
+</host>
+<runstats><finished time="1755003062" timestr="Tue Aug 12 10:11:02 2026" elapsed="62.03" exit="success"/><hosts up="1" down="1" total="2"/></runstats>
+</nmaprun>

@@ -1,0 +1,6 @@
+WINRM                    192.168.56.10   5985   KINGSLANDING     [*] Windows 10 / Server 2019 Build 17763 (name:KINGSLANDING) (domain:sevenkingdoms.local) 
+WINRM                    192.168.56.12   5985   MEEREEN          [*] Windows 10 / Server 2016 Build 14393 (name:MEEREEN) (domain:essos.local) 
+WINRM                    192.168.56.11   5985   WINTERFELL       [*] Windows 10 / Server 2019 Build 17763 (name:WINTERFELL) (domain:north.sevenkingdoms.local) 
+WINRM                    192.168.56.23   5985   BRAAVOS          [*] Windows 10 / Server 2016 Build 14393 (name:BRAAVOS) (domain:essos.local) 
+WINRM                    192.168.56.22   5985   CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 (name:CASTELBLACK) (domain:north.sevenkingdoms.local) 
+Running nxc against 5 targets ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00

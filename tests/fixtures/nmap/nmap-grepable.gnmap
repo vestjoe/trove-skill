@@ -1,0 +1,6 @@
+# Nmap 7.80 scan initiated Fri Sep  4 18:36:52 2026 as: nmap -Pn -sV -sU -p- -oG - 198.51.100.7 198.51.100.9
+Host: 198.51.100.7 (mail.example.test)	Status: Up
+Host: 198.51.100.7 (mail.example.test)	Ports: 25/open/tcp//smtp//Postfix smtpd/, 80/open/tcp//http//nginx 1.18.0 (Ubuntu)/, 443/open/tcp//ssl|http//nginx 1.18.0 (Ubuntu)/, 2222/open/tcp//ssh?///, 5060/open/udp//sip///	Ignored State: closed (65530)
+Host: 198.51.100.9 ()	Status: Up
+Host: 198.51.100.9 ()	Ports: 389/open/tcp//ldap//OpenLDAP 2.2.X - 2.3.X/, 636/open/tcp//ssl|ldap//Microsoft Windows Active Directory LDAP (Domain: example.test, Site: Default-First-Site-Name)/	Ignored State: filtered (65534)
+# Nmap done at Fri Sep  4 18:42:55 2026 -- 2 IP addresses (2 hosts up) scanned in 363.33 seconds

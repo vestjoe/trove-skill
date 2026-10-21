@@ -1,0 +1,10 @@
+SMB                      10.10.10.8      445    CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:CASTELBLACK) (domain:north.acme.local) (signing:False) (SMBv1:False)
+SMB                      10.10.10.8      445    CASTELBLACK      [+] north.acme.local\SMB                      10.10.10.8      445    CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:CASTELBLACK) (domain:north.acme.local) (signing:False) (SMBv1:False): (Guest)
+SMB                      10.10.10.8      445    CASTELBLACK      [*] Enumerated shares
+SMB                      10.10.10.8      445    CASTELBLACK      Share           Permissions            Remark
+SMB                      10.10.10.8      445    CASTELBLACK      -----           -----------            ------
+SMB                      10.10.10.8      445    CASTELBLACK      all             READ,WRITE             Basic RW share for all
+SMB                      10.10.10.8      445    CASTELBLACK      ADMIN$                                 Remote Admin
+SMB                      10.10.10.8      445    CASTELBLACK      C$                                     Default share
+SMB                      10.10.10.8      445    CASTELBLACK      IPC$            READ                   Remote IPC
+SMB                      10.10.10.8      445    CASTELBLACK      public                                 Basic Read share for all domain users

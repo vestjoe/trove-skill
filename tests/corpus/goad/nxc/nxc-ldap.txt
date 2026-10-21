@@ -1,0 +1,4 @@
+LDAP                     192.168.56.12   389    MEEREEN          [*] Windows 10 / Server 2016 Build 14393 (name:MEEREEN) (domain:essos.local) (signing:None) (channel binding:Never) 
+LDAP                     192.168.56.11   389    WINTERFELL       [*] Windows 10 / Server 2019 Build 17763 (name:WINTERFELL) (domain:north.sevenkingdoms.local) (signing:None) (channel binding:Never) 
+LDAP                     192.168.56.10   389    KINGSLANDING     [*] Windows 10 / Server 2019 Build 17763 (name:KINGSLANDING) (domain:sevenkingdoms.local) (signing:None) (channel binding:Never) 
+Running nxc against 3 targets ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00

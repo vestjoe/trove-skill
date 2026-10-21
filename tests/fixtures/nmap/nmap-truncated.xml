@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<nmaprun scanner="nmap" args="nmap -sV -oX nmap-basic.xml 10.10.10.0/29" start="1755000000" startstr="Tue Aug 12 09:20:00 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1000" services="1-1000"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1755000001" endtime="1755000042">
+<status state="up" reason="echo-reply" reason_ttl="63"/>
+<address addr="10.10.10.5" addrtype="ipv4"/>
+<address addr="00:0c:29:4f:8e:12" addrtype="mac" vendor="VMware"/>
+<hostnames>
+<hostname name="web01.lab.local" type="PTR"/>
+</hostnames>
+<ports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="ssh" product="OpenSSH" version="8.9p1 Ubuntu 3ubuntu0.10" ostype="Linux" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="80"><state 

@@ -1,0 +1,2255 @@
+{
+  "Certificate Authorities": {
+    "0": {
+      "CA Name": "ESSOS-CA",
+      "DNS Name": "braavos.essos.local",
+      "Certificate Subject": "CN=ESSOS-CA, DC=essos, DC=local",
+      "Certificate Serial Number": "24944F71EF57ED51D2C7AAD44D6E3455",
+      "Certificate Validity Start": "2026-10-18 22:05:58+00:00",
+      "Certificate Validity End": "2031-10-18 22:15:58+00:00",
+      "Web Enrollment": "Enabled",
+      "User Specified SAN": "Enabled",
+      "Request Disposition": "Issue",
+      "Enforce Encryption for Requests": "Disabled",
+      "Permissions": {
+        "Owner": "ESSOS.LOCAL\\Administrators",
+        "Access Rights": {
+          "2": [
+            "ESSOS.LOCAL\\Administrators",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "1": [
+            "ESSOS.LOCAL\\Administrators",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "512": [
+            "ESSOS.LOCAL\\Authenticated Users"
+          ]
+        }
+      },
+      "[!] Vulnerabilities": {
+        "ESC6": "Enrollees can specify SAN and Request Disposition is set to Issue. Does not work after May 2022",
+        "ESC8": "Web Enrollment is enabled and Request Disposition is set to Issue",
+        "ESC11": "Encryption is not enforced for ICPR requests and Request Disposition is set to Issue"
+      }
+    }
+  },
+  "Certificate Templates": {
+    "0": {
+      "Template Name": "ESC13",
+      "Display Name": "ESC13",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "1": {
+      "Template Name": "ESC9",
+      "Display Name": "ESC9",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "NoSecurityExtension",
+        "AutoEnrollment",
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536",
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Secure Email",
+        "Encrypting File System"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      },
+      "[!] Vulnerabilities": {
+        "ESC9": "'ESSOS.LOCAL\\\\Domain Users' can enroll and template has no security extension"
+      }
+    },
+    "2": {
+      "Template Name": "ESC4",
+      "Display Name": "ESC4",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectRequireEmail",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToDs",
+        "PendAllRequests",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536",
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Code Signing"
+      ],
+      "Requires Manager Approval": true,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 1,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\khal.drogo",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\khal.drogo",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\khal.drogo",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\khal.drogo",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "3": {
+      "Template Name": "ESC3-CRA",
+      "Display Name": "ESC3-CRA",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": false,
+      "Enrollment Agent": true,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536"
+      ],
+      "Extended Key Usage": [
+        "Certificate Request Agent"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      },
+      "[!] Vulnerabilities": {
+        "ESC3": "'ESSOS.LOCAL\\\\Domain Users' can enroll and template has Certificate Request Agent EKU set"
+      }
+    },
+    "4": {
+      "Template Name": "ESC3",
+      "Display Name": "ESC3",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 1,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "5": {
+      "Template Name": "ESC2",
+      "Display Name": "ESC2",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": true,
+      "Any Purpose": true,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536"
+      ],
+      "Extended Key Usage": [
+        "Any Purpose"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      },
+      "[!] Vulnerabilities": {
+        "ESC2": "'ESSOS.LOCAL\\\\Domain Users' can enroll and template can be used for any purpose",
+        "ESC3": "'ESSOS.LOCAL\\\\Domain Users' can enroll and template has Certificate Request Agent EKU set"
+      }
+    },
+    "6": {
+      "Template Name": "ESC1",
+      "Display Name": "ESC1",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "16777216",
+        "65536"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Full Control Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Local System",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      },
+      "[!] Vulnerabilities": {
+        "ESC1": "'ESSOS.LOCAL\\\\Domain Users' can enroll, enrollee supplies subject and template allows client authentication"
+      }
+    },
+    "7": {
+      "Template Name": "KerberosAuthentication",
+      "Display Name": "Kerberos Authentication",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireDns",
+        "SubjectAltRequireDomainDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Server Authentication",
+        "Smart Card Logon",
+        "KDC Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Enterprise Read-only Domain Controllers",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Controllers",
+            "ESSOS.LOCAL\\Enterprise Admins",
+            "ESSOS.LOCAL\\Enterprise Domain Controllers"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "8": {
+      "Template Name": "OCSPResponseSigning",
+      "Display Name": "OCSP Response Signing",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDnsAsCn",
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "Norevocationinfoinissuedcerts",
+        "AddOcspNocheck"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "OCSP Signing"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 weeks",
+      "Renewal Period": "2 days",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "9": {
+      "Template Name": "RASAndIASServer",
+      "Display Name": "RAS and IAS Server",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireCommonName",
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Server Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins",
+            "ESSOS.LOCAL\\RAS and IAS Servers"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "10": {
+      "Template Name": "Workstation",
+      "Display Name": "Workstation Authentication",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Computers",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "11": {
+      "Template Name": "DirectoryEmailReplication",
+      "Display Name": "Directory Email Replication",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireDns",
+        "SubjectAltRequireDirectoryGuid"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Directory Service Email Replication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Enterprise Read-only Domain Controllers",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Controllers",
+            "ESSOS.LOCAL\\Enterprise Admins",
+            "ESSOS.LOCAL\\Enterprise Domain Controllers"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "12": {
+      "Template Name": "DomainControllerAuthentication",
+      "Display Name": "Domain Controller Authentication",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Server Authentication",
+        "Smart Card Logon"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Enterprise Read-only Domain Controllers",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Controllers",
+            "ESSOS.LOCAL\\Enterprise Admins",
+            "ESSOS.LOCAL\\Enterprise Domain Controllers"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "13": {
+      "Template Name": "KeyRecoveryAgent",
+      "Display Name": "Key Recovery Agent",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToKraContainer",
+        "PendAllRequests",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Key Recovery Agent"
+      ],
+      "Requires Manager Approval": true,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "14": {
+      "Template Name": "CAExchange",
+      "Display Name": "CA Exchange",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Private Key Archival"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 week",
+      "Renewal Period": "1 day",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "15": {
+      "Template Name": "CrossCA",
+      "Display Name": "Cross Certification Authority",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": true,
+      "Any Purpose": true,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "PublishToDs"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 1,
+      "Validity Period": "5 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "16": {
+      "Template Name": "ExchangeUserSignature",
+      "Display Name": "Exchange Signature Only",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Secure Email"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "17": {
+      "Template Name": "ExchangeUser",
+      "Display Name": "Exchange User",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Secure Email"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "18": {
+      "Template Name": "CEPEncryption",
+      "Display Name": "CEP Encryption",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": true,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Certificate Request Agent"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "19": {
+      "Template Name": "OfflineRouter",
+      "Display Name": "Router (Offline request)",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "20": {
+      "Template Name": "IPSECIntermediateOffline",
+      "Display Name": "IPSec (Offline request)",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "IP security IKE intermediate"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "21": {
+      "Template Name": "IPSECIntermediateOnline",
+      "Display Name": "IPSec",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDnsAsCn",
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "IP security IKE intermediate"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Computers",
+            "ESSOS.LOCAL\\Domain Controllers",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "22": {
+      "Template Name": "SubCA",
+      "Display Name": "Subordinate Certification Authority",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": true,
+      "Any Purpose": true,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "5 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "23": {
+      "Template Name": "CA",
+      "Display Name": "Root Certification Authority",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": true,
+      "Any Purpose": true,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "5 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "24": {
+      "Template Name": "WebServer",
+      "Display Name": "Web Server",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Server Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Users",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "25": {
+      "Template Name": "DomainController",
+      "Display Name": "Domain Controller",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDnsAsCn",
+        "SubjectAltRequireDns",
+        "SubjectAltRequireDirectoryGuid"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Server Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Enterprise Read-only Domain Controllers",
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Controllers",
+            "ESSOS.LOCAL\\Enterprise Admins",
+            "ESSOS.LOCAL\\Enterprise Domain Controllers"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "26": {
+      "Template Name": "Machine",
+      "Display Name": "Computer",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDnsAsCn",
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Server Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Computers",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "27": {
+      "Template Name": "MachineEnrollmentAgent",
+      "Display Name": "Enrollment Agent (Computer)",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": true,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDnsAsCn",
+        "SubjectAltRequireDns"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Certificate Request Agent"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "28": {
+      "Template Name": "EnrollmentAgentOffline",
+      "Display Name": "Exchange Enrollment Agent (Offline request)",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": true,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": true,
+      "Certificate Name Flag": [
+        "EnrolleeSuppliesSubject"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Certificate Request Agent"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "29": {
+      "Template Name": "EnrollmentAgent",
+      "Display Name": "Enrollment Agent",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": true,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Certificate Request Agent"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "2 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "30": {
+      "Template Name": "CTLSigning",
+      "Display Name": "Trust List Signing",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Microsoft Trust List Signing"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "31": {
+      "Template Name": "CodeSigning",
+      "Display Name": "Code Signing",
+      "Enabled": false,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Code Signing"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "32": {
+      "Template Name": "EFSRecovery",
+      "Display Name": "EFS Recovery Agent",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "File Recovery"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "5 years",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "33": {
+      "Template Name": "Administrator",
+      "Display Name": "Administrator",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectRequireEmail",
+        "SubjectAltRequireEmail",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Microsoft Trust List Signing",
+        "Encrypting File System",
+        "Secure Email",
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "34": {
+      "Template Name": "EFS",
+      "Display Name": "Basic EFS",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": false,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Encrypting File System"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Users",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "35": {
+      "Template Name": "SmartcardLogon",
+      "Display Name": "Smartcard Logon",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "None"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication",
+        "Smart Card Logon"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "36": {
+      "Template Name": "ClientAuth",
+      "Display Name": "Authenticated Session",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Users",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "37": {
+      "Template Name": "SmartcardUser",
+      "Display Name": "Smartcard User",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectRequireEmail",
+        "SubjectAltRequireEmail",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Secure Email",
+        "Client Authentication",
+        "Smart Card Logon"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "38": {
+      "Template Name": "UserSignature",
+      "Display Name": "User Signature Only",
+      "Enabled": false,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectRequireEmail",
+        "SubjectAltRequireEmail",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment"
+      ],
+      "Private Key Flag": [
+        "AttestNone"
+      ],
+      "Extended Key Usage": [
+        "Secure Email",
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Users",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    },
+    "39": {
+      "Template Name": "User",
+      "Display Name": "User",
+      "Certificate Authorities": [
+        "ESSOS-CA"
+      ],
+      "Enabled": true,
+      "Client Authentication": true,
+      "Enrollment Agent": false,
+      "Any Purpose": false,
+      "Enrollee Supplies Subject": false,
+      "Certificate Name Flag": [
+        "SubjectRequireDirectoryPath",
+        "SubjectRequireEmail",
+        "SubjectAltRequireEmail",
+        "SubjectAltRequireUpn"
+      ],
+      "Enrollment Flag": [
+        "AutoEnrollment",
+        "PublishToDs",
+        "IncludeSymmetricAlgorithms"
+      ],
+      "Private Key Flag": [
+        "ExportableKey"
+      ],
+      "Extended Key Usage": [
+        "Encrypting File System",
+        "Secure Email",
+        "Client Authentication"
+      ],
+      "Requires Manager Approval": false,
+      "Requires Key Archival": false,
+      "Authorized Signatures Required": 0,
+      "Validity Period": "1 year",
+      "Renewal Period": "6 weeks",
+      "Minimum RSA Key Length": 2048,
+      "Permissions": {
+        "Enrollment Permissions": {
+          "Enrollment Rights": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Domain Users",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        },
+        "Object Control Permissions": {
+          "Owner": "ESSOS.LOCAL\\Enterprise Admins",
+          "Write Owner Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Dacl Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ],
+          "Write Property Principals": [
+            "ESSOS.LOCAL\\Domain Admins",
+            "ESSOS.LOCAL\\Enterprise Admins"
+          ]
+        }
+      }
+    }
+  }
+}

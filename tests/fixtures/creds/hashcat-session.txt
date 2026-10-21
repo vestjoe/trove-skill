@@ -1,0 +1,23 @@
+hashcat (v7.1.2) starting
+
+93f183878b2c31a513078c671a4aef10:Kiosk-Lobby-2026
+
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 1000 (NTLM)
+Hash.Target......: 93f183878b2c31a513078c671a4aef10
+Time.Started.....: Fri Oct 16 15:54:59 2026 (0 secs)
+Time.Estimated...: Fri Oct 16 15:54:59 2026 (0 secs)
+Kernel.Feature...: Pure Kernel (password length 0-256 bytes)
+Guess.Base.......: File (/usr/share/wordlists/rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#01........:  1234.5 kH/s (0.12ms) @ Accel:512 Loops:1 Thr:1 Vec:8
+Recovered........: 1/1 (100.00%) Digests (total), 1/1 (100.00%) Digests (new)
+Progress.........: 2048/14344385 (0.01%)
+Rejected.........: 0/2048 (0.00%)
+Restore.Point....: 0/14344385 (0.00%)
+Restore.Sub......: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#01...: 123456 -> lovers1
+
+Started: Fri Oct 16 15:54:52 2026
+Stopped: Fri Oct 16 15:55:01 2026

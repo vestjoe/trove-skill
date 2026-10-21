@@ -1,0 +1,27 @@
+SMB                      192.168.56.12   445    meereen          [*] Windows Server 2016 Datacenter 14393 x64 (name:meereen) (domain:essos.local) (signing:True) (SMBv1:True) (Null Auth:True) (DC:True)
+SMB                      192.168.56.23   445    braavos          [*] Windows Server 2016 Datacenter 14393 x64 (name:braavos) (domain:essos.local) (signing:False) (SMBv1:True)
+SMB                      192.168.56.12   445    meereen          [-] essos.local\guest: STATUS_ACCOUNT_DISABLED 
+SMB                      192.168.56.22   445    castelblack      [*] Windows 10 / Server 2019 Build 17763 x64 (name:castelblack) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)
+SMB                      192.168.56.10   445    kingslanding     [*] Windows 10 / Server 2019 Build 17763 x64 (name:kingslanding) (domain:sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.23   445    braavos          [+] essos.local\guest: 
+SMB                      192.168.56.23   445    braavos          [*] Enumerated shares
+SMB                      192.168.56.23   445    braavos          Share           Permissions            Remark
+SMB                      192.168.56.23   445    braavos          -----           -----------            ------
+SMB                      192.168.56.23   445    braavos          ADMIN$                                 Remote Admin
+SMB                      192.168.56.23   445    braavos          all             READ,WRITE             Basic RW share for all
+SMB                      192.168.56.23   445    braavos          C$                                     Default share
+SMB                      192.168.56.23   445    braavos          CertEnroll                             Active Directory Certificate Services share
+SMB                      192.168.56.23   445    braavos          IPC$            READ                   Remote IPC
+SMB                      192.168.56.23   445    braavos          public                                 Basic Read share for all domain users
+SMB                      192.168.56.22   445    castelblack      [+] north.sevenkingdoms.local\guest: 
+SMB                      192.168.56.10   445    kingslanding     [-] sevenkingdoms.local\guest: STATUS_ACCOUNT_DISABLED 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\guest: STATUS_ACCOUNT_DISABLED 
+SMB                      192.168.56.22   445    castelblack      [*] Enumerated shares
+SMB                      192.168.56.22   445    castelblack      Share           Permissions            Remark
+SMB                      192.168.56.22   445    castelblack      -----           -----------            ------
+SMB                      192.168.56.22   445    castelblack      ADMIN$                                 Remote Admin
+SMB                      192.168.56.22   445    castelblack      all             READ,WRITE             Basic RW share for all
+SMB                      192.168.56.22   445    castelblack      C$                                     Default share
+SMB                      192.168.56.22   445    castelblack      IPC$            READ                   Remote IPC
+SMB                      192.168.56.22   445    castelblack      public                                 Basic Read share for all domain users

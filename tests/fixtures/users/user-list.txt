@@ -1,0 +1,10 @@
+# Domain users pulled from the SMB null session, 2026-08-28.
+# One per line; blanks and these comment lines are not names.
+
+asmith
+jdoe
+mwilson
+ACME\svc_backup
+
+rjones
+jdoe

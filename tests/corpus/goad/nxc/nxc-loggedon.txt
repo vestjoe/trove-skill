@@ -1,0 +1,14 @@
+SMB                      192.168.56.12   445    MEEREEN          [*] Windows Server 2016 Datacenter 14393 x64 (name:MEEREEN) (domain:essos.local) (signing:True) (SMBv1:True) (Null Auth:True) (DC:True)
+SMB                      192.168.56.23   445    BRAAVOS          [*] Windows Server 2016 Datacenter 14393 x64 (name:BRAAVOS) (domain:essos.local) (signing:False) (SMBv1:True)
+SMB                      192.168.56.10   445    KINGSLANDING     [*] Windows 10 / Server 2019 Build 17763 x64 (name:KINGSLANDING) (domain:sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.12   445    MEEREEN          [-] essos.local\rickon.stark:Winter2022 STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    WINTERFELL       [*] Windows 10 / Server 2019 Build 17763 x64 (name:WINTERFELL) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.22   445    CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:CASTELBLACK) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)
+SMB                      192.168.56.23   445    BRAAVOS          [+] essos.local\rickon.stark:Winter2022 (Guest)
+SMB                      192.168.56.23   445    BRAAVOS          [-] Error enumerating logged on users: SMB SessionError: code: 0xc0000022 - STATUS_ACCESS_DENIED - {Access Denied} A process has requested access to an object but has not been granted those access rights.
+SMB                      192.168.56.10   445    KINGSLANDING     [-] sevenkingdoms.local\rickon.stark:Winter2022 STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    WINTERFELL       [+] north.sevenkingdoms.local\rickon.stark:Winter2022 
+SMB                      192.168.56.11   445    WINTERFELL       [-] Error enumerating logged on users: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+SMB                      192.168.56.22   445    CASTELBLACK      [+] north.sevenkingdoms.local\rickon.stark:Winter2022 
+SMB                      192.168.56.22   445    CASTELBLACK      [-] Error enumerating logged on users: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+Running nxc against 256 targets ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00

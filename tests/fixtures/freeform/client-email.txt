@@ -1,0 +1,8 @@
+From: IT Director
+Subject: RE: scope + access
+
+Two domain controllers, not one - dc01 (10.10.10.6) and dc02 (10.10.10.7).
+Both Server 2019. The web box web01 is 10.10.10.5.
+
+The backup service account is svc_backup. Please don't lock it out, it runs
+the nightly job.

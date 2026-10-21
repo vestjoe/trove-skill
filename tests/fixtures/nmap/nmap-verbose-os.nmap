@@ -1,0 +1,42 @@
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-10-16 15:54 -0500
+--------------- Timing report ---------------
+  hostgroups: min 1, max 100000
+  rtt-timeouts: init 1000, min 100, max 10000
+  max-scan-delay: TCP 1000, UDP 1000, SCTP 1000
+  parallelism: min 0, max 0
+  max-retries: 10, host-timeout: 0
+  min-rate: 0, max-rate: 0
+---------------------------------------------
+Initiating Ping Scan at 15:54
+Scanning 10.10.20.10 [4 ports]
+Completed Ping Scan at 15:54, 0.01s elapsed (1 total hosts)
+Overall sending rates: 10362.69 packets / s.
+mass_dns: Using DNS server 10.10.20.1
+Initiating SYN Stealth Scan at 15:54
+Scanning 10.10.20.10 [1000 ports]
+Discovered open port 445/tcp on 10.10.20.10
+Increasing send delay for 10.10.20.10 from 0 to 5 due to 11 out of 36 dropped probes since last increase.
+Warning: 10.10.20.10 giving up on port because retransmission cap hit (6).
+SYN Stealth Scan Timing: About 41.20% done; ETC: 15:56 (0:00:43 remaining)
+Completed SYN Stealth Scan at 15:55, 12.31s elapsed (1000 total ports)
+Overall sending rates: 162.48 packets / s.
+Initiating OS detection (try #1) against 10.10.20.10
+Retrying OS detection (try #2) against 10.10.20.10
+Nmap scan report for 10.10.20.10
+Host is up, received echo-reply ttl 127 (0.00041s latency).
+Scanned at 2026-10-16 15:54:59 CDT for 14s
+Not shown: 998 filtered tcp ports (no-response)
+PORT    STATE SERVICE      REASON
+135/tcp open  msrpc        syn-ack ttl 127
+445/tcp open  microsoft-ds syn-ack ttl 127
+Final times for host: srtt: 412 rttvar: 210  to: 100000
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.98%E=4%D=10/16%OT=135%CT=%CU=%PV=Y%DS=2%DC=I%G=N%TM=670F2A1B%P=x
+OS:86_64-pc-linux-gnu)SEQ(SP=104%GCD=1%ISR=10A%TI=I%TS=U)OPS(O1=M5B4NW8NNS%O
+OS:2=M5B4NW8NNS%O3=M5B4NW8%O4=M5B4NW8NNS%O5=M5B4NW8NNS%O6=M5B4NNS)
+
+Read from /usr/share/nmap: nmap-os-db nmap-payloads nmap-services.
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.52 seconds
+           Raw packets sent: 2061 (93.104KB) | Rcvd: 41 (2.012KB)

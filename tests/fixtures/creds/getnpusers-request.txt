@@ -1,0 +1,9 @@
+Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies 
+
+Name       MemberOf                                           PasswordLastSet             LastLogon                   UAC      
+---------  -------------------------------------------------  --------------------------  --------------------------  --------
+dave.ops   CN=Backup Operators,CN=Builtin,DC=lab-01,DC=local  2026-09-01 10:12:44.512918  <never>                     0x410200 
+
+
+
+$krb5asrep$23$dave.ops@LAB-01.LOCAL:3f1a9c2e7b5d4086a1c3e5f7092b4d6e$8e2c4a6f1b3d5e7092c4a6e8f0b2d4c6a8e0f2b4d6c8a0e2f4b6d8c0a2e4f6b8d0c2a4e6f8b0d2c4a6e8f0b2d4c6a8e0f2b4d6c8a0e2f4b6d8

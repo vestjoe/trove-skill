@@ -1,0 +1,19 @@
+# Nmap 7.80 scan initiated Fri Sep  4 18:36:52 2026 as: nmap -Pn -sV -sC -sU -p- 198.51.100.7 198.51.100.8
+Nmap scan report for mail.example.test (198.51.100.7)
+Host is up (0.00035s latency).
+Not shown: 65530 closed ports
+PORT     STATE SERVICE  VERSION
+25/tcp   open  smtp     Postfix smtpd
+80/tcp   open  http     nginx 1.18.0 (Ubuntu)
+|_http-title: Example Domain
+443/tcp  open  ssl/http nginx 1.18.0 (Ubuntu)
+| ssl-cert: Subject: commonName=mail.example.test
+|_Not valid after:  2027-09-03T23:03:47
+2222/tcp open  ssh?
+5060/udp open  sip
+Service Info: Host: mail.example.test; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 198.51.100.8
+Host is down.
+
+# Nmap done at Fri Sep  4 18:42:55 2026 -- 2 IP addresses (1 host up) scanned in 363.33 seconds

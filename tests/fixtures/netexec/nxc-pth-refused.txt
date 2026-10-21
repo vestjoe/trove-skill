@@ -1,0 +1,2 @@
+SMB         10.10.20.22     445    LABWS2           [*] Windows Server 2019 Build 17763 x64 (name:LABWS2) (domain:lab-01.local) (signing:True) (SMBv1:False)
+SMB         10.10.20.22     445    LABWS2           [-] lab-01.local\backup.ops:da7a868ae3207455a709066b8fdab1f6 STATUS_LOGON_FAILURE 

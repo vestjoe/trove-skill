@@ -1,0 +1,13 @@
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:north.sevenkingdoms.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\arya.stark:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\eddard.stark:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\catelyn.stark:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\robb.stark:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\sansa.stark:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [+] north.sevenkingdoms.local\brandon.stark:iseedeadpeople 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\rickon.stark:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\hodor.hodor:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\jon.snow:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\samwell.tarly:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\jeor.mormont:iseedeadpeople STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] north.sevenkingdoms.local\sql.service:iseedeadpeople STATUS_LOGON_FAILURE 

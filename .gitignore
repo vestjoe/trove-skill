@@ -1,0 +1,7 @@
+*.loot/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+!tests/fixtures/**
+!tests/corpus/**

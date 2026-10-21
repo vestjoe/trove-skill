@@ -1,0 +1,2 @@
+SMB                      192.168.56.23   445    braavos          [*] Windows Server 2016 Datacenter 14393 x64 (name:braavos) (domain:braavos) (signing:False) (SMBv1:True)
+SMB                      192.168.56.23   445    braavos          [-] braavos\goadmin:d36be04781c5d4c2d467e59c302ecf30 STATUS_LOGON_FAILURE 

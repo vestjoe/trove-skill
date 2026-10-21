@@ -1,0 +1,10 @@
+SMB                      192.168.56.23   445    braavos          [*] Windows Server 2016 Datacenter 14393 x64 (name:braavos) (domain:braavos) (signing:False) (SMBv1:True)
+SMB                      192.168.56.12   445    meereen          [*] Windows Server 2016 Datacenter 14393 x64 (name:meereen) (domain:meereen) (signing:True) (SMBv1:True) (Null Auth:True) (DC:True)
+SMB                      192.168.56.23   445    braavos          [-] braavos\goadmin:d36be04781c5d4c2d467e59c302ecf30 STATUS_LOGON_FAILURE 
+SMB                      192.168.56.22   445    castelblack      [*] Windows 10 / Server 2019 Build 17763 x64 (name:castelblack) (domain:castelblack) (signing:False) (SMBv1:False)
+SMB                      192.168.56.12   445    meereen          [-] meereen\goadmin:d36be04781c5d4c2d467e59c302ecf30 STATUS_LOGON_FAILURE 
+SMB                      192.168.56.10   445    kingslanding     [*] Windows 10 / Server 2019 Build 17763 x64 (name:kingslanding) (domain:kingslanding) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.11   445    winterfell       [*] Windows 10 / Server 2019 Build 17763 x64 (name:winterfell) (domain:winterfell) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      192.168.56.22   445    castelblack      [+] castelblack\goadmin:d36be04781c5d4c2d467e59c302ecf30 (Pwn3d!)
+SMB                      192.168.56.10   445    kingslanding     [-] kingslanding\goadmin:d36be04781c5d4c2d467e59c302ecf30 STATUS_LOGON_FAILURE 
+SMB                      192.168.56.11   445    winterfell       [-] winterfell\goadmin:d36be04781c5d4c2d467e59c302ecf30 STATUS_LOGON_FAILURE 

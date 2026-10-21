@@ -1,0 +1,12 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Entry point runs under uv from another directory
+        run: cd "$RUNNER_TEMP" && uv run --script "$GITHUB_WORKSPACE/loot/scripts/loot.py" --version
+      - name: Tests
+        run: uv run --python 3.11 python -m unittest discover -s tests -t . -v

