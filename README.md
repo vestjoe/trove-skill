@@ -1,3 +1,12 @@
+<p align="center">
+  <picture>
+    <!-- The colour mark's outline is near-black, so it disappears on a dark
+         page. GitHub's dark theme gets the cream monochrome mark instead. -->
+    <source media="(prefers-color-scheme: dark)" srcset="brand/trove-mark-mono-light.svg">
+    <img src="brand/trove-mark.svg" alt="Trove" width="160">
+  </picture>
+</p>
+
 # Trove
 
 An agent skill for CTF and security-training environments, for OpenCode and Claude Code. You give it tool output and notes; it keeps them in one engagement directory, turns them into records that cite the exact bytes they came from, and answers questions over those records.

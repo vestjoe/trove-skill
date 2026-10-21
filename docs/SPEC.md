@@ -54,6 +54,7 @@ From the OpenCode docs (`opencode.ai/docs/skills`, `/docs/commands`) and the Cla
 trove-skill/
   README.md  LICENSE  AGENTS.md  CLAUDE.md
   CONTRIBUTING.md  SECURITY.md
+  brand/                 the Trove mark for the README (colour, and cream for dark pages)
   install.sh             Linux/macOS installer
   .github/workflows/ci.yml   tests on Linux
   loot/                  the skill directory; copied as-is to <skills>/loot
