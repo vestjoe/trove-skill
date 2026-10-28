@@ -1,0 +1,7 @@
+{"host":"sunspear.essos.local","ip":"192.168.56.43","timestamp":"2026-10-28T10:05:01.402117Z","port":88,"protocol":"tcp","tls":false}
+{"host":"sunspear.essos.local","ip":"192.168.56.43","timestamp":"2026-10-28T10:05:01.402544Z","port":445,"protocol":"tcp","tls":false}
+{"host":"sunspear.essos.local","ip":"192.168.56.43","timestamp":"2026-10-28T10:05:01.517203Z","port":636,"protocol":"tcp","tls":true}
+{"host":"sunspear.essos.local","ip":"192.168.56.43","timestamp":"2026-10-28T10:05:02.088810Z","port":5985,"protocol":"tcp","tls":false}
+{"host":"sunspear.essos.local","ip":"192.168.56.43","timestamp":"2026-10-28T10:05:03.120415Z","port":53,"protocol":"udp","tls":false}
+{"host":"sunspear.essos.local","ip":"2001:db8:5eed::43","timestamp":"2026-10-28T10:05:01.611902Z","port":445,"protocol":"tcp","tls":false}
+{"ip":"192.168.56.44","timestamp":"2026-10-28T10:05:01.700345Z","port":3389,"protocol":"tcp","tls":false}

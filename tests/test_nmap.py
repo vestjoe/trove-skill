@@ -43,3 +43,14 @@ class NmapXml(EngagementCase):
         self.assertIn("not readable nmap XML", report["status"])
         self.assertEqual(self.all(), [])
         self.assertEqual(rawstore.manifest(self.eng)[0]["ai"], "refused")
+
+    def test_naabu_xml_is_read_by_the_nmap_parser(self):
+        report = self.import_fixture("nmap/naabu-basic.xml")
+        self.assertEqual((report["parser"], report["counts"]), ("nmap", {"host": 2, "service": 5}))
+        hosts = {h["ip"]: h for h in self.all("host")}
+        self.assertEqual(hosts["192.168.56.40"]["hostnames"], ["oldtown.sevenkingdoms.local"])
+        self.assertNotIn("hostnames", hosts["192.168.56.41"])
+        svcs = {s["id"]: s for s in self.all("service")}
+        self.assertEqual(svcs["service:192.168.56.40-udp-53"]["product"], "Simple DNS Plus")
+        self.assertEqual(svcs["service:192.168.56.41-tcp-22"]["version"], "8.9p1 Ubuntu 3ubuntu0.10")
+        self.assert_citations_hold()

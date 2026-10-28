@@ -1,0 +1,5 @@
+# Naabu 2.7.0 scan initiated Wed Oct 28 10:00:00 2026
+Host: 192.168.56.40 (oldtown.sevenkingdoms.local)	Ports: 445/open/tcp////, 3389/open/tcp////, 53/open/udp//domain//Simple DNS Plus/
+Host: 192.168.56.41 (192.168.56.41)	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3ubuntu0.10/, 80/open/tcp////
+Host: 192.168.56.42 (192.168.56.42)	Status: Up
+# Naabu done at Wed Oct 28 10:00:42 2026 -- 3 IP addresses (3 hosts up) scanned

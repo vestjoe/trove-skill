@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<nmaprun scanner="naabu" start="1793181600" startstr="Wed Oct 28 10:00:00 2026" version="2.7.0" xmloutputversion="1.05">
+  <scaninfo type="connect" protocol="tcp"></scaninfo>
+  <host>
+    <status state="up" reason="syn-ack"></status>
+    <address addr="192.168.56.40" addrtype="ipv4"></address>
+    <hostnames>
+      <hostname name="oldtown.sevenkingdoms.local" type="user"></hostname>
+    </hostnames>
+    <ports>
+      <port protocol="tcp" portid="445">
+        <state state="open" reason="syn-ack"></state>
+      </port>
+      <port protocol="tcp" portid="3389">
+        <state state="open" reason="syn-ack"></state>
+      </port>
+      <port protocol="udp" portid="53">
+        <state state="open" reason="udp-response"></state>
+        <service name="domain" product="Simple DNS Plus" method="probed" conf="10"></service>
+      </port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="syn-ack"></status>
+    <address addr="192.168.56.41" addrtype="ipv4"></address>
+    <ports>
+      <port protocol="tcp" portid="22">
+        <state state="open" reason="syn-ack"></state>
+        <service name="ssh" product="OpenSSH" version="8.9p1 Ubuntu 3ubuntu0.10" method="probed" conf="10">
+          <cpe>cpe:/a:openbsd:openssh:8.9p1</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="80">
+        <state state="open" reason="syn-ack"></state>
+      </port>
+    </ports>
+  </host>
+  <runstats>
+    <finished time="1793181642" timestr="Wed Oct 28 10:00:42 2026" elapsed="42.00" exit="success"></finished>
+    <hosts up="2" down="0" total="2"></hosts>
+  </runstats>
+</nmaprun>

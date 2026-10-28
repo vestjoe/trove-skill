@@ -8,6 +8,7 @@ save output, or when a file of a tool Trove reads went to AI extraction whole.
 |---|---|---|
 | nmap | `nmap -sC -sV -oA scans/<name> <targets>` | `scans/<name>.xml` |
 | masscan | `masscan <targets> -p<ports> --banners -oX scans/<name>.xml` | the `.xml` |
+| naabu | `naabu -host <targets> -p - -json -o scans/<name>.json` | the `.json` |
 | NetExec | set `log_mode = True` in `~/.nxc/nxc.conf` once, or add `--log nxc/<what>.log` to one run | `~/.nxc/logs/`, or the `.log` |
 | NetExec database | make a workspace per engagement first: `nxcdb`, then `workspace create <name>` | `~/.nxc/workspaces/<name>/` |
 | secretsdump | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
@@ -36,6 +37,14 @@ Why these, and what to avoid:
   labs; the import counts its hosts by range so that shows. `--lsa` secrets
   are not in the database; import the logs for those. `ldap.db` and `ssh.db`
   are not read.
+- **naabu** `-json` writes one line per open port with its protocol; the
+  plain `host:port` lines do not say TCP or UDP, so they go to the AI. On
+  naabu 2.7 or later `-oX` or `-oG` reads as well; avoid `-csv`. By default it
+  scans only the top 100 ports, which miss 5985, 636, 3268 and 9389, hence
+  `-p -`. It records no service names unless `-sV` finds nmap's probe file.
+  Since 2.3.3 it uses a connect scan; a SYN scan (`-s s`) needs root and falls
+  back with `Routing could not be determined` over a lab VPN. Over a VPN, lower
+  `-rate` or add `-verify` so dropped probes do not hide open ports.
 - **secretsdump** has no save option that records the target, so save the
   screen, with or without `-outputfile`: its `.ntds` file holds the same
   accounts with no domain or host, and its SAM and LSA files lose the sections

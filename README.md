@@ -11,7 +11,7 @@
 
 An agent skill for CTF and security-training environments, for OpenCode and Claude Code. You give it tool output and notes; it keeps them in one engagement directory, turns them into records that cite the exact bytes they came from, and answers questions over those records.
 
-- Parsers read nmap (XML, normal, grepable, masscan), NetExec (its output and its workspace database), secretsdump, hashcat/potfile, Responder (its session log and Responder.db), kerberoast and AS-REP hashes, user lists, BloodHound (users, groups, computers, memberships), certipy `find` (ADCS weaknesses) and zips of any of these.
+- Parsers read nmap (XML, normal, grepable, masscan), naabu (JSON, XML, grepable), NetExec (its output and its workspace database), secretsdump, hashcat/potfile, Responder (its session log and Responder.db), kerberoast and AS-REP hashes, user lists, BloodHound (users, groups, computers, memberships), certipy `find` (ADCS weaknesses) and zips of any of these.
 - Anything else (notes, scratch logs) is read by the agent, which proposes records with a quote for each value. A value whose quote is not in the file is dropped.
 - Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote).
 
@@ -82,6 +82,7 @@ Trove reads each tool's output best when it is saved one way, chosen from the to
 |---|---|---|
 | nmap | `nmap -sC -sV -oA scans/<name> <targets>` | `scans/<name>.xml` |
 | masscan | `masscan <targets> -p<ports> --banners -oX scans/<name>.xml` | the `.xml` |
+| naabu | `naabu -host <targets> -p - -json -o scans/<name>.json` | the `.json` |
 | NetExec | set `log_mode = True` in `~/.nxc/nxc.conf` once, or add `--log nxc/<what>.log` to one run | `~/.nxc/logs/`, or the `.log` |
 | NetExec database | make a workspace per engagement first: `nxcdb`, then `workspace create <name>` | `~/.nxc/workspaces/<name>/` |
 | secretsdump | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
@@ -110,7 +111,7 @@ opencode
 
 2. `/loot-import fixtures`
 
-   Correct: 64 files read (86 inputs once zip members are counted). 3 are refused and named (an encrypted zip member, a nested zip, a truncated nmap XML). 11 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
+   Correct: 68 files read (90 inputs once zip members are counted). 3 are refused and named (an encrypted zip member, a nested zip, a truncated nmap XML). 11 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
 
 3. `/loot-find smb`
 

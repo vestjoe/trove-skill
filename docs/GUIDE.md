@@ -58,6 +58,7 @@ You don't have to use the commands. The skill also works from plain requests, su
 | Tool | What becomes records |
 |---|---|
 | nmap (XML, normal, grepable) and masscan (XML) | Hosts and services. |
+| naabu (`-json`, and `-oX`/`-oG` from 2.7) | Hosts and open ports as services. |
 | NetExec screen output and `--log` files | Logins as credentials, with the hosts they worked on and where they were admin; host flags such as SMB signing off, SMBv1 and null auth as findings; shares; password policy; SAM, LSA and NTDS dumps. |
 | NetExec workspace database (`smb.db`, `winrm.db`, `mssql.db`) | Hosts, credentials, logged-in and admin rights, shares. |
 | secretsdump | Hashes, Kerberos keys, cleartext passwords, LSA secrets and cached logons, each tied to its account and host. |
