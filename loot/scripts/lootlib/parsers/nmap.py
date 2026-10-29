@@ -50,8 +50,7 @@ def _add_banners(held: dict[str, Any], rec: dict[str, Any]) -> None:
     if "banner" in rec and "banner" not in held:
         records.set_field(held, "banner", rec["banner"], rec["prov"]["banner"])
     for banner in rec["ext"].get("banners", []):
-        if banner not in held["ext"].setdefault("banners", []):
-            held["ext"]["banners"].append(banner)
+        records.add_to_ext_list(held, "banners", banner)
 
 
 def _citer(raw: Input):
@@ -126,7 +125,8 @@ def _service(port_el: XmlElement, host: dict[str, Any], ip_ref: dict[str, Any], 
     if service_el is not None and masscan:
         if service_el.get("banner"):
             records.set_field(svc, "banner", service_el.attrs["banner"], at(service_el, "banner"))
-            svc["ext"]["banners"] = [f"{service_el.get('name') or 'unknown'}: {service_el.attrs['banner']}"]
+            kind = service_el.get("name") or "unknown"
+            records.add_to_ext_list(svc, "banners", f"{kind}: {service_el.attrs['banner']}")
     elif service_el is not None:
         for name in ("name", "product", "version"):
             if service_el.get(name):

@@ -12,7 +12,7 @@ from typing import Any
 
 from lootlib import records
 from lootlib.encoding import WINDOW, NotText, text_of
-from lootlib.parsers import WRAPPER, Input, ParserError
+from lootlib.parsers import WRAPPER, Input, ParserError, split_lines
 from lootlib.prov import TOOL, cite
 
 NAME = "nmap-text"
@@ -77,7 +77,7 @@ class _Port:
 
 def sniff(data: bytes, hint: str | None = None) -> bool:
     text = data[:WINDOW].decode("utf-8", errors="replace")
-    return any(REPORT.match(line) or GREP_HOST.match(line) for line in text.splitlines())
+    return any(REPORT.match(line) or GREP_HOST.match(line) for line, _ in split_lines(text))
 
 
 def parse(raw: Input) -> list[dict[str, Any]]:
@@ -129,11 +129,7 @@ def _unread(line: _Line, raw: Input) -> None:
 
 
 def _lines(text: str) -> list[_Line]:
-    lines, offset = [], 0
-    for raw_line in text.splitlines(keepends=True):
-        lines.append(_Line(raw_line.rstrip("\r\n"), offset))
-        offset += len(raw_line.encode("utf-8"))
-    return lines
+    return [_Line(line, at) for line, at in split_lines(text)]
 
 
 def _cite(raw: Input, line: _Line, start: int, value: str) -> dict[str, Any]:
@@ -248,8 +244,8 @@ def _add_banner(banner: tuple[str, int, str, str, int, _Line], raw: Input,
         return
     if text and "banner" not in found[0]:
         records.set_field(found[0], "banner", text, _cite(raw, line, at, text))
-    if text and f"{kind}: {text}" not in found[0]["ext"].setdefault("banners", []):
-        found[0]["ext"]["banners"].append(f"{kind}: {text}")
+    if text:
+        records.add_to_ext_list(found[0], "banners", f"{kind}: {text}")
 
 
 def _set_state(host: dict[str, Any], state: str, line: _Line, at: int, raw: Input) -> None:

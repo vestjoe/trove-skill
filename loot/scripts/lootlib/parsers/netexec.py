@@ -116,7 +116,7 @@ def sniff(data: bytes, hint: str | None = None) -> bool:
     except UnicodeDecodeError:
         return False
     return any(_login_in(line) is not None or _hash_in(line) is not None or _banner_in(line) is not None
-               for line in (_unlogged(creds.Line(t, 0)).text for t in text.splitlines()))
+               for line in (_unlogged(line).text for line in creds.lines(text)))
 
 
 def parse(raw: Input) -> list[dict[str, Any]]:
@@ -154,7 +154,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         announced_policy = _announces_policy(line.text)
         if announced_policy is not None:
             host_ip, domain, at, prefix_at = announced_policy
-            policies[host_ip] = _Policy(held.get(f"host:{host_ip}"), domain, line.start + at,
+            policies[host_ip] = _Policy(held.get(f"host:{host_ip}"), domain, line.at(at),
                                         line.text[at:], prefix_at)
             continue
         collecting = _policy_line(line.text, policies)
@@ -180,7 +180,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
                 keep(found)
             named = DOMAIN.search(line.text)
             if named is not None:
-                realm = (named.group("domain"), _ref(raw, line.start + named.start("domain"), named.group("domain")))
+                realm = (named.group("domain"), _ref(raw, line.at(named.start("domain")), named.group("domain")))
                 domains[banner.prefixed.group("host")] = realm
             continue
         attributes = _attributes_in(line.text)
@@ -201,7 +201,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         hashed = _hash_in(line.text)
         if hashed is not None:
             at, typed = hashed
-            keep(creds.credential_from_typed(typed, creds.Line(line.text[at:], line.start + at), raw))
+            keep(creds.credential_from_typed(typed, creds.Line(line.text[at:], line.at(at)), raw))
             continue
         null = _null_session_in(line.text)
         if null is not None:
@@ -258,7 +258,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
 def _unlogged(line: creds.Line) -> creds.Line:
     """A ``--log`` file line as the screen showed it: the logger's time and caller prefix dropped."""
     logged = LOGGED.match(line.text)
-    return creds.Line(line.text[logged.end():], line.start + logged.end()) if logged else line
+    return creds.Line(line.text[logged.end():], line.at(logged.end())) if logged else line
 
 
 def _id(rec: dict[str, Any]) -> str:
@@ -333,7 +333,7 @@ def _host(banner: _Banner, line: creds.Line, raw: Input) -> dict[str, Any]:
     prefixed = banner.prefixed
     host = records.new("host")
     records.set_field(host, "ip", prefixed.group("host"),
-                      _ref(raw, line.start + prefixed.start("host"), prefixed.group("host")))
+                      _ref(raw, line.at(prefixed.start("host")), prefixed.group("host")))
     records.set_field(host, "hostnames", [banner.name], [_ref(raw, line.offset_of(banner.name, banner.name_at),
                                                               banner.name)])
     records.set_field(host, "os", banner.os, _ref(raw, line.offset_of(banner.os, banner.os_at), banner.os))
@@ -345,12 +345,12 @@ def _service(banner: _Banner, line: creds.Line, raw: Input) -> dict[str, Any]:
     version, since a scan's service name for the port is the better one."""
     prefixed, version = banner.prefixed, banner.version
     proto = prefixed.group("protocol")
-    proto_ref = _ref(raw, line.start + prefixed.start("protocol"), proto)
+    proto_ref = _ref(raw, line.at(prefixed.start("protocol")), proto)
     svc = records.new("service")
     records.set_field(svc, "host_id", f"host:{prefixed.group('host')}",
-                      _ref(raw, line.start + prefixed.start("host"), prefixed.group("host")))
+                      _ref(raw, line.at(prefixed.start("host")), prefixed.group("host")))
     records.set_field(svc, "port", int(prefixed.group("port")),
-                      _ref(raw, line.start + prefixed.start("port"), prefixed.group("port")))
+                      _ref(raw, line.at(prefixed.start("port")), prefixed.group("port")))
     records.set_field(svc, "protocol", "tcp", proto_ref)
     if version:
         records.set_field(svc, "name", proto.lower(), proto_ref)
@@ -366,11 +366,11 @@ def _flags(line: creds.Line, raw: Input) -> list[dict[str, Any]]:
         at = line.text.find(f"({flag})")
         if at < 0:
             continue
-        stated = _ref(raw, line.start + at, f"({flag})")
+        stated = _ref(raw, line.at(at), f"({flag})")
         rec = records.new("finding")
         records.set_field(rec, "title", title, stated)
         records.set_field(rec, "host_id", f"host:{prefixed.group('host')}",
-                          _ref(raw, line.start + prefixed.start("host"), prefixed.group("host")))
+                          _ref(raw, line.at(prefixed.start("host")), prefixed.group("host")))
         records.set_field(rec, "status", CONFIRMED, stated)
         out.append(rec)
     return out
@@ -445,7 +445,7 @@ def _share_row(found: tuple[_Table, int], line: creds.Line, raw: Input) -> dict[
     prefixed = PREFIX.match(line.text)
     share = records.new("share")
     records.set_field(share, "host_id", _id(table.host),
-                      _ref(raw, line.start + prefixed.start("host"), prefixed.group("host")))
+                      _ref(raw, line.at(prefixed.start("host")), prefixed.group("host")))
     records.set_field(share, "name", name, _ref(raw, line.offset_of(name, at), name))
     if permissions:
         records.set_field(share, "permissions", permissions, _ref(raw, line.offset_of(permissions, at), permissions))
@@ -497,11 +497,11 @@ def _refused(refusal, line: creds.Line, held: dict[str, dict[str, Any]], raw: In
         return None
     title = f"Error {found.group('operation')}"
     rec = records.new("finding")
-    records.set_field(rec, "title", title, _ref(raw, line.start + at + found.start(), title))
+    records.set_field(rec, "title", title, _ref(raw, line.at(at + found.start()), title))
     records.set_field(rec, "description", found.group("reason"),
-                      _ref(raw, line.start + at + found.start("reason"), found.group("reason")))
+                      _ref(raw, line.at(at + found.start("reason")), found.group("reason")))
     records.set_field(rec, "host_id", _id(host), host["prov"]["ip"])
-    records.set_field(rec, "status", FAILED, _ref(raw, line.start + prefixed.end(),
+    records.set_field(rec, "status", FAILED, _ref(raw, line.at(prefixed.end()),
                                                   line.text[prefixed.end():at + found.end("operation") + 1]))
     return rec
 
@@ -537,7 +537,7 @@ def _refused_login(login: _Login, line: creds.Line, held: dict[str, dict[str, An
     records.set_field(rec, "title", f"{prefixed.group('protocol')} refused {login.realm}\\{login.principal}",
                       _ref(raw, line.start, line.text[:named]))
     records.set_field(rec, "host_id", _id(host), host["prov"]["ip"])
-    records.set_field(rec, "status", FAILED, _ref(raw, line.start + login.marker_at, line.text[login.marker_at:named]))
+    records.set_field(rec, "status", FAILED, _ref(raw, line.at(login.marker_at), line.text[login.marker_at:named]))
     return rec
 
 
@@ -546,9 +546,9 @@ def _login_host(line: creds.Line, raw: Input) -> dict[str, Any]:
     prefixed = PREFIX.match(line.text)
     ip, name = prefixed.group("host"), prefixed.group("hostname")
     host = records.new("host")
-    records.set_field(host, "ip", ip, _ref(raw, line.start + prefixed.start("host"), ip))
+    records.set_field(host, "ip", ip, _ref(raw, line.at(prefixed.start("host")), ip))
     if name != ip:
-        records.set_field(host, "hostnames", [name], [_ref(raw, line.start + prefixed.start("hostname"), name)])
+        records.set_field(host, "hostnames", [name], [_ref(raw, line.at(prefixed.start("hostname")), name)])
     return host
 
 
@@ -564,11 +564,11 @@ def _null_session(null: tuple[int, int], line: creds.Line, raw: Input) -> dict[s
     """A login with no user and no password that the host accepted."""
     prefixed = PREFIX.match(line.text)
     marker_at, end = null
-    accepted = _ref(raw, line.start + marker_at, line.text[marker_at:end])
+    accepted = _ref(raw, line.at(marker_at), line.text[marker_at:end])
     rec = records.new("finding")
     records.set_field(rec, "title", f"{prefixed.group('protocol')} null session accepted", accepted)
     records.set_field(rec, "host_id", f"host:{prefixed.group('host')}",
-                      _ref(raw, line.start + prefixed.start("host"), prefixed.group("host")))
+                      _ref(raw, line.at(prefixed.start("host")), prefixed.group("host")))
     records.set_field(rec, "status", CONFIRMED, accepted)
     return rec
 
@@ -576,12 +576,12 @@ def _null_session(null: tuple[int, int], line: creds.Line, raw: Input) -> dict[s
 def _empty_password(login: _Login, line: creds.Line, raw: Input) -> dict[str, Any]:
     """A named account the host let in with no password, as a finding naming that account."""
     prefixed = PREFIX.match(line.text)
-    accepted = _ref(raw, line.start + login.marker_at, line.text[login.marker_at:login.at])
+    accepted = _ref(raw, line.at(login.marker_at), line.text[login.marker_at:login.at])
     rec = records.new("finding")
     records.set_field(rec, "title", f"{prefixed.group('protocol')} login with an empty password accepted "
                       f"({login.realm}\\{login.principal})", accepted)
     records.set_field(rec, "host_id", f"host:{prefixed.group('host')}",
-                      _ref(raw, line.start + prefixed.start("host"), prefixed.group("host")))
+                      _ref(raw, line.at(prefixed.start("host")), prefixed.group("host")))
     records.set_field(rec, "status", CONFIRMED, accepted)
     return rec
 
@@ -625,8 +625,8 @@ def _account(attributes, realm, line: creds.Line, raw: Input) -> list[dict[str, 
         edge = records.new("relationship")
         records.set_field(edge, "src_id", _id(principal), principal["prov"]["principal"])
         records.set_field(edge, "kind", "member_of",
-                          _ref(raw, line.start + member_at - len("memberOf") - 2, "memberOf"))
-        records.set_field(edge, "dst_id", _id(group), _ref(raw, line.start + member_at + offset, dn))
+                          _ref(raw, line.at(member_at - len("memberOf") - 2), "memberOf"))
+        records.set_field(edge, "dst_id", _id(group), _ref(raw, line.at(member_at + offset), dn))
         out.extend([group, edge])
     return out
 
@@ -659,7 +659,7 @@ def _dns_in(member_of: str) -> tuple[list[tuple[str, int]], bool]:
 def _principal(attributes, realm, line: creds.Line, raw: Input) -> dict[str, Any]:
     sam, sam_at = attributes["sAMAccountName"]
     rec = records.new("principal")
-    records.set_field(rec, "principal", sam, _ref(raw, line.start + sam_at, sam))
+    records.set_field(rec, "principal", sam, _ref(raw, line.at(sam_at), sam))
     if realm is not None:
         records.set_field(rec, "realm", *realm)
     for key, name in (("pwdLastSet", "pwd_last_set"), ("lastLogon", "last_logon")):
@@ -669,7 +669,7 @@ def _principal(attributes, realm, line: creds.Line, raw: Input) -> dict[str, Any
 
 
 def _group(dn: str, at: int, line: creds.Line, raw: Input) -> dict[str, Any] | None:
-    return creds.group_from_dn(dn, line.start + at, raw)
+    return creds.group_from_dn(dn, line.at(at), raw)
 
 
 def _hash_in(text: str):
@@ -697,11 +697,11 @@ def _cached_in(line: creds.Line, raw: Input) -> dict[str, Any] | None:
     marked = _message(line.text)
     if marked is None or marked[2]:
         return None
-    rec = creds.cached_logon(creds.Line(line.text[marked[1]:], line.start + marked[1]), raw)
+    rec = creds.cached_logon(creds.Line(line.text[marked[1]:], line.at(marked[1])), raw)
     if rec is not None:
         prefixed = PREFIX.match(line.text)
         ip = prefixed.group("host")
-        records.set_field(rec, "host_id", [f"host:{ip}"], [_ref(raw, line.start + prefixed.start("host"), ip)])
+        records.set_field(rec, "host_id", [f"host:{ip}"], [_ref(raw, line.at(prefixed.start("host")), ip)])
     return rec
 
 
@@ -733,14 +733,14 @@ def _dumped(dumped, line: creds.Line, raw: Input, dumping: dict[str, str],
     prefixed = PREFIX.match(line.text)
     ip, name = prefixed.group("host"), prefixed.group("hostname")
     kind = dumping.get(ip)
-    taken = [_ref(raw, line.start + prefixed.start("host"), ip)]
-    out = creds.from_dump(found, creds.Line(line.text[at:], line.start + at), raw)
+    taken = [_ref(raw, line.at(prefixed.start("host")), ip)]
+    out = creds.from_dump(found, creds.Line(line.text[at:], line.at(at)), raw)
     for rec in out:
         records.set_field(rec, "host_id", [f"host:{ip}"], taken)
         if rec.get("realm"):
             continue
         if kind == "sam":
-            records.set_field(rec, "realm", name, _ref(raw, line.start + prefixed.start("hostname"), name))
+            records.set_field(rec, "realm", name, _ref(raw, line.at(prefixed.start("hostname")), name))
         elif kind == "ntds" and ip in domains:
             records.set_field(rec, "realm", *domains[ip])
     return out
@@ -760,13 +760,13 @@ def _credential(login: _Login, line: creds.Line, raw: Input) -> dict[str, Any]:
         records.set_field(rec, "hash_type", "ntlm", said)
     else:
         records.set_field(rec, "secret", login.secret, said)
-    records.set_field(rec, "state", CONFIRMED, _ref(raw, line.start + login.marker_at,
+    records.set_field(rec, "state", CONFIRMED, _ref(raw, line.at(login.marker_at),
                                                      line.text[login.marker_at:login.at + len(login.secret)]))
     start, end = prefixed.start("host"), login.at + len(login.secret)
     records.set_field(rec, "hosts", [f"host:{prefixed.group('host')}"],
-                      [_ref(raw, line.start + start, line.text[start:end])])
+                      [_ref(raw, line.at(start), line.text[start:end])])
     if login.pwned:
         end = line.text.rindex(PWNED.strip()) + len(PWNED.strip())
         records.set_field(rec, "admin_hosts", [f"host:{prefixed.group('host')}"],
-                          [_ref(raw, line.start + start, line.text[start:end])])
+                          [_ref(raw, line.at(start), line.text[start:end])])
     return rec

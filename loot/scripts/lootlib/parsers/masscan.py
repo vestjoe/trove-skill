@@ -13,13 +13,12 @@ from typing import Any
 
 from lootlib import records
 from lootlib.encoding import WINDOW, NotText, text_of
-from lootlib.parsers import WRAPPER, Input, ParserError
+from lootlib.parsers import WRAPPER, Input, ParserError, split_lines
 from lootlib.parsers.jsonspan import first_item, members
 from lootlib.parsers.nmaptext import IP
 from lootlib.prov import TOOL, cite
 
 NAME = "masscan"
-LINE = re.compile(r"[^\r\n]*(?:\r\n|\r|\n)|[^\r\n]+$")
 STATES = "open|closed|up|unknown"
 PROTOS = "tcp|udp|sctp|icmp|arp"
 SERVICE_PROTOS = ("tcp", "udp", "sctp")
@@ -57,7 +56,7 @@ class _Fact:
 
 def sniff(data: bytes, hint: str | None = None) -> bool:
     text = data[:WINDOW].decode("utf-8", errors="replace")
-    lines = [line.rstrip("\r\n") for line in LINE.findall(text)]
+    lines = [line for line, _ in split_lines(text, cr=True)]
     if lines and lines[0].strip() == "#masscan":
         return True
     if any(_json_fact(line) is not None for line in lines[:50]):
@@ -72,15 +71,12 @@ def parse(raw: Input) -> list[dict[str, Any]]:
     except NotText as err:
         raise ParserError(str(err)) from err
     held: dict[str, dict[str, Any]] = {}
-    offset = 0
-    for chunk in LINE.findall(text):
-        line = chunk.rstrip("\r\n")
+    for line, offset in split_lines(text, cr=True):
         fact = _fact(line)
         if fact is not None:
             _record(fact, raw, offset, line, held)
         elif line.strip() and not KNOWN.match(line) and not WRAPPER.match(line):
             raw.unread.append(line)
-        offset += len(chunk.encode("utf-8"))
     return list(held.values())
 
 
@@ -168,10 +164,5 @@ def _record(fact: _Fact, raw: Input, line_at: int, line: str, held: dict[str, di
     if fact.banner and fact.banner[0]:
         if "banner" not in svc:
             records.set_field(svc, "banner", fact.banner[0], ref(fact.banner))
-        _add_banner(svc, f"{fact.kind}: {fact.banner[0]}")
+        records.add_to_ext_list(svc, "banners", f"{fact.kind}: {fact.banner[0]}")
     svc["ext"].update(fact.ext)
-
-
-def _add_banner(svc: dict[str, Any], banner: str) -> None:
-    if banner not in svc["ext"].setdefault("banners", []):
-        svc["ext"]["banners"].append(banner)

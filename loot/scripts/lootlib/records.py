@@ -149,6 +149,14 @@ def set_field(rec: dict[str, Any], name: str, value: Any, citation: Any) -> None
     rec["prov"][name] = citation
 
 
+def add_to_ext_list(rec: dict[str, Any], key: str, value: Any) -> None:
+    """Append ``value`` to the list ``rec["ext"][key]``, starting the list if absent; a value
+    already in it is not added again."""
+    held = rec["ext"].setdefault(key, [])
+    if value not in held:
+        held.append(value)
+
+
 def _path(eng: Engagement, rid: str):
     readable = _UNSAFE.sub("_", rid.split(":", 1)[1])[:80]
     return eng.records / rid.split(":", 1)[0] / f"{readable}-{_sha8(rid)}.json"

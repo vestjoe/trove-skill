@@ -1,3 +1,4 @@
+from lootlib import ingest
 from tests.helpers import EngagementCase
 
 
@@ -128,4 +129,17 @@ class NetExec(EngagementCase):
         self.assertIn("Minimum password length: 5", policy["description"])
         self.assertIn("\n   Domain Password Complex: 0", policy["description"])
         self.assertNotIn("status", policy)
+        self.assert_citations_hold()
+
+    def test_a_character_beyond_ascii_early_in_a_line_moves_no_citation(self):
+        path = self.tmp / "nxc-localised.txt"
+        path.write_text(
+            "SMB                      192.168.56.22   445    CASTELBLACK      [*] Windows Server 2019 Standard Évaluation "
+            "17763 x64 (name:CASTELBLACK) (domain:north.sevenkingdoms.local) (signing:False) (SMBv1:False)\n"
+            "SMB                      192.168.56.22   445    CASTELBLACK      [+] north.sevenkingdoms.local\\jon.snow:"
+            "Hïver2026! (Pwn3d!)\n", encoding="utf-8")
+        ingest.import_path(self.eng, path, None)
+        finding = next(f for f in self.all("finding") if f["title"] == "SMB signing not required")
+        self.assertEqual(finding["prov"]["title"]["quote"], "(signing:False)")
+        self.assertTrue(self._creds()["jon.snow"]["prov"]["admin_hosts"][0]["quote"].endswith("Hïver2026! (Pwn3d!)"))
         self.assert_citations_hold()
