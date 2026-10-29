@@ -202,6 +202,8 @@ At CTF scale every read loads `records/**.json` into memory. There is no index.
 
 Each line shape a parser accepts is taken from the tool's source or a real capture; `tests/SOURCES.md` lists them.
 
+A text parser reads lines that end at `\n` (or `\r\n`); masscan's screen output also ends one at a lone `\r`, which its progress line rewrites. No other character ends a line: a U+0085, U+2028 or form feed inside a value is part of that value.
+
 - **nmap** XML (and masscan XML), normal text and grepable output (and masscan `-oG`): hosts and services. naabu 2.7's `-oX` and `-oG` are read the same way; its `-oG` names a host with no name by its address, which is not a hostname.
 - **masscan** `-oL`, `-oJ`, `-oD` and screen output, plus its `-oX` and `-oG` through the nmap parsers: an open port is a service with its `state`; an ARP reply is a host that is `up` with its MAC in `ext`. masscan writes each banner as its own record with a type (`http`, `title`, `X509`, …): the type is never the service's `name`; the first banner for a port is its `banner` and every one is in `ext.banners` as `<type>: <text>`, once each (a later import of the same port replaces that list). masscan's run and progress lines (`Starting masscan`, `rate: … found=N`) are its own, not sent to AI. An `-oG` banner line names no protocol, so it joins the one service held at that address and port, or goes to AI extraction (each distinct line once). Screen output is masscan's only when no nmap line (`Starting Nmap`, `Nmap scan report for`) is in the file, since `nmap -v` prints the same `Discovered open port` lines.
 - **naabu** `-json`: each line is one open port, a service with `host_id`, `port` and `protocol`, plus `name`, `product`, `version` and `banner` when service discovery ran. The address is a host; `host`, when naabu writes it, is that host's hostname. naabu writes no state, so none is set. A line without `ip`, `port` and `protocol` goes to AI extraction, as do plain `host:port` lines (no protocol, and the shape of `user:pass`).
@@ -306,6 +308,8 @@ SKILL.md stays model-invocable, so "import this scan" works without a command. I
 `uv run --python 3.11 python -m unittest discover -s tests -t .`, run by CI on Linux.
 
 - **Parsers and store:** every parser has tests against `tests/fixtures/` or, for databases, `tests/databases/`. Fixture counts are regression tests; a count changes only with the spec.
+- **Real captures:** a new parser merges only with at least one real capture of its tool's output, from `tests/lab/` or a licensed sample in `tests/samples/`. Fixtures built from the tool's source stay for the edge cases a capture does not show.
+- **Line breaks:** a U+0085, U+2028 or form feed put inside a value of each text parser's fixtures leaves its records, unread lines and notices as they were but for that character.
 - **AI ingest:** hand-written proposals over the freeform fixtures: accept, invented quote, value not in its quote, refused fields, dropped key field, malformed JSON.
 - **End-to-end:** import all of `tests/fixtures/` and assert summed counts and the operator questions by record id.
 - **The GOAD corpus is the acceptance test.** `tests/corpus/goad/` is one engagement against a GOAD lab, grouped by tool; `tests/corpus/SOURCES.md` gives each file's run and command. A new capture adds to it; nothing is dropped. `tests/test_corpus.py` imports it as a folder and file by file in reverse, then asks Q1–Q5 with the searches from `references/chat.md` and checks the answers and citations. Cross-tool behaviour is tested here.

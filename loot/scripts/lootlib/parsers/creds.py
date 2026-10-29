@@ -12,7 +12,7 @@ from typing import Any
 
 from lootlib import find, records
 from lootlib.encoding import WINDOW, NotText, text_of
-from lootlib.parsers import WRAPPER, Input, ParserError, hashformats
+from lootlib.parsers import WRAPPER, Input, ParserError, hashformats, split_lines
 from lootlib.prov import TOOL, cite
 
 NAME = "creds"
@@ -81,6 +81,10 @@ class Line:
     def end(self) -> int:
         return self.start + len(self.text.encode("utf-8"))
 
+    def at(self, index: int) -> int:
+        """Byte offset in the blob of this line's character ``index``."""
+        return self.start + len(self.text[:index].encode("utf-8"))
+
     def offset_of(self, needle: str, from_: int = 0) -> int:
         """Byte offset in the blob of ``needle``, searching this line only."""
         at = self.text.find(needle, from_)
@@ -90,15 +94,11 @@ class Line:
 def unlogged(line: Line) -> Line:
     """A Responder session-log line as the screen showed it: the logger's time prefix dropped."""
     logged = LOGGED.match(line.text)
-    return Line(line.text[logged.end():], line.start + logged.end()) if logged else line
+    return Line(line.text[logged.end():], line.at(logged.end())) if logged else line
 
 
 def lines(text: str) -> list[Line]:
-    out, offset = [], 0
-    for raw_line in text.splitlines(keepends=True):
-        out.append(Line(raw_line.rstrip("\r\n"), offset))
-        offset += len(raw_line.encode("utf-8"))
-    return out
+    return [Line(line, at) for line, at in split_lines(text)]
 
 
 def sniff(data: bytes, hint: str | None = None) -> bool:
@@ -107,7 +107,7 @@ def sniff(data: bytes, hint: str | None = None) -> bool:
         text = data[:WINDOW].decode("utf-8", errors="strict")
     except UnicodeDecodeError:
         return False
-    rows = [unlogged(Line(t, 0)).text for t in text.splitlines()]
+    rows = [unlogged(line).text for line in lines(text)]
     return any(_claimable(t) for t in rows) or any(
         _table_header(t) and nxt.startswith("---") for t, nxt in zip(rows, rows[1:]))
 

@@ -9,7 +9,7 @@ from typing import Any
 
 from lootlib import records
 from lootlib.encoding import NotText, text_of
-from lootlib.parsers import Input, ParserError
+from lootlib.parsers import Input, ParserError, split_lines
 from lootlib.prov import TOOL, cite
 
 NAME = "users"
@@ -27,11 +27,8 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         raise ParserError(str(err)) from err
     out: list[dict[str, Any]] = []
     seen: dict[str, int] = {}
-    offset = 0
-    for line in text.splitlines(keepends=True):
-        start = offset
-        offset += len(line.encode("utf-8"))
-        principal = line.rstrip("\r\n").strip()
+    for line, start in split_lines(text):
+        principal = line.strip()
         if not principal or principal.startswith(COMMENT):
             continue
         if principal in seen:

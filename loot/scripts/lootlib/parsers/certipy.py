@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from typing import Any, Iterator
 
 from lootlib import records
-from lootlib.parsers import WRAPPER, Input, ParserError
+from lootlib.parsers import WRAPPER, Input, ParserError, split_lines
 from lootlib.prov import TOOL, cite
 
 NAME = "certipy"
@@ -43,7 +43,8 @@ def sniff(data: bytes, hint: str | None = None) -> bool:
 def parse(raw: Input) -> list[dict[str, Any]]:
     try:
         text = raw.data.decode("utf-8")
-        objects = list(_from_json(text) if _JSON.match(raw.data[:256]) else _from_text(text, raw))
+        json_text = text if _JSON.match(raw.data[:256]) else None
+        objects = list(_from_json(text) if json_text else _from_text(text, raw))
     except (UnicodeDecodeError, ValueError, IndexError) as err:
         raise ParserError(f"not certipy output Trove can read: {err}") from err
     cas = {o.first("CA Name")[0]: o for o in objects if o.kind == "ca" and o.first("CA Name")}
@@ -62,7 +63,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
                 held = several if named else waiting
                 held[dns[0]] = len(named)
                 continue
-            out += [_finding(raw, text, obj, ca_name[0], esc, reason, named[0], dns) for esc, reason in obj.vulns]
+            out += [_finding(raw, json_text, obj, ca_name[0], esc, reason, named[0], dns) for esc, reason in obj.vulns]
     templates = sum(o.kind == "template" for o in objects)
     raw.notices.append(f"{raw.source}: {len(cas)} CA(s) and {templates} template(s); only the weaknesses "
                        "certipy flags are recorded, not their settings or permissions. The file is in raw/ verbatim.")
@@ -93,7 +94,7 @@ def _hosts(hosts: list[dict[str, Any]], dns: str) -> list[dict[str, Any]]:
     return []
 
 
-def _finding(raw: Input, text: str, obj: _Object, ca: str, esc: Span, reason: Span,
+def _finding(raw: Input, text: str | None, obj: _Object, ca: str, esc: Span, reason: Span,
              host: dict[str, Any], dns: Span) -> dict[str, Any]:
     title = f"{esc[0]}: {ca}" if obj.kind == "ca" else f"{esc[0]}: template {obj.first('Template Name')[0]} on {ca}"
     rec = records.new("finding")
@@ -104,7 +105,10 @@ def _finding(raw: Input, text: str, obj: _Object, ca: str, esc: Span, reason: Sp
     return rec
 
 
-def _ref(raw: Input, text: str, span: Span) -> dict[str, Any]:
+def _ref(raw: Input, text: str | None, span: Span) -> dict[str, Any]:
+    """A span's citation: character offsets into ``text``, or byte offsets when there is no text."""
+    if text is None:
+        return cite(raw.blob, raw.data, span[1], span[2], TOOL, raw.source)
     lo = len(text[:span[1]].encode("utf-8"))
     return cite(raw.blob, raw.data, lo, lo + len(text[span[1]:span[2]].encode("utf-8")), TOOL, raw.source)
 
@@ -149,12 +153,14 @@ def _items(text: str, at: int) -> Iterator[tuple[Any, int, int]]:
 
 
 def _from_text(text: str, raw: Input) -> list[_Object]:
-    """Objects from certipy's indented text; lines outside it that are not its status go to ``unread``."""
+    """Objects from certipy's indented text, spans in bytes; lines outside it that are not its status
+    go to ``unread``."""
     objects: list[_Object] = []
-    kind, obj, in_vulns, last, column, at = None, None, False, None, 0, 0
-    for line in text.splitlines(keepends=True):
-        start, at = at, at + len(line)
-        body = line.rstrip("\r\n")
+    kind, obj, in_vulns, last, column = None, None, False, None, 0
+    for body, start in split_lines(text):
+        def at(i: int) -> int:
+            return start + len(body[:i].encode("utf-8"))
+
         indent = len(body) - len(body.lstrip(" "))
         if not body.strip():
             continue
@@ -178,13 +184,13 @@ def _from_text(text: str, raw: Input) -> list[_Object]:
             in_vulns, last = body.strip() == _VULNS, None
         found = _FIELD.match(body)
         if found:
-            key = (found["key"], start + found.start("key"), start + found.end("key"))
-            value = (found["value"], start + found.start("value"), start + found.end("value"))
+            key = (found["key"], at(found.start("key")), at(found.end("key")))
+            value = (found["value"], at(found.start("value")), at(found.end("value")))
             if in_vulns and indent == 6:
                 obj.vulns.append((key, value))
             elif indent == 4:
                 obj.fields[key[0]] = last = [value]
                 column = found.start("value")
         elif last is not None and indent == column:
-            last.append((body.strip(), start + indent, start + len(body.rstrip())))
+            last.append((body.strip(), at(indent), at(len(body.rstrip()))))
     return objects

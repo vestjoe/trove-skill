@@ -4,12 +4,23 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Iterator
 
 from lootlib.errors import LootError
 
 # What wraps any tool's output: proxychains-ng, Kali's two-line zsh prompt, a rich traceback panel.
 WRAPPER = re.compile(r"^(?:\[proxychains\] |┌──.*\]\s*$|└─[$#]\s*$|\s*[╭│╰])")
+_LF = re.compile(r"[^\n]*\n|[^\n]+$")
+_CR = re.compile(r"[^\r\n]*(?:\r\n|\r|\n)|[^\r\n]+$")
+
+
+def split_lines(text: str, cr: bool = False) -> Iterator[tuple[str, int]]:
+    """Each line of ``text`` without its ending, with the byte offset it starts at. Breaks at ``\\n``
+    only, and at a lone ``\\r`` too when ``cr``; never at the other breaks ``str.splitlines`` knows."""
+    offset = 0
+    for chunk in (_CR if cr else _LF).findall(text):
+        yield chunk.rstrip("\r\n"), offset
+        offset += len(chunk.encode("utf-8"))
 
 
 class ParserError(LootError):
