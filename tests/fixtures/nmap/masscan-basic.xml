@@ -1,11 +1,19 @@
 <?xml version="1.0"?>
-<!-- masscan v1.3.2
-&#45;&#45;open &#45;&#45;banners -p1-65535 10.10.10.0/24 -oX masscan-basic.xml
--->
-<nmaprun scanner="masscan" start="1756500000" version="1.0-BETA" xmloutputversion="1.03">
+<!-- masscan v1.0 scan -->
+<nmaprun scanner="masscan" start="1793181600" version="1.0-BETA"  xmloutputversion="1.03">
 <scaninfo type="syn" protocol="tcp" />
-<host endtime="1756500001"><address addr="10.10.10.5" addrtype="ipv4"/><ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" banner="SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.4"/></port></ports></host>
-<host endtime="1756500001"><address addr="10.10.10.5" addrtype="ipv4"/><ports><port protocol="tcp" portid="443" ><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" banner=""/></port></ports></host>
-<host endtime="1756500002"><address addr="10.10.10.6" addrtype="ipv4"/><ports><port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="microsoft-ds" banner=""/></port></ports></host>
-<runstats><finished time="1756500003" timestr="2026-08-30 12:00:03" elapsed="3" /><hosts up="2" /></runstats>
+<host endtime="1793181601"><address addr="192.168.56.50" addrtype="ipv4"/><ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/></port></ports></host>
+<host endtime="1793181601"><address addr="192.168.56.50" addrtype="ipv4"/><ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/></port></ports></host>
+<host endtime="1793181602"><address addr="192.168.56.51" addrtype="ipv4"/><ports><port protocol="tcp" portid="3389"><state state="open" reason="syn-ack" reason_ttl="128"/></port></ports></host>
+<host endtime="1793181602"><address addr="192.168.56.51" addrtype="ipv4"/><ports><port protocol="udp" portid="161"><state state="open" reason="none" reason_ttl="128"/></port></ports></host>
+<host endtime="1793181603"><address addr="2001:db8:5eed::52" addrtype="ipv6"/><ports><port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/></port></ports></host>
+<host endtime="1793181604"><address addr="192.168.56.50" addrtype="ipv4"/><ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64" /><service name="ssh" banner="SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10"></service></port></ports></host>
+<host endtime="1793181604"><address addr="192.168.56.50" addrtype="ipv4"/><ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64" /><service name="http.server" banner="nginx/1.18.0 (Ubuntu)"></service></port></ports></host>
+<host endtime="1793181604"><address addr="192.168.56.50" addrtype="ipv4"/><ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64" /><service name="title" banner="Maester\x27s Library"></service></port></ports></host>
+<host endtime="1793181605"><address addr="192.168.56.51" addrtype="ipv4"/><ports><port protocol="udp" portid="161"><state state="open" reason="response" reason_ttl="128" /><service name="snmp" banner="sysDescr:Hardware: Intel64 Family 6 - Software: Windows Version 6.3"></service></port></ports></host>
+<host endtime="1793181606"><address addr="2001:db8:5eed::52" addrtype="ipv6"/><ports><port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64" /><service name="X509" banner="MIIC3jCCAcagAwIBAgIQ"></service></port></ports></host>
+<runstats>
+<finished time="1793181610" timestr="2026-10-28 10:00:10" elapsed="10" />
+<hosts up="5" down="0" total="5" />
+</runstats>
 </nmaprun>

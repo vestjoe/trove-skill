@@ -1,0 +1,10 @@
+{"ip":"192.168.56.50","timestamp":"1793181601","port":22,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"192.168.56.50","timestamp":"1793181601","port":80,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"192.168.56.51","timestamp":"1793181602","port":3389,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":128}}
+{"ip":"192.168.56.51","timestamp":"1793181602","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":128}}
+{"ip":"2001:db8:5eed::52","timestamp":"1793181603","port":443,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"192.168.56.50","timestamp":"1793181604","port":22,"proto":"tcp","rec_type":"banner","data":{"service_name":"ssh","banner":"SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10"}}
+{"ip":"192.168.56.50","timestamp":"1793181604","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"http.server","banner":"nginx/1.18.0 (Ubuntu)"}}
+{"ip":"192.168.56.50","timestamp":"1793181604","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"title","banner":"Maester\u0027s Library"}}
+{"ip":"192.168.56.51","timestamp":"1793181605","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Hardware: Intel64 Family 6 - Software: Windows Version 6.3"}}
+{"ip":"2001:db8:5eed::52","timestamp":"1793181606","port":443,"proto":"tcp","rec_type":"banner","data":{"service_name":"X509","banner":"MIIC3jCCAcagAwIBAgIQ"}}

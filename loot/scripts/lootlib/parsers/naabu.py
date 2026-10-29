@@ -6,12 +6,12 @@ A line that is not an object with ``ip``, ``port`` and ``protocol`` is left for 
 from __future__ import annotations
 
 import json
-import re
-from typing import Any, Iterator
+from typing import Any
 
 from lootlib import records
 from lootlib.encoding import WINDOW, NotText, text_of
 from lootlib.parsers import WRAPPER, Input, ParserError
+from lootlib.parsers.jsonspan import members
 from lootlib.prov import TOOL, cite
 
 NAME = "naabu"
@@ -19,7 +19,6 @@ SERVICE_FIELDS = ("name", "product", "version", "banner")
 SERVICE_EXT = ("tls", "cdn", "cdn-name", "tunnel", "extra_info", "method", "confidence", "cpes", "hostname",
                "os_type", "device_type")
 _DECODER = json.JSONDecoder()
-_WS = re.compile(r"\s*")
 
 Span = tuple[Any, int, int]
 
@@ -53,27 +52,15 @@ def _result(line: str) -> dict[str, Span] | None:
         return None
     try:
         whole, end = _DECODER.raw_decode(line)
-        members = {key: (value, start, stop) for key, value, start, stop in _members(line)}
+        found = {key: (value, start, stop) for key, value, start, stop in members(line)}
     except (ValueError, IndexError):
         return None
     if line[end:].strip() or not isinstance(whole, dict):
         return None
-    ip, port, protocol = (members.get(k, (None,))[0] for k in ("ip", "port", "protocol"))
+    ip, port, protocol = (found.get(k, (None,))[0] for k in ("ip", "port", "protocol"))
     if not (isinstance(ip, str) and ip and type(port) is int and isinstance(protocol, str) and protocol):
         return None
-    return members
-
-
-def _members(line: str) -> Iterator[tuple[str, Any, int, int]]:
-    """Each member of the flat JSON object on ``line``: key, value and the value's span."""
-    at = _WS.match(line, 1).end()
-    while line[at] != "}":
-        key, key_end = _DECODER.raw_decode(line, at)
-        start = _WS.match(line, _WS.match(line, key_end).end() + 1).end()
-        value, end = _DECODER.raw_decode(line, start)
-        yield key, value, start, end
-        at = _WS.match(line, end).end()
-        at = _WS.match(line, at + 1).end() if line[at] == "," else at
+    return found
 
 
 def _records(found: dict[str, Span], raw: Input, line_at: int, line: str,

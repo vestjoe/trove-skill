@@ -7,7 +7,7 @@ save output, or when a file of a tool Trove reads went to AI extraction whole.
 | Tool | Save it like this | Import |
 |---|---|---|
 | nmap | `nmap -sC -sV -oA scans/<name> <targets>` | `scans/<name>.xml` |
-| masscan | `masscan <targets> -p<ports> --banners -oX scans/<name>.xml` | the `.xml` |
+| masscan | `sudo masscan <targets> -p1-65535 --banners --source-ip <unused-ip> -oX scans/<name>.xml` | the `.xml` |
 | naabu | `naabu -host <targets> -p - -json -o scans/<name>.json` | the `.json` |
 | NetExec | set `log_mode = True` in `~/.nxc/nxc.conf` once, or add `--log nxc/<what>.log` to one run | `~/.nxc/logs/`, or the `.log` |
 | NetExec database | make a workspace per engagement first: `nxcdb`, then `workspace create <name>` | `~/.nxc/workspaces/<name>/` |
@@ -37,6 +37,14 @@ Why these, and what to avoid:
   labs; the import counts its hosts by range so that shows. `--lsa` secrets
   are not in the database; import the logs for those. `ldap.db` and `ssh.db`
   are not read.
+- **masscan** has no default ports, so give `-p`. `--banners` needs
+  `--source-ip` set to an unused address in the lab range (or a firewall rule
+  dropping `--source-port`'s replies); otherwise the OS resets the connection
+  before a banner comes back. Its default rate is 100 packets a second; raise
+  `--rate` carefully over a VPN. It needs root. Every text format reads:
+  `-oX`, `-oG`, `-oL`, `-oJ`, `-oD` and the screen. `-oB` does not; convert it
+  with `masscan --readscan <file> -oX <name>.xml`. Each banner is kept on its
+  port; masscan's banner type (`title`, `X509`) is not a service name.
 - **naabu** `-json` writes one line per open port with its protocol; the
   plain `host:port` lines do not say TCP or UDP, so they go to the AI. On
   naabu 2.7 or later `-oX` or `-oG` reads as well; avoid `-csv`. By default it

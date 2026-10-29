@@ -1,0 +1,12 @@
+#masscan
+open tcp 22 192.168.56.50 1793181601
+open tcp 80 192.168.56.50 1793181601
+open tcp 3389 192.168.56.51 1793181602
+open udp 161 192.168.56.51 1793181602
+open tcp 443 2001:db8:5eed::52 1793181603
+banner tcp 22 192.168.56.50 1793181604 ssh SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10
+banner tcp 80 192.168.56.50 1793181604 http.server nginx/1.18.0 (Ubuntu)
+banner tcp 80 192.168.56.50 1793181604 title Maester\x27s Library
+banner udp 161 192.168.56.51 1793181605 snmp sysDescr:Hardware: Intel64 Family 6 - Software: Windows Version 6.3
+banner tcp 443 2001:db8:5eed::52 1793181606 X509 MIIC3jCCAcagAwIBAgIQ
+# end

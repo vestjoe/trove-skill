@@ -23,9 +23,12 @@ Where the fixtures built from a tool's source, the test databases and the single
 | `nmap/naabu-basic.xml`, `nmap/naabu-basic.gnmap` | naabu v2.7.0 `pkg/runner/output_nmap.go`: `writeNmapXML` (`xml.Header`, `<!DOCTYPE nmaprun>`, two-space indent, state `open`) and `writeGreppable` (`# Naabu %s scan initiated`, `Host: %s (%s)\tPorts:`, `%d/open/%s//%s//%s/`, `# Naabu done at`) |
 | `naabu/naabu-sunspear.json` | naabu v2.3.0 `v2/pkg/runner/output.go` `jsonResult` (embedded `Result` then `port`, `protocol`, `tls`; `host` only when it differs from `ip`) |
 | `naabu/naabu-pyke-sv.json` | naabu v2.7.0 `pkg/runner/output.go` `jsonResult` with `-sV` service fields (`pkg/port/port.go` `Service`), written to the `-o` file |
+| `nmap/masscan-basic.xml` | masscan `8e6b3b0` `out-xml.c`: `xml_out_open`, `xml_out_status`, `xml_out_banner` (a banner is its own `<host>`), `xml_out_close`; `\r\n` line ends |
+| `nmap/masscan-basic.gnmap` | masscan `8e6b3b0` `out-grepable.c`: `Timestamp: %llu\tHost: %s ()\tPorts: …` with the service from `tcp_service_name(port)`, banner line `Host: %s ()\tPort: %u\tService: %s\tBanner: %s` |
+| `masscan/masscan-list.txt`, `masscan/masscan.json`, `masscan/masscan.ndjson`, `masscan/masscan-screen.txt` | masscan `8e6b3b0` `out-text.c` (`-oL`), `out-json.c` (`-oJ`, `,` line before every record but the first), `out-ndjson.c` (`-oD`), `output.c` `output_report_status`/`output_report_banner` (screen, padded to 79 columns, ARP with MAC and vendor); banner escaping `\xNN` / `\u00NN`; the same scan as `nmap/masscan-basic.*` |
 | `nmap/nmap-verbose-os.nmap` | nmap `f06480d` `-v -d` lines (`nmap.cc`, `output.cc`, `scan_engine.cc`, `osscan.cc`, `timing.cc`, `tcpip.cc`), checked against a real nmap 7.98 run |
 
-OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
+192.168.56.50, .51, .53 and 2001:db8:5eed::52 (masscan), OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
 
 ## Databases
 

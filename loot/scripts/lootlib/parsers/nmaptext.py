@@ -1,4 +1,4 @@
-"""nmap ``-oN`` and ``-oG`` text (and naabu ``-oG``) to hosts and services, every field cited.
+"""nmap ``-oN`` and ``-oG`` text (and naabu and masscan ``-oG``) to hosts and services, every field cited.
 
 The version column is kept whole as ``banner``: splitting it into product and
 version would be a guess.
@@ -25,13 +25,14 @@ PORT_ROW = re.compile(
     r"^(?P<port>\d{1,5})/(?P<protocol>tcp|udp|sctp|ip) +(?P<state>\S+) +"
     r"(?P<service>\S+)(?: +(?P<banner>\S.*?))? *$"
 )
-GREP_HOST = re.compile(rf"^Host: (?P<ip>{IP}) \((?P<hostname>[^)]*)\)")
+GREP_HOST = re.compile(rf"^(?:Timestamp: \d+\t)?Host: (?P<ip>{IP}) \((?P<hostname>[^)]*)\)")
+BANNER_FIELDS = ("Port: ", "Service: ", "Banner: ")
 GREP_STATUS = re.compile(r"^Status: (?P<state>[A-Za-z]+)")
 PORTS_FIELD = "Ports: "
 ENTRY_START = re.compile(r"(?:^|, )(?=\d{1,5}/)")
 ENTRY_FIELDS = ("port", "state", "protocol", "owner", "service", "rpc", "banner")
 NMAP_LINE = re.compile(
-    r"^(?:# Nmap |# Ports scanned: |# Naabu \S+ scan initiated .+$|# Naabu done at .+ -- \d+ IP addresses \(\d+ hosts up\) scanned$|\|(?:_|\s+\S)(?!.*\|\s*$)|SF[:-]|Nmap scan report for \S+(?: \([^)]*\))? *$|Nmap done: "
+    r"^(?:# Nmap |# Ports scanned: |# Naabu \S+ scan initiated .+$|# Naabu done at .+ -- \d+ IP addresses \(\d+ hosts up\) scanned$|# Masscan \S+ scan initiated .+$|# Masscan done at .+$|\|(?:_|\s+\S)(?!.*\|\s*$)|SF[:-]|Nmap scan report for \S+(?: \([^)]*\))? *$|Nmap done: "
     r"|Starting Nmap |Host is (?:up|down)\b|Host script results:"
     r"|Not shown: |All \d+ scanned ports|Some closed ports|PORT +STATE|Other addresses for |rDNS record for "
     r"|Service Info: (?:Host|OS|Device|CPE)s?: |Service detection performed|MAC Address: |Device type: "
@@ -86,11 +87,12 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         raise ParserError(str(err)) from err
     held: dict[str, dict[str, Any]] = {}
     unread: list[str] = []
+    banners: list[tuple[str, int, str, str, int, _Line]] = []
     current = None
     for line in _lines(text):
         grepable = GREP_HOST.match(line.text)
         if grepable is not None:
-            _grepable_host(grepable, line, raw, held, unread)
+            _grepable_host(grepable, line, raw, held, unread, banners)
             current = None
             continue
         report = REPORT.match(line.text)
@@ -112,6 +114,8 @@ def parse(raw: Input) -> list[dict[str, Any]]:
             _add_service(_row_port(row), current, line, raw, held)
         else:
             _unread(line, raw)
+    for banner in banners:
+        _add_banner(banner, raw, held)
     if unread:
         raw.notices.append(
             f"{len(unread)} port entr(y/ies) did not state one of {', '.join(PROTOCOLS)} and were not read "
@@ -149,11 +153,16 @@ def _host(ip: str, ip_at: int, hostname: str, hostname_at: int, line: _Line,
     return host
 
 
-def _grepable_host(match: "re.Match[str]", line: _Line, raw: Input,
-                   held: dict[str, dict[str, Any]], unread: list[str]) -> None:
+def _grepable_host(match: "re.Match[str]", line: _Line, raw: Input, held: dict[str, dict[str, Any]],
+                   unread: list[str], banners: list[tuple[str, int, str, str, int, _Line]]) -> None:
     host = _host(match.group("ip"), match.start("ip"), match.group("hostname"),
                  match.start("hostname"), line, raw, held)
     at = match.end()
+    fields = line.text[at:].split("\t")[1:]
+    if len(fields) == 3 and all(f.startswith(n) for f, n in zip(fields, BANNER_FIELDS)) and fields[0][6:].isdigit():
+        banner_at = len(line.text) - len(fields[2]) + len(BANNER_FIELDS[2])
+        banners.append((match.group("ip"), int(fields[0][6:]), fields[1][9:], fields[2][8:], banner_at, line))
+        return
     for field in line.text[at:].split("\t"):
         at += len(field) + 1
         start = at - len(field) - 1
@@ -225,6 +234,21 @@ def _add_service(found: _Port, host: dict[str, Any], line: _Line, raw: Input,
     if found.tunnel:
         svc["ext"]["tunnel"] = found.tunnel
     held.setdefault(records.make_id(svc), svc)
+
+
+def _add_banner(banner: tuple[str, int, str, str, int, _Line], raw: Input,
+                held: dict[str, dict[str, Any]]) -> None:
+    """A masscan grepable banner joins the one service held at its address and port; the line
+    names no protocol, so with none or several it is left for AI extraction."""
+    ip, port, kind, text, at, line = banner
+    found = [r for r in held.values() if r["type"] == "service" and r["host_id"] == f"host:{ip}" and r["port"] == port]
+    if len(found) != 1:
+        _unread(line, raw)
+        return
+    if text and "banner" not in found[0]:
+        records.set_field(found[0], "banner", text, _cite(raw, line, at, text))
+    if text:
+        found[0]["ext"]["banners"] = found[0]["ext"].get("banners", []) + [f"{kind}: {text}"]
 
 
 def _set_state(host: dict[str, Any], state: str, line: _Line, at: int, raw: Input) -> None:

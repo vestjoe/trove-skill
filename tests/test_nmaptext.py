@@ -1,3 +1,4 @@
+from lootlib import ingest, rawstore
 from tests.helpers import EngagementCase
 
 
@@ -71,3 +72,26 @@ class NmapText(EngagementCase):
         self.assertEqual(svcs[("host:192.168.56.41", 22, "tcp")]["banner"], "OpenSSH 8.9p1 Ubuntu 3ubuntu0.10")
         self.assertEqual(svcs[("host:192.168.56.40", 53, "udp")]["name"], "domain")
         self.assert_citations_hold()
+
+    def test_masscan_grepable_ports_and_banners_are_read_whole(self):
+        report = self.import_fixture("nmap/masscan-basic.gnmap")
+        self.assertEqual((report["parser"], report["counts"], report["notes"]),
+                         ("nmap-text", {"host": 3, "service": 5}, []))
+        svcs = self._services()
+        web = svcs[("host:192.168.56.50", 80, "tcp")]
+        self.assertEqual((web["name"], web["state"], web["banner"]), ("http", "open", "nginx/1.18.0 (Ubuntu)"))
+        self.assertEqual(web["ext"]["banners"], ["http.server: nginx/1.18.0 (Ubuntu)", "title: Maester\\x27s Library"])
+        self.assertEqual(svcs[("host:192.168.56.51", 161, "udp")]["ext"]["banners"][0][:5], "snmp:")
+        self.assertNotIn("hostnames", self.all("host")[0])
+        self.assert_citations_hold()
+
+    def test_a_masscan_grepable_banner_with_no_single_port_to_join_goes_to_the_agent(self):
+        data = ("Timestamp: 1793181602\tHost: 192.168.56.53 ()\tPorts: 53/open/tcp//domain//\n"
+                "Timestamp: 1793181602\tHost: 192.168.56.53 ()\tPorts: 53/open/udp//domain//\n"
+                "Host: 192.168.56.53 ()\tPort: 53\tService: dns-ver\tBanner: Microsoft DNS 6.3.9600\n"
+                "Host: 192.168.56.53 ()\tPort: 88\tService: unknown\tBanner: x\n")
+        report = ingest.import_data(self.eng, data.encode(), "masscan.gnmap")[0]
+        self.assertEqual(report["counts"], {"host": 1, "service": 2})
+        self.assertFalse([s for s in self.all("service") if "banner" in s])
+        queued = [e for e in rawstore.manifest(self.eng) if e.get("ai") == "pending"]
+        self.assertEqual(len(rawstore.read(self.eng, queued[0]["blob"]).decode().splitlines()), 2)

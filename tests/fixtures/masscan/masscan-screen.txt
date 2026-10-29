@@ -1,0 +1,11 @@
+Discovered up port 0/arp on 192.168.56.53 (08:00:27:5e:ed:53) PCS Systemtechnik GmbH
+Discovered open port 22/tcp on 192.168.56.50                                   
+Discovered open port 80/tcp on 192.168.56.50                                   
+Discovered open port 3389/tcp on 192.168.56.51                                 
+Discovered open port 161/udp on 192.168.56.51                                  
+Discovered open port 443/tcp on 2001:db8:5eed::52                              
+Banner on port 22/tcp on 192.168.56.50: [ssh] SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10
+Banner on port 80/tcp on 192.168.56.50: [http.server] nginx/1.18.0 (Ubuntu)    
+Banner on port 80/tcp on 192.168.56.50: [title] Maester\x27s Library           
+Banner on port 161/udp on 192.168.56.51: [snmp] sysDescr:Hardware: Intel64 Family 6 - Software: Windows Version 6.3
+Banner on port 443/tcp on 2001:db8:5eed::52: [X509] MIIC3jCCAcagAwIBAgIQ       

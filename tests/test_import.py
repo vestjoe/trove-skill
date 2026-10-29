@@ -9,8 +9,8 @@ from lootlib import ingest, rawstore, records
 from tests.helpers import FIXTURES, EngagementCase
 from tests.test_cli import Cli
 
-ALL_FIXTURES = {"credential": 68, "finding": 29, "group": 153, "host": 29, "principal": 41,
-                "relationship": 83, "service": 64, "share": 6}
+ALL_FIXTURES = {"credential": 68, "finding": 29, "group": 153, "host": 33, "principal": 41,
+                "relationship": 83, "service": 69, "share": 6}
 
 
 class Directory(EngagementCase):

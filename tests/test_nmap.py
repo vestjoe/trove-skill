@@ -33,16 +33,25 @@ class NmapXml(EngagementCase):
 
     def test_masscan_is_read_by_the_nmap_parser_and_one_host_stays_one_record(self):
         report = self.import_fixture("nmap/masscan-basic.xml")
-        self.assertEqual(report["parser"], "nmap")
-        self.assertEqual(len(self.all("host")), 2)
-        self.assertEqual({(s["port"], s["protocol"], s["name"]) for s in self.all("service")},
-                         {(22, "tcp", "ssh"), (443, "tcp", "https"), (445, "tcp", "microsoft-ds")})
+        self.assertEqual((report["parser"], report["counts"]["service"]), ("nmap", 5))
+        self.assertEqual({h["ip"] for h in self.all("host")}, {"192.168.56.50", "192.168.56.51", "2001:db8:5eed::52"})
+        svcs = {s["id"]: s for s in self.all("service")}
+        self.assertEqual(len(svcs), 5)
+        self.assertEqual({(s["port"], s["protocol"], s["state"]) for s in svcs.values()},
+                         {(22, "tcp", "open"), (80, "tcp", "open"), (3389, "tcp", "open"), (161, "udp", "open"),
+                          (443, "tcp", "open")})
+        self.assert_citations_hold()
 
-    def test_a_truncated_scan_is_refused_whole_and_its_bytes_kept(self):
-        report = self.import_fixture("nmap/nmap-truncated.xml")
-        self.assertIn("not readable nmap XML", report["status"])
-        self.assertEqual(self.all(), [])
-        self.assertEqual(rawstore.manifest(self.eng)[0]["ai"], "refused")
+    def test_a_masscan_banner_type_is_not_a_service_name_and_the_first_banner_is_kept(self):
+        self.import_fixture("nmap/masscan-basic.xml")
+        svcs = {s["id"]: s for s in self.all("service")}
+        self.assertFalse([s["name"] for s in svcs.values() if "name" in s])
+        web = svcs["service:192.168.56.50-tcp-80"]
+        self.assertEqual(web["banner"], "nginx/1.18.0 (Ubuntu)")
+        self.assertEqual(web["ext"]["banners"], ["http.server: nginx/1.18.0 (Ubuntu)", "title: Maester\\x27s Library"])
+        self.assertEqual(svcs["service:192.168.56.51-udp-161"]["ext"]["banners"][0][:5], "snmp:")
+        self.assertNotIn("banner", svcs["service:192.168.56.51-tcp-3389"])
+        self.assert_citations_hold()
 
     def test_naabu_xml_is_read_by_the_nmap_parser(self):
         report = self.import_fixture("nmap/naabu-basic.xml")
