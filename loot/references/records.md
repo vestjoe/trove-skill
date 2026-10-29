@@ -71,4 +71,5 @@ Writing a record whose id already exists merges into it:
   state to `cracked`, whichever file arrives first.
 - A state never moves down: `cracked` over `confirmed` over `found`.
 
-There is no severity field. Never add one in an answer.
+There is no severity field. A nuclei finding keeps nuclei's stated severity in
+`ext.severity`; quote it as nuclei's. Never add one of your own in an answer.

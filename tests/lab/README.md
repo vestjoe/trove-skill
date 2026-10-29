@@ -16,7 +16,7 @@ and takes a few minutes.
 | lab-web | 10.99.56.10 | ssh 22, ftp 21, telnet 23, smtp 25, http 80 and 8080, https 443 |
 | lab-files | 10.99.56.11 | smb 139/445, dns 53 (tcp and udp), snmp 161/udp, ntp 123/udp |
 | lab-cache | 10.99.56.12 | redis 6379, memcached 11211 (tcp and udp), http 80 and 8080, https 443 |
-| scanner | 10.99.56.5 | masscan 1.3.2, naabu 2.7.0, nmap; resolves `*.lab.test` through lab-files |
+| scanner | 10.99.56.5 | masscan 1.3.2, naabu 2.7.0, nmap, nuclei 3.11.1 with nuclei-templates v10.5.0; resolves `*.lab.test` through lab-files |
 
 `10.99.56.250` is left unused for masscan's `--source-ip`.
 

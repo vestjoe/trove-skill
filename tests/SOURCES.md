@@ -27,8 +27,9 @@ Where the fixtures built from a tool's source, the test databases and the single
 | `nmap/masscan-basic.gnmap` | masscan `8e6b3b0` `out-grepable.c`: `Timestamp: %llu\tHost: %s ()\tPorts: …` with the service from `tcp_service_name(port)`, banner line `Host: %s ()\tPort: %u\tService: %s\tBanner: %s` |
 | `masscan/masscan-list.txt`, `masscan/masscan.json`, `masscan/masscan.ndjson`, `masscan/masscan-screen.txt` | masscan `8e6b3b0` `out-text.c` (`-oL`), `out-json.c` (`-oJ`, `,` line before every record but the first), `out-ndjson.c` (`-oD`), `output.c` `output_report_status`/`output_report_banner` (screen, padded to 79 columns, ARP with MAC and vendor); banner escaping `\xNN` / `\u00NN`; the same scan as `nmap/masscan-basic.*` |
 | `nmap/nmap-verbose-os.nmap` | nmap `f06480d` `-v -d` lines (`nmap.cc`, `output.cc`, `scan_engine.cc`, `osscan.cc`, `timing.cc`, `tcpip.cc`), checked against a real nmap 7.98 run |
+| `nuclei/nuclei-highgarden.jsonl`, `nuclei/nuclei-highgarden.json`, `nuclei/nuclei-highgarden.txt`, `nuclei/nuclei-highgarden-screen.log` | nuclei v3.11.1 `a8c88fe` `pkg/output/output.go` `ResultEvent` (key order, `port` a string, `matcher-status` always written), `pkg/utils/json` (compact, `<` and `>` escaped), `pkg/output/format_screen.go` (`[id:matcher] [matched|failed] [type] [severity] target [extracts] [meta]`, `-ts` prefix), `pkg/reporting/exporters` (`-je`: one array line, as in the lab capture), `internal/runner/banner.go` and gologger `[INF]`/`[WRN]` lines; one line in the pre-3.1 shape (`host` a URL, no `port`; string `author` and `tags`); checked against the lab captures in `samples/lab/` |
 
-192.168.56.50, .51, .53 and 2001:db8:5eed::52 (masscan), OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
+HIGHGARDEN (192.168.56.70, 2001:db8:5eed::70), 192.168.56.71, BRAAVOS's 192.168.56.72 (nuclei; the account margaery.tyrell), 192.168.56.50, .51, .53 and 2001:db8:5eed::52 (masscan), OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
 
 ## Databases
 
@@ -63,7 +64,7 @@ Real tool output published under an open licence, kept in `tests/samples/` so th
 
 ## Lab captures
 
-`samples/lab/` is one run of `tests/lab/capture.sh` (masscan 1.3.2, naabu 2.7.0, Nmap 7.95) against the Docker lab in `tests/lab/` (10.99.56.10–.12; see its README). Files are as written, except that `masscan.bin` (binary), `naabu.txt` (plain `host:port`) and an empty `naabu -p u:…` result are not kept.
+`samples/lab/` is one run of `tests/lab/capture.sh` (masscan 1.3.2, naabu 2.7.0, Nmap 7.95) against the Docker lab in `tests/lab/` (10.99.56.10–.12; see its README). Files are as written, except that `masscan.bin` (binary), `naabu.txt` (plain `host:port`) and an empty `naabu -p u:…` result are not kept. The `nuclei*` files come from a later run with nuclei 3.11.1 and nuclei-templates v10.5.0 (MIT; the template names, descriptions and references in them are the templates'); the coloured screen capture is not kept. In that run nuclei's SMB and SNMP templates fired for 10.99.56.11 in the text runs but not in the `-j` run.
 
 | File | Command (in the scanner container) |
 |---|---|
@@ -72,3 +73,8 @@ Real tool output published under an open licence, kept in `tests/samples/` so th
 | `naabu.json`, `naabu-names.json`, `naabu-sv.json` | `naabu -host <addresses or lab-*.lab.test names> [-r 10.99.56.11] -p 21,22,23,25,53,80,123,139,161,443,445,6379,8080,11211 -silent [-sV] -json -o …` |
 | `naabu.xml`, `naabu.gnmap` | the same with `-sV -oX naabu.xml -oG naabu.gnmap` |
 | `nmap-full.*`, `nmap-udp.*` | `nmap -sV -sC -p <the same ports> -oA nmap-full <addresses>`; `nmap -sU -sV -p53,123,161,11211 -oA nmap-udp <addresses>` |
+| `nuclei.jsonl`, `nuclei.json` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-targets.txt -silent -j -o nuclei.jsonl -je nuclei.json`; the targets are the three addresses and `http://10.99.56.12:8080` |
+| `nuclei.txt` | the same with `-silent -o nuclei.txt` |
+| `nuclei-ms.txt` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -rl 50 -l nuclei-targets.txt -silent -ms -ts -o nuclei-ms.txt` |
+| `nuclei-names.jsonl` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-names.txt -silent -j -or -o nuclei-names.jsonl`; the targets are the three `lab-*.lab.test` names |
+| `nuclei-screen.txt` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-targets.txt -nc`, screen and errors saved (`> … 2>&1`) |

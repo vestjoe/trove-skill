@@ -9,6 +9,7 @@ save output, or when a file of a tool Trove reads went to AI extraction whole.
 | nmap | `nmap -sC -sV -oA scans/<name> <targets>` | `scans/<name>.xml` |
 | masscan | `sudo masscan <targets> -p1-65535 --banners --source-ip <unused-ip> -oX scans/<name>.xml` | the `.xml` |
 | naabu | `naabu -host <targets> -p - -json -o scans/<name>.json` | the `.json` |
+| nuclei | `nuclei -l targets.txt -j -o scans/<name>.jsonl` | the `.jsonl` |
 | NetExec | set `log_mode = True` in `~/.nxc/nxc.conf` once, or add `--log nxc/<what>.log` to one run | `~/.nxc/logs/`, or the `.log` |
 | NetExec database | make a workspace per engagement first: `nxcdb`, then `workspace create <name>` | `~/.nxc/workspaces/<name>/` |
 | secretsdump | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
@@ -55,6 +56,19 @@ Why these, and what to avoid:
   `-rate` or add `-verify` so dropped probes do not hide open ports.
   Scanning by name, naabu uses public resolvers: add `-r <lab-dns-ip>`. Its UDP
   scan (`-p u:53`) found nothing in a test lab where `nmap -sU` found DNS and SNMP.
+- **nuclei** `-j -o` writes one JSON line per result, with the address it
+  reached, the template's name and nuclei's severity; Trove makes each result a
+  finding on that host and port, the severity kept as nuclei's. `-o` text and
+  the screen read too, but name no address when the target was a name, so
+  those results wait until a scan names that host; save the screen with `-nc`,
+  since coloured lines go to the AI. `-je` reads; `-me` markdown and `-se`
+  SARIF do not (SARIF drops the port). `-or` leaves out each request and
+  response, making the file much smaller; Trove does not read them. nuclei
+  3.11 and later replace cookies and auth headers in them with `***`. Add
+  `-ni` in a lab without internet: its out-of-band checks call public servers.
+  Over a VPN, lower `-rl` (150 requests a second by default). Update templates
+  with `nuclei -ut` before the run, not during it. `-ms` failed results make
+  no finding.
 - **secretsdump** has no save option that records the target, so save the
   screen, with or without `-outputfile`: its `.ntds` file holds the same
   accounts with no domain or host, and its SAM and LSA files lose the sections

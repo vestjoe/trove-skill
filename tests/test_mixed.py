@@ -139,7 +139,8 @@ class MixedFiles(EngagementCase):
         self.assertEqual(queued, ["fixtures/freeform/tool-scratch.log (lines not read by netexec)",
                                   "fixtures/netexec/nxc-kali-proxychains.txt (lines not read by netexec)",
                                   "fixtures/netexec/nxc-log-riverrun.log (lines not read by netexec)",
-                                  "fixtures/netexec/nxc-sam-goad.log (lines not read by netexec)"])
+                                  "fixtures/netexec/nxc-sam-goad.log (lines not read by netexec)",
+                                  "fixtures/nuclei/nuclei-highgarden-screen.log (lines not read by nuclei)"])
 
     def test_a_password_only_on_the_command_line_is_kept_and_untried(self):
         banner = (FIXTURES / "netexec/nxc-cred-check.txt").read_text().splitlines(keepends=True)[0]

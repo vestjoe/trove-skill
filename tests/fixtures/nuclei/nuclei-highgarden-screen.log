@@ -1,0 +1,16 @@
+$ nuclei -u https://highgarden.sevenkingdoms.local -nc
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.11.1
+
+		projectdiscovery.io
+
+[INF] Current nuclei version: v3.11.1 (latest)
+[INF] Templates loaded for current scan: 2597
+[WRN] Loading 1 unsigned templates for scan. Use with caution.
+[ftp-anonymous-login] [tcp] [medium] 192.168.56.70:21
+the anonymous ftp share has a backup of web.config with sa:Highgarden1! in it
+[INF] Scan completed in 41.2s. 1 matches found.

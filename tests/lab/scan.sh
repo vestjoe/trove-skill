@@ -1,5 +1,5 @@
 #!/bin/sh
-# Runs inside the scanner container: every masscan, naabu and nmap output format, into /out.
+# Runs inside the scanner container: every masscan, naabu, nmap and nuclei output format, into /out.
 set -u
 HOSTS="10.99.56.10 10.99.56.11 10.99.56.12"
 NAMES="lab-web.lab.test lab-files.lab.test lab-cache.lab.test"
@@ -12,6 +12,7 @@ run() { echo "\$ $*" >> commands.txt; "$@" || echo "  exit $?" >> commands.txt; 
 masscan --version | head -2 >> commands.txt
 naabu -version 2>&1 | tail -1 | sed 's/\x1b\[[0-9;]*m//g' >> commands.txt
 nmap --version | head -1 >> commands.txt
+nuclei -version 2>&1 | tail -1 | sed 's/\x1b\[[0-9;]*m//g' >> commands.txt
 
 run masscan $(echo $HOSTS | tr ' ' ',') -p1-65535,U:53,U:123,U:161,U:11211 --banners --source-ip $SPARE \
     --rate 2000 --wait 5 -oB masscan.bin
@@ -31,3 +32,15 @@ run naabu -host $(echo $HOSTS | tr ' ' ',') -p u:53,u:123,u:161,u:11211 -silent 
 
 run nmap -sV -sC -p $LAB_PORTS -oA nmap-full $HOSTS
 run nmap -sU -sV -p53,123,161,11211 -oA nmap-udp $HOSTS
+
+NT=/opt/nuclei-templates
+nuclei_run() { run nuclei -duc -ni -ud $NT -t $NT/ssl -t $NT/network -t $NT/javascript -t $NT/http/technologies \
+    -t $NT/http/misconfiguration -rl 50 "$@"; }
+printf '%s\n' $HOSTS http://10.99.56.12:8080 > nuclei-targets.txt
+printf '%s\n' $NAMES > nuclei-names.txt
+nuclei_run -l nuclei-targets.txt -silent -j -o nuclei.jsonl -je nuclei.json
+nuclei_run -l nuclei-targets.txt -silent -o nuclei.txt
+run nuclei -duc -ni -ud $NT -t $NT/ssl -t $NT/network -rl 50 -l nuclei-targets.txt -silent -ms -ts -o nuclei-ms.txt
+nuclei_run -l nuclei-names.txt -silent -j -or -o nuclei-names.jsonl
+nuclei_run -l nuclei-targets.txt -nc > nuclei-screen.txt 2>&1
+nuclei_run -l nuclei-targets.txt > nuclei-screen-colour.txt 2>&1

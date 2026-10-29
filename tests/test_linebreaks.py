@@ -12,6 +12,7 @@ FIXTURE_SETS = {
     "nmap-text": sorted((FIXTURES / "nmap").glob("*.*nmap")),
     "naabu": sorted((FIXTURES / "naabu").iterdir()),
     "masscan": sorted((FIXTURES / "masscan").iterdir()),
+    "nuclei": sorted((FIXTURES / "nuclei").iterdir()),
     "users": sorted((FIXTURES / "users").iterdir()),
     "certipy": sorted((CORPUS / "adcs").glob("*.txt")),
 }
@@ -90,7 +91,7 @@ class LineBreaks(unittest.TestCase):
             for path in (p for p in paths if p.name not in NO_FREE_VALUE):
                 data = path.read_bytes()
                 before = self.parse(name, data)
-                for char in JSON_BREAKS if path.suffix in (".json", ".ndjson") else BREAKS:
+                for char in JSON_BREAKS if path.suffix in (".json", ".jsonl", ".ndjson") else BREAKS:
                     with self.subTest(fixture=path.name, char=repr(char)):
                         whole = next((at for at in dict.fromkeys(self.places(before, data))
                                       if _without(self.parse(name, data[:at] + char.encode("utf-8") + data[at:]),

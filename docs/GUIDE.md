@@ -60,6 +60,7 @@ You don't have to use the commands. The skill also works from plain requests, su
 | nmap (XML, normal, grepable) | Hosts and services. |
 | masscan (`-oX`, `-oG`, `-oL`, `-oJ`, `-oD`, screen) | Hosts and open ports as services, with their banners. |
 | naabu (`-json`, and `-oX`/`-oG` from 2.7) | Hosts and open ports as services. |
+| nuclei (`-j`, `-je`, `-o`, screen with `-nc`) | Each result as a finding on its host and port, with nuclei's severity kept as nuclei's. |
 | NetExec screen output and `--log` files | Logins as credentials, with the hosts they worked on and where they were admin; host flags such as SMB signing off, SMBv1 and null auth as findings; shares; password policy; SAM, LSA and NTDS dumps. |
 | NetExec workspace database (`smb.db`, `winrm.db`, `mssql.db`) | Hosts, credentials, logged-in and admin rights, shares. |
 | secretsdump | Hashes, Kerberos keys, cleartext passwords, LSA secrets and cached logons, each tied to its account and host. |
