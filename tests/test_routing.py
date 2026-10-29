@@ -4,8 +4,9 @@ from lootlib import parsers
 from tests import FIXTURES
 
 EXPECTED = {
-    "creds": "creds", "netexec": "netexec", "nmap/nmap-grepable.gnmap": "nmap-text",
-    "nmap/nmap-normal.nmap": "nmap-text", "nmap/nmap-utf8.nmap": "nmap-text",
+    "creds": "creds", "naabu": "naabu", "netexec": "netexec", "nmap/nmap-grepable.gnmap": "nmap-text",
+    "nmap/nmap-normal.nmap": "nmap-text", "nmap/naabu-basic.gnmap": "nmap-text",
+    "nmap/naabu-basic.xml": "nmap", "nmap/nmap-utf8.nmap": "nmap-text",
     "freeform/tool-scratch.log": "netexec", "users": None, "freeform/client-email.txt": None,
 }
 

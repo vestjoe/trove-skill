@@ -1,4 +1,4 @@
-"""nmap ``-oN`` and ``-oG`` text to hosts and services, every field cited.
+"""nmap ``-oN`` and ``-oG`` text (and naabu ``-oG``) to hosts and services, every field cited.
 
 The version column is kept whole as ``banner``: splitting it into product and
 version would be a guess.
@@ -31,7 +31,7 @@ PORTS_FIELD = "Ports: "
 ENTRY_START = re.compile(r"(?:^|, )(?=\d{1,5}/)")
 ENTRY_FIELDS = ("port", "state", "protocol", "owner", "service", "rpc", "banner")
 NMAP_LINE = re.compile(
-    r"^(?:# Nmap |# Ports scanned: |\|(?:_|\s+\S)(?!.*\|\s*$)|SF[:-]|Nmap scan report for \S+(?: \([^)]*\))? *$|Nmap done: "
+    r"^(?:# Nmap |# Ports scanned: |# Naabu \S+ scan initiated .+$|# Naabu done at .+ -- \d+ IP addresses \(\d+ hosts up\) scanned$|\|(?:_|\s+\S)(?!.*\|\s*$)|SF[:-]|Nmap scan report for \S+(?: \([^)]*\))? *$|Nmap done: "
     r"|Starting Nmap |Host is (?:up|down)\b|Host script results:"
     r"|Not shown: |All \d+ scanned ports|Some closed ports|PORT +STATE|Other addresses for |rDNS record for "
     r"|Service Info: (?:Host|OS|Device|CPE)s?: |Service detection performed|MAC Address: |Device type: "
@@ -143,7 +143,7 @@ def _host(ip: str, ip_at: int, hostname: str, hostname_at: int, line: _Line,
         return held[f"host:{ip}"]
     host = records.new("host")
     records.set_field(host, "ip", ip, _cite(raw, line, ip_at, ip))
-    if hostname:
+    if hostname and hostname != ip:
         records.set_field(host, "hostnames", [hostname], [_cite(raw, line, hostname_at, hostname)])
     held[f"host:{ip}"] = host
     return host

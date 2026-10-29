@@ -20,9 +20,12 @@ Where the fixtures built from a tool's source, the test databases and the single
 | `creds/hashcat-session.txt` | hashcat `8e16328` `terminal.c`: start `:268`, status screen `:3772-4654`, `Started:`/`Stopped:` `:295-296` |
 | `creds/getnpusers-request.txt` | impacket `GetNPUsers.py` `printTable` `:52-66`, then the `$krb5asrep$` line `:196-198` |
 | `creds/Responder-Session.log` | Responder `424fbe5` session log format (`settings.py:364`, `utils.py:104-106`); `Client :`, `Username :`, `Hash :` (`utils.py:462-475`) |
+| `nmap/naabu-basic.xml`, `nmap/naabu-basic.gnmap` | naabu v2.7.0 `pkg/runner/output_nmap.go`: `writeNmapXML` (`xml.Header`, `<!DOCTYPE nmaprun>`, two-space indent, state `open`) and `writeGreppable` (`# Naabu %s scan initiated`, `Host: %s (%s)\tPorts:`, `%d/open/%s//%s//%s/`, `# Naabu done at`) |
+| `naabu/naabu-sunspear.json` | naabu v2.3.0 `v2/pkg/runner/output.go` `jsonResult` (embedded `Result` then `port`, `protocol`, `tls`; `host` only when it differs from `ip`) |
+| `naabu/naabu-pyke-sv.json` | naabu v2.7.0 `pkg/runner/output.go` `jsonResult` with `-sV` service fields (`pkg/port/port.go` `Service`), written to the `-o` file |
 | `nmap/nmap-verbose-os.nmap` | nmap `f06480d` `-v -d` lines (`nmap.cc`, `output.cc`, `scan_engine.cc`, `osscan.cc`, `timing.cc`, `tcpip.cc`), checked against a real nmap 7.98 run |
 
-RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
+OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
 
 ## Databases
 

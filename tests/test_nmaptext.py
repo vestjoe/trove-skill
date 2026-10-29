@@ -58,3 +58,16 @@ class NmapText(EngagementCase):
 
     def test_the_xml_still_goes_to_the_xml_parser(self):
         self.assertEqual(self.import_fixture("nmap/nmap-basic.xml")["parser"], "nmap")
+
+    def test_naabu_grepable_output_is_read_whole_and_an_address_is_not_a_hostname(self):
+        report = self.import_fixture("nmap/naabu-basic.gnmap")
+        self.assertEqual((report["parser"], report["counts"], report["notes"]),
+                         ("nmap-text", {"host": 3, "service": 5}, []))
+        hosts = {h["ip"]: h for h in self.all("host")}
+        self.assertEqual(hosts["192.168.56.40"]["hostnames"], ["oldtown.sevenkingdoms.local"])
+        self.assertNotIn("hostnames", hosts["192.168.56.41"])
+        self.assertEqual(hosts["192.168.56.42"]["state"], "up")
+        svcs = self._services()
+        self.assertEqual(svcs[("host:192.168.56.41", 22, "tcp")]["banner"], "OpenSSH 8.9p1 Ubuntu 3ubuntu0.10")
+        self.assertEqual(svcs[("host:192.168.56.40", 53, "udp")]["name"], "domain")
+        self.assert_citations_hold()
