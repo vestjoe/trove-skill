@@ -23,9 +23,12 @@ Where the fixtures built from a tool's source, the test databases and the single
 | `nmap/naabu-basic.xml`, `nmap/naabu-basic.gnmap` | naabu v2.7.0 `pkg/runner/output_nmap.go`: `writeNmapXML` (`xml.Header`, `<!DOCTYPE nmaprun>`, two-space indent, state `open`) and `writeGreppable` (`# Naabu %s scan initiated`, `Host: %s (%s)\tPorts:`, `%d/open/%s//%s//%s/`, `# Naabu done at`) |
 | `naabu/naabu-sunspear.json` | naabu v2.3.0 `v2/pkg/runner/output.go` `jsonResult` (embedded `Result` then `port`, `protocol`, `tls`; `host` only when it differs from `ip`) |
 | `naabu/naabu-pyke-sv.json` | naabu v2.7.0 `pkg/runner/output.go` `jsonResult` with `-sV` service fields (`pkg/port/port.go` `Service`), written to the `-o` file |
+| `nmap/masscan-basic.xml` | masscan `8e6b3b0` `out-xml.c`: `xml_out_open`, `xml_out_status`, `xml_out_banner` (a banner is its own `<host>`), `xml_out_close`; `\r\n` line ends |
+| `nmap/masscan-basic.gnmap` | masscan `8e6b3b0` `out-grepable.c`: `Timestamp: %llu\tHost: %s ()\tPorts: …` with the service from `tcp_service_name(port)`, banner line `Host: %s ()\tPort: %u\tService: %s\tBanner: %s` |
+| `masscan/masscan-list.txt`, `masscan/masscan.json`, `masscan/masscan.ndjson`, `masscan/masscan-screen.txt` | masscan `8e6b3b0` `out-text.c` (`-oL`), `out-json.c` (`-oJ`, `,` line before every record but the first), `out-ndjson.c` (`-oD`), `output.c` `output_report_status`/`output_report_banner` (screen, padded to 79 columns, ARP with MAC and vendor); banner escaping `\xNN` / `\u00NN`; the same scan as `nmap/masscan-basic.*` |
 | `nmap/nmap-verbose-os.nmap` | nmap `f06480d` `-v -d` lines (`nmap.cc`, `output.cc`, `scan_engine.cc`, `osscan.cc`, `timing.cc`, `tcpip.cc`), checked against a real nmap 7.98 run |
 
-OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
+192.168.56.50, .51, .53 and 2001:db8:5eed::52 (masscan), OLDTOWN (192.168.56.40), SUNSPEAR (192.168.56.43, 2001:db8:5eed::43), PYKE (192.168.56.45), 192.168.56.41, .42 and .44, RIVERRUN (192.168.56.24), 192.168.56.25 and the accounts jojen.reed, meera.reed and osha are invented and held by no other fixture.
 
 ## Databases
 
@@ -49,3 +52,23 @@ Real output from run 2 in `tests/corpus/SOURCES.md`, with the same values replac
 | `netexec/nxc-pth-lmnt-refused.txt` | `netexec smb 192.168.56.23 -u goadmin -H '<LM>:<NT>' --local-auth` (refused) |
 | `nmap/nmap-os-verbose.gnmap` | `nmap -sV -O --traceroute -v -oA … 192.168.56.11 192.168.56.22` (nmap 7.80 crashed after writing all three files) |
 | `bloodhound/north_default_20261019142903_bloodhound.zip` | `bloodhound-ce-python -d north.sevenkingdoms.local -u brandon.stark -p … -ns 192.168.56.11 --zip` (default collection: no object properties) |
+
+## Captures from other projects
+
+Real tool output published under an open licence, kept in `tests/samples/` so the end-to-end imports of `tests/fixtures/` do not include it. Each file is as published.
+
+| File | Source |
+|---|---|
+| `samples/masscan/rzlab-masscan.xml` | runZeroInc/runZeroHound `f19aafa` `examples/rzlab-masscan.xml`: a masscan `-oX --banners` scan of runZero's lab (private addresses). MIT License, Copyright (c) 2025-2026 runZero, Inc |
+
+## Lab captures
+
+`samples/lab/` is one run of `tests/lab/capture.sh` (masscan 1.3.2, naabu 2.7.0, Nmap 7.95) against the Docker lab in `tests/lab/` (10.99.56.10–.12; see its README). Files are as written, except that `masscan.bin` (binary), `naabu.txt` (plain `host:port`) and an empty `naabu -p u:…` result are not kept.
+
+| File | Command (in the scanner container) |
+|---|---|
+| `masscan.{xml,gnmap,txt,json,ndjson}` | `masscan 10.99.56.10,10.99.56.11,10.99.56.12 -p1-65535,U:53,U:123,U:161,U:11211 --banners --source-ip 10.99.56.250 --rate 2000 --wait 5 -oB masscan.bin`, then `masscan --readscan masscan.bin -oX/-oG/-oL/-oJ/-oD …` |
+| `masscan-screen.txt` | the same with `-p21-25,53,80,443,445,6379,8080,U:161` and no `-o`, screen and errors saved (`> … 2>&1`) |
+| `naabu.json`, `naabu-names.json`, `naabu-sv.json` | `naabu -host <addresses or lab-*.lab.test names> [-r 10.99.56.11] -p 21,22,23,25,53,80,123,139,161,443,445,6379,8080,11211 -silent [-sV] -json -o …` |
+| `naabu.xml`, `naabu.gnmap` | the same with `-sV -oX naabu.xml -oG naabu.gnmap` |
+| `nmap-full.*`, `nmap-udp.*` | `nmap -sV -sC -p <the same ports> -oA nmap-full <addresses>`; `nmap -sU -sV -p53,123,161,11211 -oA nmap-udp <addresses>` |

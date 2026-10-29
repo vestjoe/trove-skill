@@ -1,0 +1,55 @@
+# Nmap 7.95 scan initiated Thu Oct 29 05:17:15 2026 as: nmap -sU -sV -p53,123,161,11211 -oA nmap-udp 10.99.56.10 10.99.56.11 10.99.56.12
+Nmap scan report for lootlab-web-1.lootlab_lab (10.99.56.10)
+Host is up (0.000041s latency).
+
+PORT      STATE  SERVICE  VERSION
+53/udp    closed domain
+123/udp   closed ntp
+161/udp   closed snmp
+11211/udp closed memcache
+MAC Address: 7E:13:5E:D9:17:7E (Unknown)
+
+Nmap scan report for lootlab-files-1.lootlab_lab (10.99.56.11)
+Host is up (0.000069s latency).
+
+PORT      STATE  SERVICE  VERSION
+53/udp    open   domain   dnsmasq 2.90
+123/udp   open   ntp      NTP v4 (secondary server)
+161/udp   open   snmp     SNMPv1 server; net-snmp SNMPv3 server (public)
+11211/udp closed memcache
+MAC Address: 9E:C8:87:7B:22:3A (Unknown)
+Service Info: Host: lab-files
+
+Nmap scan report for lootlab-cache-1.lootlab_lab (10.99.56.12)
+Host is up (0.000037s latency).
+
+PORT      STATE  SERVICE   VERSION
+53/udp    closed domain
+123/udp   closed ntp
+161/udp   closed snmp
+11211/udp open   memcache?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port11211-UDP:V=7.95%I=7%D=10/29%Time=6AE2D6E1%P=aarch64-alpine-linux-m
+SF:usl%r(memcached,8B8,"\0\x01\0\0\0\x02\0\0STAT\x20pid\x2011\r\nSTAT\x20u
+SF:ptime\x20216\r\nSTAT\x20time\x201793251036\r\nSTAT\x20version\x201\.6\.
+SF:27\r\nSTAT\x20libevent\x202\.1\.12-stable\r\nSTAT\x20pointer_size\x2064
+SF:\r\nSTAT\x20rusage_user\x200\.026499\r\nSTAT\x20rusage_system\x200\.008
+SF:431\r\nSTAT\x20max_connections\x201024\r\nSTAT\x20curr_connections\x209
+SF:\r\nSTAT\x20total_connections\x2027\r\nSTAT\x20rejected_connections\x20
+SF:0\r\nSTAT\x20connection_structures\x2014\r\nSTAT\x20response_obj_oom\x2
+SF:00\r\nSTAT\x20response_obj_count\x201\r\nSTAT\x20response_obj_bytes\x20
+SF:65536\r\nSTAT\x20read_buf_count\x208\r\nSTAT\x20read_buf_bytes\x2013107
+SF:2\r\nSTAT\x20read_buf_bytes_free\x2065536\r\nSTAT\x20read_buf_oom\x200\
+SF:r\nSTAT\x20reserved_fds\x2020\r\nSTAT\x20cmd_get\x200\r\nSTAT\x20cmd_se
+SF:t\x200\r\nSTAT\x20cmd_flush\x200\r\nSTAT\x20cmd_touch\x200\r\nSTAT\x20c
+SF:md_meta\x200\r\nSTAT\x20get_hits\x200\r\nSTAT\x20get_misses\x200\r\nSTA
+SF:T\x20get_expired\x200\r\nSTAT\x20get_flushed\x200\r\nSTAT\x20delete_mis
+SF:ses\x200\r\nSTAT\x20delete_hits\x200\r\nSTAT\x20incr_misses\x200\r\nSTA
+SF:T\x20incr_hits\x200\r\nSTAT\x20decr_misses\x200\r\nSTAT\x20decr_hits\x2
+SF:00\r\nSTAT\x20cas_misses\x200\r\nSTAT\x20cas_hits\x200\r\nSTAT\x20cas_b
+SF:adval\x200\r\nSTAT\x20touch_hits\x200\r\nSTAT\x20touch_")%r(MEMCACHED_V
+SF:ERSION,18,"\0\x01\0\0\0\x01\0\0VERSION\x201\.6\.27\r\n");
+MAC Address: C6:B9:9A:7D:47:12 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Oct 29 05:19:05 2026 -- 3 IP addresses (3 hosts up) scanned in 110.02 seconds

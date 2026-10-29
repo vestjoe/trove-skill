@@ -1,0 +1,159 @@
+{"ip":"10.99.56.10","timestamp":"1793250826","port":23,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=10 time=1793250830 version=1.6.27 "}}
+{"ip":"10.99.56.12","timestamp":"1793250831","port":11211,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250832","port":8080,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250844","port":443,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.12","timestamp":"1793250844","port":11211,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.12","timestamp":"1793250850","port":80,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250856","port":25,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250856","port":25,"proto":"tcp","rec_type":"banner","data":{"service_name":"smtp","banner":"220 lab-web.lab.test ESMTP Postfix\u000a250-lab-web.lab.test\u000a250-PIPELINING\u000a250-SIZE 10240000\u000a250-VRFY\u000a250-ETRN\u000a250-ENHANCEDSTATUSCODES\u000a250-8BITMIME\u000a250-DSN\u000a250-SMTPUTF8\u000a250 CHUNKING\u000a502 5.5.1 Error: command not implemented"}}
+{"ip":"10.99.56.11","timestamp":"1793250857","port":53,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250858","port":22,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250858","port":22,"proto":"tcp","rec_type":"banner","data":{"service_name":"ssh","banner":"SSH-2.0-OpenSSH_9.7"}}
+{"ip":"10.99.56.10","timestamp":"1793250858","port":23,"proto":"tcp","rec_type":"banner","data":{"service_name":"telnet","banner":" DO(echo) DO(naws) WILL(echo) WILL(sga)\u005cn lab-web login: "}}
+{"ip":"10.99.56.12","timestamp":"1793250864","port":8080,"proto":"tcp","rec_type":"banner","data":{"service_name":"http.server","banner":"nginx"}}
+{"ip":"10.99.56.12","timestamp":"1793250864","port":8080,"proto":"tcp","rec_type":"banner","data":{"service_name":"title","banner":"Trove Lab Portal"}}
+{"ip":"10.99.56.12","timestamp":"1793250864","port":8080,"proto":"tcp","rec_type":"banner","data":{"service_name":"http","banner":"HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:13:54 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"}}
+{"ip":"10.99.56.10","timestamp":"1793250871","port":8080,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"banner","data":{"service_name":"dns-ver","banner":"dnsmasq-2.90"}}
+{"ip":"10.99.56.11","timestamp":"1793250874","port":53,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.12","timestamp":"1793250876","port":6379,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250876","port":443,"proto":"tcp","rec_type":"banner","data":{"service_name":"ssl","banner":" ALERT(0x0246) "}}
+{"ip":"10.99.56.12","timestamp":"1793250876","port":11211,"proto":"tcp","rec_type":"banner","data":{"service_name":"memcached","banner":"uptime=25 time=1793250845 version=1.6.27 "}}
+{"ip":"10.99.56.10","timestamp":"1793250881","port":80,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.12","timestamp":"1793250882","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"http.server","banner":"nginx"}}
+{"ip":"10.99.56.12","timestamp":"1793250882","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"title","banner":"Trove Lab Portal"}}
+{"ip":"10.99.56.12","timestamp":"1793250882","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"http","banner":"HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:14:12 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"}}
+{"ip":"10.99.56.10","timestamp":"1793250884","port":21,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250884","port":21,"proto":"tcp","rec_type":"banner","data":{"service_name":"ftp","banner":"220 Lab FTP ready\u000a530 Please login with USER and PASS."}}
+{"ip":"10.99.56.10","timestamp":"1793250902","port":8080,"proto":"tcp","rec_type":"banner","data":{"service_name":"http.server","banner":"nginx"}}
+{"ip":"10.99.56.10","timestamp":"1793250902","port":8080,"proto":"tcp","rec_type":"banner","data":{"service_name":"title","banner":"Trove Lab Portal"}}
+{"ip":"10.99.56.10","timestamp":"1793250902","port":8080,"proto":"tcp","rec_type":"banner","data":{"service_name":"http","banner":"HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:14:34 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"}}
+{"ip":"10.99.56.11","timestamp":"1793250904","port":445,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.11","timestamp":"1793250906","port":445,"proto":"tcp","rec_type":"banner","data":{"service_name":"smb","banner":"SMBv2  guid=2d62616c-6966-656c-7300-000000000000 time=2026-10-29 05:15:06  domain=LAB-FILES version=6.1.0 ntlm-ver=15 domain=LAB-FILES name=LAB-FILES domain-dns= name-dns=lab-files"}}
+{"ip":"10.99.56.12","timestamp":"1793250911","port":443,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.10","timestamp":"1793250913","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"http.server","banner":"nginx"}}
+{"ip":"10.99.56.10","timestamp":"1793250913","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"title","banner":"Trove Lab Portal"}}
+{"ip":"10.99.56.10","timestamp":"1793250913","port":80,"proto":"tcp","rec_type":"banner","data":{"service_name":"http","banner":"HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:14:43 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"banner","data":{"service_name":"snmp","banner":"sysDescr:Trove lab SNMP agent\u000asysName:lab-files"}}
+{"ip":"10.99.56.11","timestamp":"1793250918","port":161,"proto":"udp","rec_type":"status","data":{"status":"open","reason":"none","ttl":0}}
+{"ip":"10.99.56.11","timestamp":"1793250920","port":139,"proto":"tcp","rec_type":"status","data":{"status":"open","reason":"syn-ack","ttl":64}}
+{"ip":"10.99.56.12","timestamp":"1793250980","port":443,"proto":"tcp","rec_type":"banner","data":{"service_name":"ssl","banner":" ALERT(0x0246) "}}

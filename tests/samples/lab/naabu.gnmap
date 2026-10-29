@@ -1,0 +1,5 @@
+# Naabu 2.7.0 scan initiated Thu Oct 29 05:16:40 2026
+Host: 10.99.56.10 (10.99.56.10)	Ports: 21/open/tcp//ftp//vsftpd 2.0.8 or later/, 22/open/tcp//ssh//OpenSSH 9.7/, 23/open/tcp//telnet//BusyBox telnetd/, 25/open/tcp//smtp//Postfix smtpd/, 80/open/tcp//http//nginx/, 443/open/tcp//http//nginx/, 8080/open/tcp//http//nginx/
+Host: 10.99.56.11 (10.99.56.11)	Ports: 53/open/tcp//domain//dnsmasq 2.90/, 139/open/tcp//netbios-ssn//Samba smbd 4/, 445/open/tcp//netbios-ssn//Samba smbd 4/
+Host: 10.99.56.12 (10.99.56.12)	Ports: 80/open/tcp//http//nginx/, 443/open/tcp//http//nginx/, 6379/open/tcp//redis//Redis key-value store/, 8080/open/tcp//http//nginx/, 11211/open/tcp//memcached//Memcached/
+# Naabu done at Thu Oct 29 05:16:46 2026 -- 3 IP addresses (3 hosts up) scanned

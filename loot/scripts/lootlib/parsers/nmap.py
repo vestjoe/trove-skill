@@ -1,6 +1,7 @@
-"""nmap ``-oX`` XML (and masscan, which writes the same schema) to hosts and services.
+"""nmap ``-oX`` XML (and masscan and naabu, which write the same schema) to hosts and services.
 
 An attribute nmap did not emit is a field that is not set: no defaults, no guesses.
+masscan writes each banner as its own ``<host>``; its ``<service name>`` is the banner's type.
 """
 
 from __future__ import annotations
@@ -29,10 +30,28 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         raise ParserError(f"{raw.source or raw.blob} is not readable nmap XML: {err}") from err
     if root.tag != "nmaprun":
         raise ParserError(f"expected a <nmaprun> document, found <{root.tag}>")
+    masscan = root.get("scanner") == "masscan"
     out: list[dict[str, Any]] = []
+    services: dict[str, dict[str, Any]] = {}
     for host_el in root.all("host"):
-        out.extend(_host(host_el, raw))
+        for rec in _host(host_el, raw, masscan):
+            if rec["type"] != "service" or not masscan:
+                out.append(rec)
+            elif records.make_id(rec) in services:
+                _add_banners(services[records.make_id(rec)], rec)
+            else:
+                services[records.make_id(rec)] = rec
+                out.append(rec)
     return out
+
+
+def _add_banners(held: dict[str, Any], rec: dict[str, Any]) -> None:
+    """Fold a later masscan banner record for the same port into the service already read."""
+    if "banner" in rec and "banner" not in held:
+        records.set_field(held, "banner", rec["banner"], rec["prov"]["banner"])
+    for banner in rec["ext"].get("banners", []):
+        if banner not in held["ext"].setdefault("banners", []):
+            held["ext"]["banners"].append(banner)
 
 
 def _citer(raw: Input):
@@ -44,7 +63,7 @@ def _citer(raw: Input):
     return at
 
 
-def _host(host_el: XmlElement, raw: Input) -> list[dict[str, Any]]:
+def _host(host_el: XmlElement, raw: Input, masscan: bool) -> list[dict[str, Any]]:
     address = next((a for a in host_el.all("address") if a.get("addrtype") in IP_TYPES), None)
     if address is None:
         return []
@@ -82,11 +101,12 @@ def _host(host_el: XmlElement, raw: Input) -> list[dict[str, Any]]:
     out = [host]
     ports = host_el.find("ports")
     for port_el in ports.all("port") if ports is not None else []:
-        out.append(_service(port_el, host, ip_ref, raw))
+        out.append(_service(port_el, host, ip_ref, raw, masscan))
     return out
 
 
-def _service(port_el: XmlElement, host: dict[str, Any], ip_ref: dict[str, Any], raw: Input) -> dict[str, Any]:
+def _service(port_el: XmlElement, host: dict[str, Any], ip_ref: dict[str, Any], raw: Input,
+             masscan: bool) -> dict[str, Any]:
     at = _citer(raw)
     portid, protocol = port_el.get("portid"), port_el.get("protocol")
     if portid is None or not portid.isdigit():
@@ -103,7 +123,11 @@ def _service(port_el: XmlElement, host: dict[str, Any], ip_ref: dict[str, Any], 
         records.set_field(svc, "state", state_el.attrs["state"], at(state_el, "state"))
 
     service_el = port_el.find("service")
-    if service_el is not None:
+    if service_el is not None and masscan:
+        if service_el.get("banner"):
+            records.set_field(svc, "banner", service_el.attrs["banner"], at(service_el, "banner"))
+            svc["ext"]["banners"] = [f"{service_el.get('name') or 'unknown'}: {service_el.attrs['banner']}"]
+    elif service_el is not None:
         for name in ("name", "product", "version"):
             if service_el.get(name):
                 records.set_field(svc, name, service_el.attrs[name], at(service_el, name))

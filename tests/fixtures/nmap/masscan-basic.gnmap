@@ -1,0 +1,13 @@
+# Masscan 1.3.2 scan initiated Wed Oct 28 10:00:00 2026
+# Ports scanned: TCP(4;22-22,80-80,443-443,3389-3389) UDP(1;161-161) SCTP(0;) PROTOCOLS(0;)
+Timestamp: 1793181601	Host: 192.168.56.50 ()	Ports: 22/open/tcp//ssh//
+Timestamp: 1793181601	Host: 192.168.56.50 ()	Ports: 80/open/tcp//http//
+Timestamp: 1793181602	Host: 192.168.56.51 ()	Ports: 3389/open/tcp//ms-wbt-server//
+Timestamp: 1793181602	Host: 192.168.56.51 ()	Ports: 161/open/udp//snmp//
+Timestamp: 1793181603	Host: 2001:db8:5eed::52 ()	Ports: 443/open/tcp//https//
+Host: 192.168.56.50 ()	Port: 22	Service: ssh	Banner: SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10
+Host: 192.168.56.50 ()	Port: 80	Service: http.server	Banner: nginx/1.18.0 (Ubuntu)
+Host: 192.168.56.50 ()	Port: 80	Service: title	Banner: Maester\x27s Library
+Host: 192.168.56.51 ()	Port: 161	Service: snmp	Banner: sysDescr:Hardware: Intel64 Family 6 - Software: Windows Version 6.3
+Host: 2001:db8:5eed::52 ()	Port: 443	Service: X509	Banner: MIIC3jCCAcagAwIBAgIQ
+# Masscan done at Wed Oct 28 10:00:10 2026

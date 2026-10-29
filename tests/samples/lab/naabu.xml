@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<nmaprun scanner="naabu" start="1793251000" startstr="Thu Oct 29 05:16:40 2026" version="2.7.0" xmloutputversion="1.05">
+  <scaninfo type="connect" protocol="tcp"></scaninfo>
+  <host>
+    <status state="up" reason="syn-ack"></status>
+    <address addr="10.99.56.10" addrtype="ipv4"></address>
+    <address addr="7e:13:5e:d9:17:7e" addrtype="mac"></address>
+    <ports>
+      <port protocol="tcp" portid="21">
+        <state state="open" reason="syn-ack"></state>
+        <service name="ftp" product="vsftpd" version="2.0.8 or later" method="probes">
+          <cpe>cpe:/a:vsftpd:vsftpd/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="22">
+        <state state="open" reason="syn-ack"></state>
+        <service name="ssh" product="OpenSSH" version="9.7" extrainfo="protocol 2.0" method="probes">
+          <cpe>cpe:/a:openbsd:openssh:9.7/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="23">
+        <state state="open" reason="syn-ack"></state>
+        <service name="telnet" product="BusyBox telnetd" method="probes">
+          <cpe>cpe:/a:busybox:busybox/a</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="25">
+        <state state="open" reason="syn-ack"></state>
+        <service name="smtp" product="Postfix smtpd" method="probes">
+          <cpe>cpe:/a:postfix:postfix/a</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="80">
+        <state state="open" reason="syn-ack"></state>
+        <service name="http" product="nginx" method="probes">
+          <cpe>cpe:/a:igor_sysoev:nginx/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="443">
+        <state state="open" reason="syn-ack"></state>
+        <service name="http" product="nginx" method="probes">
+          <cpe>cpe:/a:igor_sysoev:nginx/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="8080">
+        <state state="open" reason="syn-ack"></state>
+        <service name="http" product="nginx" method="probes">
+          <cpe>cpe:/a:igor_sysoev:nginx/</cpe>
+        </service>
+      </port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="syn-ack"></status>
+    <address addr="10.99.56.11" addrtype="ipv4"></address>
+    <address addr="9e:c8:87:7b:22:3a" addrtype="mac"></address>
+    <ports>
+      <port protocol="tcp" portid="53">
+        <state state="open" reason="syn-ack"></state>
+        <service name="domain" product="dnsmasq" version="2.90" method="probes">
+          <cpe>cpe:/a:thekelleys:dnsmasq:2.90/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="139">
+        <state state="open" reason="syn-ack"></state>
+        <service name="netbios-ssn" product="Samba smbd" version="4" method="probes">
+          <cpe>cpe:/a:samba:samba:4/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="445">
+        <state state="open" reason="syn-ack"></state>
+        <service name="netbios-ssn" product="Samba smbd" version="4" method="probes">
+          <cpe>cpe:/a:samba:samba:4/</cpe>
+        </service>
+      </port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="syn-ack"></status>
+    <address addr="10.99.56.12" addrtype="ipv4"></address>
+    <address addr="c6:b9:9a:7d:47:12" addrtype="mac"></address>
+    <ports>
+      <port protocol="tcp" portid="80">
+        <state state="open" reason="syn-ack"></state>
+        <service name="http" product="nginx" method="probes">
+          <cpe>cpe:/a:igor_sysoev:nginx/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="443">
+        <state state="open" reason="syn-ack"></state>
+        <service name="http" product="nginx" method="probes">
+          <cpe>cpe:/a:igor_sysoev:nginx/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="6379">
+        <state state="open" reason="syn-ack"></state>
+        <service name="redis" product="Redis key-value store" method="probes"></service>
+      </port>
+      <port protocol="tcp" portid="8080">
+        <state state="open" reason="syn-ack"></state>
+        <service name="http" product="nginx" method="probes">
+          <cpe>cpe:/a:igor_sysoev:nginx/</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="11211">
+        <state state="open" reason="syn-ack"></state>
+        <service name="memcached" product="Memcached" method="probes">
+          <cpe>cpe:/a:memcached:memcached/</cpe>
+        </service>
+      </port>
+    </ports>
+  </host>
+  <runstats>
+    <finished time="1793251006" timestr="Thu Oct 29 05:16:46 2026" elapsed="6.14" exit="success"></finished>
+    <hosts up="3" down="0" total="3"></hosts>
+  </runstats>
+</nmaprun>
