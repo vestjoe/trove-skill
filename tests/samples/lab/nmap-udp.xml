@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Thu Oct 29 05:17:15 2026 as: nmap -sU -sV -p53,123,161,11211 -oA nmap-udp 10.99.56.10 10.99.56.11 10.99.56.12 -->
+<nmaprun scanner="nmap" args="nmap -sU -sV -p53,123,161,11211 -oA nmap-udp 10.99.56.10 10.99.56.11 10.99.56.12" start="1793251035" startstr="Thu Oct 29 05:17:15 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="4" services="53,123,161,11211"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.11" addrtype="ipv4"/>
+<address addr="9E:C8:87:7B:22:3A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.12" addrtype="ipv4"/>
+<address addr="C6:B9:9A:7D:47:12" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.10" addrtype="ipv4"/>
+<address addr="7E:13:5E:D9:17:7E" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1793251035" endtime="1793251036"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.10" addrtype="ipv4"/>
+<address addr="7E:13:5E:D9:17:7E" addrtype="mac"/>
+<hostnames>
+<hostname name="lootlab-web-1.lootlab_lab" type="PTR"/>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="11211"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="memcache" method="table" conf="3"/></port>
+</ports>
+<times srtt="41" rttvar="1656" to="100000"/>
+</host>
+<host starttime="1793251035" endtime="1793251144"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.11" addrtype="ipv4"/>
+<address addr="9E:C8:87:7B:22:3A" addrtype="mac"/>
+<hostnames>
+<hostname name="lootlab-files-1.lootlab_lab" type="PTR"/>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open" reason="udp-response" reason_ttl="64"/><service name="domain" product="dnsmasq" version="2.90" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.90</cpe></service></port>
+<port protocol="udp" portid="123"><state state="open" reason="udp-response" reason_ttl="64"/><service name="ntp" product="NTP" version="v4" extrainfo="secondary server" method="probed" conf="10"/></port>
+<port protocol="udp" portid="161"><state state="open" reason="udp-response" reason_ttl="64"/><service name="snmp" product="SNMPv1 server; net-snmp SNMPv3 server" extrainfo="public" hostname="lab-files" method="probed" conf="10"/></port>
+<port protocol="udp" portid="11211"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="memcache" method="table" conf="3"/></port>
+</ports>
+<times srtt="69" rttvar="1659" to="100000"/>
+</host>
+<host starttime="1793251035" endtime="1793251145"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.12" addrtype="ipv4"/>
+<address addr="C6:B9:9A:7D:47:12" addrtype="mac"/>
+<hostnames>
+<hostname name="lootlab-cache-1.lootlab_lab" type="PTR"/>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="11211"><state state="open" reason="udp-response" reason_ttl="64"/><service name="memcache" servicefp="SF-Port11211-UDP:V=7.95%I=7%D=10/29%Time=6AE2D6E1%P=aarch64-alpine-linux-musl%r(memcached,8B8,&quot;\0\x01\0\0\0\x02\0\0STAT\x20pid\x2011\r\nSTAT\x20uptime\x20216\r\nSTAT\x20time\x201793251036\r\nSTAT\x20version\x201\.6\.27\r\nSTAT\x20libevent\x202\.1\.12-stable\r\nSTAT\x20pointer_size\x2064\r\nSTAT\x20rusage_user\x200\.026499\r\nSTAT\x20rusage_system\x200\.008431\r\nSTAT\x20max_connections\x201024\r\nSTAT\x20curr_connections\x209\r\nSTAT\x20total_connections\x2027\r\nSTAT\x20rejected_connections\x200\r\nSTAT\x20connection_structures\x2014\r\nSTAT\x20response_obj_oom\x200\r\nSTAT\x20response_obj_count\x201\r\nSTAT\x20response_obj_bytes\x2065536\r\nSTAT\x20read_buf_count\x208\r\nSTAT\x20read_buf_bytes\x20131072\r\nSTAT\x20read_buf_bytes_free\x2065536\r\nSTAT\x20read_buf_oom\x200\r\nSTAT\x20reserved_fds\x2020\r\nSTAT\x20cmd_get\x200\r\nSTAT\x20cmd_set\x200\r\nSTAT\x20cmd_flush\x200\r\nSTAT\x20cmd_touch\x200\r\nSTAT\x20cmd_meta\x200\r\nSTAT\x20get_hits\x200\r\nSTAT\x20get_misses\x200\r\nSTAT\x20get_expired\x200\r\nSTAT\x20get_flushed\x200\r\nSTAT\x20delete_misses\x200\r\nSTAT\x20delete_hits\x200\r\nSTAT\x20incr_misses\x200\r\nSTAT\x20incr_hits\x200\r\nSTAT\x20decr_misses\x200\r\nSTAT\x20decr_hits\x200\r\nSTAT\x20cas_misses\x200\r\nSTAT\x20cas_hits\x200\r\nSTAT\x20cas_badval\x200\r\nSTAT\x20touch_hits\x200\r\nSTAT\x20touch_&quot;)%r(MEMCACHED_VERSION,18,&quot;\0\x01\0\0\0\x01\0\0VERSION\x201\.6\.27\r\n&quot;);" method="table" conf="3"/></port>
+</ports>
+<times srtt="37" rttvar="1638" to="100000"/>
+</host>
+<runstats><finished time="1793251145" timestr="Thu Oct 29 05:19:05 2026" summary="Nmap done at Thu Oct 29 05:19:05 2026; 3 IP addresses (3 hosts up) scanned in 110.02 seconds" elapsed="110.02" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>

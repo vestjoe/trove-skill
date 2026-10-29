@@ -19,6 +19,7 @@ from lootlib.parsers.nmaptext import IP
 from lootlib.prov import TOOL, cite
 
 NAME = "masscan"
+LINE = re.compile(r"[^\r\n]*(?:\r\n|\r|\n)|[^\r\n]+$")
 STATES = "open|closed|up|unknown"
 PROTOS = "tcp|udp|sctp|icmp|arp"
 SERVICE_PROTOS = ("tcp", "udp", "sctp")
@@ -31,7 +32,10 @@ SCREEN_STATUS = re.compile(
     r"(?: \((?P<mac>[0-9a-f]{2}(?::[0-9a-f]{2}){5})\) ?(?P<vendor>.*?))? *$")
 SCREEN_BANNER = re.compile(
     rf"^Banner on port (?P<port>\d{{1,5}})/(?P<proto>{PROTOS}) on (?P<ip>{IP}): \[(?P<kind>[^\]]*)\] (?P<banner>.*?) *$")
-KNOWN = re.compile(r"^(?:#masscan|# end|\[|,|\])\s*$")
+RUN_LINE = (r"Starting masscan \S+ \(http://bit\.ly/14GZzcT\) at .+|Initiating (?:SYN Stealth|ICMP Echo) Scan"
+            r"|Scanning \d+ hosts(?: \[\d+ ports?/host\])?| -- forced options: .+"
+            r"|rate: +[\d.]+-kpps, +[\d.]+% done, .+ found=\d+")
+KNOWN = re.compile(rf"^(?:#masscan|# end|\[|,|\]|{RUN_LINE})\s*$")
 NMAP = re.compile(r"^(?:Starting Nmap |Nmap scan report for )", re.MULTILINE)
 _DECODER = json.JSONDecoder()
 
@@ -53,7 +57,7 @@ class _Fact:
 
 def sniff(data: bytes, hint: str | None = None) -> bool:
     text = data[:WINDOW].decode("utf-8", errors="replace")
-    lines = text.splitlines()
+    lines = [line.rstrip("\r\n") for line in LINE.findall(text)]
     if lines and lines[0].strip() == "#masscan":
         return True
     if any(_json_fact(line) is not None for line in lines[:50]):
@@ -69,7 +73,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         raise ParserError(str(err)) from err
     held: dict[str, dict[str, Any]] = {}
     offset = 0
-    for chunk in text.splitlines(keepends=True):
+    for chunk in LINE.findall(text):
         line = chunk.rstrip("\r\n")
         fact = _fact(line)
         if fact is not None:
@@ -164,5 +168,10 @@ def _record(fact: _Fact, raw: Input, line_at: int, line: str, held: dict[str, di
     if fact.banner and fact.banner[0]:
         if "banner" not in svc:
             records.set_field(svc, "banner", fact.banner[0], ref(fact.banner))
-        svc["ext"]["banners"] = svc["ext"].get("banners", []) + [f"{fact.kind}: {fact.banner[0]}"]
+        _add_banner(svc, f"{fact.kind}: {fact.banner[0]}")
     svc["ext"].update(fact.ext)
+
+
+def _add_banner(svc: dict[str, Any], banner: str) -> None:
+    if banner not in svc["ext"].setdefault("banners", []):
+        svc["ext"]["banners"].append(banner)

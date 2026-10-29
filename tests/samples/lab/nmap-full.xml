@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Thu Oct 29 05:16:51 2026 as: nmap -sV -sC -p 21,22,23,25,53,80,123,139,161,443,445,6379,8080,11211 -oA nmap-full 10.99.56.10 10.99.56.11 10.99.56.12 -->
+<nmaprun scanner="nmap" args="nmap -sV -sC -p 21,22,23,25,53,80,123,139,161,443,445,6379,8080,11211 -oA nmap-full 10.99.56.10 10.99.56.11 10.99.56.12" start="1793251011" startstr="Thu Oct 29 05:16:51 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="14" services="21-23,25,53,80,123,139,161,443,445,6379,8080,11211"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.11" addrtype="ipv4"/>
+<address addr="9E:C8:87:7B:22:3A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.12" addrtype="ipv4"/>
+<address addr="C6:B9:9A:7D:47:12" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.10" addrtype="ipv4"/>
+<address addr="7E:13:5E:D9:17:7E" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1793251011" endtime="1793251035"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.10" addrtype="ipv4"/>
+<address addr="7E:13:5E:D9:17:7E" addrtype="mac"/>
+<hostnames>
+<hostname name="lootlab-web-1.lootlab_lab" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ftp" product="vsftpd" version="2.0.8 or later" method="probed" conf="10"><cpe>cpe:/a:vsftpd:vsftpd</cpe></service><script id="ftp-anon" output="Anonymous FTP login allowed (FTP code 230)"/><script id="ftp-syst" output="&#xa;  STAT: &#xa;FTP server status:&#xa;     Connected to 10.99.56.5&#xa;     Logged in as ftp&#xa;     TYPE: ASCII&#xa;     No session bandwidth limit&#xa;     Session timeout in seconds is 300&#xa;     Control connection is plain text&#xa;     Data connections will be plain text&#xa;     At session startup, client count was 1&#xa;     vsFTPd 3.0.5 - secure, fast, stable&#xa;End of status"><elem key="STAT">&#xa;FTP server status:&#xa;     Connected to 10.99.56.5&#xa;     Logged in as ftp&#xa;     TYPE: ASCII&#xa;     No session bandwidth limit&#xa;     Session timeout in seconds is 300&#xa;     Control connection is plain text&#xa;     Data connections will be plain text&#xa;     At session startup, client count was 1&#xa;     vsFTPd 3.0.5 - secure, fast, stable&#xa;End of status</elem>
+</script></port>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="9.7" extrainfo="protocol 2.0" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:9.7</cpe></service><script id="ssh-hostkey" output="&#xa;  256 03:f0:c4:fe:23:07:24:dd:43:d7:77:b1:b1:01:b3:06 (ECDSA)&#xa;  256 e5:09:13:45:99:2d:2a:d0:8f:db:86:c7:a6:ed:4e:3a (ED25519)"><table>
+<elem key="fingerprint">03f0c4fe230724dd43d777b1b101b306</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEIISWhLBP/e7pge5F6Hfr/99L1RrCaPGRgTIFqtfEURJYiNft7OiIPxtdvs3Cr1iQR3def/a+efmkgVKky9fPg=</elem>
+<elem key="bits">256</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+</table>
+<table>
+<elem key="fingerprint">e5091345992d2ad08fdb86c7a6ed4e3a</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIBmu6rBdhtU3rc1VS+2iyzBDfXxEXJhXLtG97FRluuXd</elem>
+<elem key="bits">256</elem>
+<elem key="type">ssh-ed25519</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="23"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="telnet" product="BusyBox telnetd" hostname="lab-web" method="probed" conf="10"><cpe>cpe:/a:busybox:busybox</cpe></service></port>
+<port protocol="tcp" portid="25"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="smtp" product="Postfix smtpd" hostname=" lab-web.lab.test" method="probed" conf="10"><cpe>cpe:/a:postfix:postfix</cpe></service><script id="smtp-commands" output="lab-web.lab.test, PIPELINING, SIZE 10240000, VRFY, ETRN, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8, CHUNKING&#xa; 2.0.0 Commands: AUTH BDAT DATA EHLO ETRN HELO HELP MAIL NOOP QUIT RCPT RSET STARTTLS VRFY XCLIENT XFORWARD"/></port>
+<port protocol="tcp" portid="53"><state state="closed" reason="reset" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-title" output="Trove Lab Portal"><elem key="title">Trove Lab Portal</elem>
+</script></port>
+<port protocol="tcp" portid="123"><state state="closed" reason="reset" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="closed" reason="reset" reason_ttl="64"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="161"><state state="closed" reason="reset" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="http-title" output="Trove Lab Portal"><elem key="title">Trove Lab Portal</elem>
+</script><script id="ssl-cert" output="Subject: commonName=lab-web.lab.test/organizationName=Trove test lab&#xa;Not valid before: 2026-10-29T02:49:45&#xa;Not valid after:  2036-10-26T02:49:45"><table key="subject">
+<elem key="commonName">lab-web.lab.test</elem>
+<elem key="organizationName">Trove test lab</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">lab-web.lab.test</elem>
+<elem key="organizationName">Trove test lab</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C249CACF6278EABECFB51722C4D3BB88B6EB3168CF70F107E2E193E467672B4065FD8484F256DD484D1207FB5A8D25D53470D37A0B6D5E4844E61AECD8A9E5D5404D10280001B4650FC78F24CDF75F6DCE4C1D4E1B8B9D5E9C1F9CD435874C395C246D7244115F79F3B2D810C53D37854BF7FE52FB64CC74AA3E43BA86BEBD5A8EAD6E50A571B3CB182C5B8420F0769AC29961C5F15055D18A0EA5F69631047C3A4A1EB690A100A3C951A2ABC1FDA0F50EF6D4651EDAB6A18AD386CBC3CB621583F20AF4F8227B1F4F162BE6D8F3E80AA57290B9083BF45437F27B2FA28E9FF8A6BBF6B381D26997962FFEA2424E70EEBF720F704BCFADC726485DF5EC123F17</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">CD:19:A0:4F:5D:43:32:5C:24:84:FE:12:1D:67:F8:11:8E:94:C0:8B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">CD:19:A0:4F:5D:43:32:5C:24:84:FE:12:1D:67:F8:11:8E:94:C0:8B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:TRUE</elem>
+<elem key="critical">true</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-10-29T02:49:45</elem>
+<elem key="notAfter">2036-10-26T02:49:45</elem>
+</table>
+<elem key="md5">e7105169b07e5993d3c4550cca15b7e0</elem>
+<elem key="sha1">8a56e7272fb1b87fc500e61fbf7392bf34157072</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDSTCCAjGgAwIBAgIUEq9Pv5HR+/wps+HkgI33I1FXgbYwDQYJKoZIhvcNAQEL&#xa;BQAwNDEZMBcGA1UEAwwQbGFiLXdlYi5sYWIudGVzdDEXMBUGA1UECgwOVHJvdmUg&#xa;dGVzdCBsYWIwHhcNMjYxMDI5MDI0OTQ1WhcNMzYxMDI2MDI0OTQ1WjA0MRkwFwYD&#xa;VQQDDBBsYWItd2ViLmxhYi50ZXN0MRcwFQYDVQQKDA5Ucm92ZSB0ZXN0IGxhYjCC&#xa;ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMJJys9ieOq+z7UXIsTTu4i2&#xa;6zFoz3DxB+Lhk+RnZytAZf2EhPJW3UhNEgf7Wo0l1TRw03oLbV5IROYa7Nip5dVA&#xa;TRAoAAG0ZQ/HjyTN919tzkwdThuLnV6cH5zUNYdMOVwkbXJEEV9587LYEMU9N4VL&#xa;9/5S+2TMdKo+Q7qGvr1ajq1uUKVxs8sYLFuEIPB2msKZYcXxUFXRig6l9pYxBHw6&#xa;Sh62kKEAo8lRoqvB/aD1DvbUZR7atqGK04bLw8tiFYPyCvT4InsfTxYr5tjz6Aql&#xa;cpC5CDv0VDfyey+ijp/4prv2s4HSaZeWL/6iQk5w7r9yD3BLz63HJkhd9ewSPxcC&#xa;AwEAAaNTMFEwHQYDVR0OBBYEFM0ZoE9dQzJcJIT+Eh1n+BGOlMCLMB8GA1UdIwQY&#xa;MBaAFM0ZoE9dQzJcJIT+Eh1n+BGOlMCLMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZI&#xa;hvcNAQELBQADggEBAJeDY6K2T1Os1hXbLhR9eTZvCvuk2A8nE+6GjYF6UqkZe+Le&#xa;6D0uBA3TWQvEgNKRzuhVFEY1gU908QA1/TB6kgxvGfDjCYn+0lxtvUHLYNVPaw4/&#xa;zsPAtazAjQwAijDWtITuVpcZY0j3XMxjrbkHrDVDJV+9fDdVF9Ewex4jcxMAwpXQ&#xa;FsKp+Wx1u6nt/IGrPoHo+s0RHWyvxnYYjiqo3mahgJ0B3RnIj0VDL8iT/Gkv60Uz&#xa;u/Mny0v0m1YVEUG1zJQgUb0ZtWahFYt+LwsIGZeooLPVxAmV9a5lqt3wGdE6f9Rm&#xa;w8GgRsSEyWXg9Xh+gof+O3FhZ9mWMR4rcbpo+F4=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="tls-alpn" output="&#xa;  http/1.1&#xa;  http/1.0&#xa;  http/0.9"><elem>http/1.1</elem>
+<elem>http/1.0</elem>
+<elem>http/0.9</elem>
+</script></port>
+<port protocol="tcp" portid="445"><state state="closed" reason="reset" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="6379"><state state="closed" reason="reset" reason_ttl="64"/><service name="redis" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-title" output="Trove Lab Portal"><elem key="title">Trove Lab Portal</elem>
+</script><script id="http-open-proxy" output="Proxy might be redirecting requests"/></port>
+<port protocol="tcp" portid="11211"><state state="closed" reason="reset" reason_ttl="64"/><service name="memcache" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="90" to="100000"/>
+</host>
+<host starttime="1793251011" endtime="1793251035"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.11" addrtype="ipv4"/>
+<address addr="9E:C8:87:7B:22:3A" addrtype="mac"/>
+<hostnames>
+<hostname name="lootlab-files-1.lootlab_lab" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="21"><state state="closed" reason="reset" reason_ttl="64"/><service name="ftp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="22"><state state="closed" reason="reset" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="23"><state state="closed" reason="reset" reason_ttl="64"/><service name="telnet" method="table" conf="3"/></port>
+<port protocol="tcp" portid="25"><state state="closed" reason="reset" reason_ttl="64"/><service name="smtp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" product="dnsmasq" version="2.90" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.90</cpe></service><script id="dns-nsid" output="&#xa;  bind.version: dnsmasq-2.90"><elem key="bind.version">dnsmasq-2.90</elem>
+</script></port>
+<port protocol="tcp" portid="80"><state state="closed" reason="reset" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="123"><state state="closed" reason="reset" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" product="Samba smbd" version="4" method="probed" conf="10"><cpe>cpe:/a:samba:samba:4</cpe></service></port>
+<port protocol="tcp" portid="161"><state state="closed" reason="reset" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="closed" reason="reset" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" product="Samba smbd" version="4" method="probed" conf="10"><cpe>cpe:/a:samba:samba:4</cpe></service></port>
+<port protocol="tcp" portid="6379"><state state="closed" reason="reset" reason_ttl="64"/><service name="redis" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="closed" reason="reset" reason_ttl="64"/><service name="http-proxy" method="table" conf="3"/></port>
+<port protocol="tcp" portid="11211"><state state="closed" reason="reset" reason_ttl="64"/><service name="memcache" method="table" conf="3"/></port>
+</ports>
+<hostscript><script id="smb2-security-mode" output="&#xa;  3:1:1: &#xa;    Message signing enabled but not required"><table key="3:1:1">
+<elem>Message signing enabled but not required</elem>
+</table>
+</script><script id="smb2-time" output="&#xa;  date: 2026-10-29T05:17:03&#xa;  start_date: N/A"><elem key="date">2026-10-29T05:17:03</elem>
+<elem key="start_date">N/A</elem>
+</script></hostscript><times srtt="9" rttvar="93" to="100000"/>
+</host>
+<host starttime="1793251011" endtime="1793251035"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.99.56.12" addrtype="ipv4"/>
+<address addr="C6:B9:9A:7D:47:12" addrtype="mac"/>
+<hostnames>
+<hostname name="lootlab-cache-1.lootlab_lab" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="21"><state state="closed" reason="reset" reason_ttl="64"/><service name="ftp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="22"><state state="closed" reason="reset" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="23"><state state="closed" reason="reset" reason_ttl="64"/><service name="telnet" method="table" conf="3"/></port>
+<port protocol="tcp" portid="25"><state state="closed" reason="reset" reason_ttl="64"/><service name="smtp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="closed" reason="reset" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-title" output="Trove Lab Portal"><elem key="title">Trove Lab Portal</elem>
+</script></port>
+<port protocol="tcp" portid="123"><state state="closed" reason="reset" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="closed" reason="reset" reason_ttl="64"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="161"><state state="closed" reason="reset" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="http-title" output="Trove Lab Portal"><elem key="title">Trove Lab Portal</elem>
+</script><script id="ssl-cert" output="Subject: commonName=lab-web.lab.test/organizationName=Trove test lab&#xa;Not valid before: 2026-10-29T02:49:45&#xa;Not valid after:  2036-10-26T02:49:45"><table key="subject">
+<elem key="commonName">lab-web.lab.test</elem>
+<elem key="organizationName">Trove test lab</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">lab-web.lab.test</elem>
+<elem key="organizationName">Trove test lab</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C249CACF6278EABECFB51722C4D3BB88B6EB3168CF70F107E2E193E467672B4065FD8484F256DD484D1207FB5A8D25D53470D37A0B6D5E4844E61AECD8A9E5D5404D10280001B4650FC78F24CDF75F6DCE4C1D4E1B8B9D5E9C1F9CD435874C395C246D7244115F79F3B2D810C53D37854BF7FE52FB64CC74AA3E43BA86BEBD5A8EAD6E50A571B3CB182C5B8420F0769AC29961C5F15055D18A0EA5F69631047C3A4A1EB690A100A3C951A2ABC1FDA0F50EF6D4651EDAB6A18AD386CBC3CB621583F20AF4F8227B1F4F162BE6D8F3E80AA57290B9083BF45437F27B2FA28E9FF8A6BBF6B381D26997962FFEA2424E70EEBF720F704BCFADC726485DF5EC123F17</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">CD:19:A0:4F:5D:43:32:5C:24:84:FE:12:1D:67:F8:11:8E:94:C0:8B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">CD:19:A0:4F:5D:43:32:5C:24:84:FE:12:1D:67:F8:11:8E:94:C0:8B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:TRUE</elem>
+<elem key="critical">true</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-10-29T02:49:45</elem>
+<elem key="notAfter">2036-10-26T02:49:45</elem>
+</table>
+<elem key="md5">e7105169b07e5993d3c4550cca15b7e0</elem>
+<elem key="sha1">8a56e7272fb1b87fc500e61fbf7392bf34157072</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDSTCCAjGgAwIBAgIUEq9Pv5HR+/wps+HkgI33I1FXgbYwDQYJKoZIhvcNAQEL&#xa;BQAwNDEZMBcGA1UEAwwQbGFiLXdlYi5sYWIudGVzdDEXMBUGA1UECgwOVHJvdmUg&#xa;dGVzdCBsYWIwHhcNMjYxMDI5MDI0OTQ1WhcNMzYxMDI2MDI0OTQ1WjA0MRkwFwYD&#xa;VQQDDBBsYWItd2ViLmxhYi50ZXN0MRcwFQYDVQQKDA5Ucm92ZSB0ZXN0IGxhYjCC&#xa;ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMJJys9ieOq+z7UXIsTTu4i2&#xa;6zFoz3DxB+Lhk+RnZytAZf2EhPJW3UhNEgf7Wo0l1TRw03oLbV5IROYa7Nip5dVA&#xa;TRAoAAG0ZQ/HjyTN919tzkwdThuLnV6cH5zUNYdMOVwkbXJEEV9587LYEMU9N4VL&#xa;9/5S+2TMdKo+Q7qGvr1ajq1uUKVxs8sYLFuEIPB2msKZYcXxUFXRig6l9pYxBHw6&#xa;Sh62kKEAo8lRoqvB/aD1DvbUZR7atqGK04bLw8tiFYPyCvT4InsfTxYr5tjz6Aql&#xa;cpC5CDv0VDfyey+ijp/4prv2s4HSaZeWL/6iQk5w7r9yD3BLz63HJkhd9ewSPxcC&#xa;AwEAAaNTMFEwHQYDVR0OBBYEFM0ZoE9dQzJcJIT+Eh1n+BGOlMCLMB8GA1UdIwQY&#xa;MBaAFM0ZoE9dQzJcJIT+Eh1n+BGOlMCLMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZI&#xa;hvcNAQELBQADggEBAJeDY6K2T1Os1hXbLhR9eTZvCvuk2A8nE+6GjYF6UqkZe+Le&#xa;6D0uBA3TWQvEgNKRzuhVFEY1gU908QA1/TB6kgxvGfDjCYn+0lxtvUHLYNVPaw4/&#xa;zsPAtazAjQwAijDWtITuVpcZY0j3XMxjrbkHrDVDJV+9fDdVF9Ewex4jcxMAwpXQ&#xa;FsKp+Wx1u6nt/IGrPoHo+s0RHWyvxnYYjiqo3mahgJ0B3RnIj0VDL8iT/Gkv60Uz&#xa;u/Mny0v0m1YVEUG1zJQgUb0ZtWahFYt+LwsIGZeooLPVxAmV9a5lqt3wGdE6f9Rm&#xa;w8GgRsSEyWXg9Xh+gof+O3FhZ9mWMR4rcbpo+F4=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="tls-alpn" output="&#xa;  http/1.1&#xa;  http/1.0&#xa;  http/0.9"><elem>http/1.1</elem>
+<elem>http/1.0</elem>
+<elem>http/0.9</elem>
+</script></port>
+<port protocol="tcp" portid="445"><state state="closed" reason="reset" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="6379"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="redis" product="Redis key-value store" version="7.2.9" method="probed" conf="10"><cpe>cpe:/a:redislabs:redis:7.2.9</cpe></service></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-title" output="Trove Lab Portal"><elem key="title">Trove Lab Portal</elem>
+</script><script id="http-open-proxy" output="Proxy might be redirecting requests"/></port>
+<port protocol="tcp" portid="11211"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="memcached" product="Memcached" version="1.6.27" extrainfo="uptime 197 seconds" method="probed" conf="10"><cpe>cpe:/a:memcached:memcached:1.6.27</cpe></service></port>
+</ports>
+<times srtt="5" rttvar="89" to="100000"/>
+</host>
+<runstats><finished time="1793251035" timestr="Thu Oct 29 05:17:15 2026" summary="Nmap done at Thu Oct 29 05:17:15 2026; 3 IP addresses (3 hosts up) scanned in 23.72 seconds" elapsed="23.72" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>

@@ -62,3 +62,11 @@ class NaabuJson(EngagementCase):
     def test_the_tool_can_be_forced(self):
         report = self.import_fixture("naabu/naabu-sunspear.json", tool="naabu")
         self.assertEqual(report["parser"], "naabu")
+
+    def test_a_raw_next_line_character_in_a_banner_does_not_split_the_line(self):
+        data = ('{"ip":"192.168.56.44","port":53,"protocol":"tcp","tls":false,"name":"domain",'
+                '"banner":"\\u00007\\u0000\\u0006\x85\x80\\u0000"}\n').encode()
+        report = ingest.import_data(self.eng, data, "naabu-sv.json")[0]
+        self.assertEqual((report["parser"], report["counts"], report["notes"]),
+                         ("naabu", {"host": 1, "service": 1}, []))
+        self.assert_citations_hold()

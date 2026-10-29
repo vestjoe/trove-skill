@@ -1,0 +1,54 @@
+name: lootlab
+
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 10.99.56.0/24
+
+x-target: &target
+  build: target
+  image: lootlab-target
+  networks:
+    lab: {}
+
+services:
+  web:
+    <<: *target
+    hostname: lab-web
+    environment:
+      SERVICES: ssh http ftp telnet smtp
+    networks:
+      lab:
+        ipv4_address: 10.99.56.10
+
+  files:
+    <<: *target
+    hostname: lab-files
+    environment:
+      SERVICES: smb dns snmp ntp
+    networks:
+      lab:
+        ipv4_address: 10.99.56.11
+
+  cache:
+    <<: *target
+    hostname: lab-cache
+    environment:
+      SERVICES: redis memcached http
+    networks:
+      lab:
+        ipv4_address: 10.99.56.12
+
+  scanner:
+    build: scanner
+    image: lootlab-scanner
+    cap_add: [NET_RAW, NET_ADMIN]
+    dns: 10.99.56.11
+    command: ["sleep", "infinity"]
+    volumes:
+      - ./scan.sh:/lab/scan.sh:ro
+      - ./out:/out
+    networks:
+      lab:
+        ipv4_address: 10.99.56.5

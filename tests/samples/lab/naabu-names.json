@@ -1,0 +1,15 @@
+{"host":"lab-cache.lab.test","ip":"10.99.56.12","timestamp":"2026-10-29T05:16:31.788155339Z","port":6379,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"host":"lab-cache.lab.test","ip":"10.99.56.12","timestamp":"2026-10-29T05:16:31.788155339Z","port":8080,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"host":"lab-cache.lab.test","ip":"10.99.56.12","timestamp":"2026-10-29T05:16:31.788155339Z","port":11211,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"host":"lab-cache.lab.test","ip":"10.99.56.12","timestamp":"2026-10-29T05:16:31.788155339Z","port":443,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"host":"lab-cache.lab.test","ip":"10.99.56.12","timestamp":"2026-10-29T05:16:31.788155339Z","port":80,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"host":"lab-files.lab.test","ip":"10.99.56.11","timestamp":"2026-10-29T05:16:31.788407506Z","port":53,"protocol":"tcp","tls":false,"mac_address":"9e:c8:87:7b:22:3a"}
+{"host":"lab-files.lab.test","ip":"10.99.56.11","timestamp":"2026-10-29T05:16:31.788407506Z","port":445,"protocol":"tcp","tls":false,"mac_address":"9e:c8:87:7b:22:3a"}
+{"host":"lab-files.lab.test","ip":"10.99.56.11","timestamp":"2026-10-29T05:16:31.788407506Z","port":139,"protocol":"tcp","tls":false,"mac_address":"9e:c8:87:7b:22:3a"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":21,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":22,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":25,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":23,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":8080,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":80,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"host":"lab-web.lab.test","ip":"10.99.56.10","timestamp":"2026-10-29T05:16:31.788514464Z","port":443,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}

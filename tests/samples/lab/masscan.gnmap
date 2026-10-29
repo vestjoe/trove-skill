@@ -1,0 +1,162 @@
+# Masscan 1.3.2 scan initiated Thu Oct 29 05:13:46 2026
+# Ports scanned: TCP(0;) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Timestamp: 1793250826	Host: 10.99.56.10 ()	Ports: 23/open/tcp//telnet//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=10 time=1793250830 version=1.6.27 
+Timestamp: 1793250831	Host: 10.99.56.12 ()	Ports: 11211/open/udp//unknown//
+Timestamp: 1793250832	Host: 10.99.56.12 ()	Ports: 8080/open/tcp//http-alt//
+Timestamp: 1793250844	Host: 10.99.56.10 ()	Ports: 443/open/tcp//https//
+Timestamp: 1793250844	Host: 10.99.56.12 ()	Ports: 11211/open/tcp//unknown//
+Timestamp: 1793250850	Host: 10.99.56.12 ()	Ports: 80/open/tcp//http//
+Timestamp: 1793250856	Host: 10.99.56.10 ()	Ports: 25/open/tcp//smtp//
+Host: 10.99.56.10 ()	Port: 25	Service: smtp	Banner: 220 lab-web.lab.test ESMTP Postfix\x0a250-lab-web.lab.test\x0a250-PIPELINING\x0a250-SIZE 10240000\x0a250-VRFY\x0a250-ETRN\x0a250-ENHANCEDSTATUSCODES\x0a250-8BITMIME\x0a250-DSN\x0a250-SMTPUTF8\x0a250 CHUNKING\x0a502 5.5.1 Error: command not implemented
+Timestamp: 1793250857	Host: 10.99.56.11 ()	Ports: 53/open/tcp//domain//
+Timestamp: 1793250858	Host: 10.99.56.10 ()	Ports: 22/open/tcp//ssh//
+Host: 10.99.56.10 ()	Port: 22	Service: ssh	Banner: SSH-2.0-OpenSSH_9.7
+Host: 10.99.56.10 ()	Port: 23	Service: telnet	Banner:  DO(echo) DO(naws) WILL(echo) WILL(sga)\x5cn lab-web login: 
+Host: 10.99.56.12 ()	Port: 8080	Service: http.server	Banner: nginx
+Host: 10.99.56.12 ()	Port: 8080	Service: title	Banner: Trove Lab Portal
+Host: 10.99.56.12 ()	Port: 8080	Service: http	Banner: HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:13:54 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+Timestamp: 1793250871	Host: 10.99.56.10 ()	Ports: 8080/open/tcp//http-alt//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Host: 10.99.56.11 ()	Port: 53	Service: dns-ver	Banner: dnsmasq-2.90
+Timestamp: 1793250874	Host: 10.99.56.11 ()	Ports: 53/open/udp//domain//
+Timestamp: 1793250876	Host: 10.99.56.12 ()	Ports: 6379/open/tcp//redis//
+Host: 10.99.56.10 ()	Port: 443	Service: ssl	Banner:  ALERT(0x0246) 
+Host: 10.99.56.12 ()	Port: 11211	Service: memcached	Banner: uptime=25 time=1793250845 version=1.6.27 
+Timestamp: 1793250881	Host: 10.99.56.10 ()	Ports: 80/open/tcp//http//
+Host: 10.99.56.12 ()	Port: 80	Service: http.server	Banner: nginx
+Host: 10.99.56.12 ()	Port: 80	Service: title	Banner: Trove Lab Portal
+Host: 10.99.56.12 ()	Port: 80	Service: http	Banner: HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:14:12 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+Timestamp: 1793250884	Host: 10.99.56.10 ()	Ports: 21/open/tcp//ftp//
+Host: 10.99.56.10 ()	Port: 21	Service: ftp	Banner: 220 Lab FTP ready\x0a530 Please login with USER and PASS.
+Host: 10.99.56.10 ()	Port: 8080	Service: http.server	Banner: nginx
+Host: 10.99.56.10 ()	Port: 8080	Service: title	Banner: Trove Lab Portal
+Host: 10.99.56.10 ()	Port: 8080	Service: http	Banner: HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:14:34 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+Timestamp: 1793250904	Host: 10.99.56.11 ()	Ports: 445/open/tcp//microsoft-ds//
+Host: 10.99.56.11 ()	Port: 445	Service: smb	Banner: SMBv2  guid=2d62616c-6966-656c-7300-000000000000 time=2026-10-29 05:15:06  domain=LAB-FILES version=6.1.0 ntlm-ver=15 domain=LAB-FILES name=LAB-FILES domain-dns= name-dns=lab-files
+Timestamp: 1793250911	Host: 10.99.56.12 ()	Ports: 443/open/tcp//https//
+Host: 10.99.56.10 ()	Port: 80	Service: http.server	Banner: nginx
+Host: 10.99.56.10 ()	Port: 80	Service: title	Banner: Trove Lab Portal
+Host: 10.99.56.10 ()	Port: 80	Service: http	Banner: HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:14:43 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Host: 10.99.56.11 ()	Port: 161	Service: snmp	Banner: sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+Timestamp: 1793250918	Host: 10.99.56.11 ()	Ports: 161/open/udp//snmp//
+Timestamp: 1793250920	Host: 10.99.56.11 ()	Ports: 139/open/tcp//netbios-ssn//
+Host: 10.99.56.12 ()	Port: 443	Service: ssl	Banner:  ALERT(0x0246) 
+# Masscan done at Thu Oct 29 05:16:20 2026

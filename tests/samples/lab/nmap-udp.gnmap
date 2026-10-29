@@ -1,0 +1,8 @@
+# Nmap 7.95 scan initiated Thu Oct 29 05:17:15 2026 as: nmap -sU -sV -p53,123,161,11211 -oA nmap-udp 10.99.56.10 10.99.56.11 10.99.56.12
+Host: 10.99.56.10 (lootlab-web-1.lootlab_lab)	Status: Up
+Host: 10.99.56.10 (lootlab-web-1.lootlab_lab)	Ports: 53/closed/udp//domain///, 123/closed/udp//ntp///, 161/closed/udp//snmp///, 11211/closed/udp//memcache///
+Host: 10.99.56.11 (lootlab-files-1.lootlab_lab)	Status: Up
+Host: 10.99.56.11 (lootlab-files-1.lootlab_lab)	Ports: 53/open/udp//domain//dnsmasq 2.90/, 123/open/udp//ntp//NTP v4 (secondary server)/, 161/open/udp//snmp//SNMPv1 server; net-snmp SNMPv3 server (public)/, 11211/closed/udp//memcache///
+Host: 10.99.56.12 (lootlab-cache-1.lootlab_lab)	Status: Up
+Host: 10.99.56.12 (lootlab-cache-1.lootlab_lab)	Ports: 53/closed/udp//domain///, 123/closed/udp//ntp///, 161/closed/udp//snmp///, 11211/open/udp//memcache?///
+# Nmap done at Thu Oct 29 05:19:05 2026 -- 3 IP addresses (3 hosts up) scanned in 110.02 seconds

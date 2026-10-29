@@ -1,0 +1,161 @@
+#masscan
+open tcp 23 10.99.56.10 1793250826
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+banner udp 11211 10.99.56.12 1793250831 memcached uptime=10 time=1793250830 version=1.6.27 
+open udp 11211 10.99.56.12 1793250831
+open tcp 8080 10.99.56.12 1793250832
+open tcp 443 10.99.56.10 1793250844
+open tcp 11211 10.99.56.12 1793250844
+open tcp 80 10.99.56.12 1793250850
+open tcp 25 10.99.56.10 1793250856
+banner tcp 25 10.99.56.10 1793250856 smtp 220 lab-web.lab.test ESMTP Postfix\x0a250-lab-web.lab.test\x0a250-PIPELINING\x0a250-SIZE 10240000\x0a250-VRFY\x0a250-ETRN\x0a250-ENHANCEDSTATUSCODES\x0a250-8BITMIME\x0a250-DSN\x0a250-SMTPUTF8\x0a250 CHUNKING\x0a502 5.5.1 Error: command not implemented
+open tcp 53 10.99.56.11 1793250857
+open tcp 22 10.99.56.10 1793250858
+banner tcp 22 10.99.56.10 1793250858 ssh SSH-2.0-OpenSSH_9.7
+banner tcp 23 10.99.56.10 1793250858 telnet  DO(echo) DO(naws) WILL(echo) WILL(sga)\x5cn lab-web login: 
+banner tcp 8080 10.99.56.12 1793250864 http.server nginx
+banner tcp 8080 10.99.56.12 1793250864 title Trove Lab Portal
+banner tcp 8080 10.99.56.12 1793250864 http HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:13:54 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+open tcp 8080 10.99.56.10 1793250871
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+banner udp 53 10.99.56.11 1793250874 dns-ver dnsmasq-2.90
+open udp 53 10.99.56.11 1793250874
+open tcp 6379 10.99.56.12 1793250876
+banner tcp 443 10.99.56.10 1793250876 ssl  ALERT(0x0246) 
+banner tcp 11211 10.99.56.12 1793250876 memcached uptime=25 time=1793250845 version=1.6.27 
+open tcp 80 10.99.56.10 1793250881
+banner tcp 80 10.99.56.12 1793250882 http.server nginx
+banner tcp 80 10.99.56.12 1793250882 title Trove Lab Portal
+banner tcp 80 10.99.56.12 1793250882 http HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:14:12 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+open tcp 21 10.99.56.10 1793250884
+banner tcp 21 10.99.56.10 1793250884 ftp 220 Lab FTP ready\x0a530 Please login with USER and PASS.
+banner tcp 8080 10.99.56.10 1793250902 http.server nginx
+banner tcp 8080 10.99.56.10 1793250902 title Trove Lab Portal
+banner tcp 8080 10.99.56.10 1793250902 http HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:14:34 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+open tcp 445 10.99.56.11 1793250904
+banner tcp 445 10.99.56.11 1793250906 smb SMBv2  guid=2d62616c-6966-656c-7300-000000000000 time=2026-10-29 05:15:06  domain=LAB-FILES version=6.1.0 ntlm-ver=15 domain=LAB-FILES name=LAB-FILES domain-dns= name-dns=lab-files
+open tcp 443 10.99.56.12 1793250911
+banner tcp 80 10.99.56.10 1793250913 http.server nginx
+banner tcp 80 10.99.56.10 1793250913 title Trove Lab Portal
+banner tcp 80 10.99.56.10 1793250913 http HTTP/1.1 200 OK\x0d\x0aServer: nginx\x0d\x0aDate: Thu, 29 Oct 2026 05:14:43 GMT\x0d\x0aContent-Type: text/html\x0d\x0aContent-Length: 74\x0d\x0aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\x0d\x0aConnection: close\x0d\x0aETag: \x226ae2b449-4a\x22\x0d\x0aAccept-Ranges: bytes\x0d\x0a\x0d
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+banner udp 161 10.99.56.11 1793250918 snmp sysDescr:Trove lab SNMP agent\x0asysName:lab-files
+open udp 161 10.99.56.11 1793250918
+open tcp 139 10.99.56.11 1793250920
+banner tcp 443 10.99.56.12 1793250980 ssl  ALERT(0x0246) 
+# end

@@ -49,8 +49,9 @@ def _add_banners(held: dict[str, Any], rec: dict[str, Any]) -> None:
     """Fold a later masscan banner record for the same port into the service already read."""
     if "banner" in rec and "banner" not in held:
         records.set_field(held, "banner", rec["banner"], rec["prov"]["banner"])
-    if rec["ext"].get("banners"):
-        held["ext"]["banners"] = held["ext"].get("banners", []) + rec["ext"]["banners"]
+    for banner in rec["ext"].get("banners", []):
+        if banner not in held["ext"].setdefault("banners", []):
+            held["ext"]["banners"].append(banner)
 
 
 def _citer(raw: Input):

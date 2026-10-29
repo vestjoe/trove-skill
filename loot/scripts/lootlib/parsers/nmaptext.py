@@ -32,7 +32,7 @@ PORTS_FIELD = "Ports: "
 ENTRY_START = re.compile(r"(?:^|, )(?=\d{1,5}/)")
 ENTRY_FIELDS = ("port", "state", "protocol", "owner", "service", "rpc", "banner")
 NMAP_LINE = re.compile(
-    r"^(?:# Nmap |# Ports scanned: |# Naabu \S+ scan initiated .+$|# Naabu done at .+ -- \d+ IP addresses \(\d+ hosts up\) scanned$|# Masscan \S+ scan initiated .+$|# Masscan done at .+$|\|(?:_|\s+\S)(?!.*\|\s*$)|SF[:-]|Nmap scan report for \S+(?: \([^)]*\))? *$|Nmap done: "
+    r"^(?:# Nmap |# Ports scanned: |# Naabu \S+ scan initiated .+$|# Naabu done at .+ -- \d+ IP addresses \(\d+ hosts up\) scanned$|# Masscan \S+ scan initiated .+$|# Masscan done at .+$|Starting masscan \S+ \(http://bit\.ly/14GZzcT\) at .+$|Initiating (?:SYN Stealth|ICMP Echo) Scan\s*$| -- forced options: |\|(?:_|\s+\S)(?!.*\|\s*$)|SF[:-]|Nmap scan report for \S+(?: \([^)]*\))? *$|Nmap done: "
     r"|Starting Nmap |Host is (?:up|down)\b|Host script results:"
     r"|Not shown: |All \d+ scanned ports|Some closed ports|PORT +STATE|Other addresses for |rDNS record for "
     r"|Service Info: (?:Host|OS|Device|CPE)s?: |Service detection performed|MAC Address: |Device type: "
@@ -243,12 +243,13 @@ def _add_banner(banner: tuple[str, int, str, str, int, _Line], raw: Input,
     ip, port, kind, text, at, line = banner
     found = [r for r in held.values() if r["type"] == "service" and r["host_id"] == f"host:{ip}" and r["port"] == port]
     if len(found) != 1:
-        _unread(line, raw)
+        if line.text not in raw.unread:
+            _unread(line, raw)
         return
     if text and "banner" not in found[0]:
         records.set_field(found[0], "banner", text, _cite(raw, line, at, text))
-    if text:
-        found[0]["ext"]["banners"] = found[0]["ext"].get("banners", []) + [f"{kind}: {text}"]
+    if text and f"{kind}: {text}" not in found[0]["ext"].setdefault("banners", []):
+        found[0]["ext"]["banners"].append(f"{kind}: {text}")
 
 
 def _set_state(host: dict[str, Any], state: str, line: _Line, at: int, raw: Input) -> None:

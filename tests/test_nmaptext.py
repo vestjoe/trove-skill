@@ -95,3 +95,11 @@ class NmapText(EngagementCase):
         self.assertFalse([s for s in self.all("service") if "banner" in s])
         queued = [e for e in rawstore.manifest(self.eng) if e.get("ai") == "pending"]
         self.assertEqual(len(rawstore.read(self.eng, queued[0]["blob"]).decode().splitlines()), 2)
+
+    def test_a_repeated_masscan_grepable_banner_with_no_single_port_is_queued_once(self):
+        line = "Host: 192.168.56.53 ()\tPort: 53\tService: dns-ver\tBanner: Microsoft DNS 6.3.9600\n"
+        data = ("Timestamp: 1793181602\tHost: 192.168.56.53 ()\tPorts: 53/open/tcp//domain//\n"
+                "Timestamp: 1793181602\tHost: 192.168.56.53 ()\tPorts: 53/open/udp//domain//\n" + line * 14)
+        ingest.import_data(self.eng, data.encode(), "masscan.gnmap")
+        queued = [e for e in rawstore.manifest(self.eng) if e.get("ai") == "pending"]
+        self.assertEqual(rawstore.read(self.eng, queued[0]["blob"]).decode(), line)

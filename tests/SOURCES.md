@@ -52,3 +52,23 @@ Real output from run 2 in `tests/corpus/SOURCES.md`, with the same values replac
 | `netexec/nxc-pth-lmnt-refused.txt` | `netexec smb 192.168.56.23 -u goadmin -H '<LM>:<NT>' --local-auth` (refused) |
 | `nmap/nmap-os-verbose.gnmap` | `nmap -sV -O --traceroute -v -oA … 192.168.56.11 192.168.56.22` (nmap 7.80 crashed after writing all three files) |
 | `bloodhound/north_default_20261019142903_bloodhound.zip` | `bloodhound-ce-python -d north.sevenkingdoms.local -u brandon.stark -p … -ns 192.168.56.11 --zip` (default collection: no object properties) |
+
+## Captures from other projects
+
+Real tool output published under an open licence, kept in `tests/samples/` so the end-to-end imports of `tests/fixtures/` do not include it. Each file is as published.
+
+| File | Source |
+|---|---|
+| `samples/masscan/rzlab-masscan.xml` | runZeroInc/runZeroHound `f19aafa` `examples/rzlab-masscan.xml`: a masscan `-oX --banners` scan of runZero's lab (private addresses). MIT License, Copyright (c) 2025-2026 runZero, Inc |
+
+## Lab captures
+
+`samples/lab/` is one run of `tests/lab/capture.sh` (masscan 1.3.2, naabu 2.7.0, Nmap 7.95) against the Docker lab in `tests/lab/` (10.99.56.10–.12; see its README). Files are as written, except that `masscan.bin` (binary), `naabu.txt` (plain `host:port`) and an empty `naabu -p u:…` result are not kept.
+
+| File | Command (in the scanner container) |
+|---|---|
+| `masscan.{xml,gnmap,txt,json,ndjson}` | `masscan 10.99.56.10,10.99.56.11,10.99.56.12 -p1-65535,U:53,U:123,U:161,U:11211 --banners --source-ip 10.99.56.250 --rate 2000 --wait 5 -oB masscan.bin`, then `masscan --readscan masscan.bin -oX/-oG/-oL/-oJ/-oD …` |
+| `masscan-screen.txt` | the same with `-p21-25,53,80,443,445,6379,8080,U:161` and no `-o`, screen and errors saved (`> … 2>&1`) |
+| `naabu.json`, `naabu-names.json`, `naabu-sv.json` | `naabu -host <addresses or lab-*.lab.test names> [-r 10.99.56.11] -p 21,22,23,25,53,80,123,139,161,443,445,6379,8080,11211 -silent [-sV] -json -o …` |
+| `naabu.xml`, `naabu.gnmap` | the same with `-sV -oX naabu.xml -oG naabu.gnmap` |
+| `nmap-full.*`, `nmap-udp.*` | `nmap -sV -sC -p <the same ports> -oA nmap-full <addresses>`; `nmap -sU -sV -p53,123,161,11211 -oA nmap-udp <addresses>` |

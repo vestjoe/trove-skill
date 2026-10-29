@@ -53,6 +53,8 @@ Why these, and what to avoid:
   Since 2.3.3 it uses a connect scan; a SYN scan (`-s s`) needs root and falls
   back with `Routing could not be determined` over a lab VPN. Over a VPN, lower
   `-rate` or add `-verify` so dropped probes do not hide open ports.
+  Scanning by name, naabu uses public resolvers: add `-r <lab-dns-ip>`. Its UDP
+  scan (`-p u:53`) found nothing in a test lab where `nmap -sU` found DNS and SNMP.
 - **secretsdump** has no save option that records the target, so save the
   screen, with or without `-outputfile`: its `.ntds` file holds the same
   accounts with no domain or host, and its SAM and LSA files lose the sections

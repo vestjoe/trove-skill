@@ -1,0 +1,319 @@
+[
+{   "ip": "10.99.56.10",   "timestamp": "1793250826", "ports": [ {"port": 23, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "service": {"name": "memcached", "banner": "uptime=10 time=1793250830 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250831", "ports": [ {"port": 11211, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250832", "ports": [ {"port": 8080, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250844", "ports": [ {"port": 443, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250844", "ports": [ {"port": 11211, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250850", "ports": [ {"port": 80, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250856", "ports": [ {"port": 25, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250856", "ports": [ {"port": 25, "proto": "tcp", "service": {"name": "smtp", "banner": "220 lab-web.lab.test ESMTP Postfix\u000a250-lab-web.lab.test\u000a250-PIPELINING\u000a250-SIZE 10240000\u000a250-VRFY\u000a250-ETRN\u000a250-ENHANCEDSTATUSCODES\u000a250-8BITMIME\u000a250-DSN\u000a250-SMTPUTF8\u000a250 CHUNKING\u000a502 5.5.1 Error: command not implemented"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250857", "ports": [ {"port": 53, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250858", "ports": [ {"port": 22, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250858", "ports": [ {"port": 22, "proto": "tcp", "service": {"name": "ssh", "banner": "SSH-2.0-OpenSSH_9.7"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250858", "ports": [ {"port": 23, "proto": "tcp", "service": {"name": "telnet", "banner": " DO(echo) DO(naws) WILL(echo) WILL(sga)\u005cn lab-web login: "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250864", "ports": [ {"port": 8080, "proto": "tcp", "service": {"name": "http.server", "banner": "nginx"} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250864", "ports": [ {"port": 8080, "proto": "tcp", "service": {"name": "title", "banner": "Trove Lab Portal"} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250864", "ports": [ {"port": 8080, "proto": "tcp", "service": {"name": "http", "banner": "HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:13:54 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250871", "ports": [ {"port": 8080, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "service": {"name": "dns-ver", "banner": "dnsmasq-2.90"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250874", "ports": [ {"port": 53, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250876", "ports": [ {"port": 6379, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250876", "ports": [ {"port": 443, "proto": "tcp", "service": {"name": "ssl", "banner": " ALERT(0x0246) "} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250876", "ports": [ {"port": 11211, "proto": "tcp", "service": {"name": "memcached", "banner": "uptime=25 time=1793250845 version=1.6.27 "} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250881", "ports": [ {"port": 80, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250882", "ports": [ {"port": 80, "proto": "tcp", "service": {"name": "http.server", "banner": "nginx"} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250882", "ports": [ {"port": 80, "proto": "tcp", "service": {"name": "title", "banner": "Trove Lab Portal"} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250882", "ports": [ {"port": 80, "proto": "tcp", "service": {"name": "http", "banner": "HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:14:12 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250884", "ports": [ {"port": 21, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250884", "ports": [ {"port": 21, "proto": "tcp", "service": {"name": "ftp", "banner": "220 Lab FTP ready\u000a530 Please login with USER and PASS."} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250902", "ports": [ {"port": 8080, "proto": "tcp", "service": {"name": "http.server", "banner": "nginx"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250902", "ports": [ {"port": 8080, "proto": "tcp", "service": {"name": "title", "banner": "Trove Lab Portal"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250902", "ports": [ {"port": 8080, "proto": "tcp", "service": {"name": "http", "banner": "HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:14:34 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250904", "ports": [ {"port": 445, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250906", "ports": [ {"port": 445, "proto": "tcp", "service": {"name": "smb", "banner": "SMBv2  guid=2d62616c-6966-656c-7300-000000000000 time=2026-10-29 05:15:06  domain=LAB-FILES version=6.1.0 ntlm-ver=15 domain=LAB-FILES name=LAB-FILES domain-dns= name-dns=lab-files"} } ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250911", "ports": [ {"port": 443, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250913", "ports": [ {"port": 80, "proto": "tcp", "service": {"name": "http.server", "banner": "nginx"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250913", "ports": [ {"port": 80, "proto": "tcp", "service": {"name": "title", "banner": "Trove Lab Portal"} } ] }
+,
+{   "ip": "10.99.56.10",   "timestamp": "1793250913", "ports": [ {"port": 80, "proto": "tcp", "service": {"name": "http", "banner": "HTTP/1.1 200 OK\u000d\u000aServer: nginx\u000d\u000aDate: Thu, 29 Oct 2026 05:14:43 GMT\u000d\u000aContent-Type: text/html\u000d\u000aContent-Length: 74\u000d\u000aLast-Modified: Thu, 29 Oct 2026 02:49:45 GMT\u000d\u000aConnection: close\u000d\u000aETag: \u00226ae2b449-4a\u0022\u000d\u000aAccept-Ranges: bytes\u000d\u000a\u000d"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "service": {"name": "snmp", "banner": "sysDescr:Trove lab SNMP agent\u000asysName:lab-files"} } ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250918", "ports": [ {"port": 161, "proto": "udp", "status": "open", "reason": "none", "ttl": 0} ] }
+,
+{   "ip": "10.99.56.11",   "timestamp": "1793250920", "ports": [ {"port": 139, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 64} ] }
+,
+{   "ip": "10.99.56.12",   "timestamp": "1793250980", "ports": [ {"port": 443, "proto": "tcp", "service": {"name": "ssl", "banner": " ALERT(0x0246) "} } ] }
+]

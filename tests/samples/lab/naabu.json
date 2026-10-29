@@ -1,0 +1,15 @@
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":25,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":8080,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":22,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":80,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":23,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":21,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.10","timestamp":"2026-10-29T05:16:29.705772963Z","port":443,"protocol":"tcp","tls":false,"mac_address":"7e:13:5e:d9:17:7e"}
+{"ip":"10.99.56.12","timestamp":"2026-10-29T05:16:29.706420838Z","port":6379,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"ip":"10.99.56.12","timestamp":"2026-10-29T05:16:29.706420838Z","port":8080,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"ip":"10.99.56.12","timestamp":"2026-10-29T05:16:29.706420838Z","port":80,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"ip":"10.99.56.12","timestamp":"2026-10-29T05:16:29.706420838Z","port":443,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"ip":"10.99.56.12","timestamp":"2026-10-29T05:16:29.706420838Z","port":11211,"protocol":"tcp","tls":false,"mac_address":"c6:b9:9a:7d:47:12"}
+{"ip":"10.99.56.11","timestamp":"2026-10-29T05:16:29.706694838Z","port":53,"protocol":"tcp","tls":false,"mac_address":"9e:c8:87:7b:22:3a"}
+{"ip":"10.99.56.11","timestamp":"2026-10-29T05:16:29.706694838Z","port":445,"protocol":"tcp","tls":false,"mac_address":"9e:c8:87:7b:22:3a"}
+{"ip":"10.99.56.11","timestamp":"2026-10-29T05:16:29.706694838Z","port":139,"protocol":"tcp","tls":false,"mac_address":"9e:c8:87:7b:22:3a"}

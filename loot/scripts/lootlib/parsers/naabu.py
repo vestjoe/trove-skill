@@ -6,6 +6,7 @@ A line that is not an object with ``ip``, ``port`` and ``protocol`` is left for 
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 from lootlib import records
@@ -15,6 +16,7 @@ from lootlib.parsers.jsonspan import members
 from lootlib.prov import TOOL, cite
 
 NAME = "naabu"
+LINE = re.compile(r"[^\n]*\n|[^\n]+$")
 SERVICE_FIELDS = ("name", "product", "version", "banner")
 SERVICE_EXT = ("tls", "cdn", "cdn-name", "tunnel", "extra_info", "method", "confidence", "cpes", "hostname",
                "os_type", "device_type")
@@ -25,7 +27,7 @@ Span = tuple[Any, int, int]
 
 def sniff(data: bytes, hint: str | None = None) -> bool:
     text = data[:WINDOW].decode("utf-8", errors="replace")
-    return any(_result(line) is not None for line in text.splitlines()[:50])
+    return any(_result(line.rstrip("\r")) is not None for line in text.split("\n")[:50])
 
 
 def parse(raw: Input) -> list[dict[str, Any]]:
@@ -35,7 +37,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         raise ParserError(str(err)) from err
     held: dict[str, dict[str, Any]] = {}
     offset = 0
-    for line in text.splitlines(keepends=True):
+    for line in LINE.findall(text):
         body = line.rstrip("\r\n")
         found = _result(body)
         if found is not None:

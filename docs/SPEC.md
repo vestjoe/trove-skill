@@ -85,6 +85,8 @@ trove-skill/
   commands/              one template per slash command
   tests/
     fixtures/            parser input files
+    samples/             real captures from other projects, read only by the tests that name them
+    lab/                 Docker lab and scanner for capturing real tool output (not run in CI)
     SOURCES.md           the tool source each synthetic fixture was built from
     databases/           SQL that builds a tool's database in a test
     corpus/goad/         the GOAD engagement, grouped by tool
@@ -201,7 +203,7 @@ At CTF scale every read loads `records/**.json` into memory. There is no index.
 Each line shape a parser accepts is taken from the tool's source or a real capture; `tests/SOURCES.md` lists them.
 
 - **nmap** XML (and masscan XML), normal text and grepable output (and masscan `-oG`): hosts and services. naabu 2.7's `-oX` and `-oG` are read the same way; its `-oG` names a host with no name by its address, which is not a hostname.
-- **masscan** `-oL`, `-oJ`, `-oD` and screen output, plus its `-oX` and `-oG` through the nmap parsers: an open port is a service with its `state`; an ARP reply is a host that is `up` with its MAC in `ext`. masscan writes each banner as its own record with a type (`http`, `title`, `X509`, …): the type is never the service's `name`; the first banner for a port is its `banner` and every one is in `ext.banners` as `<type>: <text>` (a later import of the same port replaces that list). An `-oG` banner line names no protocol, so it joins the one service held at that address and port, or goes to AI extraction. Screen output is masscan's only when no nmap line (`Starting Nmap`, `Nmap scan report for`) is in the file, since `nmap -v` prints the same `Discovered open port` lines.
+- **masscan** `-oL`, `-oJ`, `-oD` and screen output, plus its `-oX` and `-oG` through the nmap parsers: an open port is a service with its `state`; an ARP reply is a host that is `up` with its MAC in `ext`. masscan writes each banner as its own record with a type (`http`, `title`, `X509`, …): the type is never the service's `name`; the first banner for a port is its `banner` and every one is in `ext.banners` as `<type>: <text>`, once each (a later import of the same port replaces that list). masscan's run and progress lines (`Starting masscan`, `rate: … found=N`) are its own, not sent to AI. An `-oG` banner line names no protocol, so it joins the one service held at that address and port, or goes to AI extraction (each distinct line once). Screen output is masscan's only when no nmap line (`Starting Nmap`, `Nmap scan report for`) is in the file, since `nmap -v` prints the same `Discovered open port` lines.
 - **naabu** `-json`: each line is one open port, a service with `host_id`, `port` and `protocol`, plus `name`, `product`, `version` and `banner` when service discovery ran. The address is a host; `host`, when naabu writes it, is that host's hostname. naabu writes no state, so none is set. A line without `ip`, `port` and `protocol` goes to AI extraction, as do plain `host:port` lines (no protocol, and the shape of `user:pass`).
 - **NetExec** screen output and `--log` files (the logger prefix is removed):
   - a login is a credential with `hosts`/`admin_hosts`; a 32-hex secret is a pass-the-hash NT hash; an empty password is a finding `<protocol> login with an empty password accepted (DOMAIN\user)`, not a credential; no user is the null-session finding; `(Guest)` proves nothing; an `audit_mode` masked secret (`********`) makes no credential and a note says so;

@@ -1,4 +1,5 @@
 from lootlib import engagement, ingest, rawstore
+from tests import SAMPLES
 from tests.helpers import EngagementCase
 
 FORMATS = ("masscan/masscan-list.txt", "masscan/masscan.json", "masscan/masscan.ndjson", "masscan/masscan-screen.txt")
@@ -61,3 +62,32 @@ class Masscan(EngagementCase):
     def test_the_tool_can_be_forced(self):
         report = ingest.import_data(self.eng, b"open tcp 445 192.168.56.53 1793181601\n", "list.txt", tool="masscan")[0]
         self.assertEqual((report["parser"], report["counts"]), ("masscan", {"host": 1, "service": 1}))
+
+    def test_masscan_run_lines_are_its_own_and_not_sent_to_the_agent(self):
+        data = ("Starting masscan 1.3.2 (http://bit.ly/14GZzcT) at 2025-03-15 11:49:37 GMT\n"
+                "Initiating SYN Stealth Scan\nScanning 1 hosts [65535 ports/host]\n"
+                " -- forced options: -sS -Pn -n --randomize-hosts -v --send-eth\n"
+                "Discovered open port 445/tcp on 192.168.56.53                                  \n")
+        report = ingest.import_data(self.eng, data.encode(), "screen.txt")[0]
+        self.assertEqual((report["parser"], report["counts"], report["notes"]),
+                         ("masscan", {"host": 1, "service": 1}, []))
+
+    def test_a_real_lab_scan_with_banners_reads_whole(self):
+        report = ingest.import_path(self.eng, SAMPLES / "masscan/rzlab-masscan.xml")[0]
+        self.assertEqual((report["parser"], report["notes"]), ("nmap", []))
+        self.assertEqual((len(self.all("host")), len(self.all("service"))), (117, 389))
+        svcs = self.all("service")
+        self.assertFalse([s for s in svcs if "name" in s])
+        self.assertEqual(sum("banner" in s for s in svcs), 56)
+        self.assertFalse(rawstore.manifest(self.eng)[0].get("ai") == "pending")
+        self.assert_citations_hold()
+
+    def test_progress_lines_are_masscan_and_a_repeated_banner_is_kept_once(self):
+        data = ("Discovered open port 11211/tcp on 192.168.56.53                                \n"
+                "rate:  0.00-kpps, 100.00% done, waiting 4-secs, found=1       \r"
+                "Banner on port 11211/tcp on 192.168.56.53: [memcached] uptime=85 version=1.6.27\n"
+                "rate:  0.00-kpps, 100.00% done, waiting 3-secs, found=1       \r"
+                "Banner on port 11211/tcp on 192.168.56.53: [memcached] uptime=85 version=1.6.27\n")
+        report = ingest.import_data(self.eng, data.encode(), "screen.txt")[0]
+        self.assertEqual((report["parser"], report["notes"]), ("masscan", []))
+        self.assertEqual(self.all("service")[0]["ext"]["banners"], ["memcached: uptime=85 version=1.6.27"])
