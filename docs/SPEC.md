@@ -85,7 +85,7 @@ trove-skill/
   commands/              one template per slash command
   tests/
     fixtures/            parser input files
-    samples/             real captures from other projects, read only by the tests that name them
+    samples/             real captures (Docker lab, other projects), read only by the tests that name them
     lab/                 Docker lab and scanner for capturing real tool output (not run in CI)
     SOURCES.md           the tool source each synthetic fixture was built from
     databases/           SQL that builds a tool's database in a test

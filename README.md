@@ -112,7 +112,7 @@ opencode
 
 2. `/loot-import fixtures`
 
-   Correct: 73 files read (95 inputs once zip members are counted). 3 are refused and named (an encrypted zip member, a nested zip, a truncated nmap XML). 11 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
+   Correct: 77 files read (99 inputs once zip members are counted). 3 are refused and named (an encrypted zip member, a nested zip, a truncated nmap XML). 12 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
 
 3. `/loot-find smb`
 
