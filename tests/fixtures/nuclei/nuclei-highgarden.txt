@@ -1,0 +1,6 @@
+[2026-10-29 11:01:00] [tech-detect:microsoft-iis] [matched] [http] [info] https://highgarden.sevenkingdoms.local/
+[2026-10-29 11:02:00] [self-signed-ssl] [matched] [ssl] [low] 192.168.56.70:443
+[2026-10-29 11:03:00] [openssh-detect] [matched] [tcp] [info] [2001:db8:5eed::70]:22 ["SSH-2.0-OpenSSH_for_Windows_9.5"]
+[2026-10-29 11:04:00] [smb-default-login] [matched] [javascript] [high] 192.168.56.70:445 [passwords="Summer2026!",usernames="margaery.tyrell"]
+[2026-10-29 11:06:00] [exposed-redis] [failed] [tcp] [high] 192.168.56.70
+[2026-10-29 11:07:00] [mssql-detect] [matched] [tcp] [info] braavos.essos.local:1433

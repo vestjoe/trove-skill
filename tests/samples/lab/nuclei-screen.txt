@@ -1,0 +1,136 @@
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.11.1
+
+		projectdiscovery.io
+
+[ERR] Could not read nuclei-ignore file: open /root/.config/nuclei/.nuclei-ignore: no such file or directory
+[ERR] Could not read nuclei-ignore file: open /root/.config/nuclei/.nuclei-ignore: no such file or directory
+[INF] Current nuclei version: v3.11.1 (unknown) - remove '-duc' flag to enable update checks
+[INF] Current nuclei-templates version:  (unknown) - remove '-duc' flag to enable update checks
+[INF] New templates added in latest release: 295
+[INF] Templates loaded for current scan: 2597
+[INF] Executing 2597 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 4
+[INF] Running httpx on input host
+[INF] Found 2 URL from httpx
+[INF] Templates clustered: 934 (Reduced 3556 Requests)
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/graphql/execute.json/..%2f../bin/querybuilder.json": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/bin/querybuilder.json;x='x/graphql/execute/json/y'": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/bin/querybuilder.json;x='x/.ico/y'": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/login": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/config": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/admin": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/?SPX_KEY=devel&SPX_UI_URI=/": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/?SPX_KEY=stg&SPX_UI_URI=/": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/?SPX_KEY=stag&SPX_UI_URI=/": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationName": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationVendor": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationName": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/demo?wms_capabilities&type=external": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/?wms_capabilities&type=external": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/bbo-search/heapdump": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/bbo-vin/heapdump": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/zhOWi6": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/MicroStrategy/servlet/mstrWeb": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/MicroStrategy/servlet/mstrWebAdmin/": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/MicroStrategy/servlet/taskProc": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "https://10.99.56.11/Modules/CMS/Telerik.Web.UI.DialogHandler.aspx?dp=1": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/Telerik.Web.UI.DialogHandler.aspx?dp=1": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"; Get "https://10.99.56.11/desktopmodules/telerikwebui/radeditorprovider/telerik.web.ui.dialoghandler.aspx?dp=1": cause="port closed or filtered" address=10.99.56.11:443 chain="connection refused"
+[waf-detect:nginxgeneric] [http] [info] http://10.99.56.12:8080
+[waf-detect:nginxgeneric] [http] [info] https://10.99.56.12
+[waf-detect:nginxgeneric] [http] [info] https://10.99.56.10
+[CVE-2025-46817:version] [javascript] [critical] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-46817:version] [javascript] [critical] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-46818:version] [javascript] [high] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-46818:version] [javascript] [high] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-46819:version] [javascript] [high] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-46819:version] [javascript] [high] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-49844:version] [javascript] [critical] 10.99.56.12:6379 ["7.2.9"]
+[CVE-2025-49844:version] [javascript] [critical] 10.99.56.12:6379 ["7.2.9"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="root"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="iamadmin"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="password"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="password"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords=""]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="root"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="iamadmin"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="admin"]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords=""]
+[redis-default-logins] [javascript] [high] 10.99.56.12:6379 [FQDN="10.99.56.12",Host="10.99.56.12",Hostname="10.99.56.12:6379",Port="6379",passwords="admin"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="password",usernames="administrator"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="guest",usernames="guest"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="admin",usernames="administrator"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="password",usernames="admin"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="guest",usernames="admin"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="guest",usernames="administrator"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="admin",usernames="admin"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="admin",usernames="guest"]
+[smb-default-login] [javascript] [high] 10.99.56.11:445 [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",passwords="password",usernames="guest"]
+[ssh-auth-methods] [javascript] [info] 10.99.56.10:22 ["["publickey","password","keyboard-interactive"]"]
+[redis-info] [javascript] [info] 10.99.56.12:6379 ["used_cpu_sys:1.183699","used_cpu_user:0.695540","connected_clients:1","connected_slaves:0","used_memory_human:1.02M","role:master","redis_version:7.2.9","process_id:9"]
+[redis-info] [javascript] [info] 10.99.56.12:6379 ["used_cpu_user:0.695540","connected_clients:1","connected_slaves:0","used_memory_human:1.02M","role:master","redis_version:7.2.9","process_id:9","used_cpu_sys:1.183699"]
+[smb-enum] [javascript] [info] 10.99.56.11:445 ["NetBIOSComputerName: LAB-FILES","NetBIOSDomainName: LAB-FILES","DNSComputerNamen: lab-files","DNSComputerName: lab-files","ForestName:","OSVersion: 6.1.0"]
+[smb-v1-supported] [javascript] [info] 10.99.56.11:445
+[smb-version-detect:smb-version] [javascript] [info] 10.99.56.11:445 ["SMB 2.1"]
+[smb2-capabilities] [javascript] [info] 10.99.56.11:445 ["["DFSSupport","LargeMTU","Leasing"]"]
+[ssh-password-auth] [javascript] [info] 10.99.56.10:22
+[ssh-server-enumeration] [javascript] [info] 10.99.56.10:22 ["SSH-2.0-OpenSSH_9.7"]
+[ssh-sha1-hmac-algo] [javascript] [info] 10.99.56.10:22
+[smb-os-detect] [javascript] [info] 10.99.56.11:445 ["6.1.0"]
+[smb2-server-time] [javascript] [info] 10.99.56.11:445 ["SystemTime: 2026-10-29T13:39:03.000Z ServerStartTime: 2009-04-22T19:24:48.000Z"]
+[smb-signing] [javascript] [medium] 10.99.56.11:445
+[smb-shares] [javascript] [low] 10.99.56.11:445 ["[IPC$ public]"] [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:445",Port="445",password="",username="administrator"]
+[ftp-anonymous-login] [tcp] [medium] 10.99.56.10:21
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="password",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="default",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="nas",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="pass1",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="guest",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="toor",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="123456",username="ftp"]
+[ftp-weak-credentials] [tcp] [high] 10.99.56.10:21 [password="stingray",username="ftp"]
+[snmpv3-detect] [javascript] [info] 10.99.56.11:161 ["net-snmp, Engine ID: 1f8880fb3c68108e47e36a00000000"]
+[ftp-detect] [tcp] [info] 10.99.56.10:21
+[openssh-detect] [tcp] [info] 10.99.56.10:22 ["SSH-2.0-OpenSSH_9.7"]
+[smtp-detect] [tcp] [info] 10.99.56.10:25
+[snmpv1-community-detect-string] [javascript] [high] 10.99.56.11:161 ["lab-files"] [FQDN="10.99.56.11",Host="10.99.56.11",Hostname="10.99.56.11:161",Port="161",community_string="public"]
+[smtp-commands-enum:ehlo] [tcp] [info] 10.99.56.10:25 ["PIPELINING","SIZE 10240000","VRFY","ETRN","ENHANCEDSTATUSCODES","8BITMIME","DSN","SMTPUTF8","CHUNKING"]
+[exposed-redis] [tcp] [high] 10.99.56.12:6379
+[memcached-stats] [tcp] [low] 10.99.56.12:11211
+[tls-version] [ssl] [info] 10.99.56.10:443 ["tls12"]
+[tls-version] [ssl] [info] 10.99.56.12:443 ["tls12"]
+[tls-version] [ssl] [info] 10.99.56.10:443 ["tls13"]
+[tls-version] [ssl] [info] 10.99.56.12:443 ["tls13"]
+[tech-detect:nginx] [http] [info] http://10.99.56.12:8080
+[tech-detect:nginx] [http] [info] https://10.99.56.10
+[tech-detect:nginx] [http] [info] https://10.99.56.12
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://10.99.56.12
+[http-missing-security-headers:referrer-policy] [http] [info] https://10.99.56.10
+[http-missing-security-headers:referrer-policy] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:referrer-policy] [http] [info] https://10.99.56.12
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://10.99.56.10
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://10.99.56.12
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://10.99.56.10
+[http-missing-security-headers:strict-transport-security] [http] [info] https://10.99.56.10
+[http-missing-security-headers:permissions-policy] [http] [info] https://10.99.56.10
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:strict-transport-security] [http] [info] https://10.99.56.12
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:permissions-policy] [http] [info] https://10.99.56.12
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://10.99.56.10
+[http-missing-security-headers:strict-transport-security] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:x-frame-options] [http] [info] https://10.99.56.12
+[http-missing-security-headers:content-security-policy] [http] [info] https://10.99.56.10
+[http-missing-security-headers:x-content-type-options] [http] [info] https://10.99.56.12
+[http-missing-security-headers:content-security-policy] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:x-frame-options] [http] [info] https://10.99.56.10
+[http-missing-security-headers:x-content-type-options] [http] [info] https://10.99.56.10
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://10.99.56.12
+[http-missing-security-headers:permissions-policy] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://10.99.56.10
+[http-missing-security-headers:x-frame-options] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://10.99.56.12
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://10.99.56.12:8080
+[http-missing-security-headers:content-security-policy] [http] [info] https://10.99.56.12
+[http-missing-security-headers:x-content-type-options] [http] [info] http://10.99.56.12:8080
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: Get "http://10.99.56.11/version": cause="port closed or filtered" address=10.99.56.11:80 chain="connection refused"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: cause="port closed or filtered" address=10.99.56.11:80 chain="connection refused; got err while executing http://10.99.56.11/version"
+[INF] Skipped 10.99.56.11:80 from target list as found unresponsive permanently: cause="port closed or filtered" address=10.99.56.11:80 chain="connection refused; got err while executing https://10.99.56.11:80/SMS_DP_SMSPKG$/Datalib"
+[ssl-issuer] [ssl] [info] 10.99.56.12:443 ["Trove test lab"]
+[self-signed-ssl] [ssl] [low] 10.99.56.12:443
+[ssl-issuer] [ssl] [info] 10.99.56.10:443 ["Trove test lab"]
+[self-signed-ssl] [ssl] [low] 10.99.56.10:443
+[INF] Scan completed in 4m. 102 matches found.
+[INF] HTTP connections: 8257 total, 1126 new, 7131 reused (86.4%)

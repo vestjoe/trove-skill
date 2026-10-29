@@ -9,8 +9,8 @@ from lootlib import ingest, rawstore, records
 from tests.helpers import FIXTURES, EngagementCase
 from tests.test_cli import Cli
 
-ALL_FIXTURES = {"credential": 68, "finding": 29, "group": 153, "host": 33, "principal": 41,
-                "relationship": 83, "service": 69, "share": 6}
+ALL_FIXTURES = {"credential": 68, "finding": 36, "group": 153, "host": 36, "principal": 41,
+                "relationship": 83, "service": 73, "share": 6}
 
 
 class Directory(EngagementCase):
@@ -69,7 +69,7 @@ class EndToEnd(EngagementCase):
         self.assertEqual(sorted(r["source"] for r in report["refused"]), [
             "fixtures/archive/mixed.zip/locked.txt", "fixtures/archive/nested.zip/scans.zip",
             "fixtures/nmap/nmap-truncated.xml"])
-        self.assertEqual(len(report["pending"]), 11)
+        self.assertEqual(len(report["pending"]), 12)
         self.assertEqual(len(report["pending"]), sum(m["ai"] == "pending" for m in rawstore.manifest(self.eng)))
         host = records.load_all(self.eng)["host:198.51.100.7"]
         self.assertEqual(host["os"], "Windows Server 2019 Datacenter")
@@ -85,7 +85,7 @@ class EndToEnd(EngagementCase):
     def test_the_human_report_names_refusals_and_pending(self):
         out = self.run_cli("import", str(FIXTURES))[1]
         self.assertIn("Refused (3):", out)
-        self.assertIn("Pending AI extraction (11):", out)
+        self.assertIn("Pending AI extraction (12):", out)
         self.assertNotIn("Records read", out)
         holds = {t: n for t, n in (pair.split(" ")[::-1] for pair in
                  out.split("now holds: ")[1].splitlines()[0].split(", "))}

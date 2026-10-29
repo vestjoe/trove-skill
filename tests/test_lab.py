@@ -11,7 +11,9 @@ DESIGN = {
 MASSCAN_SAW = {host: ports - {("udp", 123)} for host, ports in DESIGN.items()}
 PARSERS = {"masscan.xml": "nmap", "masscan.gnmap": "nmap-text", "masscan.txt": "masscan", "masscan.json": "masscan",
            "masscan.ndjson": "masscan", "masscan-screen.txt": "masscan", "naabu.json": "naabu",
-           "naabu-names.json": "naabu", "naabu-sv.json": "naabu", "naabu.xml": "nmap", "naabu.gnmap": "nmap-text"}
+           "naabu-names.json": "naabu", "naabu-sv.json": "naabu", "naabu.xml": "nmap", "naabu.gnmap": "nmap-text",
+           "nuclei.jsonl": "nuclei", "nuclei.json": "nuclei", "nuclei.txt": "nuclei", "nuclei-ms.txt": "nuclei",
+           "nuclei-names.jsonl": "nuclei", "nuclei-screen.txt": "nuclei"}
 
 
 class Lab(EngagementCase):
@@ -57,3 +59,33 @@ class Lab(EngagementCase):
         self.assertEqual(names["10.99.56.10"], ["lab-web.lab.test"])
         ssh = {s["id"]: s for s in self.all("service")}["service:10.99.56.10-tcp-22"]
         self.assertEqual(ssh["name"], "ssh")
+
+    def test_nuclei_findings_land_on_the_lab_hosts_and_ports_they_name(self):
+        for name in ("nuclei.jsonl", "nuclei.json", "nuclei.txt", "nuclei-screen.txt"):
+            with self.subTest(name):
+                self.eng = engagement.create(name.replace(".", "-"), self.tmp)
+                report = ingest.import_path(self.eng, LAB / name)[0]
+                self.assertEqual((report["parser"], report["notes"]), ("nuclei", []))
+                found = {f["title"]: f for f in self.all("finding")}
+                redis = found["exposed-redis at 10.99.56.12:6379"]
+                self.assertEqual((redis["host_id"], redis["service_id"], redis["status"], redis["ext"]["severity"]),
+                                 ("host:10.99.56.12", "service:10.99.56.12-tcp-6379", "confirmed", "high"))
+                self.assertEqual(found["ftp-anonymous-login at 10.99.56.10:21"]["ext"]["severity"], "medium")
+                self.assertIn("tech-detect:nginx at http://10.99.56.12:8080", found)
+                self.assertEqual(len(found["ftp-weak-credentials at 10.99.56.10:21"]["ext"].get(
+                    "meta", found["ftp-weak-credentials at 10.99.56.10:21"]["ext"].get("shown"))), 8)
+                for host, ports in self._open().items():
+                    self.assertLessEqual(ports, DESIGN[host])
+                self.assert_citations_hold()
+
+    def test_nuclei_by_name_keeps_the_name_and_failed_results_make_nothing(self):
+        ingest.import_path(self.eng, LAB / "nuclei-names.jsonl")
+        names = {h["ip"]: h["hostnames"] for h in self.all("host")}
+        self.assertEqual(names, {"10.99.56.10": ["lab-web.lab.test"], "10.99.56.12": ["lab-cache.lab.test"]})
+        self.eng = engagement.create("failed", self.tmp)
+        report = ingest.import_path(self.eng, LAB / "nuclei-ms.txt")[0]
+        self.assertRegex(report["notes"][0], r"^nuclei-ms\.txt: \d+ result\(s\) nuclei reported as failed")
+        titles = {f["title"] for f in self.all("finding")}
+        self.assertIn("self-signed-ssl at 10.99.56.10:443", titles)
+        self.assertFalse([t for t in titles if t.startswith("weak-cipher-suites")])
+        self.assertEqual(rawstore.manifest(self.eng)[0]["ai"], "n/a")
