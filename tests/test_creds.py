@@ -1,4 +1,6 @@
-from lootlib import ingest
+import json
+
+from lootlib import ingest, records
 from tests.helpers import FIXTURES, EngagementCase
 
 
@@ -47,7 +49,7 @@ class Creds(EngagementCase):
         self.assertEqual({c["principal"] for c in self.all("credential")},
                          {"Administrator", "krbtgt", "jsmith", "legacy_svc", "SRV01$"})
         self.assertEqual({c["realm"] for c in self.all("credential")}, {"ACME"})
-        self.assertIn("credential:acme\\jsmith-dbcbdeee", {c["id"] for c in self.all("credential")})
+        self.assertIn("credential:acme\\jsmith+dbcbdeee", {c["id"] for c in self.all("credential")})
         lm = self._by("ACME\\legacy_svc", "lm")
         self.assertEqual((lm["secret_hash"], lm["prov"]["hash_type"]["quote"]),
                          ("e52cac67419a9a224a3b108f3fa6cb6d", "lmhash"))
@@ -166,13 +168,24 @@ class Creds(EngagementCase):
         self.assertEqual(self._by("LAB\\WS01$")["host_id"], ["host:10.0.0.7"])
         self.assert_citations_hold()
 
+    def test_an_id_written_with_the_old_hyphen_joins_the_same_password_on_its_next_import(self):
+        data = (FIXTURES / "creds/secretsdump-ntds.txt").read_bytes()
+        ingest.import_data(self.eng, data, "ntds.txt")
+        new = self._by("ACME\\jsmith")
+        old = dict(new, id=new["id"].replace("+", "-"))
+        records._path(self.eng, new["id"]).rename(records._path(self.eng, old["id"]))
+        records._path(self.eng, old["id"]).write_text(json.dumps(old))
+        ingest.import_data(self.eng, data + b"\n", "ntds-again.txt")
+        self.assertEqual([c["id"] for c in self.all("credential") if c["principal"] == "jsmith"], [new["id"]])
+        self.assertFalse(records._path(self.eng, old["id"]).exists())
+
     def test_a_short_domain_name_joins_its_long_one(self):
         ingest.import_data(self.eng, b"[*] Dumping Domain Credentials (domain\\uid:rid:lmhash:nthash)\n"
                                      b"LAB\\alice:1104:aad3b435b51404eeaad3b435b51404ee:"
                                      b"8846f7eaee8fb117ad06bdd830b7586c:::\n", "ntds.txt")
         ingest.import_data(self.eng, b"SMB   10.0.0.5   445   WS01   [+] lab.local\\alice:password \n", "nxc.txt")
         alice = self.all("credential")
-        self.assertEqual([(c["id"].rsplit("-", 1)[0], c["realm"], c["hosts"]) for c in alice],
+        self.assertEqual([(c["id"].rsplit("+", 1)[0], c["realm"], c["hosts"]) for c in alice],
                          [("credential:lab.local\\alice", "lab.local", ["host:10.0.0.5"])])
 
     def test_a_getuserspns_table_names_the_group_each_account_is_in(self):

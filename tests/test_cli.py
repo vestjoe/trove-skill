@@ -52,6 +52,12 @@ class Cli(EngagementCase):
 class TerminalSafety(EngagementCase):
     run_cli = Cli.run_cli
 
+    def test_a_credential_prints_its_account_before_its_exact_id(self):
+        self.run_cli("import", str(FIXTURES / "netexec/nxc-cred-check.txt"))
+        out = self.run_cli("find", "--type", "credential")[1]
+        self.assertIn("\nnorth.acme.local\\rickon.stark   (id credential:north.acme.local\\rickon.stark+b72c5ada)\n",
+                      out)
+
     def test_a_hostile_value_cannot_put_escape_sequences_on_the_terminal(self):
         rec = records.new("host")
         ref = {"blob": "sha256:00", "span": [0, 1], "quote": "x", "origin": "tool"}

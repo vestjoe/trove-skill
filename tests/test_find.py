@@ -36,7 +36,7 @@ class Find(EngagementCase):
         hits = find.search(everything, types=["credential"], where=["hosts=10.10.10.8"])[1]
         self.assertEqual([r["principal"] for r in hits], ["rickon.stark"])
         self.assertEqual(find.search(everything, types=["credential"], where=["host=10.10.10.8"])[1], hits)
-        self.assertIn("credential:north.acme.local\\rickon.stark-b72c5ada",
+        self.assertIn("credential:north.acme.local\\rickon.stark+b72c5ada",
                       {r["id"] for r in find.search(everything, where=["host=10.10.10.8"])[1]})
 
     def test_a_host_query_returns_the_host_itself_with_its_links(self):

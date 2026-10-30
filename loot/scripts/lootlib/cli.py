@@ -160,6 +160,14 @@ def _services_of(host_id: str, everything: dict[str, dict[str, Any]]) -> str:
                      for s in svcs)
 
 
+def _header(rec: dict[str, Any]) -> str:
+    """A credential leads with its account and keeps its exact id beside it; other records show the id."""
+    if rec["type"] != "credential":
+        return rec["id"]
+    account = f"{rec['realm']}\\{rec['principal']}" if rec.get("realm") else rec["principal"]
+    return f"{account}   (id {rec['id']})"
+
+
 def cmd_find(args: argparse.Namespace) -> None:
     eng = _open(args, write=False)
     everything = records.load_all(eng)
@@ -169,7 +177,7 @@ def cmd_find(args: argparse.Namespace) -> None:
              f"{total} match{'es' if total != 1 else ''}" + (f", showing {len(hits)}" if total > len(hits) else "")]
     names = _host_names(everything)
     for rec in hits:
-        lines += ["", rec["id"]] + _field_lines(rec, names)
+        lines += ["", _header(rec)] + _field_lines(rec, names)
         if rec["type"] == "host" and (svcs := _services_of(rec["id"], everything)):
             lines.append(f"  services    {svcs}")
     _out(args, "\n".join(lines), {"conditions": conds, "total": total, "records": hits})

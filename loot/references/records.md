@@ -8,7 +8,7 @@ What `loot find` prints. Use this to read its output and to cite it.
 |---|---|---|
 | host | ip, hostnames (list), os, state | `host:<ip>` |
 | service | host_id, port, protocol, name, product, version, banner, state | `service:<ip>-<proto>-<port>` |
-| credential | principal, realm, secret, secret_hash, hash_type, state, source, host_id (list), hosts (list), admin_hosts (list), keys (list) | `credential:<realm>\<principal>-<8 hex>` (realm and suffix only when known) |
+| credential | principal, realm, secret, secret_hash, hash_type, state, source, host_id (list), hosts (list), admin_hosts (list), keys (list) | `credential:<realm>\<principal>+<8 hex>` (realm and suffix only when known) |
 | principal | principal, realm, sid | `principal:<realm>\<principal>` |
 | group | name, realm, dn, sid | `group:<realm>\<name>` |
 | share | host_id, name, permissions, remark | `share:<ip>-<name>` |

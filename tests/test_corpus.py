@@ -17,11 +17,11 @@ WINTERFELL, JUMPBOX = "192.168.56.11", "192.168.56.100"
 ON_CASTELBLACK = {
     f"host:{CASTELBLACK}",
     *(f"credential:castelblack\\{who}" for who in (
-        "administrator-ed9ea4da", "ansible-ed9ea4da", "goadmin-ed9ea4da", "defaultaccount-5db21f1a",
-        "guest-5db21f1a", "wdagutilityaccount-9a96c985")),
+        "administrator+ed9ea4da", "ansible+ed9ea4da", "goadmin+ed9ea4da", "defaultaccount+5db21f1a",
+        "guest+5db21f1a", "wdagutilityaccount+9a96c985")),
     *(f"credential:north.sevenkingdoms.local\\{who}" for who in (
-        "rickon.stark-c4cdb77f", "brandon.stark-964b41a5", "goadmin-ed9ea4da", "castelblack$-3cc097cb",
-        "sql_svc-bc5dcbb4")),
+        "rickon.stark+c4cdb77f", "brandon.stark+964b41a5", "goadmin+ed9ea4da", "castelblack$+3cc097cb",
+        "sql_svc+bc5dcbb4")),
     "finding:error-enumerating-logged-on-users-4fb17530", "finding:smb-signing-not-required-ae0523bf",
     "finding:winrm-refused-north.sevenkingdoms.local--6040d833", "finding:smb-login-with-an-empty-password-accepte-b809ed7a",
     *(f"service:{CASTELBLACK}-tcp-{port}" for port in (
