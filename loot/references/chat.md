@@ -64,12 +64,15 @@ Use this when the user asks what an engagement holds ("which hosts run SMB?",
 **From the data**
 
 - Every statement names the record id(s) it comes from, like
-  `rickon.stark's password worked on WINTERFELL (credential:north.sevenkingdoms.local\rickon.stark-b72c5ada)`.
+  `rickon.stark's password worked on WINTERFELL (credential:north.sevenkingdoms.local\rickon.stark+b72c5ada)`.
 - Only what the returned records say. Don't fill gaps from memory or from
   what a tool usually prints.
 - Copy passwords, hashes, usernames, hosts and ids character for character
   from the output. Lab passwords are often misspelled on purpose; never
   correct one.
+- A credential's username is its `principal` field. The `+<8 hex>` at the
+  end of its id is a fingerprint of the password, not part of the name;
+  never use it as a username.
 - Never link two records because they cite the same file. A credential
   works on the hosts in its `hosts` field and no others, and has admin access
   only on the hosts in its `admin_hosts` field; if a field is missing, say

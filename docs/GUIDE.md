@@ -153,7 +153,7 @@ The credential has no `admin_hosts`, so nothing in the data says it is admin on 
 ```
 
 ```
-credential:north.sevenkingdoms.local\rickon.stark-b72c5ada
+north.sevenkingdoms.local\rickon.stark   (id credential:north.sevenkingdoms.local\rickon.stark+b72c5ada)
   principal   rickon.stark   [tool, nxc-cred-check.txt]
   realm       north.sevenkingdoms.local   [tool, nxc-cred-check.txt]
   secret      Winter2022   [tool, nxc-cred-check.txt]

@@ -22,7 +22,7 @@ The skill is named `loot`, and its commands are `/loot-*`. Standard-library Pyth
 After importing the sample data in `tests/fixtures/`, `/loot-find rickon.stark --type credential` runs the search below, and the agent summarises it. Every value carries its origin, its source file and, where it matters, the exact line it came from:
 
 ```
-credential:north.acme.local\rickon.stark-b72c5ada
+north.acme.local\rickon.stark   (id credential:north.acme.local\rickon.stark+b72c5ada)
   principal   rickon.stark   [tool, fixtures/netexec/nxc-spray.txt]
   realm       north.acme.local   [tool, fixtures/netexec/nxc-spray.txt]
   secret      Winter2022   [tool, fixtures/netexec/nxc-spray.txt]

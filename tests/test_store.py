@@ -74,7 +74,7 @@ class Merge(EngagementCase):
 
     def test_ids_come_from_key_fields(self):
         cred = records.new("credential", principal="Admin", realm="LAB", secret="x")
-        self.assertTrue(records.make_id(cred).startswith("credential:lab\\admin-"))
+        self.assertTrue(records.make_id(cred).startswith("credential:lab\\admin+"))
         self.assertEqual(records.make_id(records.new("principal", principal="svc")), "principal:svc")
         svc = records.new("service", host_id="host:10.0.0.1", port=53)
         self.assertEqual(records.make_id(svc), "service:10.0.0.1-tcp-53")

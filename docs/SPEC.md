@@ -169,7 +169,7 @@ Every verb that opens the engagement holds `.lock`: `import`, `ingest-ai`, `note
 |---|---|---|
 | host | ip, hostnames[], os, state | `host:<ip>` |
 | service | host_id, port, protocol, name, product, version, banner, state | `service:<ip>-<proto>-<port>` (proto defaults to `tcp`) |
-| credential | principal, realm, secret, secret_hash, hash_type, state, source, host_id[], hosts[], admin_hosts[], keys[] | `credential:<realm>\<principal>-<sha8>`, case-folded; the suffix hashes the NT hash, else the secret, else an unsalted hash. A roasted ticket, NetNTLM response or AES/DES key names no password and gives no suffix |
+| credential | principal, realm, secret, secret_hash, hash_type, state, source, host_id[], hosts[], admin_hosts[], keys[] | `credential:<realm>\<principal>+<sha8>`, case-folded; the suffix hashes the NT hash, else the secret, else an unsalted hash. A roasted ticket, NetNTLM response or AES/DES key names no password and gives no suffix |
 | principal | principal, realm, sid | `principal:<realm>\<principal>` (case-folded) |
 | group | name, realm, dn, sid | `group:<realm>\<name>` (case-folded) |
 | share | host_id, name, permissions, remark | `share:<ip>-<name>` |
@@ -232,7 +232,7 @@ A text parser reads lines that end at `\n` (or `\r\n`); masscan's screen output 
 | `raw <blob> [--chunk N]` | One chunk of a text blob (default: the next without a proposal) |
 | `ingest-ai <blob> [-f FILE\|-] [--chunk N]` | Validate and write one proposal for one chunk (stdin by default), mark the chunk done, name the next, and print totals per type |
 | `fields` | Types, core fields and `--where` operators |
-| `find [TEXT] [--type T]… [--where EXPR]… [--origin O] [--limit N]` | Search. Each record prints with every field's origin and quote; a host also lists its services. A protocol name in TEXT (`smb`, `rdp`, `winrm`, `mssql`, `ldap`, `kerberos`, `http`, `ssh`, `ftp`, `dns`) also matches services by scan name and port |
+| `find [TEXT] [--type T]… [--where EXPR]… [--origin O] [--limit N]` | Search. Each record prints with every field's origin and quote; a credential's header is its account, then its id; a host also lists its services. A protocol name in TEXT (`smb`, `rdp`, `winrm`, `mssql`, `ldap`, `kerberos`, `http`, `ssh`, `ftp`, `dns`) also matches services by scan name and port |
 | `note <text\|-> [--host ID\|IP\|name] [--tag T]…` | Store the text as a blob and note file, write a `note` record (origin `you`), and mark it `pending`. A name must match exactly one held host. The same text again is the same record |
 | `status` | Engagement path, counts per type, pending count |
 | `set <finding-id> status=<value>` | The operator's status decision, origin `you`, citing the command text stored as a blob. Refuses other fields, types and unknown ids |

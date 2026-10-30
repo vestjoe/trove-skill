@@ -92,10 +92,10 @@ class Capture(EngagementCase):
 
     def assert_one_riverrun_administrator(self):
         self.assertEqual(self.dumped_admins(),
-                         [("credential:riverrun\\administrator-cb1eff26", ["host:192.168.56.24"])])
+                         [("credential:riverrun\\administrator+cb1eff26", ["host:192.168.56.24"])])
         self.assertEqual(sorted((r["id"], r.get("host_id")) for r in self.records("principal=Guest")),
-                         [("credential:guest-5db21f1a", None),
-                          ("credential:riverrun\\guest-5db21f1a", ["host:192.168.56.24"])])
+                         [("credential:guest+5db21f1a", None),
+                          ("credential:riverrun\\guest+5db21f1a", ["host:192.168.56.24"])])
         self.assert_citations_hold()
 
     def test_a_netexec_sam_file_joins_the_account_its_log_names(self):
@@ -117,8 +117,8 @@ class Capture(EngagementCase):
                                      "a141817c48ef7530b8976f9e0b2afea2:::"))
         self.load("creds/RIVERRUN_192.168.56.24_2026-10-17_091204.sam")
         self.assertEqual([i for i, _ in self.dumped_admins()],
-                         ["credential:administrator-cb1eff26", "credential:harrenhal\\administrator-cb1eff26",
-                          "credential:riverrun\\administrator-cb1eff26"])
+                         ["credential:administrator+cb1eff26", "credential:harrenhal\\administrator+cb1eff26",
+                          "credential:riverrun\\administrator+cb1eff26"])
 
     def test_a_dump_file_that_names_no_host_says_where_the_host_is(self):
         report = self.load(self.SAM)
@@ -141,4 +141,4 @@ class Capture(EngagementCase):
         self.write("other.sam", "Administrator:1001:aad3b435b51404eeaad3b435b51404ee:"
                                 "a141817c48ef7530b8976f9e0b2afea2:::\n")
         self.assertEqual([i for i, _ in self.dumped_admins()],
-                         ["credential:administrator-cb1eff26", "credential:riverrun\\administrator-cb1eff26"])
+                         ["credential:administrator+cb1eff26", "credential:riverrun\\administrator+cb1eff26"])

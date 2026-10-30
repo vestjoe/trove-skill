@@ -67,7 +67,7 @@ def make_id(rec: dict[str, Any]) -> str:
     if t == "credential":
         secret = _password_id(rec)
         base = f"credential:{scoped(rec['principal'])}"
-        return f"{base}-{_sha8(secret)}" if secret else base
+        return f"{base}+{_sha8(secret)}" if secret else base
     if t == "principal":
         return f"principal:{scoped(rec['principal'])}"
     if t == "group":

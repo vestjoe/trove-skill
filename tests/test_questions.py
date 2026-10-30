@@ -1,13 +1,13 @@
 from lootlib import find, ingest, notes, records
 from tests.helpers import FIXTURES, EngagementCase
 
-RICKON = "credential:north.acme.local\\rickon.stark-b72c5ada"
-SVC_BACKUP = "credential:acme\\svc_backup-0152f3fd"
-ADMIN = "credential:essos.local\\administrator-e6686054"
-LAB_ADMIN = "credential:lab-01.local\\administrator-faf6add1"
-LAB_BACKUP = "credential:lab-01.local\\backup.ops-d2b7d52f"
-JOJEN = "credential:north.sevenkingdoms.local\\jojen.reed-7d6f81c1"
-GOADMIN = "credential:north.sevenkingdoms.local\\goadmin-80d3c1bb"
+RICKON = "credential:north.acme.local\\rickon.stark+b72c5ada"
+SVC_BACKUP = "credential:acme\\svc_backup+0152f3fd"
+ADMIN = "credential:essos.local\\administrator+e6686054"
+LAB_ADMIN = "credential:lab-01.local\\administrator+faf6add1"
+LAB_BACKUP = "credential:lab-01.local\\backup.ops+d2b7d52f"
+JOJEN = "credential:north.sevenkingdoms.local\\jojen.reed+7d6f81c1"
+GOADMIN = "credential:north.sevenkingdoms.local\\goadmin+80d3c1bb"
 
 
 class OperatorQuestions(EngagementCase):
@@ -40,7 +40,7 @@ class OperatorQuestions(EngagementCase):
 
     def test_q3_what_is_cracked_and_what_was_never_tried(self):
         cracked = self.ids(types=["credential"], where=["state=cracked"])
-        self.assertEqual({rid.rsplit("-", 1)[0] for rid in cracked}, {
+        self.assertEqual({rid.rsplit("+", 1)[0] for rid in cracked}, {
             "credential:acme.local\\noprerequser", "credential:acme.local\\sqlsvc", "credential:acme.local\\jsmith",
             "credential:acme\\legacy_svc", "credential:helpdesk", "credential:jdoe", "credential:svc_backup"})
         untried = self.ids(types=["credential"], where=["hosts!"])
