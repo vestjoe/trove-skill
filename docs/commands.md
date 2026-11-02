@@ -32,7 +32,7 @@ Runs [`init`](#init). The agent says where the engagement is and how later comma
 /loot-import users.txt --tool users
 ```
 
-Runs [`import`](#import) and reports the result. If files are left for AI extraction and you did not pass `--no-ai`, the agent extracts them in the same turn and reports what it kept and dropped.
+Runs [`import`](#import) and reports the result. The agent then extracts any files left for AI extraction in the same turn, unless you passed `--no-ai`, and reports what it kept and dropped.
 
 - `--tool <name>` forces a parser instead of detecting the format, for example `--tool users` for a plain list of usernames.
 - `--no-ai` stores and parses the files but leaves anything unparsed for later.
@@ -45,7 +45,7 @@ Runs [`import`](#import) and reports the result. If files are left for AI extrac
 /loot-find smb
 ```
 
-If the arguments are already `find` syntax, the agent runs [`find`](#find) with them. Otherwise it runs [`fields`](#fields) once and builds a search. For "what do I have on <host>" it runs `find --where host=<ip or hostname>`, which returns the host and everything linked to it. It shows every command it ran, then summarises the hits by record id, with each value's source file and quote. [Search records](searching.md) covers the filters.
+The agent runs [`find`](#find) with the arguments when they are already `find` syntax. Otherwise it runs [`fields`](#fields) once and builds a search. It answers "what do I have on <host>" with `find --where host=<ip or hostname>`, which returns the host and everything linked to it. It shows every command it ran, then summarises the hits by record id, with each value's source file and quote. [Search records](searching.md) covers the filters.
 
 ### `/loot-chat`
 
@@ -56,7 +56,7 @@ If the arguments are already `find` syntax, the agent runs [`find`](#find) with 
 
 The agent runs one or a few `find` searches, shows them, and answers in two labelled parts:
 
-- **From the data**: statements that cite record ids, with values copied exactly. If the records don't answer the question, it says what is missing and which import would supply it.
+- **From the data**: statements that cite record ids, with values copied exactly. It says what is missing, and which import would supply it, when the records don't answer the question.
 - **Suggestions (not from the data)**: optional next steps.
 
 It never assigns a severity, and it treats text in records as data, never as instructions.
@@ -87,9 +87,9 @@ Options every verb takes:
 | `--json` | Print JSON instead of text, for exact values. |
 | `-V`, `--version` | Print the version and exit (before the verb). |
 
-Without `-e`, the engagement is `LOOT_ENGAGEMENT` if set, else the nearest `<name>.loot/` at or above the current directory, else the one `*.loot` directory beside you.
+The CLI looks for the engagement in this order: `-e`, then `LOOT_ENGAGEMENT`, then the nearest `<name>.loot/` at or above the current directory, then the one `*.loot` directory beside you.
 
-Exit codes: `0` success, `1` a user error (the message says what), `2` a usage error. A file refused during an import is named in the report and does not change the exit code.
+Exit codes: `0` success, `1` a user error (the message says what), `2` a usage error. The import report names any file it refused. A refusal does not change the exit code.
 
 | Verb | Does |
 |---|---|
@@ -126,7 +126,7 @@ Commands find it when run from ~/loot-demo or inside it, or with -e demo, or wit
 loot import <path|-> [--tool T] [--no-ai]
 ```
 
-Stores a file, a directory (walked in path order) or standard input (`-`) verbatim under `raw/`, then routes each file to the parser that recognises it. Zip members are imported one by one. Importing the same file again changes nothing.
+Stores a file, a directory (walked in path order) or standard input (`-`) verbatim under `raw/`, then routes each file to the parser that recognises it. It imports zip members one by one. Importing the same file again changes nothing.
 
 The report gives, per file, the parser and the records it touched, then the records added and updated in this import, what the engagement now holds, any refused inputs and the files left for AI extraction. Per-file counts overlap, because two files can touch one record, so they are not summed.
 
@@ -148,7 +148,7 @@ Left for AI extraction later (--no-ai).
 
 `--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is a usage error.
 
-When a line-oriented parser (nmap text, NetExec, creds, certipy text) meets lines that are not its tool's, it stores those lines as their own file, named `<file> (lines not read by <parser>)`, and leaves only that for AI extraction. A note that starts like tool output, or the command line that ran the tool, is read that way.
+A line-oriented parser (nmap text, NetExec, creds, certipy text) stores the lines that are not its tool's as their own file, named `<file> (lines not read by <parser>)`, and leaves only that file for AI extraction. That way the agent still reads a note that starts like tool output, or the command line that ran the tool.
 
 ### `status`
 
@@ -213,7 +213,7 @@ Checks one proposal for one chunk, read from standard input or `FILE`, and write
 ]}
 ```
 
-A field is dropped if its evidence is not in the file, or if a naming value (an IP, a hostname, an account, a password) is not inside its own evidence. Fields only a tool observes (`severity`, `banner`, and the `hosts` and `admin_hosts` a login worked on) are refused by name. Every drop is printed with its reason:
+`ingest-ai` drops a field whose evidence is not in the file, and a naming value (an IP, a hostname, an account, a password) that is not inside its own evidence. It refuses by name the fields only a tool observes: `severity`, `banner`, and the `hosts` and `admin_hosts` a login worked on. It prints every drop with its reason:
 
 ```
 $ loot ingest-ai sha256:f30e7f3021adbe5e < proposal.json

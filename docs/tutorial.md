@@ -54,7 +54,7 @@ This import: 11 new record(s), 10 updated
 demo now holds: 1 credential, 10 finding, 5 host, 125 service
 ```
 
-`10 updated` means the hosts and services NetExec saw were already held from the scan; they gained NetExec's facts instead of being duplicated. The two notes explain logins that did not become credentials.
+`10 updated` means Trove already held the hosts and services NetExec saw, from the scan. They gained NetExec's facts, and Trove made no duplicates. The two notes explain logins that did not become credentials.
 
 ## 5. Ask again
 

@@ -12,14 +12,14 @@
 An agent skill for CTF and security-training environments, for OpenCode and Claude Code. You give it tool output and notes; it keeps them in one engagement directory, turns them into records that cite the exact bytes they came from, and answers questions over those records.
 
 - Parsers read nmap (XML, normal, grepable), masscan (XML, grepable, list, JSON, screen), naabu (JSON, XML, grepable), nuclei (JSONL, JSON export, text), NetExec (its output and its workspace database), secretsdump, hashcat/potfile, Responder (its session log and Responder.db), kerberoast and AS-REP hashes, user lists, BloodHound (users, groups, computers, memberships), certipy `find` (ADCS weaknesses) and zips of any of these.
-- Anything else (notes, scratch logs) is read by the agent, which proposes records with a quote for each value. A value whose quote is not in the file is dropped.
+- The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.
 - Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote).
 
-The skill is named `loot`, and its commands are `/loot-*`. Standard-library Python only. Scope is CTF and training labs, on Linux and macOS; Windows is not supported yet. The [documentation](https://vestjoe.github.io/trove-skill/) covers usage, the tools Trove reads and a walkthrough; the design is in [docs/SPEC.md](docs/SPEC.md).
+The skill is named `loot`, and its commands are `/loot-*`. It uses only the Python standard library. Trove is for CTF and training labs on Linux and macOS, and does not support Windows yet. The [documentation](https://vestjoe.github.io/trove-skill/) covers usage, the tools Trove reads and a walkthrough; the design is in [docs/SPEC.md](docs/SPEC.md).
 
 ## Example
 
-After importing the sample data in `tests/fixtures/`, `/loot-find rickon.stark --type credential` runs the search below, and the agent summarises it. Every value carries its origin, its source file and, where it matters, the exact line it came from:
+Import the sample data in `tests/fixtures/`, then run `/loot-find rickon.stark --type credential`. The agent runs the search below and summarises it. Every value carries its origin, its source file and, where it matters, the exact line it came from:
 
 ```
 north.acme.local\rickon.stark   (id credential:north.acme.local\rickon.stark+b72c5ada)
@@ -76,4 +76,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to report bugs or send changes, and [SECU
 
 ## License
 
-MIT; see [LICENSE](LICENSE). The parsers were written clean-room from each tool's own output format; faraday-plugins (GPL-3.0) was consulted only as a behaviour reference, and none of its code is in Trove.
+MIT; see [LICENSE](LICENSE). The parsers are clean-room work from each tool's own output format. faraday-plugins (GPL-3.0) served only as a behaviour reference, and none of its code is in Trove.

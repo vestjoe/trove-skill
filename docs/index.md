@@ -3,14 +3,14 @@
 An agent skill for CTF and security-training environments, for OpenCode and Claude Code. You give it tool output and notes; it keeps them in one engagement directory, turns them into records that cite the exact bytes they came from, and answers questions over those records.
 
 - Parsers read the output of nmap, masscan, naabu, nuclei, NetExec, secretsdump, hashcat, Responder, kerberoast and AS-REP tools, BloodHound and certipy, and zips of any of these. [Tools Trove reads](tools.md) lists the formats.
-- Anything else (notes, scratch logs) is read by the agent, which proposes records with a quote for each value. A value whose quote is not in the file is dropped.
+- The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.
 - Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote).
 
-The skill is named `loot`, and its commands are `/loot-*`. Standard-library Python only. Scope is CTF and training labs, on Linux and macOS; Windows is not supported yet.
+The skill is named `loot`, and its commands are `/loot-*`. It uses only the Python standard library. Trove is for CTF and training labs on Linux and macOS, and does not support Windows yet.
 
 ## Example
 
-After importing the sample data in `tests/fixtures/`, `/loot-find rickon.stark --type credential` runs the search below, and the agent summarises it. Every value carries its origin, its source file and, where it matters, the exact line it came from:
+Import the sample data in `tests/fixtures/`, then run `/loot-find rickon.stark --type credential`. The agent runs the search below and summarises it. Every value carries its origin, its source file and, where it matters, the exact line it came from:
 
 ```
 north.acme.local\rickon.stark   (id credential:north.acme.local\rickon.stark+b72c5ada)
