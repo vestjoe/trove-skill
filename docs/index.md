@@ -26,7 +26,7 @@ north.acme.local\rickon.stark   (id credential:north.acme.local\rickon.stark+b72
 
 - [Install](install.md) Trove and check the install on the sample data.
 - Follow the [walkthrough](tutorial.md): one host in a GOAD lab, from a scan to your own notes.
-- Look up the [commands](commands.md) and how to [save each tool's output](tools.md#saving-tool-output).
+- Look up the [commands](commands.md) and how to [save each tool's output](tools.md).
 - Read [how Trove works](how-it-works.md): engagements, records and where each value comes from.
 
 Trove is MIT licensed. The source, [contributing guide](https://github.com/vestjoe/trove-skill/blob/main/CONTRIBUTING.md) and [security policy](https://github.com/vestjoe/trove-skill/blob/main/SECURITY.md) are on [GitHub](https://github.com/vestjoe/trove-skill).
