@@ -27,5 +27,9 @@ commands. A change to any of those updates the spec in the same change.
 ## Workflow
 
 - Tests: `uv run --python 3.11 python -m unittest discover -s tests -t .`
+- Docs: `uvx --python 3.11 zensical@0.0.74 build --clean --strict` builds the site
+  into `site/`; `serve` instead of `build` previews it.
+- A change to user-visible behaviour updates `docs/SPEC.md` and the page in
+  `docs/` that describes it, in the same pull request.
 - One branch and one pull request per build phase (`phase-N-<name>`). CI (Linux)
   must pass before merging. `main` stays green.
