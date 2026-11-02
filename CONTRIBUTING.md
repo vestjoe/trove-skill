@@ -25,14 +25,14 @@ cd trove
 uv run --python 3.11 python -m unittest discover -s tests -t .
 ```
 
-To try a change in OpenCode or Claude Code, install it into a scratch project with `./install.sh --opencode --project DIR` or `./install.sh --claude --project DIR`, then follow "Verify your install" in the [README](README.md).
+To try a change in OpenCode or Claude Code, install it into a scratch project with `./install.sh --opencode --project DIR` or `./install.sh --claude --project DIR`, then follow [Verify your install](https://vestjoe.github.io/trove-skill/install/#verify-your-install).
 
 ## Pull requests
 
 1. Branch from `main` and keep one change per pull request.
 2. Follow the code rules in [AGENTS.md](AGENTS.md).
 3. Add or update tests. A new parser or format adds a fixture under `tests/fixtures/` and its source in `tests/SOURCES.md`. A new capture of the GOAD lab adds to `tests/corpus/goad/` and its command to `tests/corpus/SOURCES.md`.
-4. Update `docs/SPEC.md` and the README where behaviour changes.
+4. Update `docs/SPEC.md` and the documentation page in `docs/` where behaviour changes.
 5. Run the tests. CI runs them on Linux and must pass before merge.
 
 Test data must be synthetic or from a lab: no real hosts, credentials, client names or personal data.

@@ -8,3 +8,6 @@ __pycache__/
 
 # Docker lab captures; copy what a test needs into tests/fixtures or tests/samples
 tests/lab/out/
+
+# the documentation site's build output
+site/

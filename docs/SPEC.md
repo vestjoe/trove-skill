@@ -53,10 +53,11 @@ From the OpenCode docs (`opencode.ai/docs/skills`, `/docs/commands`) and the Cla
 ```
 trove-skill/
   README.md  LICENSE  AGENTS.md  CLAUDE.md
+  zensical.toml          the documentation site's configuration
   CONTRIBUTING.md  SECURITY.md
-  brand/                 the Trove mark for the README (colour, and cream for dark pages)
   install.sh             Linux/macOS installer
   .github/workflows/ci.yml   tests on Linux
+  .github/workflows/docs.yml builds the site on every PR and push to main; deploys it to GitHub Pages from main
   loot/                  the skill directory; copied as-is to <skills>/loot
     SKILL.md
     references/
@@ -92,8 +93,12 @@ trove-skill/
     corpus/goad/         the GOAD engagement, grouped by tool
     corpus/SOURCES.md    the run and command behind each corpus file
     test_*.py
-  docs/SPEC.md           this file
-  docs/GUIDE.md          the user guide
+  docs/
+    SPEC.md              this file; kept off the site
+    brand/               the Trove mark (colour, and cream for dark pages), for the README and the site
+    index.md install.md tutorial.md searching.md notes.md troubleshooting.md
+    commands.md tools.md how-it-works.md
+                         the user documentation, published to https://vestjoe.github.io/trove-skill/
 ```
 
 ## Install
@@ -113,7 +118,7 @@ The skill always goes to a `.claude/skills` path, which both harnesses read, so 
 
 Command templates contain `{{LOOT}}`, replaced with `uv run -q --script "<skills>/loot/scripts/loot.py"`. For Claude Code each command becomes a small skill with `disable-model-invocation: true` and `metadata: opencode/autoinvoke: "false"`, so neither model invokes it on its own.
 
-The installer checks for `uv` and prints its install line if missing. Re-running replaces a previous Trove install; it refuses to overwrite a `.claude/skills/loot` that is not one. The README documents uninstall for both harnesses.
+The installer checks for `uv` and prints its install line if missing. Re-running replaces a previous Trove install; it refuses to overwrite a `.claude/skills/loot` that is not one. The documentation's install page covers uninstall for both harnesses.
 
 ## Engagement directory
 
@@ -315,4 +320,4 @@ SKILL.md stays model-invocable, so "import this scan" works without a command. I
 - **End-to-end:** import all of `tests/fixtures/` and assert summed counts and the operator questions by record id.
 - **The GOAD corpus is the acceptance test.** `tests/corpus/goad/` is one engagement against a GOAD lab, grouped by tool; `tests/corpus/SOURCES.md` gives each file's run and command. A new capture adds to it; nothing is dropped. `tests/test_corpus.py` imports it as a folder and file by file in reverse, then asks Q1–Q5 with the searches from `references/chat.md` and checks the answers and citations. Cross-tool behaviour is tested here.
 - **Skill text runs:** every inline `loot …` command in SKILL.md, the references and the templates names a real verb, and each complete read-only one runs on the GOAD engagement.
-- **Live harness check:** the README's "Verify your install" runs the five commands on the fixtures in OpenCode and Claude Code.
+- **Live harness check:** the install page's "Verify your install" runs the five commands on the fixtures in OpenCode and Claude Code.
