@@ -30,7 +30,7 @@ nav = [
 
 [project.theme]
 language = "en"
-logo = "brand/trove-mark-mono-light.svg"
+logo = "brand/trove-mark.svg"
 favicon = "brand/trove-mark.svg"
 features = [
   "announce.dismiss",
