@@ -10,4 +10,4 @@
 
 **A credential is missing.** Guest-fallback logins and failed logins never become credentials; the import report says how many there were. A masked (`********`) secret makes no credential either.
 
-**A tool fails in the lab.** [capture.md](https://github.com/vestjoe/trove-skill/blob/main/loot/references/capture.md) lists known lab failures and their fixes, for example Kerberos tools failing with `Connection error` on port 88.
+**A tool fails in the lab.** [Getting the run to work](tools.md#getting-the-run-to-work) lists known lab failures and their fixes, for example Kerberos tools failing with `Connection error` on port 88.
