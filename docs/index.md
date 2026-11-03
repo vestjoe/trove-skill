@@ -1,6 +1,6 @@
 # Trove
 
-An agent skill for CTF and security-training environments, for OpenCode and Claude Code. You give it tool output and notes; it keeps them in one engagement directory, turns them into records that cite the exact bytes they came from, and answers questions over those records.
+Trove is an agent skill for OpenCode and Claude Code, built for CTF and security-training environments. You give it tool output and notes. Trove keeps them in one engagement directory and turns them into records. Each value in a record names the file it came from and, where it matters, quotes the text. The agent answers your questions from those records.
 
 - Parsers read the output of nmap, masscan, naabu, nuclei, NetExec, secretsdump, hashcat, Responder, kerberoast and AS-REP tools, BloodHound and certipy, and zips of any of these. [Tools Trove reads](tools.md) lists the formats.
 - The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.

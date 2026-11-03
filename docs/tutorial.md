@@ -12,7 +12,7 @@ cd ~/trove-walkthrough
 opencode
 ```
 
-(or `claude` instead of `opencode`).
+If you use Claude Code, run `claude` instead of `opencode`.
 
 ## 1. Create the engagement
 
@@ -62,7 +62,7 @@ demo now holds: 1 credential, 10 finding, 5 host, 125 service
 /loot-chat what do I have on castelblack?
 ```
 
-Same question, and now the answer also has:
+The answer now also has:
 
 - a credential that works there, `rickon.stark` with password `Winter2022`, confirmed on castelblack and winterfell;
 - the finding "SMB signing not required";
@@ -120,7 +120,7 @@ No parser reads your writing, so the agent does. It proposes records such as a f
 /loot-chat what findings and shares do I have on castelblack?
 ```
 
-The answer puts them side by side: "SMB signing not required" from NetExec with status `confirmed` (origin `tool`), and the upload page finding and the writable `all` share from your note (origin `ai`). The note's finding is `open`, because only your note says so. It is yours to prove, and you set its status when you do (see [Notes and finding status](notes.md)).
+The answer puts them side by side: "SMB signing not required" from NetExec with status `confirmed` (origin `tool`), and the upload page finding and the writable `all` share from your note (origin `ai`). The note's finding is `open`, because only your note says so. It stays `open` until you confirm it yourself and set its status (see [Notes and finding status](notes.md)).
 
 When you're done, `rm -r ~/trove-walkthrough` removes the directory and its engagement.
 

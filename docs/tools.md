@@ -33,7 +33,7 @@ Also read: [user lists](#user-lists) with `--tool users`, and [zip archives](#zi
 
 **Records:** each open port is a service with its state. An ARP reply is a host that is up, with its MAC. The first banner for a port is its `banner`, and Trove keeps every banner on the port. masscan's banner type (`title`, `X509`) is not a service name.
 
-**Save:** masscan has no default ports, so give `-p`. `--banners` needs `--source-ip` set to an unused address in the lab range (or a firewall rule dropping `--source-port`'s replies). Otherwise the OS resets the connection before a banner comes back. It needs root. Its default rate is 100 packets a second, so raise `--rate` carefully over a VPN.
+**Save:** masscan has no default ports, so give `-p`. `--banners` needs `--source-ip` set to an unused address in the lab range (or a firewall rule dropping `--source-port`'s replies). Otherwise the OS resets the connection before a banner comes back. masscan needs root. Its default rate is 100 packets a second, so raise `--rate` carefully over a VPN.
 
 **Not read:** `-oB` binary output. Convert it with `masscan --readscan <file> -oX <name>.xml`. Trove reads screen output as masscan's only when no nmap line is in the file, because `nmap -v` prints the same `Discovered open port` lines.
 
@@ -72,7 +72,7 @@ Also read: [user lists](#user-lists) with `--tool users`, and [zip archives](#zi
 - from `--lsa`, cached logons tied to the line's host and machine Kerberos keys with no host; the machine NT hash, DPAPI keys and service passwords go to the agent;
 - shares, password policy and `Error <operation>` lines.
 
-A `(Guest)` login proves nothing about the account and makes no credential. Neither does a failed login, nor a secret masked as `********` by `audit_mode`; the import report says how many of each there were.
+A `(Guest)` login proves nothing about the account and makes no credential. A failed login and a secret that `audit_mode` masks as `********` make no credential either. The import report says how many of each there were.
 
 **Save:** `log_mode = True` makes every run write the log that `--log` writes, under `~/.nxc/logs/<date>/`: every screen line, plain text, plus the command that ran. Import the whole `~/.nxc/logs/` folder. Its `sam/` and `ntds/` files hold hashes with no domain or host. Each joins the account the log names, unless several hosts hold that hash or it is the empty password's. Its `lsa/` files name the domain but no host, and a service password in them goes to the agent. A dump file imported without its log stays apart and says so.
 
@@ -94,7 +94,7 @@ A `(Guest)` login proves nothing about the account and makes no credential. Neit
 
 **Records:** NT hashes, Kerberos keys (joined to the account's hash), NTDS cleartext passwords, LSA secrets (`_SC_` service passwords and `DefaultPassword`) and cached logons as DCC2 hashes, each tied to its account. Trove ties a SAM dump's accounts to the host through the dumped machine account's name.
 
-**Save:** secretsdump has no save option that records the target, so save the screen with `tee`, with or without `-outputfile`. Its `.ntds` file holds the same accounts with no domain or host, and its SAM and LSA files lose the sections Trove reads. Leave out `-ts`: its timestamps hide them. Import a scan that names the host too, or the SAM dump waits.
+**Save:** secretsdump has no save option that records the target, so save the screen with `tee`, with or without `-outputfile`. Its `.ntds` file holds the same accounts with no domain or host, and its SAM and LSA files lose the sections Trove reads. Leave out `-ts`, because its timestamps hide those sections from Trove. Import a scan that names the host too, or the SAM dump waits.
 
 ## GetUserSPNs and GetNPUsers
 
@@ -148,11 +148,11 @@ A `(Guest)` login proves nothing about the account and makes no credential. Neit
 
 ## Zip archives
 
-Trove imports each member on its own. It refuses, by name, a nested archive, an encrypted or unreadable member, or an archive past 10,000 members, 512 MB per member or 2 GB in total.
+Trove imports each member on its own. It refuses a nested archive, an encrypted or unreadable member, and an archive past 10,000 members, 512 MB per member or 2 GB in total. The import report names each one.
 
 ## Getting the run to work
 
-Seen in a GOAD lab run:
+These problems came up in a GOAD lab run:
 
 - Kerberos tools need the domain's name to resolve. Map each domain's FQDN to its DC in `/etc/hosts`, or point DNS at the DC. Otherwise they fail with `Connection error (<DOMAIN>:88)`, which names neither DNS nor the cause.
 - ldapdomaindump and adidnsdump fail with `unsupported hash type MD4` on OpenSSL 3 (Ubuntu 22.04 and later): enable OpenSSL's legacy provider.

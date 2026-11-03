@@ -162,6 +162,7 @@ Use one term for one thing, and don't swap in synonyms for variety.
 - Keep list items parallel: all full sentences, or all fragments of the same shape.
 - End an item that is a full sentence with a period.
 - Use a table when each item has the same two or more properties.
+- Indent a paragraph, list or code block inside a list item by four spaces. The site's Markdown ends the item at fewer, which breaks the list and restarts its numbering.
 
 ### Code and values
 

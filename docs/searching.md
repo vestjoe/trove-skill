@@ -1,6 +1,6 @@
 # Search records
 
-`/loot-find` takes plain words, which must all appear in a record, and filters, alone or with words:
+`/loot-find` takes words, filters or both. Every word must appear in a record. The filters are:
 
 | Filter | Example |
 |---|---|
