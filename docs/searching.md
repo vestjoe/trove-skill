@@ -1,6 +1,6 @@
 # Search records
 
-`/loot-find` takes plain words, which must all appear in a record, or filters:
+`/loot-find` takes plain words, which must all appear in a record, and filters, alone or with words:
 
 | Filter | Example |
 |---|---|
@@ -33,5 +33,6 @@ Fields by type:
 | share | host_id, name, permissions, remark |
 | finding | title, description, host_id, service_id, status, suggested_status |
 | note | text, tags, host_id |
+| relationship | src_id, kind, dst_id |
 
 A protocol's common name (smb, rdp, winrm, mssql, ldap, kerberos, http, ssh, ftp, dns) also finds the services that speak it, so `/loot-find smb` works.

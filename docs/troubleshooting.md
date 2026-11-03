@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**"no engagement here".** Start OpenCode or Claude Code in the directory that holds `<name>.loot/` or below it, or run `/loot-init` first.
+**"no engagement here".** Start OpenCode or Claude Code in the directory that holds `<name>.loot/` or inside `<name>.loot/` itself, or run `/loot-init` first.
 
 **A file is refused.** Trove stores encrypted zip members, nested zips and files a parser fails on, but doesn't read them. The import report names each one and says why.
 

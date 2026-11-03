@@ -4,7 +4,7 @@ An agent skill for CTF and security-training environments, for OpenCode and Clau
 
 - Parsers read the output of nmap, masscan, naabu, nuclei, NetExec, secretsdump, hashcat, Responder, kerberoast and AS-REP tools, BloodHound and certipy, and zips of any of these. [Tools Trove reads](tools.md) lists the formats.
 - The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.
-- Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote).
+- Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote or a finding status you set).
 
 The skill is named `loot`, and its commands are `/loot-*`. It uses only the Python standard library. Trove is for CTF and training labs on Linux and macOS, and does not support Windows yet.
 

@@ -14,7 +14,7 @@ save output, or when a file of a tool Trove reads went to AI extraction whole.
 | NetExec database | make a workspace per engagement first: `nxcdb`, then `workspace create <name>` | `~/.nxc/workspaces/<name>/` |
 | secretsdump | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
 | GetUserSPNs, GetNPUsers | `GetUserSPNs.py -request -dc-ip <ip> <domain>/<user>:<pass> \| tee roast/spns-<domain>.txt` | the `.txt` |
-| hashcat | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile, after the dump that holds the hashes |
+| hashcat | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile, before or after the dump that holds the hashes |
 | Responder | run it as usual | `Responder-Session.log` and `Responder.db` in the `logs/` folder of Responder's install |
 | BloodHound | `bloodhound-ce-python -d <domain> -u <user> -p <pass> -ns <dc-ip> -c All --zip` | the `.zip` |
 | certipy | `certipy find -u <user>@<domain> -p <pass> -dc-ip <ip> -json -output adcs/<domain>` | `adcs/<domain>_Certipy.json` |
