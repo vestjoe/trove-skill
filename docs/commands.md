@@ -2,7 +2,7 @@
 
 Trove has two layers. The slash commands are what you type in OpenCode or Claude Code; each one tells the agent to run the `loot` CLI and report what it printed. The CLI verbs are what the agent runs. You can run them yourself too.
 
-The engagement is the nearest `<name>.loot/` directory at or above where you started OpenCode or Claude Code.
+The engagement is the `<name>.loot/` directory in the directory where you started OpenCode or Claude Code, or the one you started inside.
 
 ## Slash commands
 
@@ -87,7 +87,7 @@ Options every verb takes:
 | `--json` | Print JSON instead of text, for exact values. |
 | `-V`, `--version` | Print the version and exit (before the verb). |
 
-The CLI looks for the engagement in this order: `-e`, then `LOOT_ENGAGEMENT`, then the nearest `<name>.loot/` at or above the current directory, then the one `*.loot` directory beside you.
+The CLI looks for the engagement in this order: `-e`, then `LOOT_ENGAGEMENT`, then the current directory or a parent if it is a `<name>.loot/` directory, then the one `*.loot` directory in the current directory.
 
 Exit codes: `0` success, `1` a user error (the message says what), `2` a usage error. The import report names any file it refused. A refusal does not change the exit code.
 
@@ -146,7 +146,7 @@ Pending AI extraction (12):
 Left for AI extraction later (--no-ai).
 ```
 
-`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is a usage error.
+`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
 
 A line-oriented parser (nmap text, NetExec, creds, certipy text) stores the lines that are not its tool's as their own file, named `<file> (lines not read by <parser>)`, and leaves only that file for AI extraction. That way the agent still reads a note that starts like tool output, or the command line that ran the tool.
 
@@ -168,7 +168,7 @@ demo  ~/loot-demo/demo.loot
 
 ### `pending`
 
-Lists files waiting for AI extraction: the blob id, the source, the size and the 12 KB chunks left.
+Lists files waiting for AI extraction: the blob id, the source, the size and the 12,000-byte chunks left.
 
 ```
 $ loot pending

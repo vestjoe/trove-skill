@@ -1,6 +1,6 @@
 # Walkthrough: castelblack
 
-This follows one host, castelblack, through a GOAD lab: a scan, a question, NetExec output, the same question again, and your own notes. The files are real GOAD lab output in this repository under [`tests/corpus/goad/`](https://github.com/vestjoe/trove-skill/tree/main/tests/corpus/goad). [Install](install.md) Trove first. Outputs below are from the CLI; the agent's own wording around them varies.
+This follows one host, castelblack, through a GOAD lab: a scan, a question, NetExec output, the same question again, and your own notes. The files are real GOAD lab output in this repository under [`tests/corpus/goad/`](https://github.com/vestjoe/trove-skill/tree/main/tests/corpus/goad). [Install](install.md) Trove first. Outputs below are excerpts from the CLI; the agent's own wording around them varies.
 
 From the repository root, set up a working directory:
 
@@ -38,7 +38,7 @@ demo now holds: 5 host, 125 service
 /loot-chat what do I have on castelblack?
 ```
 
-The answer lists `host:192.168.56.22` (castelblack.north.sevenkingdoms.local) and its open services: IIS on 80, SMB on 445, SQL Server on 1433, RDP on 3389, WinRM on 5985 and 5986, and the RPC ports. It also says there are no credentials, shares, findings or notes for castelblack yet. That is "nothing yet", not an error.
+The answer lists `host:192.168.56.22` (castelblack.north.sevenkingdoms.local) and its open services: IIS on 80, SMB on 139 and 445, SQL Server on 1433 and 49792, RDP on 3389, WinRM on 5985 and 5986, HTTPAPI on 47001, and the RPC ports. It also says there are no credentials, shares, findings or notes for castelblack yet. That is "nothing yet", not an error.
 
 ## 4. Import NetExec output
 

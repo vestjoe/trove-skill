@@ -50,11 +50,11 @@ opencode
 
 2. `/loot-import fixtures`
 
-   Correct: 77 files read (99 inputs once zip members are counted). It refuses and names 3 (an encrypted zip member, a nested zip, a truncated nmap XML). 12 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
+   Correct: 77 files read (99 inputs once zip members are counted). It refuses and names 3 (an encrypted zip member, a nested zip, a truncated nmap XML). 12 inputs wait for AI extraction (7 whole files and the unread lines of 5 others), and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" is correct: two hosts in the sample data carry that name. This step takes a few minutes.
 
 3. `/loot-find smb`
 
-   Correct: services on port 445 (and 139 where a scan named it) on the 10.10.10.x, 10.10.20.x and 192.168.56.x hosts, and the SMB findings such as "SMB signing not required", each with the file it came from.
+   Correct: services on port 445 (and 139 where a scan named it) on the 10.10.10.x, 10.10.20.x and 192.168.56.x hosts and one IPv6 host, and the SMB findings such as "SMB signing not required", each with the file it came from.
 
 4. `/loot-chat "which credentials work on which hosts?"`
 

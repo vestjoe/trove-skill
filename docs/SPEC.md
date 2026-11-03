@@ -33,7 +33,7 @@ When the records can't answer one of these from cited fields, the data model cha
 | Name | Trove. The skill, its commands and its files keep the name `loot`: `/loot-*`, `loot.py`, `<name>.loot/` |
 | Language | Python ≥ 3.11, standard library only, always run with `uv run --script` |
 | Data format | One JSON file per record; operator notes as Markdown; raw blobs verbatim |
-| Engagement location | `./<name>.loot/` beside the user, found at or above the working directory |
+| Engagement location | `./<name>.loot/` beside the user, found in the working directory, or as the working directory or a parent |
 | Slash commands | One per verb: `/loot-init`, `/loot-import`, `/loot-find`, `/loot-chat`, `/loot-note` |
 | Freeform import | Extracted by the agent immediately after the raw file is stored |
 | Chat | Facts only from records, each citing record ids; then optional suggestions, labelled as not data |
@@ -95,6 +95,7 @@ trove-skill/
     test_*.py
   docs/
     SPEC.md              this file; kept off the site
+    STYLE.md             the documentation style guide; kept off the site
     brand/               the Trove mark (colour, and cream for dark pages), for the README and the site
     index.md install.md tutorial.md searching.md notes.md troubleshooting.md
     commands.md tools.md how-it-works.md
@@ -233,7 +234,7 @@ A text parser reads lines that end at `\n` (or `\r\n`); masscan's screen output 
 |---|---|
 | `init <name> [--path DIR]` | Create `<name>.loot/` |
 | `import <path\|-> [--tool T] [--no-ai]` | Store a file, directory or stdin and route each blob (below). Print per-file counts and notes, then records added and updated, totals per type, refused inputs and the pending list (`--json`: `engagement`, `inputs`, `new`, `updated`, `holds`, `refused`, `pending`). Per-file counts overlap and are never summed |
-| `pending` | Blobs with `ai: pending`: blob, source, size, chunks left (12 KB chunks) |
+| `pending` | Blobs with `ai: pending`: blob, source, size, chunks left (12,000-byte chunks) |
 | `raw <blob> [--chunk N]` | One chunk of a text blob (default: the next without a proposal) |
 | `ingest-ai <blob> [-f FILE\|-] [--chunk N]` | Validate and write one proposal for one chunk (stdin by default), mark the chunk done, name the next, and print totals per type |
 | `fields` | Types, core fields and `--where` operators |
@@ -254,7 +255,7 @@ Exit codes: `0` success, `1` user error, `2` usage error (argparse). Refused inp
 2. A UTF-8/16/32 BOM or UTF-16 file is stored as is, plus a UTF-8 copy. Text is judged on the first 64 KB. Non-text other than SQLite is `ai: binary`.
 3. A zip's members are stored in name order, each derived from the archive; OS bookkeeping is skipped. A nested archive, an encrypted or unreadable member, or an archive past 10,000 members, 512 MB per member or 2 GB in total is refused by name. After the last member, and after the last file of a directory, members that named records not yet held are parsed again.
 4. SQLite: opened in memory from the stored bytes. A database a reader knows has the rows it needs written out as text (`<table> <id>` then tab-separated `<column>=<value>`), stored derived from the database; the reader parses and cites that text. A row value with a tab, a line break or non-UTF-8 bytes is counted and not read. Rows still in a `-wal` file are not read. Any other database is `ai: binary` and the import names its tables.
-5. `--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound`, `certipy` (`netexec-db` and `responder-db` are accepted but not needed; a database picks its reader). An unknown name is a usage error. Otherwise each parser sniffs, in order: bloodhound, certipy, nmap XML, nmap text, naabu, masscan, nuclei, netexec, creds.
+5. `--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound`, `certipy` (`netexec-db` and `responder-db` are accepted but not needed; a database picks its reader). An unknown name is a user error that lists the known parsers. Otherwise each parser sniffs, in order: bloodhound, certipy, nmap XML, nmap text, naabu, masscan, nuclei, netexec, creds.
 6. Parser output becomes records via the merge rules.
 7. The line-oriented parsers (nmap text, netexec, creds, certipy text) know their tool's non-data lines as whole shapes, not prefixes, and report every other line. Those lines are stored as a derived blob, `<file> (lines not read by <parser>)`, marked `ai: pending`, so only they go to the model. If they are the whole file, the file itself is pending. This catches prose that starts like tool output and the command line that ran the tool, which may be the only place a password appears. A prose line with a whole tool shape (`445/tcp open and …`) is still read as the tool's. Importing the GOAD corpus queues no such blob.
 8. Unclaimed text becomes `ai: pending`. Unless `--no-ai`, the command template and SKILL.md tell the agent to extract it now.
