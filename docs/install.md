@@ -50,7 +50,7 @@ opencode
 
 2. `/loot-import fixtures`
 
-   Correct: 77 files read (99 inputs once zip members are counted). 3 are refused and named (an encrypted zip member, a nested zip, a truncated nmap XML). 12 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
+   Correct: 77 files read (99 inputs once zip members are counted). It refuses and names 3 (an encrypted zip member, a nested zip, a truncated nmap XML). 12 files are pending AI extraction, and the agent extracts them in the same turn, then reports what it kept and dropped. A dropped host link for "dc01" or "dc02" is correct: two hosts in the sample data carry each name. This step takes a few minutes.
 
 3. `/loot-find smb`
 
@@ -58,7 +58,7 @@ opencode
 
 4. `/loot-chat "which credentials work on which hosts?"`
 
-   Correct: under **From the data**, the credentials a login confirmed, each with its hosts and cited by record id: `rickon.stark` (north.acme.local) on 10.10.10.6 and 10.10.10.8, `svc_backup` on 10.10.10.6, `Administrator` (essos.local) on 10.10.10.9, admin there (`admin_hosts`), `Administrator` (lab-01.local) on 10.10.20.10 and 10.10.20.22, admin on 10.10.20.10, `backup.ops` on 10.10.20.21 and 10.10.20.10, admin on both, `jojen.reed` on 192.168.56.24, admin there, and `goadmin` (north.sevenkingdoms.local) on 192.168.56.22, admin there. Other credentials (hashes, AS-REP, kerberoast) are named as not tried anywhere, not given a guessed host. It may also mention what the sample notes claim (for example svc_backup on 10.10.10.7); that is correct only if it says those come from `ai` extraction, not from a login. Any advice is under **Suggestions (not from the data)**.
+   Correct: under **From the data**, the credentials a login confirmed, each with its hosts and cited by record id: `rickon.stark` (north.acme.local) on 10.10.10.6 and 10.10.10.8, `svc_backup` on 10.10.10.6, `Administrator` (essos.local) on 10.10.10.9, admin there (`admin_hosts`), `Administrator` (lab-01.local) on 10.10.20.10 and 10.10.20.22, admin on 10.10.20.10, `backup.ops` on 10.10.20.21 and 10.10.20.10, admin on both, `jojen.reed` on 192.168.56.24, admin there, and `goadmin` (north.sevenkingdoms.local) on 192.168.56.22, admin there. It names the other credentials (hashes, AS-REP, kerberoast) as not tried anywhere and gives them no guessed host. It may also mention what the sample notes claim (for example svc_backup on 10.10.10.7); that is correct only if it says those come from `ai` extraction, not from a login. Any advice is under **Suggestions (not from the data)**.
 
 5. `/loot-note "jon.snow kerberoast hash still uncracked" --host 10.10.10.6 --tag todo`
 
@@ -83,5 +83,5 @@ For example, for Claude Code on all projects:
 rm -r ~/.claude/skills/loot ~/.claude/skills/loot-*
 ```
 
-Your `<name>.loot/` engagement directories are never touched by install or uninstall.
+Install and uninstall never touch your `<name>.loot/` engagement directories.
 

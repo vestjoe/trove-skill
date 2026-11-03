@@ -8,4 +8,4 @@
 
 Find tagged notes later with `/loot-find --type note --where tags=todo`.
 
-A finding's status is one of `open`, `confirmed`, `failed`, `remediated` or `false_positive`. A tool's finding is `confirmed` when the tool saw it; a finding the agent read from a note starts `open`. Only you change a status, by asking, for example: "set finding:… to confirmed". The change is recorded with origin `you`.
+A finding's status is one of `open`, `confirmed`, `failed`, `remediated` or `false_positive`. A tool's finding is `confirmed` when the tool saw it; a finding the agent read from a note starts `open`. Only you change a status, by asking, for example: "set finding:… to confirmed". Trove records the change with origin `you`.
