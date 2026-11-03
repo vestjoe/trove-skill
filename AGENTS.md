@@ -31,5 +31,6 @@ commands. A change to any of those updates the spec in the same change.
   into `site/`; `serve` instead of `build` previews it.
 - A change to user-visible behaviour updates `docs/SPEC.md` and the page in
   `docs/` that describes it, in the same pull request.
+- Documentation pages follow `docs/STYLE.md`.
 - One branch and one pull request per build phase (`phase-N-<name>`). CI (Linux)
   must pass before merging. `main` stays green.

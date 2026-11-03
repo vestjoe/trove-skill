@@ -1,10 +1,10 @@
 # How Trove works
 
-One engagement is one directory. `/loot-init htb-forest` creates `htb-forest.loot/` in the current directory. Every command uses the `<name>.loot/` in the directory where you started OpenCode or Claude Code, or the one you started inside. A command started in a subdirectory of that directory doesn't find it. To pick a different one, name it in your request ("in the forest engagement…") or start the tool from that engagement's directory.
+One engagement is one directory. `/loot-init htb-forest` creates `htb-forest.loot/` in the current directory. Every command uses the `<name>.loot/` in the directory where you started OpenCode or Claude Code. If you started inside `<name>.loot/` itself, the command uses that one. A command started in any other subdirectory doesn't find it. To pick a different one, name it in your request ("in the forest engagement…") or start the tool from that engagement's directory.
 
 Trove keeps every file you import as it is. It stores the bytes verbatim under `raw/`, including files nothing could read. Importing the same file twice changes nothing.
 
-Trove builds records from those files. A record is a host, service, credential, principal, group, share, finding, note or relationship (such as a group membership). Records from different files merge: a host from an nmap scan and the same host from NetExec output are one record that cites both.
+Trove builds records from those files. A record is a host, service, credential, principal, group, share, finding, note or relationship (such as a group membership). Records from different files merge: a host from an nmap scan and the same host from NetExec output are one record that lists both files as sources.
 
 Every value says where it came from. Each field shows its origin, the file it came from and, where it matters, the exact text quoted from that file:
 

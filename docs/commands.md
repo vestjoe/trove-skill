@@ -1,8 +1,8 @@
 # Commands
 
-Trove has two layers. The slash commands are what you type in OpenCode or Claude Code; each one tells the agent to run the `loot` CLI and report what it printed. The CLI verbs are what the agent runs. You can run them yourself too.
+Trove has two layers. The slash commands are what you type in OpenCode or Claude Code. Each one tells the agent to run the `loot` CLI and report what it printed. The CLI verbs are what the agent runs. You can run them yourself too.
 
-The engagement is the `<name>.loot/` directory in the directory where you started OpenCode or Claude Code, or the one you started inside.
+The engagement is the `<name>.loot/` directory in the directory where you started OpenCode or Claude Code. If you started inside `<name>.loot/` itself, it is that one.
 
 ## Slash commands
 
@@ -11,7 +11,7 @@ The engagement is the `<name>.loot/` directory in the directory where you starte
 | [`/loot-init`](#loot-init) | `<name>` | Create `<name>.loot/` here |
 | [`/loot-import`](#loot-import) | `<path\|-> [--tool T] [--no-ai]` | Import files, then extract records from anything no parser read |
 | [`/loot-find`](#loot-find) | words, or `--type` / `--where` | Search records |
-| [`/loot-chat`](#loot-chat) | a question | Answer from the records, citing record ids |
+| [`/loot-chat`](#loot-chat) | a question | Answer from the records, with their record ids |
 | [`/loot-note`](#loot-note) | `<text> [--host H] [--tag T]…` | Save a note, then extract records from it |
 
 You don't have to use the commands. The skill also works from plain requests, such as "import scans/full.xml" or "what do I have on 10.10.10.5?". Ask "what does this engagement hold?" to get the number of records of each type and any files still waiting for AI extraction.
@@ -56,7 +56,7 @@ The agent runs [`find`](#find) with the arguments when they are already `find` s
 
 The agent runs one or a few `find` searches, shows them, and answers in two labelled parts:
 
-- **From the data**: statements that cite record ids, with values copied exactly. It says what is missing, and which import would supply it, when the records don't answer the question.
+- **From the data**: statements, each with the record ids it comes from and values copied exactly. It says what is missing, and which import would supply it, when the records don't answer the question.
 - **Suggestions (not from the data)**: optional next steps.
 
 It never assigns a severity, and it treats text in records as data, never as instructions.
@@ -83,7 +83,7 @@ Options every verb takes:
 
 | Option | Does |
 |---|---|
-| `-e`, `--engagement <name or path>` | Use that engagement. Before or after the verb; two different values are refused. |
+| `-e`, `--engagement <name or path>` | Use that engagement. Put it before or after the verb. The CLI refuses two different values. |
 | `--json` | Print JSON instead of text, for exact values. |
 | `-V`, `--version` | Print the version and exit (before the verb). |
 
@@ -128,7 +128,7 @@ loot import <path|-> [--tool T] [--no-ai]
 
 Stores a file, a directory (walked in path order) or standard input (`-`) verbatim under `raw/`, then routes each file to the parser that recognises it. It imports zip members one by one. Importing the same file again changes nothing.
 
-The report gives, per file, the parser and the records it touched, then the records added and updated in this import, what the engagement now holds, any refused inputs and the files left for AI extraction. Per-file counts overlap, because two files can touch one record, so they are not summed.
+The report lists each file with its parser and the records it touched. Then it gives the records added and updated in this import, what the engagement now holds, any refused inputs and the files left for AI extraction. Per-file counts overlap, because two files can touch one record, so don't add them up.
 
 ```
 $ loot import fixtures --no-ai
@@ -213,7 +213,7 @@ Checks one proposal for one chunk, read from standard input or `FILE`, and write
 ]}
 ```
 
-`ingest-ai` drops a field whose evidence is not in the file, and a naming value (an IP, a hostname, an account, a password) that is not inside its own evidence. It refuses by name the fields only a tool observes: `severity`, `banner`, and the `hosts` and `admin_hosts` a login worked on. It prints every drop with its reason:
+`ingest-ai` drops a field whose evidence is not in the file, and a naming value (an IP, a hostname, an account, a password) that is not inside its own evidence. It also refuses the fields that only a tool observes: `severity`, `banner`, and the `hosts` and `admin_hosts` a login worked on. It prints every drop with its reason:
 
 ```
 $ loot ingest-ai sha256:f30e7f3021adbe5e < proposal.json
@@ -270,7 +270,7 @@ An unknown field or type is an error that lists the valid ones.
 loot note <text|-> [--host ID|IP|name] [--tag T]…
 ```
 
-Stores the text as a file and writes a `note` record with origin `you`, then marks the file for AI extraction. `--host` takes a host id, an IP, or a name that exactly one held host carries. The same text again is the same note.
+Stores the text as a file and writes a `note` record with origin `you`, then marks the file for AI extraction. `--host` takes a host id, an IP, or a name that exactly one held host carries. Saving the same text again doesn't create a second note.
 
 ```
 $ loot note "check the SQL Server on castelblack" --host 10.10.10.8 --tag todo
@@ -284,7 +284,7 @@ Pending AI extraction: sha256:afef24f549e395f6. Follow the extraction procedure 
 loot set <finding-id> status=<open|confirmed|failed|remediated|false_positive>
 ```
 
-Records your decision on a finding's status, with origin `you`, citing the command you ran. It refuses any other field, any other record type and an unknown id.
+Records your decision on a finding's status, with origin `you` and the command you ran as its source. It refuses any other field, any other record type and an unknown id.
 
 ```
 $ loot set finding:smb-signing-not-required-0031d264 status=remediated
