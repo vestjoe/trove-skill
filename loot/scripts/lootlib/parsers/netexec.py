@@ -26,6 +26,7 @@ PREFIX = re.compile(
 MARKER = re.compile(r"^\[(?P<marker>[-+*])\] +")
 PROGRESS = re.compile(r"^Running nxc against \d+ targets?\b")
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
+COMMAND = re.compile(r"^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]> ")
 LOGGED = re.compile(r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \| [^|\s]+:\d+ - [A-Z]+ - ")
 ENUMERATED = "Enumerated shares"
 SHARE_HEADER = ("Share", "Permissions", "Remark")
@@ -134,6 +135,8 @@ def parse(raw: Input) -> list[dict[str, Any]]:
     domains: dict[str, tuple[str, dict[str, Any]]] = {}
     dumping: dict[str, str] = {}
     masked = 0
+    commands: list[str] = []
+    logins = 0
 
     def keep(rec: dict[str, Any]) -> None:
         rid = _id(rec)
@@ -142,6 +145,10 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         held.setdefault(rid, rec)
 
     for line in map(_unlogged, creds.lines(text)):
+        if COMMAND.match(line.text):
+            commands.append(line.text)
+            raw.unread.append(line.text)
+            continue
         announced_dump = _announces_dump(line.text)
         if announced_dump is not None:
             dumping[announced_dump[0]] = announced_dump[1]
@@ -209,6 +216,7 @@ def parse(raw: Input) -> list[dict[str, Any]]:
             keep(_null_session(null, line, raw))
             continue
         login = _login_in(line.text)
+        logins += login is not None
         if login is None:
             bare = ANSI.sub("", line.text)
             if line.text.strip() and not WRAPPER.match(line.text) and (not _tool_line(bare) or _row(bare)):
@@ -234,6 +242,10 @@ def parse(raw: Input) -> list[dict[str, Any]]:
         keep(_credential(login, line, raw))
         worked.add(_login_key(login.realm, login.principal, login.secret))
 
+    if commands and logins:
+        raw.unread[:] = [kept for kept in raw.unread if kept not in commands]
+        raw.notices.append(f"{len(commands)} --log command line(s) not sent for extraction: the login "
+                           "lines in this log already hold what was typed on them.")
     for policy in policies.values():
         found = policy.finding(raw)
         if found is not None:

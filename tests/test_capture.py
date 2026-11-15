@@ -41,16 +41,21 @@ class Capture(EngagementCase):
                 for line in rawstore.read(self.eng, e["blob"]).decode().splitlines() if line.strip()]
 
     def test_a_netexec_log_file_is_read_like_its_screen_output(self):
-        self.load("netexec/nxc-log-riverrun.log")
+        report = self.load("netexec/nxc-log-riverrun.log")
         jojen = self.records("principal=jojen.reed")
         self.assertEqual([(r["secret"], r["hosts"], r["admin_hosts"]) for r in jojen],
                          [("Gr33nS1ght!", ["host:192.168.56.24"], ["host:192.168.56.24"])])
         admin = self.records("principal=Administrator")
         self.assertEqual([r.get("host_id") for r in admin], [["host:192.168.56.24"]])
         self.assertIn("service:192.168.56.24-tcp-445", self.cli("find", "--where", "host=192.168.56.24"))
-        self.assertEqual(len(self.queued()), 1)
-        self.assertTrue(self.queued()[0].startswith("[2026-10-17 09:12:01]> nxc smb 192.168.56.24"))
+        self.assertEqual(self.queued(), [])
+        self.assertIn("1 --log command line(s) not sent for extraction", report)
         self.assert_citations_hold()
+
+    def test_a_netexec_log_with_no_login_line_queues_its_command_line(self):
+        log = (FIXTURES / "netexec/nxc-log-riverrun.log").read_text().splitlines(keepends=True)
+        self.write("nxc-banner.log", "".join(log[:3]))
+        self.assertEqual(self.queued(), [log[0].rstrip("\n")])
 
     def test_secretsdump_cached_logons_are_dcc2_hashes_of_their_domain_accounts(self):
         self.load("creds/secretsdump-cached-riverrun.txt")
