@@ -43,7 +43,10 @@ class OperatorQuestions(EngagementCase):
         cracked = self.ids(types=["credential"], where=["state=cracked"])
         self.assertEqual({rid.rsplit("+", 1)[0] for rid in cracked}, {
             "credential:acme.local\\noprerequser", "credential:acme.local\\sqlsvc", "credential:acme.local\\jsmith",
-            "credential:acme\\legacy_svc", "credential:helpdesk", "credential:jdoe", "credential:svc_backup"})
+            "credential:acme\\legacy_svc", "credential:helpdesk", "credential:jdoe", "credential:svc_backup",
+            "credential:westerlands.sevenkingdoms.local\\kevan.lannister",
+            "credential:westerlands.sevenkingdoms.local\\addam.marbrand",
+            "credential:westerlands.sevenkingdoms.local\\tyrek.lannister", "credential:westerlands\\jeyne.westerling"})
         untried = self.ids(types=["credential"], where=["hosts!"])
         self.assertLessEqual(cracked - {SVC_BACKUP}, untried)
         self.assertEqual(untried & {SVC_BACKUP, RICKON, ADMIN}, set())
