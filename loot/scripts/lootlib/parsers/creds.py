@@ -1,8 +1,8 @@
 """Credential dumps and cracks to credential records.
 
 Shapes: secretsdump ``user:rid:lm:nt:::``, ``user:CLEARTEXT:pass`` and LSA service and autologon
-passwords, a self-named hash stating its account, and hashcat ``hash:plaintext``, which joins its
-owner by exact hash equality or is reported."""
+passwords, a self-named hash stating its account, hashcat ``hash:plaintext`` and John ``--show`` lines,
+which join their owner by hash, or an AS-REP's by its account and realm, or are reported."""
 
 from __future__ import annotations
 
@@ -47,7 +47,14 @@ CACHED_TAIL = re.compile(r"^(?:: \([^()]*\))?\s*$")
 CLIENT = re.compile(r"^\[\w+\] \S+ +Client +: +(?P<ip>\d{1,3}(?:\.\d{1,3}){3}|[0-9a-fA-F:]{3,39})\s*$")
 LOGGED = re.compile(r"^\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2} [AP]M - ")
 SHOWN_HASH = re.compile(r"^\[\w+\] \S+ +Hash +: +(?P<hash>\S+)\s*$")
+JOHN_NTDS = re.compile(r"^(?P<principal>(?:(?! {2})[^:\r\n])+):(?P<plain>(?:(?! {2}).)*):\d+:"
+                       r"(?P<lm>[0-9a-fA-F]{32}):(?P<nt>[0-9a-fA-F]{32}):")
+JOHN_NETNTLM = re.compile(r"^(?P<principal>[^:\s]+):(?P<plain>.*):(?P<tail>[^:]*:(?:[0-9a-fA-F]{16}:[0-9a-fA-F]{32}:"
+                          r"[0-9a-fA-F]+|[0-9a-fA-F]{48}:[0-9a-fA-F]{48}:[0-9a-fA-F]{16}))$")
+JOHN_ASREP = re.compile(r"^\$krb5asrep\$(?:\d+\$)?(?P<principal>[^$@:]+)@(?P<realm>[^$:]+):(?P<plain>.*)$")
+JOHN_SUMMARY = re.compile(r"^\d+ password hash(?:es)? cracked, \d+ left$")
 EMPTY_LM = "aad3b435b51404eeaad3b435b51404ee"
+EMPTY_NT = "31d6cfe0d16ae931b73c59d7e0c089c0"
 FOUND, CRACKED = "found", "cracked"
 
 
@@ -126,6 +133,8 @@ def parse(raw: Input) -> list[dict[str, Any]]:
     unowned: list[str] = []
     unread: list[str] = []
     undecoded: list[str] = []
+    john_lm: list[str] = []
+    john_blank: list[str] = []
     ownerless: list[dict[str, Any]] = []
     service: tuple[str, Line] | None = None
     section, local, machine, client = "", [], None, None
@@ -211,6 +220,23 @@ def parse(raw: Input) -> list[dict[str, Any]]:
             else:
                 unmatched.append(typed.text)
             continue
+        john = JOHN_NTDS.match(line.text)
+        if john:
+            nt = john.group("nt")
+            if john.group("lm").lower() != EMPTY_LM:
+                john_lm.append(john.group("principal"))
+            elif not john.group("plain") and nt.lower() != EMPTY_NT:
+                john_blank.append(john.group("principal"))
+            elif by_hash.get(nt.lower()):
+                out.extend(_from_crack(nt, john.group("plain"), john.start("nt"), john.start("plain"), line, raw, o)
+                           for o in by_hash[nt.lower()])
+            else:
+                unmatched.append(nt)
+            continue
+        john = JOHN_NETNTLM.match(line.text) or JOHN_ASREP.match(line.text)
+        if john:
+            out.extend(_john_owned(john, line, raw, by_hash, unmatched))
+            continue
         cracked = CRACK_LINE.match(line.text)
         if cracked:
             hashed, plain = cracked.group("hash"), plain_only(cracked.group("plain"))
@@ -237,7 +263,8 @@ def parse(raw: Input) -> list[dict[str, Any]]:
                 continue
         if HEXY.search(line.text):
             unread.append(line.text)
-        if line.text.strip() and not any(p.match(line.text) for p in (IMPACKET, HASHCAT, HEXDUMP, WRAPPER)):
+        own = (IMPACKET, HASHCAT, HEXDUMP, WRAPPER, JOHN_SUMMARY)
+        if line.text.strip() and not any(p.match(line.text) for p in own):
             raw.unread.append(line.text)
 
     if local or ownerless:
@@ -250,6 +277,11 @@ def parse(raw: Input) -> list[dict[str, Any]]:
             "A credential is keyed on whose it is, so these are stored in raw/ and nothing was invented to own them.")
     _notice(raw, undecoded, "cracked password(s) are $HEX-encoded bytes that are not text",
             "The encoding is stored rather than a lossy decode of it.")
+    _notice(raw, john_lm, "John line(s) show a password beside an LM hash",
+            "John prints the same line whether it cracked the LM or the NT hash, and an LM crack is upper-cased, "
+            "so these passwords were not joined to any account.")
+    _notice(raw, john_blank, "John line(s) show an empty password beside an NT hash that is not the empty password's",
+            "That is John's LM format reading a blank LM hash, so nothing was joined.")
     if ownerless:
         raw.notices.append(f"{len(ownerless)} password(s) were dumped with no account; each is a credential "
                            f"with principal {UNKNOWN_USER}, tied to no account.")
@@ -456,16 +488,36 @@ def _from_service_secret(match: re.Match[str], line: Line, raw: Input, service: 
     return rec
 
 
+def _john_owned(john: re.Match[str], line: Line, raw: Input, by_hash: dict[str, list[dict[str, Any]]],
+                unmatched: list[str]) -> list[dict[str, Any]]:
+    """A John NetNTLM line joins the hash it rebuilds; an AS-REP line, which keeps no hash, joins
+    the held AS-REP hashes of its principal and realm, which are one credential."""
+    if "tail" in john.groupdict():
+        named = f"{john.group('principal')}::{john.group('tail')}"
+        owners = by_hash.get(named.lower(), [])
+    else:
+        named = f"{john.group('principal')}@{john.group('realm')}"
+        account = (john.group("principal").lower(), john.group("realm").lower())
+        owners = [o for held in by_hash.values() for o in held if o.get("hash_type") == "krb5asrep"
+                  and (o["principal"].lower(), (o.get("realm") or "").lower()) == account]
+    if not owners:
+        unmatched.append(named)
+    return [_from_crack(o["secret_hash"], john.group("plain"), 0, john.start("plain"), line, raw, o, carried=True)
+            for o in owners]
+
+
 def _from_crack(hashed: str, plain: str, hash_at: int, plain_at: int, line: Line, raw: Input,
-                owner: dict[str, Any]) -> dict[str, Any]:
+                owner: dict[str, Any], carried: bool = False) -> dict[str, Any]:
     """A crack joined to its owner: same id, so it fills ``secret`` on that credential.
-    Principal, realm and hash type carry the owner's citations; the potfile never named them."""
+    Principal, realm and hash type carry the owner's citations; the potfile never named them.
+    ``carried``: the line does not hold the hash, so it too carries the owner's citation."""
     rec = records.new("credential")
     records.set_field(rec, "principal", owner["principal"], owner["prov"]["principal"])
-    for carried in ("realm", "hash_type"):
-        if owner.get(carried) and carried in owner["prov"]:
-            records.set_field(rec, carried, owner[carried], owner["prov"][carried])
-    records.set_field(rec, "secret_hash", hashed, _ref(raw, line.offset_of(hashed, hash_at), hashed))
+    for carried_field in ("realm", "hash_type"):
+        if owner.get(carried_field) and carried_field in owner["prov"]:
+            records.set_field(rec, carried_field, owner[carried_field], owner["prov"][carried_field])
+    hash_ref = owner["prov"]["secret_hash"] if carried else _ref(raw, line.offset_of(hashed, hash_at), hashed)
+    records.set_field(rec, "secret_hash", hashed, hash_ref)
     secret, _ = decode_plain(plain)
     state_ref = _ref(raw, line.start, line.text)
     if secret:
@@ -500,7 +552,7 @@ def _table_header(line: str) -> bool:
 
 
 def _claimable(line: str) -> bool:
-    if DUMP_LINE.match(line) or MACHINE_LINE.match(line) or CRACK_LINE.match(line):
+    if any(p.match(line) for p in (DUMP_LINE, MACHINE_LINE, CRACK_LINE, JOHN_NTDS, JOHN_NETNTLM, JOHN_ASREP)):
         return True
     shown = SHOWN_HASH.match(line)
     if shown and hashformats.match(shown.group("hash")) is not None:

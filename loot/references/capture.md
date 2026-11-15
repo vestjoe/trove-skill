@@ -15,6 +15,7 @@ save output, or when a file of a tool Trove reads went to AI extraction whole.
 | secretsdump | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
 | GetUserSPNs, GetNPUsers | `GetUserSPNs.py -request -dc-ip <ip> <domain>/<user>:<pass> \| tee roast/spns-<domain>.txt` | the `.txt` |
 | hashcat | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile, before or after the dump that holds the hashes |
+| John the Ripper | `john --show --format=<format> <hashfile> > john/show-<name>.txt` | the `.txt` and the hash file, in either order |
 | Hydra | `hydra -L users.txt -P passwords.txt -o hydra/<ip>-<service>.txt <service>://<ip>` | the `.txt` |
 | kerbrute | `kerbrute passwordspray -d <domain> --dc <dc-ip> users.txt '<password>' \| tee kerbrute/spray-<domain>.txt` | the `.txt` |
 | Responder | run it as usual | `Responder-Session.log` and `Responder.db` in the `logs/` folder of Responder's install |
@@ -98,6 +99,12 @@ Why these, and what to avoid:
   whose hash it is. Other `--outfile-format` choices drop the hash or the
   password; `--outfile-format 1,3` writes the password as hex, which cannot be
   told from a hex password.
+- **John** `--show` prints the password in place of the hash. Trove joins a
+  dump line (`DOMAIN\user:password:rid:lm:nt:::`, cracked with `--format=NT`;
+  a line with a non-blank LM column is skipped), a NetNTLM line and an AS-REP
+  line (`$krb5asrep$…user@REALM:password`). It does not read `user:password`
+  (give John the dump line instead), `?:password` (kerberoast: use hashcat) or
+  `--show=left` (import the hash file).
 - **Responder** colours its screen output even when piped; its session log is
   the same lines without colour, with the client's address. It is written in
   the `logs/` folder next to `Responder.py`, not where Responder was run. The per-capture

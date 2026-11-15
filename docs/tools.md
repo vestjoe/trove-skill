@@ -13,6 +13,7 @@ How you save a tool's output changes what Trove can read. Each section below giv
 | [secretsdump](#secretsdump) | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
 | [GetUserSPNs, GetNPUsers](#getuserspns-and-getnpusers) | `GetUserSPNs.py -request -dc-ip <ip> <domain>/<user>:<pass> \| tee roast/spns-<domain>.txt` | the `.txt` |
 | [hashcat](#hashcat) | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile |
+| [John the Ripper](#john-the-ripper) | `john --show --format=<format> <hashfile> > john/show-<name>.txt` | the `.txt` and the hash file |
 | [Hydra](#hydra) | `hydra -L users.txt -P passwords.txt -o hydra/<ip>-<service>.txt <service>://<ip>` | the `.txt` |
 | [kerbrute](#kerbrute) | `kerbrute passwordspray -d <domain> --dc <dc-ip> users.txt '<password>' \| tee kerbrute/spray-<domain>.txt` | the `.txt` |
 | [Responder](#responder) | run it as usual | `Responder-Session.log` and `Responder.db` in the `logs/` folder of Responder's install |
@@ -115,6 +116,26 @@ A `--log` file opens with the command that ran. When the log has a login line, T
 **Records:** each cracked password, joined to the account whose hash it cracks.
 
 **Save:** potfile lines are `hash:password`. Import the potfile before or after the dump that holds the hashes. A crack whose hash Trove doesn't hold yet waits, and lands when the dump arrives. Other `--outfile-format` choices drop the hash or the password. `--outfile-format 1,3` writes the password as hex, and nothing tells that apart from a password that is itself hex.
+
+## John the Ripper
+
+**Reads:** `john --show` output.
+
+**Records:** each cracked password, joined to the account whose hash John cracked.
+
+**Save:** run `john --show --format=<format> <hashfile> > john/show-<name>.txt` and import that file and the hash file, in either order. A crack whose hash Trove doesn't hold yet waits, and lands when the hash file arrives.
+
+John prints the password in place of the hash, so Trove joins only the lines that still say whose hash it was:
+
+- A secretsdump or NetExec dump line (`DOMAIN\user:rid:lm:nt:::`) keeps its NT hash. Crack it with `--format=NT`. John prints the same line when it cracks the LM hash, which upper-cases the password, so Trove skips a line whose LM column isn't blank.
+- A Responder NetNTLM hash keeps every part but the empty field, so Trove rebuilds it.
+- An AS-REP hash keeps `user@REALM`, so Trove fills that account's AS-REP credential.
+
+Trove doesn't read these lines. Import something else instead:
+
+- `user:password` comes from a `user:nthash` file. Give John the dump line as secretsdump wrote it, so the hash stays on the line.
+- `?:password` comes from kerberoast tickets and from hashes on a line of their own. Crack them with hashcat and import the potfile.
+- `--show=left` lists the hashes John hasn't cracked. Import the hash file itself.
 
 ## Responder
 
