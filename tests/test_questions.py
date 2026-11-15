@@ -8,6 +8,7 @@ LAB_ADMIN = "credential:lab-01.local\\administrator+faf6add1"
 LAB_BACKUP = "credential:lab-01.local\\backup.ops+d2b7d52f"
 JOJEN = "credential:north.sevenkingdoms.local\\jojen.reed+7d6f81c1"
 GOADMIN = "credential:north.sevenkingdoms.local\\goadmin+80d3c1bb"
+HYDRA = {"credential:davos.seaworth+0fa0743c", "credential:gendry+63a60252", "credential:brienne.tarth+7c54a91f"}
 
 
 class OperatorQuestions(EngagementCase):
@@ -32,7 +33,7 @@ class OperatorQuestions(EngagementCase):
 
     def test_q2_which_credentials_work_where_and_as_admin(self):
         worked = {r["id"]: r for r in find.search(self.everything, types=["credential"], where=["hosts?"])[1]}
-        self.assertEqual(set(worked), {SVC_BACKUP, RICKON, ADMIN, LAB_ADMIN, LAB_BACKUP, JOJEN, GOADMIN})
+        self.assertEqual(set(worked), {SVC_BACKUP, RICKON, ADMIN, LAB_ADMIN, LAB_BACKUP, JOJEN, GOADMIN} | HYDRA)
         self.assertEqual(worked[RICKON]["hosts"], ["host:10.10.10.6", "host:10.10.10.8"])
         self.assertEqual(self.ids(types=["credential"], where=["admin_hosts?"]), {ADMIN, LAB_ADMIN, LAB_BACKUP, JOJEN, GOADMIN})
         self.assertEqual(worked[ADMIN]["admin_hosts"], ["host:10.10.10.9"])

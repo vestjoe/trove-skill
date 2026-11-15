@@ -1,0 +1,11 @@
+{ "generator": {
+	"software": "Hydra", "version": "v9.8dev", "built": "2026-11-15 10:31:07",
+	"server": "192.168.56.82", "service": "ftp", "jsonoutputversion": "1.00",
+	"commandline": "hydra -L users.txt -P passwords.txt -b json -o hydra-ftp.json ftp://192.168.56.82"
+	},
+"results": [
+	{"port": 21, "service": "ftp", "host": "192.168.56.82", "login": "brienne.tarth", "password": "Oathk33per"}
+	],
+"success": true,
+"errormessages": [  ],
+"quantityfound": 1   }

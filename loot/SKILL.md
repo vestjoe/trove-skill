@@ -1,6 +1,6 @@
 ---
 name: loot
-description: Keeps CTF and training-lab loot in one engagement directory and answers questions about it. Imports nmap (XML, .nmap, .gnmap), masscan, naabu JSON, nuclei, NetExec, secretsdump, hashcat/potfile, kerberoast, AS-REP, Responder, BloodHound zips, certipy find, user lists and freeform notes, stores every file verbatim, turns them into host, service, credential and finding records that cite the exact bytes they came from, and searches them. Use when the user wants to import tool output or notes, search hosts, services or credentials, or ask what an engagement holds. Also use for two known lab-run failures, Kerberos tools failing with `Connection error` on port 88 and `unsupported hash type MD4` on OpenSSL 3, but not for other tool errors.
+description: Keeps CTF and training-lab loot in one engagement directory and answers questions about it. Imports nmap (XML, .nmap, .gnmap), masscan, naabu JSON, nuclei, NetExec, Hydra, secretsdump, hashcat/potfile, kerberoast, AS-REP, Responder, BloodHound zips, certipy find, user lists and freeform notes, stores every file verbatim, turns them into host, service, credential and finding records that cite the exact bytes they came from, and searches them. Use when the user wants to import tool output or notes, search hosts, services or credentials, or ask what an engagement holds. Also use for two known lab-run failures, Kerberos tools failing with `Connection error` on port 88 and `unsupported hash type MD4` on OpenSSL 3, but not for other tool errors.
 ---
 
 # Trove
@@ -38,7 +38,7 @@ and says so; ask the user which one, never guess.
 | Verb | Use |
 |---|---|
 | `loot init <name>` | Create `<name>.loot` in the current directory |
-| `loot import <file\|dir\|-> [--tool T] [--realm D] [--no-ai]` | Store a file, every file under a directory, or stdin (`-`), and structure them (a zip is opened). `--tool` forces `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`; a plain list of usernames needs `--tool users`, plus `--realm <domain>` when the user names the domain the names belong to (refused with any other parser). Prints per-file counts and notes, then refused inputs and files needing AI extraction |
+| `loot import <file\|dir\|-> [--tool T] [--realm D] [--no-ai]` | Store a file, every file under a directory, or stdin (`-`), and structure them (a zip is opened). `--tool` forces `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `hydra`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`; a plain list of usernames needs `--tool users`, plus `--realm <domain>` when the user names the domain the names belong to (also accepted with `--tool hydra`, refused with any other parser). Prints per-file counts and notes, then refused inputs and files needing AI extraction |
 | `loot status` | Record counts and how many files wait for extraction |
 | `loot fields` | Record types, fields, `--where` operators |
 | `loot find [words] [--type T] [--where EXPR] [--origin tool\|ai\|you] [--limit N]` | Search. Words must all appear. `--where`: `field=value` (comma = any of), `field!=value`, `field~text`, `field>n`, `field<n`, `field?` (has one), `field!` (has none); repeat to AND. `host=` takes an IP or a hostname |

@@ -13,6 +13,7 @@ How you save a tool's output changes what Trove can read. Each section below giv
 | [secretsdump](#secretsdump) | `secretsdump.py '<domain>/<user>:<pass>@<ip>' \| tee dumps/secretsdump-<ip>.txt` | the `.txt` |
 | [GetUserSPNs, GetNPUsers](#getuserspns-and-getnpusers) | `GetUserSPNs.py -request -dc-ip <ip> <domain>/<user>:<pass> \| tee roast/spns-<domain>.txt` | the `.txt` |
 | [hashcat](#hashcat) | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile |
+| [Hydra](#hydra) | `hydra -L users.txt -P passwords.txt -o hydra/<ip>-<service>.txt <service>://<ip>` | the `.txt` |
 | [Responder](#responder) | run it as usual | `Responder-Session.log` and `Responder.db` in the `logs/` folder of Responder's install |
 | [BloodHound](#bloodhound) | `bloodhound-ce-python -d <domain> -u <user> -p <pass> -ns <dc-ip> -c All --zip` | the `.zip` |
 | [certipy](#certipy) | `certipy find -u <user>@<domain> -p <pass> -dc-ip <ip> -json -output adcs/<domain>` | `adcs/<domain>_Certipy.json` |
@@ -124,6 +125,16 @@ A `--log` file opens with the command that ran. When the log has a login line, T
 
 **Not read:** the client in a per-capture `logs/*-NTLMv2-*.txt` file, which only the file name gives. Trove reads the hashes in those files with no client host, so import the session log or `Responder.db` for the host.
 
+## Hydra
+
+**Reads:** the `-o` file, as text or with `-b json`, and the screen, with or without colour.
+
+**Records:** each found line is a `confirmed` credential with the host it worked on, plus that host and a service on the port, named after the Hydra module unless a scan already named it. Hydra writes no domain. To give the logins one, add `--tool hydra --realm <domain>`, as for [user lists](#user-lists).
+
+**Save:** `-o` keeps only the found lines, after a header with the command that ran. Give the target as an IP address. Hydra writes the target as you typed it, so a login against a name joins only a host that a scan already holds under that name. Until such a scan is imported, the credential has no host, and the file waits.
+
+**Not read:** when Hydra prints several passwords for one login on one host and port, Trove makes no credential for that login and the import report names it. A wrong failure string in `http-post-form`, or a server that takes any password, makes Hydra print a found line for every password a task was trying. A found line with no login (VNC, Redis, SNMP) or no password makes only the host and service. When the file has a found line, the header's command line doesn't go to the agent. Hydra's own lines (`[DATA]`, `[STATUS]`, `[ATTEMPT]` and the rest) never go to the agent.
+
 ## BloodHound
 
 **Reads:** collector JSON, or its zip.
@@ -154,7 +165,7 @@ loot import users.txt --tool users --realm north.sevenkingdoms.local
 
 **Records:** one principal per name. Trove skips blank lines and `#` comments, and keeps a repeated name once. With `--realm`, each bare name gets that domain, shown as `[you, --realm]`, and joins the same account from NetExec or BloodHound. A name written `NORTH\hodor` or `hodor@north.sevenkingdoms.local` keeps its own domain. Without `--realm`, a bare name has no domain and stays a separate account.
 
-Trove refuses `--realm` without `--tool users`. A SAM dump with no `$MACHINE.ACC` section holds local accounts, and a domain would turn them into domain accounts.
+Trove refuses `--realm` without `--tool users` or `--tool hydra`. A SAM dump with no `$MACHINE.ACC` section holds local accounts, and a domain would turn them into domain accounts.
 
 ## Zip archives
 
