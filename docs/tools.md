@@ -74,6 +74,8 @@ Also read: [user lists](#user-lists) with `--tool users`, and [zip archives](#zi
 
 A `(Guest)` login proves nothing about the account and makes no credential. A failed login and a secret that `audit_mode` masks as `********` make no credential either. The import report says how many of each there were.
 
+A `--log` file opens with the command that ran. When the log has a login line, Trove keeps that command line from the agent and the import report says so: the login line already shows the account and password typed on it and whether they worked. A login that worked is a credential, and a refused one is not that account's password. When no login line exists, for example when every connection failed, the command line goes to the agent as the only place the password appears.
+
 **Save:** `log_mode = True` makes every run write the log that `--log` writes, under `~/.nxc/logs/<date>/`: every screen line, plain text, plus the command that ran. Import the whole `~/.nxc/logs/` folder. Its `sam/` and `ntds/` files hold hashes with no domain or host. Each joins the account the log names, unless several hosts hold that hash or it is the empty password's. Its `lsa/` files name the domain but no host, and a service password in them goes to the agent. A dump file imported without its log stays apart and says so.
 
 **Not read:** a `script` or tmux recording keeps colour codes, and Trove sends those lines to the agent. The log has no colour codes. Table output Trove has no reader for (`--users`, `--loggedon-users`) also goes to the agent, line by line.

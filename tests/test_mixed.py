@@ -133,13 +133,11 @@ class MixedFiles(EngagementCase):
             "goad/nxc/users-north.txt (lines not read by netexec)",
             "goad/responder/logs/Responder-Session.log (lines not read by creds)"])
 
-    def test_h1_a_parser_s_own_output_queues_only_the_command_that_ran_it(self):
+    def test_h1_a_parser_s_own_output_queues_only_lines_it_cannot_read(self):
         self.cli("import", str(FIXTURES), "--no-ai")
         queued = [e["source"] for e in self.pending() if "not read by" in e["source"]]
         self.assertEqual(queued, ["fixtures/freeform/tool-scratch.log (lines not read by netexec)",
                                   "fixtures/netexec/nxc-kali-proxychains.txt (lines not read by netexec)",
-                                  "fixtures/netexec/nxc-log-riverrun.log (lines not read by netexec)",
-                                  "fixtures/netexec/nxc-sam-goad.log (lines not read by netexec)",
                                   "fixtures/nuclei/nuclei-highgarden-screen.log (lines not read by nuclei)"])
 
     def test_a_password_only_on_the_command_line_is_kept_and_untried(self):
