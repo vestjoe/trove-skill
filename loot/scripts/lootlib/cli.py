@@ -270,7 +270,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("path", help="file, directory, or - for standard input")
     p.add_argument("--tool", help="force a parser instead of detecting the format")
     p.add_argument("--no-ai", action="store_true", help="leave unparsed text for later")
-    p.add_argument("--realm", help="domain of a user list's bare names (with --tool users only)")
+    p.add_argument("--realm", help="domain of bare login names (with --tool users or --tool hydra only)")
     p.set_defaults(run=cmd_import)
 
     sub.add_parser("status", parents=[common], help="record counts and pending work").set_defaults(run=cmd_status)

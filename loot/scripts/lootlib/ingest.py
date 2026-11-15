@@ -12,16 +12,19 @@ from lootlib.engagement import Engagement
 from lootlib.errors import LootError
 from lootlib.parsers import archive
 
+REALM_TOOLS = ("users", "hydra")
+
 
 def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = None,
                  derived_from: str | None = None, realm: str | None = None) -> list[dict[str, Any]]:
     """One input in; returns its report lines (a zip gives one per member as well). Raw bytes are
     stored before anything reads them; a stored text file is read again only by a named parser, or
-    when it is pending and no parser has read it. Refuses ``realm`` unless ``tool`` is ``users``."""
+    when it is pending and no parser has read it. Refuses ``realm`` unless ``tool`` is in ``REALM_TOOLS``."""
     if tool:
         parsers.by_name(tool)
-    if realm and tool != "users":
-        raise LootError("--realm goes with --tool users only: it names the domain of a user list")
+    if realm and tool not in REALM_TOOLS:
+        raise LootError("--realm goes with --tool users or --tool hydra only: it names the domain of bare "
+                        "login names")
     report: dict[str, Any] = {"source": source, "size": len(data), "notes": []}
     blob, is_new = rawstore.put(eng, data, source, derived_from=derived_from)
     report["blob"] = blob

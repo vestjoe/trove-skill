@@ -35,7 +35,7 @@ Runs [`init`](#init). The agent says where the engagement is and how later comma
 Runs [`import`](#import) and reports the result. The agent then extracts any files left for AI extraction in the same turn, unless you passed `--no-ai`, and reports what it kept and dropped.
 
 - `--tool <name>` forces a parser instead of detecting the format, for example `--tool users` for a plain list of usernames.
-- `--realm <domain>` gives the bare names in a user list that domain. It works only with `--tool users`.
+- `--realm <domain>` gives the bare names in a user list, or Hydra's logins, that domain. It works only with `--tool users` or `--tool hydra`.
 - `--no-ai` stores and parses the files but leaves anything unparsed for later.
 
 ### `/loot-find`
@@ -147,9 +147,9 @@ Pending AI extraction (12):
 Left for AI extraction later (--no-ai).
 ```
 
-`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
+`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `hydra`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
 
-`--realm <domain>` names the domain of a user list. Trove gives it to every name with no domain of its own and shows it as `[you, --realm]`. Trove refuses `--realm` without `--tool users`.
+`--realm <domain>` names the domain of a user list or of Hydra's logins. Trove gives it to every name with no domain of its own and shows it as `[you, --realm]`. Trove refuses `--realm` without `--tool users` or `--tool hydra`.
 
 Trove stores an account written `DOMAIN\user` or `user@domain` as the user name plus the domain, whatever file it comes from. A note's `arya.stark@north.sevenkingdoms.local` and NetExec's `north.sevenkingdoms.local\arya.stark` are then one account.
 
