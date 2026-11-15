@@ -179,9 +179,11 @@ Every verb that opens the engagement holds `.lock`: `import`, `ingest-ai`, `note
 | principal | principal, realm, sid | `principal:<realm>\<principal>` (case-folded) |
 | group | name, realm, dn, sid | `group:<realm>\<name>` (case-folded) |
 | share | host_id, name, permissions, remark | `share:<ip>-<name>` |
-| finding | title, description, host_id, service_id, status, suggested_status | `finding:<slug(title), 40 chars>-<sha8 of title+host_id>` |
+| finding | title, description, host_id, service_id, status, suggested_status | `finding:<slug(name), 40 chars>-<sha8 of name+host_id>`; the name is the title, or for a title with origin `ai` the title's quote with whitespace runs made one space |
 | note | text, tags[], host_id | `note:<sha8 of text>` |
 | relationship | src_id, kind (`member_of`), dst_id | `rel:<src>-member_of-<dst>` |
+
+**AI finding ids.** A model words one finding differently each run, but quotes the same passage, so an AI finding is named by its title's quote and host. A later proposal quoting that passage for that host updates the finding and its title. An AI finding stored before this rule keeps its title-based id, and a new proposal for it makes a second finding. A record written back under an id Trove holds (`loot set`) keeps that id.
 
 Trove never assigns a severity. A tool that states one (nuclei) has it kept in the finding's `ext.severity`, as that tool's.
 
@@ -290,6 +292,8 @@ The agent, not the CLI, reads freeform text (`references/extraction.md`): `loot 
 - **Refused:** `severity`, `hosts`, `admin_hosts` and `banner` by name (only a tool observes them), any field outside the type's core list, a credential `state` other than `found`, a finding `status` other than `open`.
 - A record whose key field was dropped is not written. Accepted fields get origin `ai`.
 - The command prints accepted counts and every dropped field with its reason; the agent relays that. Malformed JSON is rejected whole with the line of the error.
+- **Each field quotes its own passage**, so a `realm` may quote a heading and `secret` the pair under it. A field dropped for its evidence may be proposed once more for the same chunk with `ingest-ai <blob> --chunk N`; a done chunk accepts it.
+- **The agent never writes a note to keep a dropped value.** A note has origin `you` and outranks a tool, so `loot note` is only for the user's own words (`SKILL.md`, `references/extraction.md`).
 
 ## Chat
 
@@ -324,6 +328,7 @@ SKILL.md stays model-invocable, so "import this scan" works without a command. I
 - **Real captures:** a new parser merges only with at least one real capture of its tool's output, from `tests/lab/` or a licensed sample in `tests/samples/`. Fixtures built from the tool's source stay for the edge cases a capture does not show.
 - **Line breaks:** a U+0085, U+2028 or form feed put inside a value of each text parser's fixtures leaves its records, unread lines and notices as they were but for that character.
 - **AI ingest:** hand-written proposals over the freeform fixtures: accept, invented quote, value not in its quote, refused fields, dropped key field, malformed JSON.
+- **Finding ids:** two AI titles for one quote are one finding; every parser fixture's finding ids are pinned (`tests/test_findingids.py`).
 - **End-to-end:** import all of `tests/fixtures/` and assert summed counts and the operator questions by record id.
 - **The GOAD corpus is the acceptance test.** `tests/corpus/goad/` is one engagement against a GOAD lab, grouped by tool; `tests/corpus/SOURCES.md` gives each file's run and command. A new capture adds to it; nothing is dropped. `tests/test_corpus.py` imports it as a folder and file by file in reverse, then asks Q1–Q5 with the searches from `references/chat.md` and checks the answers and citations. Cross-tool behaviour is tested here.
 - **Skill text runs:** every inline `loot …` command in SKILL.md, the references and the templates names a real verb, and each complete read-only one runs on the GOAD engagement.

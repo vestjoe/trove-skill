@@ -34,8 +34,13 @@ JSON
 
 4. Read the reply. It says how many records were kept and why each dropped
    field was dropped. If the JSON was malformed, fix it and send it again.
-   Don't resend fields that were dropped for their evidence.
-5. Tell the user what was kept and what was dropped.
+   If a field was dropped for its evidence and the text does state it, you
+   may send that chunk once more with `loot ingest-ai <blob> --chunk N`,
+   quoting the passage that states it. Send it once; what is dropped then
+   stays dropped.
+5. Tell the user what was kept and what was dropped. Never save a dropped
+   value with `loot note`: a note is the user's own words, and Trove trusts
+   it above any tool.
 
 ## Writing a proposal
 
@@ -44,6 +49,10 @@ JSON
   typical. Matching ignores whitespace differences (spaces, tabs, line
   breaks), so evidence that wraps across lines is fine; nothing else is
   loosened.
+- Each field quotes its own passage, so the fields of one record may quote
+  different lines. A `realm` may quote the heading that names the domain
+  (`Breach passwords for north.sevenkingdoms.local accounts`) while `principal`
+  and `secret` quote the pair below it (`arya.stark:Needle`).
 - **value** must appear inside its own evidence for names, addresses, ports,
   usernames, passwords and hashes. If the text doesn't state it, leave the
   field out.

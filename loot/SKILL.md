@@ -88,7 +88,8 @@ from the data)**.
 
 ## Notes
 
-`loot note "<text>"` saves the user's own words as a note record. Add
+`loot note "<text>"` saves the user's own words as a note record, and only
+theirs: never write a note to keep a value that extraction dropped. Add
 `--host <ip or hostname>` when the note is about one host, `--tag <t>` to label it. Then
 extract from the new blob by following
 [references/extraction.md](references/extraction.md).

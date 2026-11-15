@@ -11,7 +11,7 @@ from typing import Any, Iterable
 from lootlib.engagement import Engagement
 from lootlib.errors import LootError
 from lootlib.ntlm import dcc2, nt_hash
-from lootlib.prov import AUTHORITY, origin_of
+from lootlib.prov import AI, AUTHORITY, origin_of
 
 TYPES: dict[str, tuple[str, ...]] = {
     "host": ("ip", "hostnames", "os", "state"),
@@ -75,8 +75,10 @@ def make_id(rec: dict[str, Any]) -> str:
     if t == "share":
         return f"share:{_ip_of(rec['host_id'])}-{rec['name']}"
     if t == "finding":
-        slug = _UNSAFE.sub("-", rec["title"].lower()).strip("-")[:40]
-        return f"finding:{slug}-{_sha8(rec['title'] + (rec.get('host_id') or ''))}"
+        cited = rec.get("prov", {}).get("title") or {}
+        name = " ".join(cited["quote"].split()) if cited.get("origin") == AI else rec["title"]
+        slug = _UNSAFE.sub("-", name.lower()).strip("-")[:40]
+        return f"finding:{slug}-{_sha8(name + (rec.get('host_id') or ''))}"
     if t == "note":
         return f"note:{_sha8(rec['text'])}"
     return f"rel:{rec['src_id']}-{rec['kind']}-{rec['dst_id']}"
@@ -310,7 +312,7 @@ def put_all(eng: Engagement, recs: Iterable[dict[str, Any]]) -> tuple[int, int]:
     changed: set[str] = set()
     for rec in recs:
         rec = _split_name(rec)
-        rec = dict(rec, id=make_id(rec))
+        rec = dict(rec, id=rec["id"] if rec.get("id") in existing else make_id(rec))
         current = touched.get(rec["id"]) or existing.get(rec["id"])
         if current is None:
             touched[rec["id"]] = rec

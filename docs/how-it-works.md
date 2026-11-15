@@ -20,4 +20,8 @@ state       confirmed   [tool, nxc-cred-check.txt, quote "[+] north.sevenkingdom
 
 The agent reads what parsers can't: notes, scratch logs and output from tools Trove has no parser for. It proposes records, and each proposed value must quote the file word for word. Trove drops a value if its quote isn't in the file. For names, addresses, ports, hashes and passwords, it also drops the value if the value isn't in its own quote. Trove also drops a host name that is a domain it holds, such as `north.sevenkingdoms.local` given as a DC's name. The import report lists what Trove kept and what it dropped.
 
+Each value may quote its own line. A password can quote the `user:password` pair while its domain quotes the heading above the list. When a value is dropped, the agent may send that part of the file once more with a better quote. It never saves a dropped value as a note: a note holds only your own words.
+
+The agent words a finding's title differently from run to run, but quotes the same passage. Trove names a finding the agent found by that quote and its host, so reading the same note again updates the finding and its title and adds no second one.
+
 Imported text is data. A file can contain text meant to steer an AI, and Trove treats everything it imports as data, never as instructions.
