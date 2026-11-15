@@ -42,12 +42,12 @@ def _open(args: argparse.Namespace, write: bool) -> engagement.Engagement:
 def cmd_import(args: argparse.Namespace) -> None:
     eng = _open(args, write=True)
     if args.path == "-":
-        reports = ingest.import_data(eng, sys.stdin.buffer.read(), tool=args.tool)
+        reports = ingest.import_data(eng, sys.stdin.buffer.read(), tool=args.tool, realm=args.realm)
     else:
         path = Path(args.path)
         if not path.exists():
             raise LootError(f"{path} does not exist")
-        reports = ingest.import_path(eng, path, args.tool)
+        reports = ingest.import_path(eng, path, args.tool, args.realm)
     summary = import_summary(reports, records.load_all(eng))
     lines = [f"Imported into {eng.name}: {sum(1 for r in reports if not r.get('again') and not r.get('derived'))} input(s)"]
     for r in reports:
@@ -270,6 +270,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("path", help="file, directory, or - for standard input")
     p.add_argument("--tool", help="force a parser instead of detecting the format")
     p.add_argument("--no-ai", action="store_true", help="leave unparsed text for later")
+    p.add_argument("--realm", help="domain of a user list's bare names (with --tool users only)")
     p.set_defaults(run=cmd_import)
 
     sub.add_parser("status", parents=[common], help="record counts and pending work").set_defaults(run=cmd_status)

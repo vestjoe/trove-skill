@@ -1,7 +1,7 @@
-"""A plain list of usernames to principal-only credentials; reached only by ``--tool users``.
+"""A plain list of usernames to principal records; reached only by ``--tool users``.
 
-Blank and ``#`` lines are skipped, a repeated name is one record, and the rest of a line is
-the principal verbatim (``DOMAIN\\user`` is not split)."""
+Blank and ``#`` lines are skipped and a repeated name is one record. A bare name takes the
+``--realm`` domain, cited to you; ``DOMAIN\\user`` and ``user@domain`` keep their own."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from typing import Any
 from lootlib import records
 from lootlib.encoding import NotText, text_of
 from lootlib.parsers import Input, ParserError, split_lines
-from lootlib.prov import TOOL, cite
+from lootlib.prov import TOOL, YOU, cite
 
 NAME = "users"
 COMMENT = "#"
@@ -36,9 +36,12 @@ def parse(raw: Input) -> list[dict[str, Any]]:
             continue
         seen[principal] = 1
         at = start + len(line[: line.index(principal)].encode("utf-8"))
-        rec = records.new("credential")
+        rec = records.new("principal")
         records.set_field(rec, "principal", principal,
                           cite(raw.blob, raw.data, at, at + len(principal.encode("utf-8")), TOOL, raw.source))
+        if raw.realm and "\\" not in principal and "@" not in principal:
+            records.set_field(rec, "realm", raw.realm,
+                              {"blob": raw.blob, "origin": YOU, "source": "--realm", "quote": raw.realm})
         out.append(rec)
     if repeats := sum(count - 1 for count in seen.values()):
         raw.notices.append(f"{repeats} repeated name(s) in {raw.source or 'the list'} became one record each. "

@@ -48,6 +48,14 @@ class Cli(EngagementCase):
     def test_a_refusal_exits_one(self):
         self.assertEqual(self.run_cli("find", "--where", "nonsense")[0], 1)
 
+    def test_realm_goes_with_the_users_parser_only(self):
+        (self.tmp / "users.txt").write_text("hodor\n")
+        self.assertEqual(self.run_cli("import", "users.txt", "--realm", "north.sevenkingdoms.local")[0], 1)
+        self.assertEqual(self.run_cli("import", "users.txt", "--tool", "users", "--realm",
+                                      "north.sevenkingdoms.local")[0], 0)
+        out = self.run_cli("find", "--type", "principal")[1]
+        self.assertIn("realm       north.sevenkingdoms.local   [you, --realm]", out)
+
 
 class TerminalSafety(EngagementCase):
     run_cli = Cli.run_cli

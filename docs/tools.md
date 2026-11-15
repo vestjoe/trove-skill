@@ -144,7 +144,15 @@ A `(Guest)` login proves nothing about the account and makes no credential. A fa
 
 **Reads:** a plain list of usernames, one per line, only with `--tool users`.
 
-**Records:** one credential per name, with only the account name. Trove skips blank lines and `#` comments, and keeps a repeated name once.
+**Save:** give the domain the names belong to with `--realm`:
+
+```
+loot import users.txt --tool users --realm north.sevenkingdoms.local
+```
+
+**Records:** one principal per name. Trove skips blank lines and `#` comments, and keeps a repeated name once. With `--realm`, each bare name gets that domain, shown as `[you, --realm]`, and joins the same account from NetExec or BloodHound. A name written `NORTH\hodor` or `hodor@north.sevenkingdoms.local` keeps its own domain. Without `--realm`, a bare name has no domain and stays a separate account.
+
+Trove refuses `--realm` without `--tool users`. A SAM dump with no `$MACHINE.ACC` section holds local accounts, and a domain would turn them into domain accounts.
 
 ## Zip archives
 
