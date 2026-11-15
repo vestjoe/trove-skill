@@ -15,8 +15,9 @@ from lootlib.parsers import archive
 
 def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = None,
                  derived_from: str | None = None, realm: str | None = None) -> list[dict[str, Any]]:
-    """One input in; returns its report lines (a zip gives one per member as well).
-    Raw bytes are stored before anything reads them. Refuses ``realm`` unless ``tool`` is ``users``."""
+    """One input in; returns its report lines (a zip gives one per member as well). Raw bytes are
+    stored before anything reads them; a stored text file is read again only by a named parser, or
+    when it is pending and no parser has read it. Refuses ``realm`` unless ``tool`` is ``users``."""
     if tool:
         parsers.by_name(tool)
     if realm and tool != "users":
@@ -24,7 +25,7 @@ def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = N
     report: dict[str, Any] = {"source": source, "size": len(data), "notes": []}
     blob, is_new = rawstore.put(eng, data, source, derived_from=derived_from)
     report["blob"] = blob
-    if not is_new:
+    if not is_new and (archive.is_archive(data) or sqlitedb.is_database(data)):
         report["status"] = "already imported"
         return [report]
     if archive.is_archive(data):
@@ -32,6 +33,9 @@ def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = N
     if sqlitedb.is_database(data):
         return _from_database(eng, data, blob, report)
     norm = normalise(data)
+    if not is_new and not norm.text:
+        report["status"] = "already imported"
+        return [report]
     if not norm.text:
         rawstore.update(eng, blob, ai="binary")
         report["status"] = "stored; not text, so nothing reads it"
@@ -42,14 +46,28 @@ def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = N
         rawstore.update(eng, original, ai="n/a")
         report["blob"] = blob
         report["notes"].append(f"converted from {norm.encoding} to UTF-8; the original is kept as {original}")
+    held = None if is_new else rawstore.entry(eng, blob)
+    waits = held is not None and held["ai"] == "pending" and not held.get("parser")
+    if held is not None and not tool and not waits:
+        report["status"] = "already imported"
+        return [report]
     parser = parsers.by_name(tool) if tool else next(
         (p for p in parsers.registry() if p.sniff(norm.data)), None)
+    if parser is None and held is not None:
+        report["status"] = "already imported"
+        return [report]
     if parser is None:
         rawstore.update(eng, blob, ai="pending")
         report["status"] = "pending AI extraction"
         return [report]
     report["parser"] = parser.NAME
     report = _parse(eng, parser, blob, norm.data, report, realm)
+    if held is not None and report["status"] == "parsed":
+        if waits and rawstore.entry(eng, blob)["ai"] == "pending":
+            rawstore.update(eng, blob, ai="n/a")
+        report["notes"].append(f"stored earlier; read again by {parser.NAME}")
+    elif held is not None:
+        rawstore.update(eng, blob, ai=held["ai"], parser=held.get("parser"))
     return [report] + report.pop("_queued", [])
 
 

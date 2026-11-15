@@ -27,7 +27,7 @@ def _out(args: argparse.Namespace, human: str, data: Any) -> None:
 
 
 def cmd_init(args: argparse.Namespace) -> None:
-    eng = engagement.create(args.name, Path(args.path or "."))
+    eng = engagement.create(args.name, Path(args.path or ".").expanduser())
     human = (f"Created engagement {eng.name} at {eng.root}\n"
              f"Commands find it when run from {eng.root.parent} or inside it, "
              f"or with -e {eng.name}, or with {engagement.ENV}={eng.root}")
@@ -44,7 +44,7 @@ def cmd_import(args: argparse.Namespace) -> None:
     if args.path == "-":
         reports = ingest.import_data(eng, sys.stdin.buffer.read(), tool=args.tool, realm=args.realm)
     else:
-        path = Path(args.path)
+        path = Path(args.path).expanduser()
         if not path.exists():
             raise LootError(f"{path} does not exist")
         reports = ingest.import_path(eng, path, args.tool, args.realm)
@@ -220,7 +220,7 @@ def cmd_raw(args: argparse.Namespace) -> None:
 
 def cmd_ingest_ai(args: argparse.Namespace) -> None:
     eng = _open(args, write=True)
-    text = sys.stdin.read() if args.file in (None, "-") else Path(args.file).read_text()
+    text = sys.stdin.read() if args.file in (None, "-") else Path(args.file).expanduser().read_text()
     result = aiingest.check(eng, args.blob, text, args.chunk)
     unchanged = result["accepted"] - result["new"] - result["updated"]
     lines = [f"chunk {result['chunk']}/{result['chunks']}: accepted {result['accepted']} record(s): "
