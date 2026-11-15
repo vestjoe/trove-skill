@@ -11,7 +11,7 @@
 
 An agent skill for CTF and security-training environments, for OpenCode and Claude Code. You give it tool output and notes; it keeps them in one engagement directory, turns them into records that cite the exact bytes they came from, and answers questions over those records.
 
-- Parsers read nmap (XML, normal, grepable), masscan (XML, grepable, list, JSON, screen), naabu (JSON, XML, grepable), nuclei (JSONL, JSON export, text), NetExec (its output and its workspace database), Hydra (its `-o` file, JSON and screen), secretsdump, hashcat/potfile, Responder (its session log and Responder.db), kerberoast and AS-REP hashes, user lists, BloodHound (users, groups, computers, memberships), certipy `find` (ADCS weaknesses) and zips of any of these.
+- Parsers read nmap (XML, normal, grepable), masscan (XML, grepable, list, JSON, screen), naabu (JSON, XML, grepable), nuclei (JSONL, JSON export, text), NetExec (its output and its workspace database), Hydra (its `-o` file, JSON and screen), kerbrute (its screen and `-o` file), secretsdump, hashcat/potfile, Responder (its session log and Responder.db), kerberoast and AS-REP hashes, user lists, BloodHound (users, groups, computers, memberships), certipy `find` (ADCS weaknesses) and zips of any of these.
 - The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.
 - Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote).
 

@@ -14,6 +14,7 @@ How you save a tool's output changes what Trove can read. Each section below giv
 | [GetUserSPNs, GetNPUsers](#getuserspns-and-getnpusers) | `GetUserSPNs.py -request -dc-ip <ip> <domain>/<user>:<pass> \| tee roast/spns-<domain>.txt` | the `.txt` |
 | [hashcat](#hashcat) | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile |
 | [Hydra](#hydra) | `hydra -L users.txt -P passwords.txt -o hydra/<ip>-<service>.txt <service>://<ip>` | the `.txt` |
+| [kerbrute](#kerbrute) | `kerbrute passwordspray -d <domain> --dc <dc-ip> users.txt '<password>' \| tee kerbrute/spray-<domain>.txt` | the `.txt` |
 | [Responder](#responder) | run it as usual | `Responder-Session.log` and `Responder.db` in the `logs/` folder of Responder's install |
 | [BloodHound](#bloodhound) | `bloodhound-ce-python -d <domain> -u <user> -p <pass> -ns <dc-ip> -c All --zip` | the `.zip` |
 | [certipy](#certipy) | `certipy find -u <user>@<domain> -p <pass> -dc-ip <ip> -json -output adcs/<domain>` | `adcs/<domain>_Certipy.json` |
@@ -134,6 +135,16 @@ A `--log` file opens with the command that ran. When the log has a login line, T
 **Save:** `-o` keeps only the found lines, after a header with the command that ran. Give the target as an IP address. Hydra writes the target as you typed it, so a login against a name joins only a host that a scan already holds under that name. Until such a scan is imported, the credential has no host, and the file waits.
 
 **Not read:** when Hydra prints several passwords for one login on one host and port, Trove makes no credential for that login and the import report names it. A wrong failure string in `http-post-form`, or a server that takes any password, makes Hydra print a found line for every password a task was trying. A found line with no login (VNC, Redis, SNMP) or no password makes only the host and service. When the file has a found line, the header's command line doesn't go to the agent. Hydra's own lines (`[DATA]`, `[STATUS]`, `[ATTEMPT]` and the rest) never go to the agent.
+
+## kerbrute
+
+**Reads:** the screen, saved with `tee`, with or without colour, and the `-o` file, from `userenum`, `passwordspray`, `bruteuser` and `bruteforce`.
+
+**Records:** each `VALID LOGIN` line is a `confirmed` credential, and each `VALID USERNAME` line is an account. kerbrute writes them as `user@domain`, so they join the same account from NetExec or BloodHound. A `VALID LOGIN WITH ERROR` line means the password was right but the domain controller refused a ticket, because the password has expired or the clocks differ. Trove stores it as `confirmed` too, and the import report names the account and the reason. An AS-REP hash that `userenum` prints for an account without pre-authentication becomes the same credential as the hash from GetNPUsers.
+
+**Save:** save the screen with `tee`. kerbrute builds from source after v1.0.3 leave the `-o` file empty. The v1.0.3 release writes every line to it.
+
+**Not read:** the domain controllers in the `Using KDC(s):` list. A Kerberos login holds for the whole domain, so Trove gives kerbrute's logins no host. kerbrute's own lines (the banner, the KDC list, `Done! Tested …`, failures with `-v`) never go to the agent.
 
 ## BloodHound
 
