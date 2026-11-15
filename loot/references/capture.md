@@ -16,6 +16,7 @@ save output, or when a file of a tool Trove reads went to AI extraction whole.
 | GetUserSPNs, GetNPUsers | `GetUserSPNs.py -request -dc-ip <ip> <domain>/<user>:<pass> \| tee roast/spns-<domain>.txt` | the `.txt` |
 | hashcat | crack with the potfile on (the default), or `--potfile-path loot.pot` | the potfile, before or after the dump that holds the hashes |
 | Hydra | `hydra -L users.txt -P passwords.txt -o hydra/<ip>-<service>.txt <service>://<ip>` | the `.txt` |
+| kerbrute | `kerbrute passwordspray -d <domain> --dc <dc-ip> users.txt '<password>' \| tee kerbrute/spray-<domain>.txt` | the `.txt` |
 | Responder | run it as usual | `Responder-Session.log` and `Responder.db` in the `logs/` folder of Responder's install |
 | BloodHound | `bloodhound-ce-python -d <domain> -u <user> -p <pass> -ns <dc-ip> -c All --zip` | the `.zip` |
 | certipy | `certipy find -u <user>@<domain> -p <pass> -dc-ip <ip> -json -output adcs/<domain>` | `adcs/<domain>_Certipy.json` |
@@ -79,6 +80,11 @@ Why these, and what to avoid:
   one login on one host and port make no credential; tell the user it looks
   like a false positive (a wrong failure string, or a server that takes any
   password) rather than a password.
+- **kerbrute**: save the screen with `tee`; builds after v1.0.3 leave the `-o`
+  file empty. `VALID LOGIN` is a confirmed login and `VALID USERNAME` an
+  account, both with the domain from `-d`; no host, since a Kerberos login
+  holds for the domain. `VALID LOGIN WITH ERROR` is confirmed too: tell the
+  user an expired password has to be changed before it can be used.
 - **secretsdump** has no save option that records the target, so save the
   screen, with or without `-outputfile`: its `.ntds` file holds the same
   accounts with no domain or host, and its SAM and LSA files lose the sections

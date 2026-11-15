@@ -48,9 +48,9 @@ class Input:
 
 def registry():
     """Parsers in sniff order. ``users`` and the database readers never sniff, so they are reachable only by name."""
-    from lootlib.parsers import (bloodhound, certipy, creds, hydra, masscan, naabu, netexec, nmap, nmaptext, nuclei,
+    from lootlib.parsers import (bloodhound, certipy, creds, hydra, kerbrute, masscan, naabu, netexec, nmap, nmaptext, nuclei,
                                  nxcdb, responderdb, users)
-    return [bloodhound, certipy, nmap, nmaptext, naabu, masscan, nuclei, hydra, netexec, creds, users, nxcdb,
+    return [bloodhound, certipy, nmap, nmaptext, naabu, masscan, nuclei, hydra, kerbrute, netexec, creds, users, nxcdb,
             responderdb]
 
 

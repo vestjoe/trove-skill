@@ -147,7 +147,7 @@ Pending AI extraction (12):
 Left for AI extraction later (--no-ai).
 ```
 
-`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `hydra`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
+`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `hydra`, `kerbrute`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
 
 `--realm <domain>` names the domain of a user list or of Hydra's logins. Trove gives it to every name with no domain of its own and shows it as `[you, --realm]`. Trove refuses `--realm` without `--tool users` or `--tool hydra`.
 

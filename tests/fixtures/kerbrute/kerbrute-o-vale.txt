@@ -1,0 +1,4 @@
+2026/11/15 10:31:00 >  Using KDC(s):
+2026/11/15 10:31:00 >  	192.168.56.90:88
+2026/11/15 10:31:01 >  [+] VALID LOGIN:	 yohn.royce@vale.sevenkingdoms.local:Bronze:Runes4
+2026/11/15 10:31:01 >  Done! Tested 6 logins (1 successes) in 0.207 seconds
