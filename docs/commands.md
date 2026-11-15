@@ -113,7 +113,7 @@ The outputs below are from runs on the sample data in `tests/fixtures/`, with th
 loot init <name> [--path DIR]
 ```
 
-Creates `<name>.loot/` in the current directory, or in `DIR`.
+Creates `<name>.loot/` in the current directory, or in `DIR`. `DIR`, an `import` path and an `ingest-ai -f` file may start with `~` for your home directory, even inside quotes.
 
 ```
 $ loot init demo
@@ -127,7 +127,7 @@ Commands find it when run from ~/loot-demo or inside it, or with -e demo, or wit
 loot import <path|-> [--tool T] [--realm D] [--no-ai]
 ```
 
-Stores a file, a directory (walked in path order) or standard input (`-`) verbatim under `raw/`, then routes each file to the parser that recognises it. It imports zip members one by one. Importing the same file again changes nothing.
+Stores a file, a directory (walked in path order) or standard input (`-`) verbatim under `raw/`, then routes each file to the parser that recognises it. It imports zip members one by one. Importing the same file again changes nothing, unless you name a parser with `--tool`: then Trove reads the stored file with that parser and the note says `stored earlier; read again by <parser>`. Records merge, so reading a file again never duplicates them.
 
 The report lists each file with its parser and the records it touched. Then it gives the records added and updated in this import, what the engagement now holds, any refused inputs and the files left for AI extraction. Per-file counts overlap, because two files can touch one record, so don't add them up.
 
@@ -218,7 +218,7 @@ Checks one proposal for one chunk, read from standard input or `FILE`, and write
 ]}
 ```
 
-`ingest-ai` drops a field whose evidence is not in the file, and a naming value (an IP, a hostname, an account, a password) that is not inside its own evidence. It also refuses the fields that only a tool observes: `severity`, `banner`, and the `hosts` and `admin_hosts` a login worked on. It prints every drop with its reason:
+`ingest-ai` drops a field whose evidence is not in the file, and a naming value (an IP, a hostname, an account, a password) that is not inside its own evidence. It drops a host name that is a domain Trove holds. It also refuses the fields that only a tool observes: `severity`, `banner`, and the `hosts` and `admin_hosts` a login worked on. It prints every drop with its reason:
 
 ```
 $ loot ingest-ai sha256:f30e7f3021adbe5e < proposal.json

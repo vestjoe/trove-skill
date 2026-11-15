@@ -249,6 +249,8 @@ A text parser reads lines that end at `\n` (or `\r\n`); masscan's screen output 
 
 **`--where EXPR`:** `field=value`, `!=`, `>n`, `<n`, `~text` (contains), `?` (exists), `!` (missing). Repeats are ANDed; `port=139,445` means "in". `id` and `type` work on every type. `host`, `service` and `ip_address` are aliases for `host_id`, `service_id` and `ip`. On `host_id`, `hosts` and `admin_hosts`, a bare IP means `host:<ip>`, and a name means every host whose hostname is it or starts with it as the first label, any case; the first output line shows what it became. `host=` on a host tests its own id and on a credential tests `hosts` and `host_id`, so `find --where host=10.10.10.6` returns the host and everything linked to it. An unknown field or type is an error listing the valid ones.
 
+Paths given to `init --path`, `import` and `ingest-ai -f` may start with `~`, which Trove expands itself, so a quoted `~` works.
+
 Exit codes: `0` success, `1` user error, `2` usage error (argparse). Refused inputs are named in the import report and do not change the exit code.
 
 ## Import routing
@@ -260,6 +262,7 @@ Exit codes: `0` success, `1` user error, `2` usage error (argparse). Refused inp
 5. `--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound`, `certipy` (`netexec-db` and `responder-db` are accepted but not needed; a database picks its reader). An unknown name is a user error that lists the known parsers. Otherwise each parser sniffs, in order: bloodhound, certipy, nmap XML, nmap text, naabu, masscan, nuclei, netexec, creds.
 6. Parser output becomes records via the merge rules.
 7. The line-oriented parsers (nmap text, netexec, creds, certipy text) know their tool's non-data lines as whole shapes, not prefixes, and report every other line. Those lines are stored as a derived blob, `<file> (lines not read by <parser>)`, marked `ai: pending`, so only they go to the model. If they are the whole file, the file itself is pending. This catches prose that starts like tool output and the command line that ran the tool, which may be the only place a password appears. A prose line with a whole tool shape (`445/tcp open and …`) is still read as the tool's. Importing the GOAD corpus queues no such blob.
+8. A text file already stored is read again only when `--tool` names a parser, or when it is `ai: pending` and no parser has read it and one now sniffs it. Otherwise the import says `already imported`. For a file stored with a UTF-8 copy, the copy's status decides. A file read again keeps its blob; once parsed it is no longer pending, and the import note says `stored earlier; read again by <parser>`. Records merge by id, so reading a file again never duplicates them. A named parser that refuses the file leaves its status as it was. A stored zip or database is never read again.
 8. Unclaimed text becomes `ai: pending`. Unless `--no-ai`, the command template and SKILL.md tell the agent to extract it now.
 
 ## AI extraction
@@ -282,6 +285,7 @@ The agent, not the CLI, reads freeform text (`references/extraction.md`): `loot 
 - **A `secret` is whole:** character for character, no space at either end, bounded by the line's edge or a separator (whitespace, a straight or curly quote, `` ` ``, `«`, `»`, or one of ``,;:&@/\<>()[]{}|*%=``), and may end before a sentence-ending `.` or `?`. A password containing a separator, or ending in `.`/`?`, may be read either way; both are accepted and the citation shows the line.
 - **`(Unknown User)`:** a password with no account (a seed list) is kept under that principal, only beside a `secret` or `secret_hash`. `find` leaves out one whose password a named account holds, and says how many.
 - **Type checks:** `port` 1–65535, `protocol` `tcp`/`udp`, `ip` a valid address.
+- **A domain is not a host name:** a proposed host `hostnames` value that is a realm Trove holds (any case) is dropped with that reason; the host's other names are kept. Otherwise `--host <domain's first label>` and host lookups would point at that host.
 - **Host links:** an IP, or a hostname in the evidence that exactly one held host carries. Otherwise the link is dropped; for a service or share, whose key includes the host, the record is dropped.
 - **Refused:** `severity`, `hosts`, `admin_hosts` and `banner` by name (only a tool observes them), any field outside the type's core list, a credential `state` other than `found`, a finding `status` other than `open`.
 - A record whose key field was dropped is not written. Accepted fields get origin `ai`.

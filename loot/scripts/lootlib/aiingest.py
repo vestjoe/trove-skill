@@ -91,6 +91,7 @@ def check(eng: Engagement, blob: str, text: str, chunk: int | None = None) -> di
         raise LootError('proposal must be an object with a "records" list')
 
     held = records.load_all(eng)
+    realms = {r["realm"].casefold() for r in held.values() if r.get("realm")}
     accepted, dropped = [], []
     for n, item in enumerate(items, 1):
         where = f"record {n}"
@@ -139,6 +140,11 @@ def check(eng: Engagement, blob: str, text: str, chunk: int | None = None) -> di
                     continue
                 named = str(proposed["value"]).removeprefix("host:").strip()
             ref = cite(entry["blob"], data, *located, AI, entry["source"])
+            if (type_name, name) == ("host", "hostnames") and (domains := realms & {v.casefold() for v in value}):
+                dropped.append(f"{label}: {', '.join(sorted(domains))} is a domain Trove holds, not one host's name")
+                value = [v for v in value if v.casefold() not in domains]
+                if not value:
+                    continue
             if named is not None:
                 if not contains(ref["quote"], named):
                     dropped.append(f"{label}: value {proposed['value']!r} does not appear in its evidence")

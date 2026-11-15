@@ -1,6 +1,6 @@
 import json
 
-from lootlib import aiingest, rawstore
+from lootlib import aiingest, ingest, notes, rawstore
 from lootlib.errors import LootError
 from tests.helpers import EngagementCase
 
@@ -138,3 +138,29 @@ class Chunks(EngagementCase):
             done = rawstore.entry(self.eng, blob)["ai"] == "done"
             self.assertEqual(done, not result["remaining"])
         self.assertEqual(seen, list(range(1, total + 1)))
+
+
+RIVERLANDS = (b"SMB         192.168.56.31   445    HARRENHAL        [*] Windows Server 2019 Build 17763 x64 "
+              b"(name:HARRENHAL) (domain:riverlands.local) (signing:False) (SMBv1:False)\n"
+              b"SMB         192.168.56.31   445    HARRENHAL        [+] riverlands.local\\edmure.tully:Tr0utRiver\n")
+
+
+class DomainNames(EngagementCase):
+    """A domain Trove holds is never a host's name."""
+
+    def setUp(self):
+        super().setUp()
+        ingest.import_data(self.eng, RIVERLANDS, "nxc.txt")
+        note = b"Seen 192.168.56.32 (riverlands.local) answering on 53 and 88.\n"
+        self.blob = ingest.import_data(self.eng, note, "note.md")[0]["blob"]
+
+    def test_a_held_realm_proposed_as_a_hostname_is_dropped_with_the_reason(self):
+        result = aiingest.check(self.eng, self.blob, json.dumps({"records": [{"type": "host", "fields": {
+            "ip": field("192.168.56.32", "192.168.56.32 (riverlands.local)"),
+            "hostnames": field(["riverlands.local"], "192.168.56.32 (riverlands.local)")}}]}))
+        self.assertEqual(result["accepted"], 1)
+        self.assertTrue(any("riverlands.local" in d and "domain" in d for d in result["dropped"]), result["dropped"])
+        host = next(h for h in self.all("host") if h["ip"] == "192.168.56.32")
+        self.assertFalse(host.get("hostnames"))
+        with self.assertRaisesRegex(LootError, "no host Trove holds"):
+            notes.add(self.eng, b"Zone transfer refused on riverlands", host="riverlands")

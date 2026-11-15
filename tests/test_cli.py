@@ -48,6 +48,19 @@ class Cli(EngagementCase):
     def test_a_refusal_exits_one(self):
         self.assertEqual(self.run_cli("find", "--where", "nonsense")[0], 1)
 
+    def test_a_path_starting_with_a_tilde_is_under_home(self):
+        home = self.tmp / "home"
+        home.mkdir()
+        (home / "users.txt").write_text("hoster.tully\n")
+        (home / "proposal.json").write_text(json.dumps({"records": []}))
+        with mock.patch.dict(os.environ, {"HOME": str(home)}):
+            self.assertEqual(self.run_cli("init", "riverrun", "--path", "~")[0], 0)
+            self.assertTrue((home / "riverrun.loot").is_dir())
+            self.assertEqual(self.run_cli("import", "~/users.txt")[0], 0)
+            blob = self.run_cli("pending", "--json")[1]
+            blob = json.loads(blob)["pending"][0]["blob"]
+            self.assertEqual(self.run_cli("ingest-ai", blob, "-f", "~/proposal.json")[0], 0)
+
     def test_realm_goes_with_the_users_parser_only(self):
         (self.tmp / "users.txt").write_text("hodor\n")
         self.assertEqual(self.run_cli("import", "users.txt", "--realm", "north.sevenkingdoms.local")[0], 1)
