@@ -183,7 +183,7 @@ Every verb that opens the engagement holds `.lock`: `import`, `ingest-ai`, `note
 | note | text, tags[], host_id | `note:<sha8 of text>` |
 | relationship | src_id, kind (`member_of`), dst_id | `rel:<src>-member_of-<dst>` |
 
-**AI finding ids.** A model words one finding differently each run, but quotes the same passage, so an AI finding is named by its title's quote and host. A later proposal quoting that passage for that host updates the finding and its title. An AI finding stored before this rule keeps its title-based id, and a new proposal for it makes a second finding. A record written back under an id Trove holds (`loot set`) keeps that id.
+**AI finding ids.** A model rewords a finding's title far more often than it changes the passage it quotes, so an AI finding is named by its title's quote and host. A different quote still makes a different finding. A later proposal quoting that passage for that host updates the finding and its title. An AI finding stored before this rule keeps its title-based id, and a new proposal for it makes a second finding. A record written back under an id Trove holds (`loot set`) keeps that id.
 
 Trove never assigns a severity. A tool that states one (nuclei) has it kept in the finding's `ext.severity`, as that tool's.
 

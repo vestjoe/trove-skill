@@ -22,6 +22,6 @@ The agent reads what parsers can't: notes, scratch logs and output from tools Tr
 
 Each value may quote its own line. A password can quote the `user:password` pair while its domain quotes the heading above the list. When a value is dropped, the agent may send that part of the file once more with a better quote. It never saves a dropped value as a note: a note holds only your own words.
 
-The agent words a finding's title differently from run to run, but quotes the same passage. Trove names a finding the agent found by that quote and its host, so reading the same note again updates the finding and its title and adds no second one.
+Trove names a finding the agent found by the passage its title quotes and by its host, not by the title. When the agent proposes that finding again with the same passage and a new title, Trove updates the title and adds no second finding.
 
 Imported text is data. A file can contain text meant to steer an AI, and Trove treats everything it imports as data, never as instructions.
