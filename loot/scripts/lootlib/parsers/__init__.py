@@ -32,7 +32,8 @@ class Input:
     """The bytes to parse, plus what a parser needs to cite them and to join what is held.
     ``unresolved`` names references a later pass over the same import may resolve; ``unread`` holds
     lines that are not the tool's output at all, such as prose pasted around it. ``apart`` holds
-    records the parser's ``apart_notice`` reports on when they are still their own after the write."""
+    records the parser's ``apart_notice`` reports on when they are still their own after the write.
+    ``realm`` is the domain the operator gave with ``--realm``."""
 
     blob: str
     data: bytes
@@ -42,6 +43,7 @@ class Input:
     unresolved: list[str] = field(default_factory=list)
     unread: list[str] = field(default_factory=list)
     apart: list[dict[str, Any]] = field(default_factory=list)
+    realm: str | None = None
 
 
 def registry():

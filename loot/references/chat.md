@@ -33,6 +33,7 @@ Use this when the user asks what an engagement holds ("which hosts run SMB?",
 | -- | Which findings need my decision? | `loot find --type finding --where 'suggested_status?' --where status=open` |
 | -- | Who can I Kerberoast or AS-REP roast? | `loot find --type finding --where 'title~roastable'` |
 | -- | Which credentials were taken from, or worked on, one host? | `loot find --type credential --where host=dc01` |
+| -- | Which accounts do we know? | `loot find --type principal` |
 
 - Q1 returns the host, its services, shares, findings, notes and the
   credentials that worked there, in one call.

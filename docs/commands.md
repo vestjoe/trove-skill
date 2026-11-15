@@ -9,7 +9,7 @@ The engagement is the `<name>.loot/` directory in the directory where you starte
 | Command | Arguments | Does |
 |---|---|---|
 | [`/loot-init`](#loot-init) | `<name>` | Create `<name>.loot/` here |
-| [`/loot-import`](#loot-import) | `<path\|-> [--tool T] [--no-ai]` | Import files, then extract records from anything no parser read |
+| [`/loot-import`](#loot-import) | `<path\|-> [--tool T] [--realm D] [--no-ai]` | Import files, then extract records from anything no parser read |
 | [`/loot-find`](#loot-find) | words, or `--type` / `--where` | Search records |
 | [`/loot-chat`](#loot-chat) | a question | Answer from the records, with their record ids |
 | [`/loot-note`](#loot-note) | `<text> [--host H] [--tag T]…` | Save a note, then extract records from it |
@@ -29,12 +29,13 @@ Runs [`init`](#init). The agent says where the engagement is and how later comma
 ```
 /loot-import scans/
 /loot-import enum/nxc-cred-check.txt
-/loot-import users.txt --tool users
+/loot-import users.txt --tool users --realm north.sevenkingdoms.local
 ```
 
 Runs [`import`](#import) and reports the result. The agent then extracts any files left for AI extraction in the same turn, unless you passed `--no-ai`, and reports what it kept and dropped.
 
 - `--tool <name>` forces a parser instead of detecting the format, for example `--tool users` for a plain list of usernames.
+- `--realm <domain>` gives the bare names in a user list that domain. It works only with `--tool users`.
 - `--no-ai` stores and parses the files but leaves anything unparsed for later.
 
 ### `/loot-find`
@@ -123,7 +124,7 @@ Commands find it when run from ~/loot-demo or inside it, or with -e demo, or wit
 ### `import`
 
 ```
-loot import <path|-> [--tool T] [--no-ai]
+loot import <path|-> [--tool T] [--realm D] [--no-ai]
 ```
 
 Stores a file, a directory (walked in path order) or standard input (`-`) verbatim under `raw/`, then routes each file to the parser that recognises it. It imports zip members one by one. Importing the same file again changes nothing.
@@ -147,6 +148,10 @@ Left for AI extraction later (--no-ai).
 ```
 
 `--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
+
+`--realm <domain>` names the domain of a user list. Trove gives it to every name with no domain of its own and shows it as `[you, --realm]`. Trove refuses `--realm` without `--tool users`.
+
+Trove stores an account written `DOMAIN\user` or `user@domain` as the user name plus the domain, whatever file it comes from. A note's `arya.stark@north.sevenkingdoms.local` and NetExec's `north.sevenkingdoms.local\arya.stark` are then one account.
 
 A line-oriented parser (nmap text, NetExec, creds, certipy text) stores the lines that are not its tool's as their own file, named `<file> (lines not read by <parser>)`, and leaves only that file for AI extraction. That way the agent still reads a note that starts like tool output, or the command line that ran the tool.
 

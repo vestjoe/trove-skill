@@ -285,6 +285,23 @@ def _same_dump_line(bare: dict[str, Any], held: dict[str, Any]) -> bool:
     return bool(shared) and len(rids) < 2
 
 
+def _split_name(rec: dict[str, Any]) -> dict[str, Any]:
+    """An account written ``DOMAIN\\user`` or ``user@domain.tld`` with no realm, as principal and realm;
+    the realm cites the principal's quote. Any other record comes back as it was."""
+    name, cited = rec.get("principal"), rec.get("prov", {}).get("principal")
+    if rec["type"] not in ("credential", "principal") or rec.get("realm") or not name or not cited:
+        return rec
+    if "\\" in name:
+        realm, _, user = name.partition("\\")
+    elif name.count("@") == 1 and "." in name.partition("@")[2].strip("."):
+        user, _, realm = name.partition("@")
+    else:
+        return rec
+    if not realm or not user:
+        return rec
+    return dict(rec, principal=user, realm=realm, prov=dict(rec["prov"], realm=dict(cited)))
+
+
 def put_all(eng: Engagement, recs: Iterable[dict[str, Any]]) -> tuple[int, int]:
     """Write records, merging into any with the same id; returns (new, updated)."""
     existing = load_all(eng)
@@ -292,6 +309,7 @@ def put_all(eng: Engagement, recs: Iterable[dict[str, Any]]) -> tuple[int, int]:
     added: set[str] = set()
     changed: set[str] = set()
     for rec in recs:
+        rec = _split_name(rec)
         rec = dict(rec, id=make_id(rec))
         current = touched.get(rec["id"]) or existing.get(rec["id"])
         if current is None:

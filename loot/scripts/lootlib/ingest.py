@@ -9,15 +9,18 @@ from typing import Any
 from lootlib import parsers, rawstore, records, sqlitedb
 from lootlib.encoding import normalise
 from lootlib.engagement import Engagement
+from lootlib.errors import LootError
 from lootlib.parsers import archive
 
 
 def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = None,
-                 derived_from: str | None = None) -> list[dict[str, Any]]:
+                 derived_from: str | None = None, realm: str | None = None) -> list[dict[str, Any]]:
     """One input in; returns its report lines (a zip gives one per member as well).
-    Raw bytes are stored before anything reads them."""
+    Raw bytes are stored before anything reads them. Refuses ``realm`` unless ``tool`` is ``users``."""
     if tool:
         parsers.by_name(tool)
+    if realm and tool != "users":
+        raise LootError("--realm goes with --tool users only: it names the domain of a user list")
     report: dict[str, Any] = {"source": source, "size": len(data), "notes": []}
     blob, is_new = rawstore.put(eng, data, source, derived_from=derived_from)
     report["blob"] = blob
@@ -25,7 +28,7 @@ def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = N
         report["status"] = "already imported"
         return [report]
     if archive.is_archive(data):
-        return _unpack(eng, data, blob, report, tool)
+        return _unpack(eng, data, blob, report, tool, realm)
     if sqlitedb.is_database(data):
         return _from_database(eng, data, blob, report)
     norm = normalise(data)
@@ -46,7 +49,7 @@ def import_bytes(eng: Engagement, data: bytes, source: str, tool: str | None = N
         report["status"] = "pending AI extraction"
         return [report]
     report["parser"] = parser.NAME
-    report = _parse(eng, parser, blob, norm.data, report)
+    report = _parse(eng, parser, blob, norm.data, report, realm)
     return [report] + report.pop("_queued", [])
 
 
@@ -70,8 +73,9 @@ def _from_database(eng: Engagement, data: bytes, blob: str, report: dict[str, An
     return [report] + report.pop("_queued", [])
 
 
-def _parse(eng: Engagement, parser, blob: str, data: bytes, report: dict[str, Any]) -> dict[str, Any]:
-    raw = parsers.Input(blob=blob, data=data, source=report["source"], known=records.load_all(eng))
+def _parse(eng: Engagement, parser, blob: str, data: bytes, report: dict[str, Any],
+           realm: str | None = None) -> dict[str, Any]:
+    raw = parsers.Input(blob=blob, data=data, source=report["source"], known=records.load_all(eng), realm=realm)
     try:
         found = parser.parse(raw)
     except parsers.ParserError as err:
@@ -115,7 +119,8 @@ def _queue_unread(eng: Engagement, parser, blob: str, unread: list[str], report:
     return f"{len(unread)} line(s) not read by {parser.NAME} are the same as {queued[:23]} ({state})"
 
 
-def _unpack(eng: Engagement, data: bytes, blob: str, report: dict[str, Any], tool: str | None) -> list[dict[str, Any]]:
+def _unpack(eng: Engagement, data: bytes, blob: str, report: dict[str, Any], tool: str | None,
+            realm: str | None) -> list[dict[str, Any]]:
     """Each zip member is its own blob derived from the archive; refused members are named."""
     try:
         inside = archive.members(data)
@@ -135,7 +140,7 @@ def _unpack(eng: Engagement, data: bytes, blob: str, report: dict[str, Any], too
             out.append({"source": name, "size": len(member.data), "blob": held, "notes": [],
                         "status": f"refused: {member.refused}"})
         else:
-            out.extend(import_bytes(eng, member.data, name, tool, derived_from=blob))
+            out.extend(import_bytes(eng, member.data, name, tool, derived_from=blob, realm=realm))
     _read_again(eng, out)
     return out
 
@@ -168,12 +173,12 @@ def _finish(eng: Engagement, reports: list[dict[str, Any]]) -> list[dict[str, An
     return [{k: v for k, v in r.items() if not k.startswith("_")} for r in reports]
 
 
-def import_path(eng: Engagement, path: Path, tool: str | None = None) -> list[dict[str, Any]]:
+def import_path(eng: Engagement, path: Path, tool: str | None = None, realm: str | None = None) -> list[dict[str, Any]]:
     """Import one file, or every file under a directory in name order, skipping ``*.loot``
     directories and OS bookkeeping and refusing symlinks; then parse once more what
     named records not yet held."""
     if not path.is_dir():
-        return _finish(eng, import_bytes(eng, path.read_bytes(), path.name, tool))
+        return _finish(eng, import_bytes(eng, path.read_bytes(), path.name, tool, realm=realm))
     reports: list[dict[str, Any]] = []
     for file in walk(path):
         source = f"{path.name}/{file.relative_to(path).as_posix()}"
@@ -181,14 +186,15 @@ def import_path(eng: Engagement, path: Path, tool: str | None = None) -> list[di
             reports.append({"source": source, "size": 0, "notes": [],
                             "status": "refused: a symbolic link; Trove reads only files inside the directory"})
             continue
-        reports += import_bytes(eng, file.read_bytes(), source, tool)
+        reports += import_bytes(eng, file.read_bytes(), source, tool, realm=realm)
     _read_again(eng, reports)
     return _finish(eng, reports)
 
 
-def import_data(eng: Engagement, data: bytes, source: str = "stdin", tool: str | None = None) -> list[dict[str, Any]]:
+def import_data(eng: Engagement, data: bytes, source: str = "stdin", tool: str | None = None,
+                realm: str | None = None) -> list[dict[str, Any]]:
     """Import bytes that have no file of their own, such as standard input."""
-    return _finish(eng, import_bytes(eng, data, source, tool))
+    return _finish(eng, import_bytes(eng, data, source, tool, realm=realm))
 
 
 def walk(root: Path) -> list[Path]:

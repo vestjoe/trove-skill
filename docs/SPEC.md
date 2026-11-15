@@ -191,6 +191,8 @@ Trove never assigns a severity. A tool that states one (nuclei) has it kept in t
 
 ### Merge rules
 
+Before a credential or principal gets its id: with no realm, a principal written `DOMAIN\user` or `user@domain.tld` (one `@`, a dot after it) is stored as principal `user` and realm `DOMAIN` or `domain.tld`. The realm cites the principal's quote. So `arya.stark@north.sevenkingdoms.local` from a note and `north.sevenkingdoms.local\arya.stark` from NetExec are one account. A `user@` suffix that is not the AD domain gives an account under that realm.
+
 Applied when a record with an existing id is written:
 
 - Authority first: `you` over `tool` over `ai`. A lower origin never overwrites a higher one; at equal authority the later non-empty value wins. The credential rules below apply only between values of equal authority.
@@ -224,7 +226,7 @@ A text parser reads lines that end at `\n` (or `\r\n`); masscan's screen output 
 - **Responder database** (`Responder.db`): each `responder` row is a capture, read like the session log's `Hash :` line so both give one credential; a `cleartext` row is a `found` password. The `client` is a host and the `host_id` of a NetNTLM hash or cleartext. Other rows are counted.
 - **BloodHound** JSON or zip: accounts, groups, computers, memberships, description-stated passwords, and a finding per enabled account open to a roast (`dontreqpreauth`, `hasspn`). A computer's OS goes on the held host whose hostname is its full name. A group without `samaccountname` is named by `name` less `@DOMAIN`. OUs, GPOs, trusts, delegation, containers and ACLs are counted in an import note, not recorded.
 - **certipy** `find` (`-json`, `-text`, `-stdout`): a `confirmed` finding per flagged weakness (`ESC8: <CA>`, `ESC1: template <name> on <CA>`) on the one held host carrying the CA's DNS name or its first label; until that host is held the input waits. A CA name several hosts carry is reported, not recorded. CA and template settings are counted. `Could not find any CAs` goes to AI extraction. `req`/`auth` output and certipy's BloodHound zip are not read.
-- **users** (`--tool users` only): one principal-only credential per line.
+- **users** (`--tool users` only): one principal per line. `--realm <domain>` gives every bare name that realm, cited `[you, --realm]`; a name written `DOMAIN\user` or `user@domain` keeps its own. Without `--realm` a bare name has no realm and stays apart from the same account held with one. `--realm` with any other parser, or none, is refused: a SAM dump with no `$MACHINE.ACC` holds local accounts, which a domain would turn into domain accounts.
 
 ## CLI
 
@@ -233,7 +235,7 @@ A text parser reads lines that end at `\n` (or `\r\n`); masscan's screen output 
 | Verb | Does |
 |---|---|
 | `init <name> [--path DIR]` | Create `<name>.loot/` |
-| `import <path\|-> [--tool T] [--no-ai]` | Store a file, directory or stdin and route each blob (below). Print per-file counts and notes, then records added and updated, totals per type, refused inputs and the pending list (`--json`: `engagement`, `inputs`, `new`, `updated`, `holds`, `refused`, `pending`). Per-file counts overlap and are never summed |
+| `import <path\|-> [--tool T] [--realm D] [--no-ai]` | Store a file, directory or stdin and route each blob (below). Print per-file counts and notes, then records added and updated, totals per type, refused inputs and the pending list (`--json`: `engagement`, `inputs`, `new`, `updated`, `holds`, `refused`, `pending`). Per-file counts overlap and are never summed |
 | `pending` | Blobs with `ai: pending`: blob, source, size, chunks left (12,000-byte chunks) |
 | `raw <blob> [--chunk N]` | One chunk of a text blob (default: the next without a proposal) |
 | `ingest-ai <blob> [-f FILE\|-] [--chunk N]` | Validate and write one proposal for one chunk (stdin by default), mark the chunk done, name the next, and print totals per type |
@@ -303,7 +305,7 @@ Each template names the skill, gives the CLI line (`{{LOOT}}`) and passes `$ARGU
 | Command | Arguments | Behaviour |
 |---|---|---|
 | `/loot-init` | `<name>` | `init`, then how commands find the engagement |
-| `/loot-import` | `<path\|-> [--tool T] [--no-ai]` | `import`, then extraction of anything pending |
+| `/loot-import` | `<path\|-> [--tool T] [--realm D] [--no-ai]` | `import`, then extraction of anything pending |
 | `/loot-find` | text or `--type/--where` | `find`, then a summary with ids, sources and quotes |
 | `/loot-chat` | a question | the chat procedure |
 | `/loot-note` | text `[--host H] [--tag T]…` | `note`, then extraction of the new blob |
