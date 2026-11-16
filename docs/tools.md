@@ -163,7 +163,7 @@ Trove doesn't read these lines. Import something else instead:
 
 **Records:** each `VALID LOGIN` line is a `confirmed` credential, and each `VALID USERNAME` line is an account. So is an account `userenum` reports with `KDC_ERR_KEY_EXPIRED`: it exists, but its password has expired, and the import report names it. kerbrute writes them as `user@domain`, so they join the same account from NetExec or BloodHound. A `VALID LOGIN WITH ERROR` line means the password was right but the domain controller refused a ticket, because the password has expired or the clocks differ. Trove stores it as `confirmed` too, and the import report names the account and the reason. An AS-REP hash that `userenum` prints for an account without pre-authentication becomes the same credential as the hash from GetNPUsers.
 
-**Save:** save the screen with `tee`. kerbrute builds from source after v1.0.3 leave the `-o` file empty. The v1.0.3 release writes every line to it.
+**Save:** save the screen with `tee`. kerbrute builds from source after v1.0.3 leave the `-o` file empty. The v1.0.3 release writes every line to it, but it writes an account whose password has expired as a plain `VALID LOGIN`, without `WITH ERROR` and the reason. Trove stores that login as `confirmed` and can't report the expired password, which only the screen keeps.
 
 **Not read:** the domain controllers in the `Using KDC(s):` list. A Kerberos login holds for the whole domain, so Trove gives kerbrute's logins no host. kerbrute's own lines (the banner, the KDC list, `Done! Tested …`, failures with `-v`) never go to the agent.
 

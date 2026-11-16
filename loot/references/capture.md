@@ -85,7 +85,10 @@ Why these, and what to avoid:
   file empty. `VALID LOGIN` is a confirmed login and `VALID USERNAME` an
   account, both with the domain from `-d`; no host, since a Kerberos login
   holds for the domain. `VALID LOGIN WITH ERROR` is confirmed too: tell the
-  user an expired password has to be changed before it can be used. A
+  user an expired password has to be changed before it can be used.
+  v1.0.3's `-o` file writes an expired password as a plain `VALID LOGIN`,
+  without `WITH ERROR` and the reason, so Trove can't tell the user. The
+  screen saved with `tee` keeps it. A
   `userenum` line with `KDC_ERR_KEY_EXPIRED` is an account whose password has
   expired.
 - **secretsdump** has no save option that records the target, so save the
