@@ -82,6 +82,21 @@ class Kerbrute(EngagementCase):
         self.assertEqual(len(self.all("credential")), 1)
         self.assertEqual(len(self._pending()), 1)
 
+    def test_an_expired_account_in_userenum_is_a_principal_and_reported(self):
+        line = (b"\x1b[31m2026/11/15 10:40:00 >  [!] lothor.brune@" + DOM + b" - KRB Error: (23) KDC_ERR_KEY_EXPIRED "
+                b"Password has expired; change password to reset\x1b[0m\n")
+        report = self._import(line)
+        lothor = self._by("principal")["lothor.brune"]
+        self.assertEqual(lothor["realm"], "vale.sevenkingdoms.local")
+        self.assertTrue(any("lothor.brune" in n and "expired" in n for n in report["notes"]))
+        self.assertEqual((self._pending(), self.all("credential")), ([], []))
+        self.assert_citations_hold()
+
+    def test_another_kerberos_error_names_no_account(self):
+        self._import(b"2026/11/15 10:40:00 >  [!] lothor.brune@" + DOM + b" - KRB Error: (6) KDC_ERR_C_PRINCIPAL_UNKNOWN "
+                     b"Client not found in Kerberos database\n")
+        self.assertEqual(self.all(), [])
+
     def test_one_login_printed_twice_is_one_credential(self):
         self._import(LOGIN + LOGIN)
         self.assertEqual(len(self.all("credential")), 1)

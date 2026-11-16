@@ -161,7 +161,7 @@ Trove doesn't read these lines. Import something else instead:
 
 **Reads:** the screen, saved with `tee`, with or without colour, and the `-o` file, from `userenum`, `passwordspray`, `bruteuser` and `bruteforce`.
 
-**Records:** each `VALID LOGIN` line is a `confirmed` credential, and each `VALID USERNAME` line is an account. kerbrute writes them as `user@domain`, so they join the same account from NetExec or BloodHound. A `VALID LOGIN WITH ERROR` line means the password was right but the domain controller refused a ticket, because the password has expired or the clocks differ. Trove stores it as `confirmed` too, and the import report names the account and the reason. An AS-REP hash that `userenum` prints for an account without pre-authentication becomes the same credential as the hash from GetNPUsers.
+**Records:** each `VALID LOGIN` line is a `confirmed` credential, and each `VALID USERNAME` line is an account. So is an account `userenum` reports with `KDC_ERR_KEY_EXPIRED`: it exists, but its password has expired, and the import report names it. kerbrute writes them as `user@domain`, so they join the same account from NetExec or BloodHound. A `VALID LOGIN WITH ERROR` line means the password was right but the domain controller refused a ticket, because the password has expired or the clocks differ. Trove stores it as `confirmed` too, and the import report names the account and the reason. An AS-REP hash that `userenum` prints for an account without pre-authentication becomes the same credential as the hash from GetNPUsers.
 
 **Save:** save the screen with `tee`. kerbrute builds from source after v1.0.3 leave the `-o` file empty. The v1.0.3 release writes every line to it.
 
