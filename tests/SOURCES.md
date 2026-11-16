@@ -90,7 +90,7 @@ Real tool output published under an open licence, kept in `tests/samples/` so th
 | `nuclei-names.jsonl` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-names.txt -silent -j -or -o nuclei-names.jsonl`; the targets are the three `lab-*.lab.test` names |
 | `nuclei-screen.txt` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-targets.txt -nc`, screen and errors saved (`> … 2>&1`) |
 
-`samples/lab-creds/` is one run of `tests/lab/capture.sh creds` (Hydra v9.8dev `707c822`, kerbrute `9cfb81e` and v1.0.3, impacket `75938fc`, John 1.9.0-jumbo-1+bleeding `37bebbe`) against lab-web and the Samba domain controller lab-dc (`arbor.lab.test`, 10.99.56.13). Files are as written. `tests/test_lab_creds.py` reads them.
+`samples/lab-creds/` is one run of `tests/lab/capture.sh creds` (Hydra v9.8dev `707c822`, kerbrute `9cfb81e` and v1.0.3, impacket `75938fc`, John 1.9.0-jumbo-1+bleeding `37bebbe`) against lab-web and the Samba domain controller lab-dc (`arbor.lab.test`, 10.99.56.13). Files are as written. `tests/test_lab_creds.py` reads them. kerbrute `9cfb81e` given `-o` left the file empty (0 bytes) while its screen showed both logins, so only v1.0.3's `-o` file is kept.
 
 | File | Command (in the creds container) |
 |---|---|
