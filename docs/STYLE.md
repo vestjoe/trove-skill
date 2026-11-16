@@ -69,7 +69,7 @@ Put the subject first, then the verb, then the object. A backward sentence makes
 
 Keep sentences short, about 25 words or fewer. When a sentence joins two ideas with a semicolon, split it into two sentences. When a sentence lists more than four things with their details, use a list or a table.
 
-Write full sentences. Don't write slogans, taglines or fragments such as "Same question, and now the answer also has:". Don't write short aphorisms that sound wise but leave the reader to work out the meaning.
+Write full sentences. Don't write slogans, taglines or fragments such as "Same question, and now the answer also has:". Don't write short aphorisms that sound wise but leave the reader to work out the meaning. A phrase repeated across pages, such as "data, never instructions", is a slogan too. Say what Trove does instead: "Trove treats it as data and doesn't follow instructions in it."
 
 ### Use verbs, not nouns made from verbs
 
@@ -103,6 +103,7 @@ These words and patterns add nothing for the reader. Many of them also mark text
 - **Recaps.** Don't end a page or section with a summary of what it said. No "In summary", "In short" or "That's it".
 - **Talking to the reader about the page.** Don't write "This page explains" or "In this section". The heading already says what the page covers.
 - **Hedging.** Use "may" or "might" only for behaviour that really varies, such as the agent's wording. Don't hedge a fact the code settles.
+- **Vague conditions.** When behaviour depends on a condition, state the condition. Don't write "where it matters", "where relevant" or "when needed". Write "a search shows the quote when it says more than the value".
 - **Exclamation marks, emoji, idioms and jokes.**
 - **Bold for emphasis in running text.** Use bold only for labels the reader sees on screen (**From the data**) and for the repeated entry labels on a reference page (**Reads:**, **Records:**).
 
@@ -146,6 +147,16 @@ Use one term for one thing, and don't swap in synonyms for variety.
 | pending | queued, waiting (as a state name) |
 | refused | rejected, skipped |
 | OpenCode or Claude Code | Claude Code or OpenCode, the harness |
+
+Some everyday verbs have one meaning in these pages. Use each only in that meaning:
+
+- **names**: states or mentions, as in "the import report names each file". For a record id, write "builds the id from".
+- **stores** and **keeps**: Trove saves the file or value. When Trove doesn't pass something to the agent, write "doesn't send it to the agent", not "keeps it from the agent".
+- **holds**: the engagement has a record of it, as in "a host Trove holds".
+- **carries**: a host has that name, as in "two hosts carry that name".
+- **waits**: an input needs a fact from another file first. Say what ends the wait: "when you import the dump" or "Trove reads it again after every later import", not "lands" or "arrives". A file left for the agent is `pending`, which is a different state.
+
+The AI-tell rules in Vale flag "names", "holds", "carries" and "realm" (a field name). Keep them in these meanings.
 
 ## Formatting
 

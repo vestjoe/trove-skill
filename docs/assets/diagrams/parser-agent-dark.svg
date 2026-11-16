@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1376 1940" width="1376" height="1940">
+<defs><style>.s{font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif} .m{font-family:'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace}</style><marker id="amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E6B43C"/></marker><marker id="teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#6CC4B8"/></marker><marker id="rust" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8875C"/></marker><marker id="plum" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#C39BD6"/></marker><marker id="bronze" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E0B860"/></marker></defs>
+<rect x="1.5" y="1.5" width="1373" height="1937" rx="18" fill="#211C18" stroke="#4A3F33" stroke-width="3"/>
+<text class="s" x="32" y="66" font-size="30" text-anchor="start" font-weight="700" fill="#F3EBDD" xml:space="preserve">A parser reads tool output</text>
+<rect x="1245" y="34" width="99" height="44" rx="22" fill="#E6B43C"/>
+<text class="m" x="1294" y="65" font-size="26" text-anchor="middle" font-weight="700" fill="#1A1613" xml:space="preserve">tool</text>
+<rect x="32" y="94" width="1312" height="186" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<path d="M34 144 H1342" stroke="#4A3F33" stroke-width="2"/>
+<circle cx="60" cy="119" r="7" fill="#F0916A"/>
+<circle cx="84" cy="119" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="119" r="7" fill="#E6B43C"/>
+<text class="m" x="136" y="128" font-size="26" fill="#9A8F80" xml:space="preserve">goad-full.nmap</text>
+<text class="m" x="58" y="176" font-size="26" fill="#E9E2D3" xml:space="preserve">Nmap scan report for castelblack.north.sevenkingdoms.local (<tspan fill="#F2C14E">192.168.56.22</tspan>)</text>
+<text class="m" x="58" y="214" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#9A8F80">...</tspan></text>
+<text class="m" x="58" y="252" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#F2C14E">80/tcp</tspan>    open  http          <tspan fill="#F2C14E">Microsoft IIS httpd 10.0</tspan></text>
+<path d="M688 294 L688 350" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<rect x="32" y="364" width="1312" height="376" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<path d="M34 414 H1342" stroke="#4A3F33" stroke-width="2"/>
+<circle cx="60" cy="389" r="7" fill="#F0916A"/>
+<circle cx="84" cy="389" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="389" r="7" fill="#E6B43C"/>
+<text class="m" x="136" y="398" font-size="26" fill="#9A8F80" xml:space="preserve">$ loot find --type service --where host=castelblack --where port=80</text>
+<text class="m" x="58" y="446" font-size="26" fill="#E9E2D3" xml:space="preserve">service:192.168.56.22-tcp-80</text>
+<text class="m" x="58" y="484" font-size="26" fill="#E9E2D3" xml:space="preserve">  host_id     host:192.168.56.22 (castelblack.north.sevenkingdoms.local)</text>
+<text class="m" x="280" y="522" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#F2C14E">[tool, goad-full.nmap</tspan>, quote "192.168.56.22"]</text>
+<text class="m" x="58" y="560" font-size="26" fill="#E9E2D3" xml:space="preserve">  port        80   <tspan fill="#F2C14E">[tool, goad-full.nmap</tspan>]</text>
+<text class="m" x="58" y="598" font-size="26" fill="#E9E2D3" xml:space="preserve">  protocol    tcp   <tspan fill="#F2C14E">[tool, goad-full.nmap</tspan>]</text>
+<text class="m" x="58" y="636" font-size="26" fill="#E9E2D3" xml:space="preserve">  name        http   <tspan fill="#F2C14E">[tool, goad-full.nmap</tspan>]</text>
+<text class="m" x="58" y="674" font-size="26" fill="#E9E2D3" xml:space="preserve">  banner      Microsoft IIS httpd 10.0   <tspan fill="#F2C14E">[tool, goad-full.nmap</tspan>]</text>
+<text class="m" x="58" y="712" font-size="26" fill="#E9E2D3" xml:space="preserve">  state       open   <tspan fill="#F2C14E">[tool, goad-full.nmap</tspan>]</text>
+<path d="M32 774 H1344" stroke="#4A3F33" stroke-width="3"/>
+<text class="s" x="32" y="834" font-size="30" text-anchor="start" font-weight="700" fill="#F3EBDD" xml:space="preserve">The agent reads your note</text>
+<rect x="1276" y="802" width="68" height="44" rx="22" fill="#6CC4B8"/>
+<text class="m" x="1310" y="833" font-size="26" text-anchor="middle" font-weight="700" fill="#1A1613" xml:space="preserve">ai</text>
+<rect x="32" y="862" width="1312" height="452" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<path d="M34 912 H1342" stroke="#4A3F33" stroke-width="2"/>
+<circle cx="60" cy="887" r="7" fill="#F0916A"/>
+<circle cx="84" cy="887" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="887" r="7" fill="#E6B43C"/>
+<text class="m" x="136" y="896" font-size="26" fill="#9A8F80" xml:space="preserve">notes/castelblack.md</text>
+<text class="m" x="58" y="944" font-size="26" fill="#E9E2D3" xml:space="preserve"># castelblack</text>
+<text class="m" x="58" y="982" font-size="26" fill="#E9E2D3" xml:space="preserve"></text>
+<text class="m" x="58" y="1020" font-size="26" fill="#E9E2D3" xml:space="preserve">Poked around <tspan fill="#7CC7BC">castelblack (192.168.56.22)</tspan> this afternoon.</text>
+<text class="m" x="58" y="1058" font-size="26" fill="#E9E2D3" xml:space="preserve"></text>
+<text class="m" x="58" y="1096" font-size="26" fill="#E9E2D3" xml:space="preserve">- The IIS site on port 80 <tspan fill="#7CC7BC">has an upload page at /upload that accepts .asp</tspan></text>
+<text class="m" x="90" y="1134" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#7CC7BC">files</tspan>.</text>
+<text class="m" x="58" y="1172" font-size="26" fill="#E9E2D3" xml:space="preserve">  A web shell <tspan fill="#F0916A">looks possible</tspan> from there.</text>
+<text class="m" x="58" y="1210" font-size="26" fill="#E9E2D3" xml:space="preserve">- Over SMB, <tspan fill="#7CC7BC">the `all` share is readable and writable</tspan>.</text>
+<text class="m" x="58" y="1248" font-size="26" fill="#E9E2D3" xml:space="preserve"></text>
+<text class="m" x="58" y="1286" font-size="26" fill="#E9E2D3" xml:space="preserve">Come back to the upload page tomorrow.</text>
+<path d="M688 1328 L688 1384" stroke="#6CC4B8" stroke-width="5" stroke-linecap="round" marker-end="url(#teal)"/>
+<rect x="32" y="1398" width="1312" height="148" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<path d="M34 1448 H1342" stroke="#4A3F33" stroke-width="2"/>
+<circle cx="60" cy="1423" r="7" fill="#F0916A"/>
+<circle cx="84" cy="1423" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="1423" r="7" fill="#E6B43C"/>
+<text class="m" x="136" y="1432" font-size="26" fill="#9A8F80" xml:space="preserve">the agent's proposal, one field</text>
+<text class="m" x="58" y="1480" font-size="26" fill="#E9E2D3" xml:space="preserve">"description": {"value": "A web shell <tspan fill="#F0916A">is possible</tspan> from the upload page.",</text>
+<text class="m" x="58" y="1518" font-size="26" fill="#E9E2D3" xml:space="preserve">                "evidence": "a web shell <tspan fill="#F0916A">is possible</tspan> from there"}</text>
+<path d="M688 1560 L688 1616" stroke="#6CC4B8" stroke-width="5" stroke-linecap="round" marker-end="url(#teal)"/>
+<rect x="32" y="1630" width="1312" height="224" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<path d="M34 1680 H1342" stroke="#4A3F33" stroke-width="2"/>
+<circle cx="60" cy="1655" r="7" fill="#F0916A"/>
+<circle cx="84" cy="1655" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="1655" r="7" fill="#E6B43C"/>
+<text class="m" x="136" y="1664" font-size="26" fill="#9A8F80" xml:space="preserve">$ loot ingest-ai sha256:45e138cb6b267b08 -f proposal.json</text>
+<text class="m" x="58" y="1712" font-size="26" fill="#E9E2D3" xml:space="preserve">chunk 1/1: <tspan fill="#7CC7BC">accepted 2 record(s)</tspan>: 2 new, 0 updated, 0 unchanged</text>
+<text class="m" x="58" y="1750" font-size="26" fill="#E9E2D3" xml:space="preserve">  <tspan fill="#F0916A">dropped:</tspan> record 1 (finding).description: evidence is not in the file: 'a web</text>
+<text class="m" x="121" y="1788" font-size="26" fill="#E9E2D3" xml:space="preserve">shell is possible from there'</text>
+<text class="m" x="58" y="1826" font-size="26" fill="#E9E2D3" xml:space="preserve">this file is done</text>
+<text class="s" x="32" y="1900" font-size="30" font-weight="700" fill="#F3EBDD" xml:space="preserve">The file says <tspan fill="#E8875C">"looks possible"</tspan>, so Trove drops the quote <tspan fill="#E8875C">"is possible"</tspan>.</text>
+</svg>

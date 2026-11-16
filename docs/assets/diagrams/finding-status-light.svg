@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1376 992" width="1376" height="992">
+<defs><style>.s{font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif} .m{font-family:'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace}</style><marker id="amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D9A227"/></marker><marker id="teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2F7D74"/></marker><marker id="rust" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B4532A"/></marker><marker id="plum" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7A4E8C"/></marker><marker id="bronze" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#8C6A1F"/></marker></defs>
+<rect x="1.5" y="1.5" width="1373" height="989" rx="18" fill="#FFFDF7" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="32" y="66" font-size="30" font-weight="700" fill="#1A1613" xml:space="preserve">A parser sets <tspan fill="#D9A227">confirmed or failed</tspan></text>
+<rect x="1245" y="34" width="99" height="44" rx="22" fill="#D9A227"/>
+<text class="m" x="1294" y="65" font-size="26" text-anchor="middle" font-weight="700" fill="#1A1613" xml:space="preserve">tool</text>
+<rect x="32" y="94" width="1312" height="148" rx="14" fill="#241E19" stroke="#1A1613" stroke-width="3"/>
+<path d="M34 144 H1342" stroke="#1A1613" stroke-width="2"/>
+<circle cx="60" cy="119" r="7" fill="#F0916A"/>
+<circle cx="84" cy="119" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="119" r="7" fill="#D9A227"/>
+<text class="m" x="136" y="128" font-size="26" fill="#9A8F80" xml:space="preserve">$ loot find --type finding --where host=castelblack</text>
+<text class="m" x="58" y="176" font-size="26" fill="#E9E2D3" xml:space="preserve">finding:smb-signing-not-required-ae0523bf</text>
+<text class="m" x="58" y="214" font-size="26" fill="#E9E2D3" xml:space="preserve">  status      confirmed   <tspan fill="#F2C14E">[tool,</tspan> nxc-cred-check.txt, quote "(signing:False)"]</text>
+<text class="s" x="32" y="312" font-size="30" font-weight="700" fill="#1A1613" xml:space="preserve">A finding the agent reads from a note starts <tspan fill="#2F7D74">open</tspan></text>
+<rect x="1276" y="280" width="68" height="44" rx="22" fill="#2F7D74"/>
+<text class="m" x="1310" y="311" font-size="26" text-anchor="middle" font-weight="700" fill="#FFFDF7" xml:space="preserve">ai</text>
+<rect x="32" y="340" width="1312" height="186" rx="14" fill="#241E19" stroke="#1A1613" stroke-width="3"/>
+<path d="M34 390 H1342" stroke="#1A1613" stroke-width="2"/>
+<circle cx="60" cy="365" r="7" fill="#F0916A"/>
+<circle cx="84" cy="365" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="365" r="7" fill="#D9A227"/>
+<text class="m" x="136" y="374" font-size="26" fill="#9A8F80" xml:space="preserve">$ loot find 'Upload page' --type finding</text>
+<text class="m" x="58" y="422" font-size="26" fill="#E9E2D3" xml:space="preserve">finding:has-an-upload-page-at-upload-that-accept-2ce02631</text>
+<text class="m" x="58" y="460" font-size="26" fill="#E9E2D3" xml:space="preserve">  status      open   <tspan fill="#7CC7BC">[ai,</tspan> castelblack.md, quote "has an upload page at /upload</text>
+<text class="m" x="280" y="498" font-size="26" fill="#E9E2D3" xml:space="preserve">that accepts .asp files"]</text>
+<text class="s" x="32" y="596" font-size="30" font-weight="700" fill="#1A1613" xml:space="preserve">You set any status with <tspan fill="#7A4E8C">loot set</tspan></text>
+<rect x="1260" y="564" width="84" height="44" rx="22" fill="#7A4E8C"/>
+<text class="m" x="1302" y="595" font-size="26" text-anchor="middle" font-weight="700" fill="#FFFDF7" xml:space="preserve">you</text>
+<rect x="32" y="624" width="1312" height="336" rx="14" fill="#241E19" stroke="#1A1613" stroke-width="3"/>
+<text class="m" x="58" y="666" font-size="26" fill="#E9E2D3" xml:space="preserve">$ loot set finding:has-an-upload-page-at-upload-that-accept-2ce02631</text>
+<text class="m" x="280" y="704" font-size="26" fill="#E9E2D3" xml:space="preserve">status=confirmed</text>
+<text class="m" x="58" y="742" font-size="26" fill="#E9E2D3" xml:space="preserve">finding:has-an-upload-page-at-upload-that-accept-2ce02631: status confirmed</text>
+<text class="m" x="280" y="780" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#CDA8DC">(origin you)</tspan></text>
+<text class="m" x="58" y="818" font-size="26" fill="#E9E2D3" xml:space="preserve">$ loot find 'Upload page' --type finding</text>
+<text class="m" x="58" y="856" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#9A8F80">  ...</tspan></text>
+<text class="m" x="58" y="894" font-size="26" fill="#E9E2D3" xml:space="preserve">  status      confirmed</text>
+<text class="m" x="280" y="932" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#CDA8DC">[you,</tspan> decisions/finding-has-an-upload-page-at-...-confirmed.txt]</text>
+</svg>

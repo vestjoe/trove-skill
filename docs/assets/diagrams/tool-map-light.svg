@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1376 1562" width="1376" height="1562">
+<defs><style>.s{font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif} .m{font-family:'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace}</style><marker id="amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D9A227"/></marker><marker id="teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2F7D74"/></marker><marker id="rust" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B4532A"/></marker><marker id="plum" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7A4E8C"/></marker><marker id="bronze" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#8C6A1F"/></marker></defs>
+<rect x="1.5" y="1.5" width="1373" height="1559" rx="18" fill="#FFFDF7" stroke="#E8DCBC" stroke-width="3"/>
+<rect x="32" y="32" width="644" height="428" rx="14" fill="#D9A227"/>
+<rect x="42" y="32" width="634" height="428" rx="12" fill="#FBF4E2"/>
+<rect x="32" y="32" width="644" height="428" rx="14" fill="none" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="68" y="80" font-size="30" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">Scans</text>
+<text class="s" x="68" y="134" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">nmap</text>
+<text class="s" x="68" y="172" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">hosts, services</text>
+<text class="s" x="68" y="222" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">masscan</text>
+<text class="s" x="68" y="260" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">hosts, services, banners</text>
+<text class="s" x="68" y="310" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">naabu</text>
+<text class="s" x="68" y="348" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">services</text>
+<text class="s" x="68" y="398" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">nuclei</text>
+<text class="s" x="68" y="436" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">findings, services</text>
+<rect x="700" y="32" width="644" height="428" rx="14" fill="#D9A227"/>
+<rect x="710" y="32" width="634" height="428" rx="12" fill="#FBF4E2"/>
+<rect x="700" y="32" width="644" height="428" rx="14" fill="none" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="736" y="80" font-size="30" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">Logins</text>
+<text class="s" x="736" y="134" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">NetExec</text>
+<text class="s" x="736" y="172" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">credentials, findings, shares</text>
+<text class="s" x="736" y="222" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">NetExec database</text>
+<text class="s" x="736" y="260" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">hosts, credentials, shares</text>
+<text class="s" x="736" y="310" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">Hydra</text>
+<text class="s" x="736" y="348" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">credentials, hosts, services</text>
+<text class="s" x="736" y="398" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">kerbrute</text>
+<text class="s" x="736" y="436" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">credentials, accounts</text>
+<rect x="32" y="484" width="644" height="376" rx="14" fill="#D9A227"/>
+<rect x="42" y="484" width="634" height="376" rx="12" fill="#FBF4E2"/>
+<rect x="32" y="484" width="644" height="376" rx="14" fill="none" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="68" y="532" font-size="30" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">Hashes</text>
+<text class="s" x="68" y="586" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">secretsdump</text>
+<text class="s" x="68" y="624" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">NT hashes, Kerberos keys, cached logons</text>
+<text class="s" x="68" y="674" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">GetUserSPNs and GetNPUsers</text>
+<text class="s" x="68" y="712" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">kerberoast and AS-REP hashes, group</text>
+<text class="s" x="68" y="748" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">memberships</text>
+<text class="s" x="68" y="798" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">Responder</text>
+<text class="s" x="68" y="836" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">NetNTLM hashes, passwords</text>
+<rect x="700" y="484" width="644" height="376" rx="14" fill="#D9A227"/>
+<rect x="710" y="484" width="634" height="376" rx="12" fill="#FBF4E2"/>
+<rect x="700" y="484" width="644" height="376" rx="14" fill="none" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="736" y="532" font-size="30" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">Directory</text>
+<text class="s" x="736" y="586" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">BloodHound</text>
+<text class="s" x="736" y="624" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">accounts, groups, findings</text>
+<text class="s" x="736" y="674" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">certipy</text>
+<text class="s" x="736" y="712" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">findings</text>
+<text class="s" x="736" y="762" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">user lists</text>
+<text class="s" x="736" y="800" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">accounts</text>
+<rect x="32" y="884" width="644" height="252" rx="14" fill="#D9A227"/>
+<rect x="42" y="884" width="634" height="252" rx="12" fill="#FBF4E2"/>
+<rect x="32" y="884" width="644" height="252" rx="14" fill="none" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="68" y="932" font-size="30" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">Cracked passwords</text>
+<text class="s" x="68" y="986" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">hashcat</text>
+<text class="s" x="68" y="1024" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">cracked passwords</text>
+<text class="s" x="68" y="1074" font-size="28" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">John the Ripper</text>
+<text class="s" x="68" y="1112" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">cracked passwords</text>
+<rect x="700" y="884" width="644" height="252" rx="14" fill="#2F7D74"/>
+<rect x="710" y="884" width="634" height="252" rx="12" fill="#FBF4E2"/>
+<rect x="700" y="884" width="644" height="252" rx="14" fill="none" stroke="#E8DCBC" stroke-width="3"/>
+<text class="s" x="736" y="932" font-size="30" text-anchor="start" font-weight="700" fill="#2F7D74" xml:space="preserve">Notes and other files</text>
+<text class="s" x="736" y="984" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">The agent reads them and makes records</text>
+<text class="s" x="736" y="1020" font-size="26" fill="#1A1613" xml:space="preserve"><tspan fill="#6E655C">with origin </tspan><tspan fill="#2F7D74">ai</tspan><tspan fill="#6E655C">.</tspan></text>
+<text class="s" x="688" y="1186" font-size="28" text-anchor="middle" font-weight="700" fill="#6E655C" xml:space="preserve">Trove also reads zips of these files.</text>
+<path d="M344 1210 L344 1264" stroke="#D9A227" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<path d="M688 1210 L688 1264" stroke="#D9A227" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<path d="M1032 1210 L1032 1264" stroke="#D9A227" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<rect x="32" y="1280" width="1312" height="250" rx="16" fill="#FBF4E2" stroke="#D9A227" stroke-width="4"/>
+<g transform="translate(76 1332) scale(12)" shape-rendering="crispEdges"><rect x="4" y="0" width="8" height="1" fill="#1A1613"></rect><rect x="2" y="1" width="2" height="1" fill="#1A1613"></rect><rect x="4" y="1" width="8" height="1" fill="#F2C14E"></rect><rect x="12" y="1" width="2" height="1" fill="#1A1613"></rect><rect x="1" y="2" width="2" height="1" fill="#1A1613"></rect><rect x="3" y="2" width="2" height="1" fill="#F2C14E"></rect><rect x="5" y="2" width="4" height="1" fill="#FFE9A8"></rect><rect x="9" y="2" width="4" height="1" fill="#F2C14E"></rect><rect x="13" y="2" width="2" height="1" fill="#1A1613"></rect><rect x="1" y="3" width="1" height="1" fill="#1A1613"></rect><rect x="2" y="3" width="12" height="1" fill="#F2C14E"></rect><rect x="14" y="3" width="1" height="1" fill="#1A1613"></rect><rect x="1" y="4" width="14" height="1" fill="#1A1613"></rect><rect x="1" y="5" width="1" height="1" fill="#1A1613"></rect><rect x="2" y="5" width="5" height="1" fill="#D9A227"></rect><rect x="7" y="5" width="2" height="1" fill="#8C6A1F"></rect><rect x="9" y="5" width="5" height="1" fill="#D9A227"></rect><rect x="14" y="5" width="1" height="1" fill="#1A1613"></rect><rect x="1" y="6" width="1" height="1" fill="#1A1613"></rect><rect x="2" y="6" width="5" height="1" fill="#D9A227"></rect><rect x="7" y="6" width="2" height="1" fill="#241E19"></rect><rect x="9" y="6" width="5" height="1" fill="#D9A227"></rect><rect x="14" y="6" width="1" height="1" fill="#1A1613"></rect><rect x="1" y="7" width="1" height="1" fill="#1A1613"></rect><rect x="2" y="7" width="5" height="1" fill="#D9A227"></rect><rect x="7" y="7" width="2" height="1" fill="#8C6A1F"></rect><rect x="9" y="7" width="5" height="1" fill="#D9A227"></rect><rect x="14" y="7" width="1" height="1" fill="#1A1613"></rect><rect x="1" y="8" width="1" height="1" fill="#1A1613"></rect><rect x="2" y="8" width="12" height="1" fill="#D9A227"></rect><rect x="14" y="8" width="1" height="1" fill="#1A1613"></rect><rect x="1" y="9" width="14" height="1" fill="#1A1613"></rect><rect x="2" y="10" width="2" height="1" fill="#1A1613"></rect><rect x="12" y="10" width="2" height="1" fill="#1A1613"></rect></g>
+<text class="m" x="312" y="1364" font-size="34" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">&lt;name&gt;.loot/</text>
+<text class="s" x="312" y="1410" font-size="26" text-anchor="start" fill="#6E655C" xml:space="preserve">Each engagement keeps these record types</text>
+<text class="s" x="312" y="1452" font-size="26" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">host, service, credential, principal, group, share, finding, note,</text>
+<text class="s" x="312" y="1488" font-size="26" text-anchor="start" font-weight="700" fill="#8C6A1F" xml:space="preserve">relationship</text>
+</svg>

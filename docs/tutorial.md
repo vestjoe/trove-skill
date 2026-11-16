@@ -1,6 +1,6 @@
 # Walkthrough: castelblack
 
-This follows one host, castelblack, through a GOAD lab: a scan, a question, NetExec output, the same question again, and your own notes. The files are real GOAD lab output in this repository under [`tests/corpus/goad/`](https://github.com/vestjoe/trove-skill/tree/main/tests/corpus/goad). [Install](install.md) Trove first. Outputs below are excerpts from the CLI; the agent's own wording around them varies.
+This follows one host, castelblack, through a GOAD lab: a scan, a question, NetExec output, the same question again, and your own notes. The files are real GOAD lab output in this repository under [`tests/corpus/goad/`](https://github.com/vestjoe/trove-skill/tree/main/tests/corpus/goad). [Install](install.md) Trove first. The outputs below are excerpts from the CLI. The agent's own wording around them varies.
 
 From the repository root, set up a working directory:
 
@@ -54,7 +54,7 @@ This import: 11 new record(s), 10 updated
 demo now holds: 1 credential, 10 finding, 5 host, 125 service
 ```
 
-`10 updated` means Trove already held the hosts and services NetExec saw, from the scan. They gained NetExec's facts, and Trove made no duplicates. The two notes explain logins that did not become credentials.
+`10 updated` means the scan had already given Trove the hosts and services NetExec saw. Trove added NetExec's facts to those records instead of making duplicates. The two notes explain the logins that did not become credentials.
 
 ## 5. Ask again
 
@@ -112,7 +112,7 @@ Import it the same way:
 /loot-import notes/castelblack.md
 ```
 
-No parser reads your writing, so the agent does. It proposes records such as a finding for the upload page and a share record for `all`, each quoting the sentence it came from, and reports what it kept and dropped. These records have origin `ai`.
+Trove has no parser for notes, so the agent reads this one. It proposes records such as a finding for the upload page and a share record for `all`, each quoting the sentence it came from, and reports what it kept and dropped. These records have origin `ai`.
 
 ## 8. Ask about findings and shares
 

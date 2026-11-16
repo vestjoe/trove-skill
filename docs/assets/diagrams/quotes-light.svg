@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1376 696" width="1376" height="696">
+<defs><style>.s{font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif} .m{font-family:'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace}</style><marker id="amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D9A227"/></marker><marker id="teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2F7D74"/></marker><marker id="rust" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B4532A"/></marker><marker id="plum" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7A4E8C"/></marker><marker id="bronze" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#8C6A1F"/></marker></defs>
+<rect x="1.5" y="1.5" width="1373" height="693" rx="18" fill="#FFFDF7" stroke="#E8DCBC" stroke-width="3"/>
+<rect x="32" y="32" width="1312" height="148" rx="14" fill="#241E19" stroke="#1A1613" stroke-width="3"/>
+<path d="M34 82 H1342" stroke="#1A1613" stroke-width="2"/>
+<circle cx="60" cy="57" r="7" fill="#F0916A"/>
+<circle cx="84" cy="57" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="57" r="7" fill="#D9A227"/>
+<text class="m" x="136" y="66" font-size="26" fill="#9A8F80" xml:space="preserve">nxc-cred-check.txt, line 8</text>
+<text class="m" x="58" y="114" font-size="26" fill="#E9E2D3" xml:space="preserve">SMB                      192.168.56.22   445    CASTELBLACK</text>
+<text class="m" x="58" y="152" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#F0916A">[+]</tspan> <tspan fill="#F2C14E">north.sevenkingdoms.local</tspan>\<tspan fill="#7CC7BC">rickon.stark</tspan>:<tspan fill="#CDA8DC">Winter2022</tspan> </text>
+<path d="M688 200 L688 260" stroke="#D9A227" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<rect x="32" y="274" width="1312" height="390" rx="14" fill="#FBF4E2" stroke="#E8DCBC" stroke-width="3"/>
+<text class="m" x="58" y="320" font-size="26" text-anchor="start" font-weight="700" fill="#1A1613" xml:space="preserve">credential:north.sevenkingdoms.local\rickon.stark+b72c5ada</text>
+<text class="m" x="58" y="372" font-size="26" fill="#1A1613" xml:space="preserve"><tspan fill="#8C6A1F">realm       </tspan>north.sevenkingdoms.local</text>
+<text class="m" x="58" y="410" font-size="26" fill="#1A1613" xml:space="preserve">            <tspan fill="#8C6A1F">quote "north.sevenkingdoms.local"</tspan></text>
+<text class="m" x="58" y="448" font-size="26" fill="#1A1613" xml:space="preserve"><tspan fill="#2F7D74">principal   </tspan>rickon.stark</text>
+<text class="m" x="58" y="486" font-size="26" fill="#1A1613" xml:space="preserve">            <tspan fill="#2F7D74">quote "rickon.stark"</tspan></text>
+<text class="m" x="58" y="524" font-size="26" fill="#1A1613" xml:space="preserve"><tspan fill="#7A4E8C">secret      </tspan>Winter2022</text>
+<text class="m" x="58" y="562" font-size="26" fill="#1A1613" xml:space="preserve">            <tspan fill="#7A4E8C">quote "Winter2022"</tspan></text>
+<text class="m" x="58" y="600" font-size="26" fill="#1A1613" xml:space="preserve"><tspan fill="#B4532A">state       </tspan>confirmed</text>
+<text class="m" x="58" y="638" font-size="26" fill="#1A1613" xml:space="preserve">            <tspan fill="#B4532A">quote "[+] north.sevenkingdoms.local\rickon.stark:Winter2022"</tspan></text>
+</svg>
