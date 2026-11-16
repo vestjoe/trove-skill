@@ -1,0 +1,5 @@
+2026/11/16 01:03:22 >  Using KDC(s):
+2026/11/16 01:03:22 >  	10.99.56.13:88
+2026/11/16 01:03:22 >  [+] VALID LOGIN:	 alder.fern@arbor.lab.test:Spring-Lab-26
+2026/11/16 01:03:22 >  [+] VALID LOGIN:	 rowan.ash@arbor.lab.test:Spring-Lab-26
+2026/11/16 01:03:22 >  Done! Tested 6 logins (2 successes) in 0.020 seconds

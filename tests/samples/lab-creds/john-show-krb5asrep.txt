@@ -1,0 +1,3 @@
+$krb5asrep$23$hazel.birch@ARBOR.LAB.TEST:Birch:Bark9
+
+1 password hash cracked, 0 left
