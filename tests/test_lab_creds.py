@@ -32,7 +32,8 @@ class LabCreds(EngagementCase):
         [report] = self._import("kerbrute-userenum.txt")
         self.assertEqual(report["parser"], "kerbrute")
         self.assertEqual({p for (realm, p) in self._by("principal") if realm == REALM},
-                         {"rowan.ash", "elm.stone", "willow.reed", "hazel.birch"})
+                         {"rowan.ash", "elm.stone", "willow.reed", "hazel.birch", "alder.fern"})
+        self.assertTrue(any("alder.fern" in n and "expired" in n for n in report["notes"]))
         [hazel] = self.all("credential")
         self.assertEqual((hazel["principal"], hazel["hash_type"]), ("hazel.birch", "krb5asrep"))
         self.assertTrue(hazel["secret_hash"].startswith("$krb5asrep$18$hazel.birch@ARBOR.LAB.TEST:"))
