@@ -1,8 +1,8 @@
 """kerbrute's console captures and ``-o`` file to principals and confirmed Kerberos logins.
 
-``VALID USERNAME`` is a principal, ``VALID LOGIN`` (also ``WITH ERROR``) a confirmed credential, and a
-dumped AS-REP hash the credential ``creds`` makes from it. Nothing gets a host: a Kerberos login is the
-realm's, not the KDC's. kerbrute's own lines never go to extraction."""
+``VALID USERNAME`` and a ``KDC_ERR_KEY_EXPIRED`` error are principals, ``VALID LOGIN`` (also ``WITH
+ERROR``) a confirmed credential, and a dumped AS-REP hash the credential ``creds`` makes from it. Nothing
+gets a host: a Kerberos login is the realm's, not the KDC's. kerbrute's own lines never go to extraction."""
 
 from __future__ import annotations
 
@@ -19,11 +19,13 @@ LEAD = re.compile(r"^(?:\x1b\[[0-9;]*m)*")
 TRAIL = re.compile(r"(?:\x1b\[[0-9;]*m)*$")
 LOGGED = r"^\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2} >  "
 OWN = re.compile(LOGGED)
-KNOWN = re.compile(LOGGED + r"(?:Using KDC\(s\):$|\[\+\] VALID (?:USERNAME|LOGIN)|Done! Tested \d+ (?:usernames|logins) )")
+KNOWN = re.compile(LOGGED + r"(?:Using KDC\(s\):$|\[\+\] VALID (?:USERNAME|LOGIN)|Done! Tested \d+ (?:usernames|logins) "
+                   r"|\[!\] \S+@\S+ - KRB Error: \(23\) KDC_ERR_KEY_EXPIRED )")
 USERNAME = re.compile(LOGGED + r"(?P<line>\[\+\] VALID USERNAME:\t (?P<name>[^@\s]+@\S+))$")
 LOGIN = re.compile(LOGGED + r"(?P<line>\[\+\] VALID LOGIN:\t (?P<name>[^@\s]+@[^:\s]+):(?P<secret>.*))$")
 REFUSED = re.compile(LOGGED + r"(?P<line>\[\+\] VALID LOGIN WITH ERROR:\t (?P<name>[^@\s]+@[^:\s]+):(?P<secret>.*)"
                      r"\t \((?P<why>[^\t]*)\))$")
+EXPIRED = re.compile(LOGGED + r"(?P<line>\[!\] (?P<name>[^@\s]+@\S+) - KRB Error: \(23\) KDC_ERR_KEY_EXPIRED .*)$")
 VERSION = re.compile(r"^Version: \S+ \(\S*\) - .* - Ronnie Flathers @ropnop$")
 ART = {"__             __               __", "/ /_____  _____/ /_  _______  __/ /____",
        "/ //_/ _ \\/ ___/ __ \\/ ___/ / / / __/ _ \\", "/ ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/",
@@ -69,7 +71,11 @@ def _record(line: creds.Line, raw: Input) -> dict[str, Any] | None:
     def ref(match: re.Match[str], group: str) -> dict[str, Any]:
         return cite(raw.blob, raw.data, line.at(match.start(group)), line.at(match.end(group)), TOOL, raw.source)
 
-    named = USERNAME.match(line.text)
+    expired = EXPIRED.match(line.text)
+    if expired is not None:
+        raw.notices.append(f"{expired['name']}: the account exists and its password has expired. It is stored as an "
+                           "account; the password has to be changed before the account can be used.")
+    named = USERNAME.match(line.text) or expired
     login = LOGIN.match(line.text) or REFUSED.match(line.text)
     if named is None and login is None:
         typed = hashformats.match(line.text)
