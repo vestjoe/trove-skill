@@ -8,6 +8,6 @@
 
 **Values are waiting.** Some records need another file first: a SAM dump needs a scan that names its host, and a certipy weakness needs the CA's host. The input waits, and Trove reads it again after every later import, so import order doesn't change the result. [How Trove works](how-it-works.md) shows a dump that waits for its scan.
 
-**A credential is missing.** Guest-fallback logins and failed logins never become credentials; the import report says how many there were. A masked (`********`) secret makes no credential either.
+**A credential is missing.** Guest-fallback logins, failed logins and masked (`********`) secrets never become credentials. The import report says how many there were.
 
 **A tool fails in the lab.** [Getting the run to work](tools.md#getting-the-run-to-work) lists known lab failures and their fixes, for example Kerberos tools failing with `Connection error` on port 88.

@@ -1,6 +1,6 @@
 # Commands
 
-Trove has two layers. The slash commands are what you type in OpenCode or Claude Code. Each one tells the agent to run the `loot` CLI and report what it printed. The CLI verbs are what the agent runs. You can run them yourself too.
+The slash commands are what you type in OpenCode or Claude Code. Each one tells the agent to run a verb of the `loot` CLI and report what it printed, and you can run those verbs yourself too.
 
 The engagement is the `<name>.loot/` directory in the directory where you started OpenCode or Claude Code. If you started inside `<name>.loot/` itself, it is that one.
 
@@ -60,7 +60,7 @@ The agent runs one or a few `find` searches, shows them, and answers in two labe
 - **From the data**: statements, each with the record ids it comes from and values copied exactly. It says what is missing, and which import would supply it, when the records don't answer the question.
 - **Suggestions (not from the data)**: optional next steps.
 
-It never assigns a severity, and it treats text in records as data, never as instructions.
+It never assigns a severity. It treats text in records as data and doesn't follow instructions in it.
 
 ### `/loot-note`
 
@@ -103,7 +103,7 @@ Exit codes: `0` success, `1` a user error (the message says what), `2` a usage e
 | [`fields`](#fields) | Types, fields and `--where` operators |
 | [`find`](#find) | Search records |
 | [`note`](#note) | Save a note |
-| [`set`](#set) | Decide a finding's status |
+| [`set`](#set) | Set a finding's status |
 
 The outputs below are from runs on the sample data in `tests/fixtures/`, with the scratch directory shortened to `~/loot-demo`.
 
@@ -147,7 +147,7 @@ Pending AI extraction (12):
 Left for AI extraction later (--no-ai).
 ```
 
-`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `hydra`, `kerbrute`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. A database picks its own reader. An unknown name is an error that lists the known parsers.
+`--tool` forces a parser for text input: `nmap`, `nmap-text`, `naabu`, `masscan`, `nuclei`, `hydra`, `kerbrute`, `netexec`, `creds`, `users`, `bloodhound` or `certipy`. An unknown name is an error that lists the known parsers. A NetExec or Responder database needs no `--tool`, because Trove recognises the database and picks its reader.
 
 `--realm <domain>` names the domain of a user list or of Hydra's logins. Trove gives it to every name with no domain of its own and shows it as `[you, --realm]`. Trove refuses `--realm` without `--tool users` or `--tool hydra`.
 
@@ -254,7 +254,7 @@ Also accepted: host for host_id, service for service_id, ip_address for ip
 loot find [TEXT…] [--type T]… [--where EXPR]… [--origin tool|ai|you] [--limit N]
 ```
 
-Searches records. Every word in `TEXT` must appear in a record; `--type` and `--where` repeat, and all must match. `--limit` defaults to 50. Each record prints with every field's origin, source file and, where it matters, quote. A host also lists its services. [Search records](searching.md) lists the operators and fields.
+Searches records. Every word in `TEXT` must appear in a record. `--type` and `--where` can repeat, and all of them must match. `--limit` defaults to 50. Each record prints with every field's origin and source file, and its quote when the quote says more than the value. A host also lists its services. [Search records](searching.md) lists the operators and fields.
 
 ```
 $ loot find --type finding --where title~signing --limit 1

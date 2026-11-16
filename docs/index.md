@@ -1,19 +1,19 @@
 # Trove
 
-Trove is an agent skill for OpenCode and Claude Code, built for CTF and security-training environments. You give it tool output and notes. Trove keeps them in one engagement directory and turns them into records. Each value in a record names the file it came from and, where it matters, quotes the text. The agent answers your questions from those records.
+Trove is an agent skill for OpenCode and Claude Code, built for CTF and security-training environments. You give it tool output and notes, and Trove keeps them in one engagement directory and turns them into records. Each value in a record names the file it came from and quotes the text Trove read it from. The agent answers your questions from those records.
 
-- Parsers read the output of nmap, masscan, naabu, nuclei, NetExec, secretsdump, hashcat, John the Ripper, Responder, kerberoast and AS-REP tools, BloodHound and certipy, and zips of any of these. [Tools Trove reads](tools.md) lists the formats.
+- Parsers read the output of nmap, masscan, naabu, nuclei, NetExec, secretsdump, kerberoast and AS-REP tools, hashcat, John the Ripper, Hydra, kerbrute, Responder, BloodHound and certipy, and zips of any of these. [Tools Trove reads](tools.md) lists the formats.
 - The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.
 - Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote or a finding status you set).
 
 ![The tools Trove reads, grouped as scans, logins, hashes, cracked passwords and directory data, each with the records it makes, plus notes and other files that the agent reads. Trove keeps their records in one engagement directory, <name>.loot/.](assets/diagrams/tool-map-light.svg#only-light)
 ![The tools Trove reads, grouped as scans, logins, hashes, cracked passwords and directory data, each with the records it makes, plus notes and other files that the agent reads. Trove keeps their records in one engagement directory, <name>.loot/.](assets/diagrams/tool-map-dark.svg#only-dark)
 
-The skill is named `loot`, and its commands are `/loot-*`. It uses only the Python standard library. Trove is for CTF and training labs on Linux and macOS, and does not support Windows yet.
+The skill is named `loot`, and its commands are `/loot-*`. It uses only the Python standard library and runs on Linux and macOS. It doesn't support Windows yet.
 
 ## Example
 
-Import the sample data in `tests/fixtures/`, then run `/loot-find rickon.stark --type credential`. The agent runs the search below and summarises it. Every value carries its origin, its source file and, where it matters, the exact line it came from:
+Import the sample data in `tests/fixtures/`, then run `/loot-find rickon.stark --type credential`. The agent runs the search below and summarises it. Each value shows its origin and source file, and its quote when the quote says more than the value:
 
 ```
 north.acme.local\rickon.stark   (id credential:north.acme.local\rickon.stark+b72c5ada)
