@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1376 1202" width="1376" height="1202">
+<defs><style>.s{font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif} .m{font-family:'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace}</style><marker id="amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E6B43C"/></marker><marker id="teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#6CC4B8"/></marker><marker id="rust" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8875C"/></marker><marker id="plum" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#C39BD6"/></marker><marker id="bronze" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E0B860"/></marker></defs>
+<rect x="1.5" y="1.5" width="1373" height="1199" rx="18" fill="#211C18" stroke="#4A3F33" stroke-width="3"/>
+<text class="s" x="32" y="66" font-size="30" text-anchor="start" font-weight="700" fill="#F3EBDD" xml:space="preserve">Scan first</text>
+<text class="s" x="704" y="66" font-size="30" text-anchor="start" font-weight="700" fill="#F3EBDD" xml:space="preserve">Dump first</text>
+<rect x="229" y="94" width="246" height="56" rx="12" fill="#2B241E" stroke="#4A3F33" stroke-width="3"/>
+<text class="m" x="352" y="131" font-size="26" text-anchor="middle" font-weight="700" fill="#F3EBDD" xml:space="preserve">goad-full.xml</text>
+<path d="M352 158 L352 202" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<rect x="118" y="214" width="468" height="56" rx="12" fill="#2B241E" stroke="#4A3F33" stroke-width="3"/>
+<text class="m" x="352" y="251" font-size="26" text-anchor="middle" font-weight="700" fill="#F3EBDD" xml:space="preserve">secretsdump-castelblack.txt</text>
+<path d="M352 278 L352 322" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<rect x="32" y="334" width="640.0" height="184" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<text class="m" x="58" y="376" font-size="26" fill="#E9E2D3" xml:space="preserve">secretsdump-castelblack.txt</text>
+<text class="m" x="90" y="414" font-size="26" fill="#E9E2D3" xml:space="preserve">2577 bytes</text>
+<text class="m" x="90" y="452" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#F2C14E">parsed by creds</tspan>: 16 credential (13</text>
+<text class="m" x="90" y="490" font-size="26" fill="#E9E2D3" xml:space="preserve">new, 0 updated)</text>
+<rect x="790" y="94" width="468" height="56" rx="12" fill="#2B241E" stroke="#E0B860" stroke-width="3"/>
+<text class="m" x="1024" y="131" font-size="26" text-anchor="middle" font-weight="700" fill="#F3EBDD" xml:space="preserve">secretsdump-castelblack.txt</text>
+<path d="M1024 158 L1024 202" stroke="#E0B860" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 10" marker-end="url(#bronze)"/>
+<text class="s" x="1048" y="192" font-size="28" text-anchor="start" font-weight="700" fill="#E0B860" xml:space="preserve">waits</text>
+<rect x="704.0" y="214" width="640.0" height="184" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<text class="m" x="730" y="256" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#F0916A">note:</tspan> 7 local account(s) belong to</text>
+<text class="m" x="762" y="294" font-size="26" fill="#E9E2D3" xml:space="preserve">CASTELBLACK, which no host Trove</text>
+<text class="m" x="762" y="332" font-size="26" fill="#E9E2D3" xml:space="preserve">holds is called. They are tied to</text>
+<text class="m" x="762" y="370" font-size="26" fill="#E9E2D3" xml:space="preserve">it when a scan names it.</text>
+<path d="M1024 406 L1024 450" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<rect x="901" y="462" width="246" height="56" rx="12" fill="#2B241E" stroke="#4A3F33" stroke-width="3"/>
+<text class="m" x="1024" y="499" font-size="26" text-anchor="middle" font-weight="700" fill="#F3EBDD" xml:space="preserve">goad-full.xml</text>
+<path d="M1024 526 L1024 570" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<text class="s" x="1048" y="560" font-size="28" text-anchor="start" font-weight="700" fill="#E0B860" xml:space="preserve">read again</text>
+<rect x="704.0" y="582" width="640.0" height="184" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<text class="m" x="730" y="624" font-size="26" fill="#E9E2D3" xml:space="preserve">secretsdump-castelblack.txt</text>
+<text class="m" x="762" y="662" font-size="26" fill="#E9E2D3" xml:space="preserve">2577 bytes</text>
+<text class="m" x="762" y="700" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#F2C14E">parsed again</tspan> by creds: 16</text>
+<text class="m" x="762" y="738" font-size="26" fill="#E9E2D3" xml:space="preserve">credential (0 new, 9 updated)</text>
+<path d="M352 526 L352 854" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<path d="M1024 774 L1024 854" stroke="#E6B43C" stroke-width="5" stroke-linecap="round" marker-end="url(#amber)"/>
+<text class="s" x="688" y="836" font-size="28" text-anchor="middle" font-weight="700" fill="#E0B860" xml:space="preserve">Both orders give this record</text>
+<rect x="32" y="870" width="1312" height="300" rx="14" fill="#14110E" stroke="#4A3F33" stroke-width="3"/>
+<path d="M34 920 H1342" stroke="#4A3F33" stroke-width="2"/>
+<circle cx="60" cy="895" r="7" fill="#F0916A"/>
+<circle cx="84" cy="895" r="7" fill="#F2C14E"/>
+<circle cx="108" cy="895" r="7" fill="#E6B43C"/>
+<text class="m" x="136" y="904" font-size="26" fill="#9A8F80" xml:space="preserve">$ loot find goadmin --type credential</text>
+<text class="m" x="58" y="952" font-size="26" fill="#E9E2D3" xml:space="preserve">CASTELBLACK\goadmin   (id credential:castelblack\goadmin+ed9ea4da)</text>
+<text class="m" x="58" y="990" font-size="26" fill="#E9E2D3" xml:space="preserve">  principal   goadmin   [tool, secretsdump-castelblack.txt]</text>
+<text class="m" x="58" y="1028" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#9A8F80">  ...</tspan></text>
+<text class="m" x="58" y="1066" font-size="26" fill="#E9E2D3" xml:space="preserve">  host_id     host:192.168.56.22 (castelblack.north.sevenkingdoms.local)</text>
+<text class="m" x="280" y="1104" font-size="26" fill="#E9E2D3" xml:space="preserve">[tool, secretsdump-castelblack.txt, <tspan fill="#F2C14E">quote "CASTELBLACK"</tspan>]</text>
+<text class="m" x="58" y="1142" font-size="26" fill="#E9E2D3" xml:space="preserve"><tspan fill="#9A8F80">  ...</tspan></text>
+</svg>

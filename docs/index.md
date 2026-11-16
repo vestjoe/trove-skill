@@ -6,6 +6,9 @@ Trove is an agent skill for OpenCode and Claude Code, built for CTF and security
 - The agent reads anything else (notes, scratch logs) and proposes records with a quote for each value. Trove drops a value whose quote is not in the file.
 - Every field says who stated it: `tool` (a parser), `ai` (the agent, quote checked) or `you` (a note you wrote or a finding status you set).
 
+![The tools Trove reads, grouped as scans, logins, hashes, cracked passwords and directory data, each with the records it makes, plus notes and other files that the agent reads. Trove keeps their records in one engagement directory, <name>.loot/.](assets/diagrams/tool-map-light.svg#only-light)
+![The tools Trove reads, grouped as scans, logins, hashes, cracked passwords and directory data, each with the records it makes, plus notes and other files that the agent reads. Trove keeps their records in one engagement directory, <name>.loot/.](assets/diagrams/tool-map-dark.svg#only-dark)
+
 The skill is named `loot`, and its commands are `/loot-*`. It uses only the Python standard library. Trove is for CTF and training labs on Linux and macOS, and does not support Windows yet.
 
 ## Example

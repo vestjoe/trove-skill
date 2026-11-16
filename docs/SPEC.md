@@ -84,6 +84,7 @@ trove-skill/
         parsers/         nmap, nmaptext, naabu, masscan, nuclei, xmlspan, jsonspan, creds, hashformats, netexec,
                          hydra, kerbrute, nxcdb, responderdb, users, bloodhound, certipy, archive
   commands/              one template per slash command
+  diagrams/make.py       draws the documentation diagrams from runs on the GOAD corpus; not published
   tests/
     fixtures/            parser input files
     samples/             real captures (Docker lab, other projects), read only by the tests that name them
@@ -97,6 +98,7 @@ trove-skill/
     SPEC.md              this file; kept off the site
     STYLE.md             the documentation style guide; kept off the site
     brand/               the Trove mark (colour, and cream for dark pages), for the README and the site
+    assets/diagrams/     the diagrams make.py writes, a light and a dark SVG each
     index.md install.md tutorial.md searching.md notes.md troubleshooting.md
     commands.md tools.md how-it-works.md
                          the user documentation, published to https://vestjoe.github.io/trove-skill/
@@ -335,4 +337,5 @@ SKILL.md stays model-invocable, so "import this scan" works without a command. I
 - **End-to-end:** import all of `tests/fixtures/` and assert summed counts and the operator questions by record id.
 - **The GOAD corpus is the acceptance test.** `tests/corpus/goad/` is one engagement against a GOAD lab, grouped by tool; `tests/corpus/SOURCES.md` gives each file's run and command. A new capture adds to it; nothing is dropped. `tests/test_corpus.py` imports it as a folder and file by file in reverse, then asks Q1–Q5 with the searches from `references/chat.md` and checks the answers and citations. Cross-tool behaviour is tested here.
 - **Skill text runs:** every inline `loot …` command in SKILL.md, the references and the templates names a real verb, and each complete read-only one runs on the GOAD engagement.
+- **Diagrams:** `diagrams/make.py` runs Trove on the GOAD corpus and draws what it prints. `tests/test_diagrams.py` fails when a committed diagram differs from a fresh run or a page shows an image that doesn't exist.
 - **Live harness check:** the install page's "Verify your install" runs the five commands on the fixtures in OpenCode and Claude Code.
